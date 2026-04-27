@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tynk — Mobile & Software Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0f172a;
+    --blue:   #2563eb;
+    --sky:    #eff6ff;
+    --ice:    #f8faff;
+    --slate:  #64748b;
+    --white:  #ffffff;
+    --c-red:    #E8441E;
+    --c-purple: #A855F7;
+    --c-teal:   #0D9488;
+    --c-amber:  #F59E0B;
+    --c-blue:   #2563EB;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 32px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── LOGOMARK ── */
+  .logomark {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2.5px; width: 26px; height: 26px;
+    background: #111122; border-radius: 6px; padding: 4px; flex-shrink: 0;
+  }
+  .logomark span { border-radius: 2px; display: block; }
+  .logomark-lg {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3.5px; width: 40px; height: 40px;
+    background: #111122; border-radius: 10px; padding: 6px; flex-shrink: 0;
+  }
+  .logomark-lg span { border-radius: 2.5px; display: block; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 5%;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(15,23,42,0.06);
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .logo-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.25rem; font-weight: 700; color: var(--navy); letter-spacing: -0.03em;
+  }
+  .nav-right { display: flex; align-items: center; gap: 2.2rem; }
+  nav ul { list-style: none; display: flex; gap: 2.2rem; }
+  nav ul a {
+    text-decoration: none; color: var(--slate);
+    font-size: 0.84rem; font-weight: 500; transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--navy); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--navy); color: var(--white) !important;
+    padding: 0.5rem 1.2rem; border-radius: 50px;
+    font-size: 0.84rem !important; font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--blue) !important; }
+
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-switcher {
+    display: flex; align-items: center; gap: 2px;
+    background: var(--ice);
+    border: 1px solid rgba(15,23,42,0.08);
+    border-radius: 50px;
+    padding: 3px;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    background: transparent; border: none; cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--slate);
+    padding: 0.3rem 0.6rem; border-radius: 50px;
+    transition: background 0.15s, color 0.15s;
+    line-height: 1;
+  }
+  .lang-btn:hover { color: var(--navy); }
+  .lang-btn.active {
+    background: var(--navy); color: var(--white);
+  }
+
+  /* ── DOT CLUSTER ── */
+  .dot-cluster { display: inline-flex; gap: 3px; align-items: center; }
+  .dot-cluster span { border-radius: 2px; display: block; }
+
+  /* ── SECTION TAG ── */
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--slate); margin-bottom: 1rem;
+  }
+  .section-tag .tag-dots { display: inline-flex; gap: 3px; }
+  .section-tag .tag-dots span { width: 6px; height: 6px; border-radius: 1.5px; display: block; }
+
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    color: var(--navy); line-height: 1.18; letter-spacing: -0.03em; margin-bottom: 1.1rem;
+  }
+  .section-title em { font-style: normal; color: var(--blue); }
+  .section-sub { color: var(--slate); max-width: 500px; font-size: 1rem; line-height: 1.8; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 5% 5rem; position: relative; overflow: hidden;
+  }
+  .hero-blob {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.45;
+  }
+  .hero-blob.b1 { width: 500px; height: 500px; background: #dbeafe; top: -120px; right: -60px; }
+  .hero-blob.b2 { width: 280px; height: 280px; background: #fef3c7; bottom: 60px; left: 8%; }
+  .hero-blob.b3 { width: 200px; height: 200px; background: #f3e8ff; top: 40%; right: 20%; }
+  .hero-inner { max-width: 700px; position: relative; z-index: 1; }
+
+  .hero-tag-wrap {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--sky); border: 1px solid rgba(37,99,235,0.12);
+    padding: 0.4rem 1rem 0.4rem 0.6rem; border-radius: 50px; margin-bottom: 2.2rem;
+  }
+  .hero-tag-text {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--blue);
+  }
+
+  .hero h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.2rem); font-weight: 700;
+    line-height: 1.12; color: var(--navy); margin-bottom: 1.6rem; letter-spacing: -0.04em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--c-blue) 0%, var(--c-purple) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-desc { font-size: 1.05rem; color: var(--slate); max-width: 520px; margin-bottom: 2.5rem; line-height: 1.85; }
+
+  /* ── BUTTONS ── */
+  .btn-group { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--navy); color: var(--white);
+    padding: 0.85rem 1.9rem; border-radius: var(--radius-md);
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #1e3a8a; transform: translateY(-1px); }
+  .btn-icon {
+    display: grid; grid-template-columns: repeat(2,1fr);
+    gap: 2.5px; width: 16px; height: 16px; flex-shrink: 0;
+  }
+  .btn-icon span { border-radius: 2px; display: block; }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--navy);
+    padding: 0.85rem 1.9rem; border-radius: var(--radius-md);
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border: 1.5px solid rgba(15,23,42,0.15);
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+
+  .btn-light {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--white); color: var(--navy);
+    padding: 0.9rem 2rem; border-radius: var(--radius-md);
+    text-decoration: none; font-weight: 700; font-size: 0.9rem;
+    font-family: 'Plus Jakarta Sans', sans-serif; transition: background 0.2s, transform 0.15s;
+  }
+  .btn-light:hover { background: var(--sky); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: rgba(255,255,255,0.7);
+    padding: 0.9rem 2rem; border-radius: var(--radius-md);
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: var(--white); transform: translateY(-1px); }
+
+  /* ── STATS ── */
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 4rem;
+    padding-top: 2.5rem; border-top: 1px solid rgba(15,23,42,0.07);
+  }
+  .stat-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.9rem; font-weight: 700; color: var(--navy); line-height: 1; letter-spacing: -0.03em;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--slate); margin-top: 0.3rem; font-weight: 500; }
+
+  /* ── TRUST STRIP ── */
+  .trust { background: var(--navy); padding: 4.5rem 5%; }
+  .trust-inner { max-width: 1100px; margin: 0 auto; }
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border-radius: var(--radius-lg); overflow: hidden; }
+  .trust-cell { background: #0f172a; padding: 2.5rem; }
+  .trust-icon {
+    width: 32px; height: 32px; border-radius: var(--radius-sm);
+    margin-bottom: 1.4rem;
+    display: grid; grid-template-columns: repeat(2,1fr);
+    gap: 3px; padding: 5px; background: rgba(255,255,255,0.06);
+  }
+  .trust-icon span { border-radius: 2px; display: block; opacity: 0.9; }
+  .trust-cell h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem;
+  }
+  .trust-cell p { font-size: 0.87rem; color: rgba(255,255,255,0.45); line-height: 1.8; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--ice); padding: 6rem 5%; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .about-text p { color: var(--slate); line-height: 1.9; margin-bottom: 1.2rem; }
+  .about-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    border: 1px solid rgba(15,23,42,0.07); padding: 2.2rem;
+    box-shadow: 0 8px 40px rgba(15,23,42,0.05);
+  }
+  .about-card-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 1.6rem;
+    padding-bottom: 1.4rem; border-bottom: 1px solid rgba(15,23,42,0.06);
+  }
+  .about-card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .about-card-sub { font-size: 0.82rem; color: var(--slate); }
+  .pill-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--sky); color: var(--blue);
+    padding: 0.35rem 0.9rem; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(37,99,235,0.1);
+  }
+  .pill .pd { width: 5px; height: 5px; border-radius: 1px; display: block; }
+  .about-card > p { color: var(--slate); font-size: 0.9rem; line-height: 1.8; }
+
+  /* ── EXPERTISE ── */
+  .expertise { background: var(--white); padding: 6rem 5%; }
+  .expertise-inner { max-width: 1100px; margin: 0 auto; }
+  .expertise-header { margin-bottom: 3.5rem; }
+  .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .expertise-item {
+    background: var(--ice); border: 1px solid rgba(15,23,42,0.06);
+    border-radius: var(--radius-md); padding: 1.8rem;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .expertise-item:hover {
+    border-color: rgba(37,99,235,0.2); transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37,99,235,0.07);
+  }
+  .exp-dot {
+    width: 28px; height: 28px; border-radius: 7px; margin-bottom: 1.3rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .exp-dot svg { width: 14px; height: 14px; }
+  .expertise-item h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem;
+  }
+  .expertise-item p { font-size: 0.86rem; color: var(--slate); line-height: 1.75; }
+  .exp-num {
+    position: absolute; top: 1.4rem; right: 1.4rem;
+    font-size: 0.72rem; font-weight: 700; color: rgba(15,23,42,0.12);
+    font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.05em;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--navy); padding: 6rem 5%; }
+  .services-inner { max-width: 1100px; margin: 0 auto; }
+  .services .section-title { color: var(--white); }
+  .services .section-tag { color: rgba(255,255,255,0.4); }
+  .services .section-sub { color: rgba(255,255,255,0.45); }
+  .services-header { margin-bottom: 3.5rem; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.06); border-radius: var(--radius-lg); overflow: hidden;
+  }
+  .service-cell { background: #0f172a; padding: 2.5rem; transition: background 0.2s; }
+  .service-cell:hover { background: #1a2744; }
+  .service-tile {
+    width: 36px; height: 36px; border-radius: var(--radius-sm); margin-bottom: 1.4rem;
+    display: grid; grid-template-columns: repeat(2,1fr);
+    gap: 3px; padding: 6px; background: rgba(255,255,255,0.06);
+  }
+  .service-tile span { border-radius: 2px; display: block; opacity: 0.85; }
+  .service-cell h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem;
+  }
+  .service-cell p { font-size: 0.87rem; color: rgba(255,255,255,0.45); line-height: 1.8; }
+
+  /* ── APPS ── */
+  .apps { background: var(--ice); padding: 6rem 5%; }
+  .apps-inner { max-width: 1100px; margin: 0 auto; }
+  .apps-header { margin-bottom: 3.5rem; }
+  .apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .app-card {
+    background: var(--white); border: 1px solid rgba(15,23,42,0.07);
+    border-radius: var(--radius-lg); overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .app-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(15,23,42,0.09); }
+  .app-preview { height: 160px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .app-preview-bg { position: absolute; inset: 0; }
+  .app-preview-icon {
+    position: relative; z-index: 1; width: 60px; height: 60px;
+    background: #111122; border-radius: 14px;
+    display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(3,1fr);
+    gap: 3.5px; padding: 9px;
+  }
+  .app-preview-icon span { border-radius: 2px; display: block; }
+  .app-info { padding: 1.4rem; }
+  .app-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--sky); color: var(--blue);
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 50px; margin-bottom: 0.75rem;
+    border: 1px solid rgba(37,99,235,0.1);
+  }
+  .app-badge .bd { width: 5px; height: 5px; border-radius: 1px; display: block; }
+  .app-info h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+  .app-info p { font-size: 0.84rem; color: var(--slate); line-height: 1.7; }
+  .app-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 0.82rem; font-weight: 700; color: var(--blue);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-decoration: none; margin-top: 1rem; transition: gap 0.15s;
+  }
+  .app-link:hover { gap: 7px; }
+
+  /* ── CTA ── */
+  .cta { background: var(--white); padding: 7rem 5%; text-align: center; }
+  .cta-box {
+    background: var(--navy); border-radius: var(--radius-xl);
+    padding: 5rem 3rem; max-width: 780px; margin: 0 auto; position: relative; overflow: hidden;
+  }
+  .cta-blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.2; }
+  .cta-blob.cb1 { width: 300px; height: 300px; background: #2563eb; top:-80px; right:-60px; }
+  .cta-blob.cb2 { width: 200px; height: 200px; background: #a855f7; bottom:-40px; left:10%; }
+  .cta-content { position: relative; z-index: 1; }
+  .cta-box .section-tag { color: rgba(255,255,255,0.4); margin-bottom: 0.8rem; }
+  .cta-box .section-title { color: var(--white); margin-bottom: 1rem; }
+  .cta-box .section-title em {
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .cta-content > p { color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .cta-box .btn-group { justify-content: center; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ice); padding: 2rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(15,23,42,0.06);
+  }
+  footer p { font-size: 0.8rem; color: var(--slate); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav ul { display: none; }
+    .lang-switcher { gap: 1px; }
+    .lang-btn { padding: 0.28rem 0.5rem; font-size: 0.68rem; }
+  }
+  @media (max-width: 768px) {
+    .about-grid, .expertise-grid, .apps-grid, .trust-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.8rem; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo-wrap">
+    <div class="logomark">
+      <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span>
+      <span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:transparent"></span>
+      <span style="background:transparent"></span><span style="background:var(--c-blue)"></span><span style="background:transparent"></span>
+    </div>
+    <span class="logo-text">tynk</span>
+  </a>
+  <div class="nav-right">
+    <ul>
+      <li><a href="#about" data-i18n="nav_about"></a></li>
+      <li><a href="#expertise" data-i18n="nav_expertise"></a></li>
+      <li><a href="#services" data-i18n="nav_services"></a></li>
+      <li><a href="#apps" data-i18n="nav_apps"></a></li>
+      <li><a href="#contact" class="nav-cta" data-i18n="nav_contact"></a></li>
+    </ul>
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn active" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="pt">PT</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="hero-blob b3"></div>
+  <div class="hero-inner">
+    <div class="hero-tag-wrap">
+      <div class="dot-cluster">
+        <span style="background:var(--c-red);width:8px;height:8px;border-radius:2px"></span>
+        <span style="background:var(--c-purple);width:8px;height:8px;border-radius:2px"></span>
+        <span style="background:var(--c-teal);width:8px;height:8px;border-radius:2px"></span>
+        <span style="background:var(--c-amber);width:8px;height:8px;border-radius:2px"></span>
+        <span style="background:var(--c-blue);width:8px;height:8px;border-radius:2px"></span>
+      </div>
+      <span class="hero-tag-text">Mobile & Software Studio</span>
+    </div>
+    <h1 data-i18n="hero_h1"></h1>
+    <p class="hero-desc" data-i18n="hero_p"></p>
+    <div class="btn-group">
+      <a href="#apps" class="btn-primary">
+        <div class="btn-icon">
+          <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span>
+          <span style="background:var(--c-amber)"></span><span style="background:var(--c-blue)"></span>
+        </div>
+        <span data-i18n="hero_btn1"></span>
+      </a>
+      <a href="#contact" class="btn-secondary" data-i18n="hero_btn2"></a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">12+</div>
+        <div class="stat-label" data-i18n="stat1"></div>
+      </div>
+      <div>
+        <div class="stat-num">5</div>
+        <div class="stat-label" data-i18n="stat2"></div>
+      </div>
+      <div>
+        <div class="stat-num">iOS · Android · Web</div>
+        <div class="stat-label" data-i18n="stat3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-grid">
+      <div class="trust-cell">
+        <div class="trust-icon">
+          <span style="background:var(--c-blue)"></span><span style="background:var(--c-purple)"></span>
+          <span style="background:var(--c-teal)"></span><span style="background:transparent"></span>
+        </div>
+        <h3 data-i18n="trust1_h"></h3>
+        <p data-i18n="trust1_p"></p>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-icon">
+          <span style="background:var(--c-amber)"></span><span style="background:var(--c-amber);opacity:0.4"></span>
+          <span style="background:transparent"></span><span style="background:var(--c-amber)"></span>
+        </div>
+        <h3 data-i18n="trust2_h"></h3>
+        <p data-i18n="trust2_p"></p>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-icon">
+          <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span>
+          <span style="background:transparent"></span><span style="background:var(--c-blue)"></span>
+        </div>
+        <h3 data-i18n="trust3_h"></h3>
+        <p data-i18n="trust3_p"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-tag">
+        <div class="tag-dots">
+          <span style="background:var(--c-teal)"></span><span style="background:var(--c-blue)"></span>
+        </div>
+        <span data-i18n="nav_about"></span>
+      </div>
+      <h2 class="section-title" data-i18n="about_h"></h2>
+      <p data-i18n="about_p1"></p>
+      <p data-i18n="about_p2"></p>
+      <p data-i18n="about_p3"></p>
+    </div>
+    <div>
+      <div class="about-card">
+        <div class="about-card-header">
+          <div class="logomark-lg">
+            <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span>
+            <span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:transparent"></span>
+            <span style="background:transparent"></span><span style="background:var(--c-blue)"></span><span style="background:transparent"></span>
+          </div>
+          <div>
+            <div class="about-card-title" data-i18n="about_card_title"></div>
+            <div class="about-card-sub" data-i18n="about_card_sub"></div>
+          </div>
+        </div>
+        <div class="pill-row">
+          <span class="pill"><span class="pd" style="background:var(--c-blue)"></span>iOS</span>
+          <span class="pill"><span class="pd" style="background:var(--c-teal)"></span>Android</span>
+          <span class="pill"><span class="pd" style="background:var(--c-purple)"></span>Web</span>
+          <span class="pill"><span class="pd" style="background:var(--c-amber)"></span>Product</span>
+          <span class="pill"><span class="pd" style="background:var(--c-red)"></span>Design</span>
+        </div>
+        <p data-i18n="about_card_p"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+  <div class="expertise-inner">
+    <div class="expertise-header">
+      <div class="section-tag">
+        <div class="tag-dots">
+          <span style="background:var(--c-purple)"></span><span style="background:var(--c-amber)"></span>
+        </div>
+        <span data-i18n="nav_expertise"></span>
+      </div>
+      <h2 class="section-title" data-i18n="exp_h"></h2>
+      <p class="section-sub" data-i18n="exp_sub"></p>
+    </div>
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <span class="exp-num">01</span>
+        <div class="exp-dot" style="background:rgba(37,99,235,0.1)">
+          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="12" rx="1.5" fill="#2563EB"/><rect x="8" y="1" width="5" height="8" rx="1.5" fill="#2563EB" opacity=".4"/></svg>
+        </div>
+        <h3 data-i18n="exp1_h"></h3><p data-i18n="exp1_p"></p>
+      </div>
+      <div class="expertise-item">
+        <span class="exp-num">02</span>
+        <div class="exp-dot" style="background:rgba(168,85,247,0.1)">
+          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="2" stroke="#A855F7" stroke-width="1.5"/><path d="M5 6h4M5 8.5h2" stroke="#A855F7" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 data-i18n="exp2_h"></h3><p data-i18n="exp2_p"></p>
+      </div>
+      <div class="expertise-item">
+        <span class="exp-num">03</span>
+        <div class="exp-dot" style="background:rgba(232,68,30,0.08)">
+          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="1.5" fill="#E8441E"/><rect x="8" y="1" width="5" height="5" rx="1.5" fill="#E8441E" opacity=".4"/><rect x="1" y="8" width="5" height="5" rx="1.5" fill="#E8441E" opacity=".4"/><rect x="8" y="8" width="5" height="5" rx="1.5" fill="#E8441E"/></svg>
+        </div>
+        <h3 data-i18n="exp3_h"></h3><p data-i18n="exp3_p"></p>
+      </div>
+      <div class="expertise-item">
+        <span class="exp-num">04</span>
+        <div class="exp-dot" style="background:rgba(245,158,11,0.1)">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M7 1L13 7L7 13L1 7L7 1Z" stroke="#F59E0B" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 4v3l2 1" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 data-i18n="exp4_h"></h3><p data-i18n="exp4_p"></p>
+      </div>
+      <div class="expertise-item">
+        <span class="exp-num">05</span>
+        <div class="exp-dot" style="background:rgba(13,148,136,0.1)">
+          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="1.5" stroke="#0D9488" stroke-width="1.4"/><rect x="8" y="1" width="5" height="5" rx="1.5" fill="#0D9488" opacity=".35"/><path d="M3.5 9v4M3.5 9H1M3.5 9h3" stroke="#0D9488" stroke-width="1.4" stroke-linecap="round"/><rect x="8" y="8" width="5" height="5" rx="1.5" stroke="#0D9488" stroke-width="1.4"/></svg>
+        </div>
+        <h3 data-i18n="exp5_h"></h3><p data-i18n="exp5_p"></p>
+      </div>
+      <div class="expertise-item">
+        <span class="exp-num">06</span>
+        <div class="exp-dot" style="background:rgba(15,23,42,0.06)">
+          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="12" height="6" rx="1.5" stroke="#64748b" stroke-width="1.5"/><path d="M4 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#64748b" stroke-width="1.5"/></svg>
+        </div>
+        <h3 data-i18n="exp6_h"></h3><p data-i18n="exp6_p"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div class="section-tag">
+        <div class="tag-dots">
+          <span style="background:rgba(255,255,255,0.3)"></span><span style="background:rgba(255,255,255,0.3)"></span>
+        </div>
+        <span data-i18n="nav_services"></span>
+      </div>
+      <h2 class="section-title" data-i18n="srv_h"></h2>
+      <p class="section-sub" data-i18n="srv_sub"></p>
+    </div>
+    <div class="services-grid">
+      <div class="service-cell">
+        <div class="service-tile"><span style="background:var(--c-blue)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span><span style="background:transparent"></span></div>
+        <h3 data-i18n="srv1_h"></h3><p data-i18n="srv1_p"></p>
+      </div>
+      <div class="service-cell">
+        <div class="service-tile"><span style="background:var(--c-teal)"></span><span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:var(--c-teal);opacity:0.4"></span></div>
+        <h3 data-i18n="srv2_h"></h3><p data-i18n="srv2_p"></p>
+      </div>
+      <div class="service-cell">
+        <div class="service-tile"><span style="background:var(--c-amber)"></span><span style="background:var(--c-amber);opacity:0.4"></span><span style="background:transparent"></span><span style="background:var(--c-amber)"></span></div>
+        <h3 data-i18n="srv3_h"></h3><p data-i18n="srv3_p"></p>
+      </div>
+      <div class="service-cell">
+        <div class="service-tile"><span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:transparent"></span><span style="background:var(--c-blue)"></span></div>
+        <h3 data-i18n="srv4_h"></h3><p data-i18n="srv4_p"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section class="apps" id="apps">
+  <div class="apps-inner">
+    <div class="apps-header">
+      <div class="section-tag">
+        <div class="tag-dots">
+          <span style="background:var(--c-red)"></span><span style="background:var(--c-amber)"></span><span style="background:var(--c-blue)"></span>
+        </div>
+        <span data-i18n="nav_apps"></span>
+      </div>
+      <h2 class="section-title" data-i18n="apps_h"></h2>
+      <p class="section-sub" data-i18n="apps_sub"></p>
+    </div>
+    <div class="apps-grid">
+      <div class="app-card">
+        <div class="app-preview">
+          <div class="app-preview-bg" style="background:linear-gradient(135deg,#eff6ff,#dbeafe)"></div>
+          <div class="app-preview-icon">
+            <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span>
+            <span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:transparent"></span>
+            <span style="background:transparent"></span><span style="background:var(--c-blue)"></span><span style="background:transparent"></span>
+          </div>
+        </div>
+        <div class="app-info">
+          <span class="app-badge"><span class="bd" style="background:var(--c-blue)"></span>iOS · Android</span>
+          <h3 data-i18n="app1_h"></h3>
+          <p data-i18n="app1_p"></p>
+          <a href="#" class="app-link" data-i18n="app_more"></a>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-preview">
+          <div class="app-preview-bg" style="background:linear-gradient(135deg,#fefce8,#fef3c7)"></div>
+          <div class="app-preview-icon">
+            <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span>
+            <span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:transparent"></span>
+            <span style="background:transparent"></span><span style="background:var(--c-blue)"></span><span style="background:transparent"></span>
+          </div>
+        </div>
+        <div class="app-info">
+          <span class="app-badge" style="background:rgba(245,158,11,0.1);color:#b45309;border-color:rgba(245,158,11,0.15)"><span class="bd" style="background:var(--c-amber)"></span>iOS</span>
+          <h3 data-i18n="app2_h"></h3>
+          <p data-i18n="app2_p"></p>
+          <a href="#" class="app-link" data-i18n="app_more"></a>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-preview">
+          <div class="app-preview-bg" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7)"></div>
+          <div class="app-preview-icon">
+            <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span>
+            <span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:transparent"></span>
+            <span style="background:transparent"></span><span style="background:var(--c-blue)"></span><span style="background:transparent"></span>
+          </div>
+        </div>
+        <div class="app-info">
+          <span class="app-badge" style="background:rgba(13,148,136,0.08);color:#0f766e;border-color:rgba(13,148,136,0.12)"><span class="bd" style="background:var(--c-teal)"></span>Android · Web</span>
+          <h3 data-i18n="app3_h"></h3>
+          <p data-i18n="app3_p"></p>
+          <a href="#" class="app-link" data-i18n="app_more"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-box">
+    <div class="cta-blob cb1"></div>
+    <div class="cta-blob cb2"></div>
+    <div class="cta-content">
+      <div class="section-tag" style="justify-content:center">
+        <div class="tag-dots">
+          <span style="background:rgba(255,255,255,0.2)"></span><span style="background:rgba(255,255,255,0.2)"></span>
+        </div>
+        <span data-i18n="cta_tag"></span>
+      </div>
+      <h2 class="section-title" data-i18n="cta_h"></h2>
+      <p data-i18n="cta_p"></p>
+      <div class="btn-group" style="justify-content:center">
+        <a href="mailto:hello@tynk.app" class="btn-light">
+          <div class="btn-icon">
+            <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span>
+            <span style="background:var(--c-amber)"></span><span style="background:var(--c-blue)"></span>
+          </div>
+          <span data-i18n="cta_btn1"></span>
+        </a>
+        <a href="https://t.me/tynk" class="btn-ghost" data-i18n="cta_btn2"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo-wrap" style="text-decoration:none">
+    <div class="logomark">
+      <span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span>
+      <span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:transparent"></span>
+      <span style="background:transparent"></span><span style="background:var(--c-blue)"></span><span style="background:transparent"></span>
+    </div>
+    <span class="logo-text">tynk</span>
+  </a>
+  <p data-i18n="footer"></p>
+</footer>
+
+<script>
+const translations = {
+  ru: {
+    nav_about: "О нас", nav_expertise: "Экспертиза", nav_services: "Услуги",
+    nav_apps: "Приложения", nav_contact: "Связаться",
+    hero_h1: "Решаем задачи бизнеса<br><em>через технологии</em>",
+    hero_p: "Делаем собственные приложения и разрабатываем на заказ. Беремся за сложное — потому что прошли этот путь сами и знаем, как найти решение там, где другие разводят руками.",
+    hero_btn1: "Наши приложения", hero_btn2: "Обсудить проект",
+    stat1: "Проектов в портфолио", stat2: "Лет на рынке", stat3: "Платформы",
+    trust1_h: "Своя команда — без посредников",
+    trust1_p: "Дизайн, разработка, продукт — всё делают наши люди. Никаких агентских цепочек и субподрядчиков. Вы работаете напрямую с теми, кто создаёт продукт, и именно мы несём ответственность за каждый результат.",
+    trust2_h: "Честная цена без накруток",
+    trust2_p: "Мы выстроили процессы так, чтобы между задачей и решением было как можно меньше лишнего. Никаких агентских наценок и скрытых издержек — вы платите за реальную экспертизу, и цена это отражает.",
+    trust3_h: "Знаем изнутри — не по книгам",
+    trust3_p: "Мы сами прошли большой путь в управлении и построении процессов — в роли бизнеса, который искал решения. Этот опыт даёт нам понимание задачи, которое не купишь на курсах.",
+    about_h: "Небольшая команда.<br><em>Большая экспертиза.</em>",
+    about_p1: "Tynk — продуктовая студия с историей. Прежде чем строить продукты для других, мы сами прошли через управление командами, выстраивание процессов и поиск технологических решений для реального бизнеса.",
+    about_p2: "Этот опыт изнутри — наше главное отличие. Мы понимаем задачу не только как разработчики, но и как люди, которые сами сталкивались с теми же проблемами и умеют находить путь там, где другие теряются.",
+    about_p3: "Делаем собственные приложения и берёмся за заказные проекты любой сложности — от MVP для стартапа до корпоративного ПО.",
+    about_card_title: "Полный цикл разработки",
+    about_card_sub: "от идеи до релиза — всё внутри команды",
+    about_card_p: "От первого прототипа до публикации в App Store и Google Play. Мы не передаём задачи на сторону — команда, которая проектирует, та же, что и реализует.",
+    exp_h: "В чём мы сильны", exp_sub: "Не пытаемся делать всё подряд. Работаем в том, где по-настоящему сильны — и именно это приносит результат.",
+    exp1_h: "Mobile Development", exp1_p: "Нативная разработка под iOS и Android. Swift, Kotlin, React Native — выбираем технологию под задачу, а не под моду.",
+    exp2_h: "Product Design", exp2_p: "UX-исследования, прототипирование, UI. Делаем интерфейсы, которыми хочется пользоваться — не только красивые, но и понятные.",
+    exp3_h: "Web Applications", exp3_p: "Веб-приложения, SPA, административные панели и кастомные CRM. React, Next.js — выбираем то, что решает задачу.",
+    exp4_h: "MVP и быстрый запуск", exp4_p: "Умеем запускать быстро и по делу. Помогаем стартапам выйти на рынок с работающим продуктом — без перфекционизма, но с умом.",
+    exp5_h: "Бизнес-процессы и эффективность", exp5_p: "Находим узкие места, выстраиваем прозрачные и измеримые процессы, предлагаем конкретные решения. Помогаем бизнесу работать понятнее и продуктивнее.",
+    exp6_h: "Корпоративный софт", exp6_p: "Инструменты для бизнеса: автоматизация, внутренние системы, интеграции. Делаем сложное — простым и рабочим.",
+    srv_h: "Что мы делаем на заказ", srv_sub: "Мобильные приложения — наша сила, но мы не ограничиваемся ими. Беремся за любые задачи, где нужна экспертиза в продукте и технологиях.",
+    srv1_h: "Мобильные приложения", srv1_p: "iOS и Android — нативно или кроссплатформа. Выбираем подход под задачу и бюджет.",
+    srv2_h: "Веб-приложения и сервисы", srv2_p: "Онлайн-платформы, личные кабинеты, административные панели. Всё, что должно работать в браузере — быстро и удобно.",
+    srv3_h: "Корпоративное ПО", srv3_p: "CRM, ERP-модули, системы учёта и автоматизации. Строим инструменты, которые реально упрощают жизнь команды.",
+    srv4_h: "MVP и прототипы", srv4_p: "Запускаем рабочий продукт в сжатые сроки. Помогаем проверить гипотезу и выйти к инвесторам с чем-то осязаемым.",
+    apps_h: "Приложения,<br>которые мы сделали", apps_sub: "Собственные продукты — лучшее доказательство. Вот что мы построили своими руками.",
+    app1_h: "Название приложения", app1_p: "Краткое описание — в чём суть и какую задачу решает для пользователя.",
+    app2_h: "Название приложения", app2_p: "Краткое описание — в чём суть и какую задачу решает для пользователя.",
+    app3_h: "Название приложения", app3_p: "Краткое описание — в чём суть и какую задачу решает для пользователя.",
+    app_more: "Подробнее →",
+    cta_tag: "Работать с нами",
+    cta_h: "Есть задача?<br><em>Давайте решим.</em>",
+    cta_p: "Расскажите, что происходит в вашем бизнесе. Мы не просто выслушаем — мы найдём максимально эффективное и доступное решение именно для вашей ситуации. Без воды, без лишних шагов.",
+    cta_btn1: "Написать нам", cta_btn2: "Telegram →",
+    footer: "© 2026 Tynk Studio — Все права защищены"
+  },
+  en: {
+    nav_about: "About", nav_expertise: "Expertise", nav_services: "Services",
+    nav_apps: "Apps", nav_contact: "Contact",
+    hero_h1: "We solve business problems<br><em>through technology</em>",
+    hero_p: "We build our own apps and develop custom solutions. We take on the complex — because we've walked this path ourselves and know how to find answers where others give up.",
+    hero_btn1: "Our apps", hero_btn2: "Discuss a project",
+    stat1: "Projects in portfolio", stat2: "Years on the market", stat3: "Platforms",
+    trust1_h: "Our own team — no middlemen",
+    trust1_p: "Design, development, product — all done by our people. No agency chains, no subcontractors. You work directly with those who build the product, and we take full responsibility for every result.",
+    trust2_h: "Fair pricing, no markups",
+    trust2_p: "We've built our processes to keep as little friction as possible between the problem and the solution. No agency fees or hidden costs — you pay for real expertise, and the price reflects that.",
+    trust3_h: "We know from the inside",
+    trust3_p: "We've gone through the journey of managing teams and building processes ourselves — as a business searching for solutions. That hands-on experience gives us an understanding that can't be taught in a classroom.",
+    about_h: "A small team.<br><em>Deep expertise.</em>",
+    about_p1: "Tynk is a product studio with a story. Before building products for others, we went through team management, process design, and finding tech solutions for real businesses ourselves.",
+    about_p2: "This inside perspective is what sets us apart. We understand your challenge not just as developers, but as people who've faced the same problems and know how to find the way forward.",
+    about_p3: "We build our own apps and take on custom projects of any complexity — from startup MVPs to enterprise software.",
+    about_card_title: "Full-cycle development",
+    about_card_sub: "from idea to release — all in-house",
+    about_card_p: "From the first prototype to publishing on the App Store and Google Play. We don't outsource — the team that designs is the team that builds.",
+    exp_h: "Where we excel", exp_sub: "We don't try to do everything. We work where we're truly strong — and that's what delivers results.",
+    exp1_h: "Mobile Development", exp1_p: "Native iOS and Android development. Swift, Kotlin, React Native — we pick the right technology for the job, not the trend.",
+    exp2_h: "Product Design", exp2_p: "UX research, prototyping, UI design. We create interfaces people actually want to use — not just beautiful, but intuitive.",
+    exp3_h: "Web Applications", exp3_p: "Web apps, SPAs, admin panels, custom CRMs. React, Next.js — we choose what solves the problem.",
+    exp4_h: "MVP & fast launch", exp4_p: "We know how to ship fast and smart. We help startups get to market with a working product — practical, not perfect.",
+    exp5_h: "Business processes & efficiency", exp5_p: "We find bottlenecks, build transparent and measurable processes, and propose specific solutions. We help businesses work smarter and clearer.",
+    exp6_h: "Enterprise software", exp6_p: "Business tools: automation, internal systems, integrations. We make the complex simple and functional.",
+    srv_h: "What we build on demand", srv_sub: "Mobile apps are our strength, but we don't stop there. We take on any project where product and tech expertise matters.",
+    srv1_h: "Mobile applications", srv1_p: "iOS and Android — native or cross-platform. We choose the approach based on the task and budget.",
+    srv2_h: "Web apps & services", srv2_p: "Online platforms, dashboards, admin panels. Everything that needs to work in a browser — fast and easy.",
+    srv3_h: "Enterprise software", srv3_p: "CRM, ERP modules, tracking and automation systems. Tools that genuinely simplify your team's work.",
+    srv4_h: "MVP & prototypes", srv4_p: "We launch working products fast. We help you validate your hypothesis and show investors something real.",
+    apps_h: "Apps<br>we've built", apps_sub: "Our own products are the best proof. Here's what we've created with our own hands.",
+    app1_h: "App name", app1_p: "Brief description — what the app does and what problem it solves for users.",
+    app2_h: "App name", app2_p: "Brief description — what the app does and what problem it solves for users.",
+    app3_h: "App name", app3_p: "Brief description — what the app does and what problem it solves for users.",
+    app_more: "Learn more →",
+    cta_tag: "Work with us",
+    cta_h: "Got a challenge?<br><em>Let's solve it.</em>",
+    cta_p: "Tell us what's going on in your business. We won't just listen — we'll find the most effective and affordable solution for your specific situation. No fluff, no extra steps.",
+    cta_btn1: "Write to us", cta_btn2: "Telegram →",
+    footer: "© 2026 Tynk Studio — All rights reserved"
+  },
+  de: {
+    nav_about: "Über uns", nav_expertise: "Expertise", nav_services: "Leistungen",
+    nav_apps: "Apps", nav_contact: "Kontakt",
+    hero_h1: "Wir lösen Business-Probleme<br><em>durch Technologie</em>",
+    hero_p: "Wir entwickeln eigene Apps und individuelle Software. Wir nehmen komplexe Aufgaben an — weil wir diesen Weg selbst gegangen sind und wissen, wie man Lösungen findet, wo andere aufgeben.",
+    hero_btn1: "Unsere Apps", hero_btn2: "Projekt besprechen",
+    stat1: "Projekte im Portfolio", stat2: "Jahre am Markt", stat3: "Plattformen",
+    trust1_h: "Eigenes Team — keine Mittelsmänner",
+    trust1_p: "Design, Entwicklung, Produkt — alles von unseren Leuten. Keine Agenturen, keine Subunternehmer. Sie arbeiten direkt mit den Menschen, die das Produkt bauen, und wir übernehmen die volle Verantwortung.",
+    trust2_h: "Faire Preise ohne Aufschläge",
+    trust2_p: "Wir haben unsere Prozesse so aufgebaut, dass zwischen Problem und Lösung so wenig Reibung wie möglich entsteht. Keine Agenturmargen oder versteckten Kosten — Sie zahlen für echte Expertise.",
+    trust3_h: "Wir kennen es von innen",
+    trust3_p: "Wir haben selbst den Weg des Managements und Prozessaufbaus durchlaufen — als Unternehmen, das Lösungen gesucht hat. Diese Erfahrung gibt uns ein Verständnis, das man nicht in Kursen lernt.",
+    about_h: "Kleines Team.<br><em>Große Expertise.</em>",
+    about_p1: "Tynk ist ein Produktstudio mit Geschichte. Bevor wir Produkte für andere bauten, haben wir selbst Teams geführt, Prozesse gestaltet und technologische Lösungen für echte Unternehmen gesucht.",
+    about_p2: "Diese Innenperspektive ist unser entscheidender Vorteil. Wir verstehen Ihre Aufgabe nicht nur als Entwickler, sondern als Menschen, die dieselben Probleme selbst erlebt haben.",
+    about_p3: "Wir entwickeln eigene Apps und nehmen Auftragsarbeiten jeder Komplexität an — vom Startup-MVP bis zur Unternehmenssoftware.",
+    about_card_title: "Full-Cycle-Entwicklung",
+    about_card_sub: "von der Idee bis zum Release — alles inhouse",
+    about_card_p: "Vom ersten Prototyp bis zur Veröffentlichung im App Store und Google Play. Wir lagern nichts aus — das Team, das entwirft, setzt auch um.",
+    exp_h: "Unsere Stärken", exp_sub: "Wir versuchen nicht, alles zu machen. Wir arbeiten dort, wo wir wirklich stark sind — und genau das liefert Ergebnisse.",
+    exp1_h: "Mobile Development", exp1_p: "Native iOS- und Android-Entwicklung. Swift, Kotlin, React Native — wir wählen die Technologie nach Aufgabe, nicht nach Trend.",
+    exp2_h: "Product Design", exp2_p: "UX-Forschung, Prototyping, UI-Design. Wir schaffen Interfaces, die man wirklich nutzen möchte — nicht nur schön, sondern intuitiv.",
+    exp3_h: "Web Applications", exp3_p: "Web-Apps, SPAs, Admin-Panels, individuelle CRMs. React, Next.js — wir wählen, was das Problem löst.",
+    exp4_h: "MVP & schneller Launch", exp4_p: "Wir können schnell und klug liefern. Wir helfen Startups, mit einem funktionierenden Produkt auf den Markt zu kommen.",
+    exp5_h: "Geschäftsprozesse & Effizienz", exp5_p: "Wir finden Engpässe, bauen transparente und messbare Prozesse auf und schlagen konkrete Lösungen vor.",
+    exp6_h: "Unternehmenssoftware", exp6_p: "Business-Tools: Automatisierung, interne Systeme, Integrationen. Wir machen das Komplexe einfach und funktionsfähig.",
+    srv_h: "Was wir auf Anfrage bauen", srv_sub: "Mobile Apps sind unsere Stärke, aber wir hören nicht dabei auf. Wir nehmen jedes Projekt an, bei dem Produkt- und Tech-Expertise gefragt ist.",
+    srv1_h: "Mobile Anwendungen", srv1_p: "iOS und Android — nativ oder plattformübergreifend. Wir wählen den Ansatz nach Aufgabe und Budget.",
+    srv2_h: "Web-Apps & Services", srv2_p: "Online-Plattformen, Dashboards, Admin-Panels. Alles, was im Browser funktionieren muss — schnell und benutzerfreundlich.",
+    srv3_h: "Unternehmenssoftware", srv3_p: "CRM, ERP-Module, Tracking- und Automatisierungssysteme. Tools, die die Arbeit Ihres Teams wirklich erleichtern.",
+    srv4_h: "MVP & Prototypen", srv4_p: "Wir launchen schnell funktionierende Produkte. Wir helfen Ihnen, Ihre Hypothese zu validieren und Investoren etwas Greifbares zu zeigen.",
+    apps_h: "Apps,<br>die wir gebaut haben", apps_sub: "Eigene Produkte sind der beste Beweis. Das haben wir mit eigenen Händen geschaffen.",
+    app1_h: "App-Name", app1_p: "Kurzbeschreibung — was die App macht und welches Problem sie löst.",
+    app2_h: "App-Name", app2_p: "Kurzbeschreibung — was die App macht und welches Problem sie löst.",
+    app3_h: "App-Name", app3_p: "Kurzbeschreibung — was die App macht und welches Problem sie löst.",
+    app_more: "Mehr erfahren →",
+    cta_tag: "Mit uns arbeiten",
+    cta_h: "Haben Sie eine Aufgabe?<br><em>Lassen Sie uns lösen.</em>",
+    cta_p: "Erzählen Sie uns, was in Ihrem Unternehmen passiert. Wir hören nicht nur zu — wir finden die effektivste und zugänglichste Lösung für Ihre Situation. Ohne Umwege, ohne unnötige Schritte.",
+    cta_btn1: "Schreiben Sie uns", cta_btn2: "Telegram →",
+    footer: "© 2026 Tynk Studio — Alle Rechte vorbehalten"
+  },
+  fr: {
+    nav_about: "À propos", nav_expertise: "Expertise", nav_services: "Services",
+    nav_apps: "Applications", nav_contact: "Contact",
+    hero_h1: "Nous résolvons les défis business<br><em>grâce à la technologie</em>",
+    hero_p: "Nous créons nos propres applications et développons des solutions sur mesure. Nous relevons les défis complexes — car nous avons parcouru ce chemin nous-mêmes et savons trouver des réponses là où d'autres abandonnent.",
+    hero_btn1: "Nos applications", hero_btn2: "Discuter d'un projet",
+    stat1: "Projets en portfolio", stat2: "Ans sur le marché", stat3: "Plateformes",
+    trust1_h: "Notre équipe — sans intermédiaires",
+    trust1_p: "Design, développement, produit — tout réalisé par nos collaborateurs. Aucune chaîne d'agences, aucun sous-traitant. Vous travaillez directement avec ceux qui construisent le produit.",
+    trust2_h: "Prix juste, sans surcoûts",
+    trust2_p: "Nous avons structuré nos processus pour minimiser les frictions entre le problème et la solution. Pas de marges d'agence ni de coûts cachés — vous payez pour une vraie expertise.",
+    trust3_h: "Nous connaissons de l'intérieur",
+    trust3_p: "Nous avons nous-mêmes traversé le chemin du management et de la construction de processus — en tant qu'entreprise cherchant des solutions. Cette expérience nous donne une compréhension que les formations ne peuvent pas transmettre.",
+    about_h: "Une petite équipe.<br><em>Une grande expertise.</em>",
+    about_p1: "Tynk est un studio produit avec une histoire. Avant de créer des produits pour d'autres, nous avons géré des équipes, conçu des processus et trouvé des solutions technologiques pour de vraies entreprises.",
+    about_p2: "Cette perspective de l'intérieur est notre différence essentielle. Nous comprenons votre défi non seulement comme des développeurs, mais comme des personnes ayant vécu les mêmes problèmes.",
+    about_p3: "Nous créons nos propres applications et prenons en charge des projets sur mesure de toute complexité — du MVP startup au logiciel d'entreprise.",
+    about_card_title: "Développement cycle complet",
+    about_card_sub: "de l'idée au lancement — tout en interne",
+    about_card_p: "Du premier prototype à la publication sur l'App Store et Google Play. Nous n'externalisons rien — l'équipe qui conçoit est celle qui réalise.",
+    exp_h: "Nos points forts", exp_sub: "Nous ne prétendons pas tout faire. Nous travaillons là où nous sommes vraiment forts — et c'est ce qui apporte des résultats.",
+    exp1_h: "Mobile Development", exp1_p: "Développement natif iOS et Android. Swift, Kotlin, React Native — nous choisissons la technologie selon le besoin, pas la mode.",
+    exp2_h: "Product Design", exp2_p: "Recherche UX, prototypage, design UI. Des interfaces qu'on a envie d'utiliser — belles et intuitives.",
+    exp3_h: "Web Applications", exp3_p: "Applications web, SPA, tableaux de bord, CRM personnalisés. React, Next.js — nous choisissons ce qui résout le problème.",
+    exp4_h: "MVP & lancement rapide", exp4_p: "Nous savons livrer vite et intelligemment. Nous aidons les startups à aller sur le marché avec un produit fonctionnel.",
+    exp5_h: "Processus & efficacité", exp5_p: "Nous identifions les goulots d'étranglement, construisons des processus transparents et mesurables, et proposons des solutions concrètes.",
+    exp6_h: "Logiciel d'entreprise", exp6_p: "Outils métier : automatisation, systèmes internes, intégrations. Nous rendons le complexe simple et opérationnel.",
+    srv_h: "Ce que nous développons", srv_sub: "Les applications mobiles sont notre force, mais nous ne nous y limitons pas. Nous prenons en charge tout projet nécessitant une expertise produit et technique.",
+    srv1_h: "Applications mobiles", srv1_p: "iOS et Android — natif ou multiplateforme. Nous choisissons l'approche selon la tâche et le budget.",
+    srv2_h: "Applications web & services", srv2_p: "Plateformes en ligne, espaces personnels, tableaux de bord. Tout ce qui doit fonctionner dans un navigateur — vite et simplement.",
+    srv3_h: "Logiciel d'entreprise", srv3_p: "CRM, modules ERP, systèmes de gestion et d'automatisation. Des outils qui simplifient vraiment la vie de votre équipe.",
+    srv4_h: "MVP & prototypes", srv4_p: "Nous lançons des produits fonctionnels rapidement. Nous vous aidons à valider votre hypothèse et à montrer quelque chose de concret aux investisseurs.",
+    apps_h: "Applications<br>que nous avons créées", apps_sub: "Nos propres produits sont la meilleure preuve. Voici ce que nous avons construit de nos mains.",
+    app1_h: "Nom de l'application", app1_p: "Brève description — en quoi consiste l'app et quel problème elle résout.",
+    app2_h: "Nom de l'application", app2_p: "Brève description — en quoi consiste l'app et quel problème elle résout.",
+    app3_h: "Nom de l'application", app3_p: "Brève description — en quoi consiste l'app et quel problème elle résout.",
+    app_more: "En savoir plus →",
+    cta_tag: "Travaillez avec nous",
+    cta_h: "Vous avez un défi?<br><em>Résolvons-le.</em>",
+    cta_p: "Parlez-nous de votre situation. Nous n'allons pas seulement écouter — nous allons trouver la solution la plus efficace et accessible pour votre contexte. Sans détours, sans étapes superflues.",
+    cta_btn1: "Écrivez-nous", cta_btn2: "Telegram →",
+    footer: "© 2026 Tynk Studio — Tous droits réservés"
+  },
+  es: {
+    nav_about: "Nosotros", nav_expertise: "Expertise", nav_services: "Servicios",
+    nav_apps: "Aplicaciones", nav_contact: "Contacto",
+    hero_h1: "Resolvemos desafíos de negocio<br><em>a través de la tecnología</em>",
+    hero_p: "Creamos nuestras propias aplicaciones y desarrollamos soluciones a medida. Nos enfrentamos a lo complejo — porque hemos recorrido este camino nosotros mismos y sabemos cómo encontrar respuestas donde otros se rinden.",
+    hero_btn1: "Nuestras apps", hero_btn2: "Hablar de un proyecto",
+    stat1: "Proyectos en portfolio", stat2: "Años en el mercado", stat3: "Plataformas",
+    trust1_h: "Equipo propio — sin intermediarios",
+    trust1_p: "Diseño, desarrollo, producto — todo lo hacen nuestras personas. Sin cadenas de agencias ni subcontratistas. Trabajas directamente con quienes construyen el producto y asumimos plena responsabilidad.",
+    trust2_h: "Precio justo sin sobrecargos",
+    trust2_p: "Hemos construido nuestros procesos para reducir al mínimo la fricción entre el problema y la solución. Sin márgenes de agencia ni costes ocultos — pagas por expertise real.",
+    trust3_h: "Lo conocemos desde dentro",
+    trust3_p: "Nosotros mismos hemos recorrido el camino de la gestión y construcción de procesos — como empresa que buscaba soluciones. Esa experiencia nos da una comprensión que no se aprende en cursos.",
+    about_h: "Un equipo pequeño.<br><em>Gran expertise.</em>",
+    about_p1: "Tynk es un estudio de producto con historia. Antes de crear productos para otros, gestionamos equipos, diseñamos procesos y buscamos soluciones tecnológicas para empresas reales.",
+    about_p2: "Esta perspectiva interior es nuestra ventaja clave. Entendemos tu reto no solo como desarrolladores, sino como personas que han vivido los mismos problemas y saben encontrar el camino.",
+    about_p3: "Creamos nuestras propias aplicaciones y tomamos proyectos a medida de cualquier complejidad — desde MVP para startups hasta software empresarial.",
+    about_card_title: "Desarrollo ciclo completo",
+    about_card_sub: "de la idea al lanzamiento — todo en casa",
+    about_card_p: "Desde el primer prototipo hasta la publicación en App Store y Google Play. No externalizamos — el equipo que diseña es el mismo que desarrolla.",
+    exp_h: "En qué somos fuertes", exp_sub: "No intentamos hacerlo todo. Trabajamos donde somos verdaderamente fuertes — y eso es lo que genera resultados.",
+    exp1_h: "Mobile Development", exp1_p: "Desarrollo nativo para iOS y Android. Swift, Kotlin, React Native — elegimos la tecnología según la tarea, no la moda.",
+    exp2_h: "Product Design", exp2_p: "Investigación UX, prototipado, diseño UI. Creamos interfaces que da gusto usar — no solo bonitas, sino intuitivas.",
+    exp3_h: "Web Applications", exp3_p: "Apps web, SPAs, paneles de administración, CRMs personalizados. React, Next.js — elegimos lo que resuelve el problema.",
+    exp4_h: "MVP y lanzamiento rápido", exp4_p: "Sabemos lanzar rápido y con cabeza. Ayudamos a startups a llegar al mercado con un producto funcional.",
+    exp5_h: "Procesos de negocio y eficiencia", exp5_p: "Encontramos cuellos de botella, construimos procesos transparentes y medibles, y proponemos soluciones concretas.",
+    exp6_h: "Software empresarial", exp6_p: "Herramientas de negocio: automatización, sistemas internos, integraciones. Hacemos lo complejo simple y funcional.",
+    srv_h: "Qué desarrollamos a medida", srv_sub: "Las apps móviles son nuestra fortaleza, pero no nos limitamos a ellas. Tomamos cualquier proyecto que requiera expertise en producto y tecnología.",
+    srv1_h: "Aplicaciones móviles", srv1_p: "iOS y Android — nativo o multiplataforma. Elegimos el enfoque según la tarea y el presupuesto.",
+    srv2_h: "Apps web y servicios", srv2_p: "Plataformas online, paneles personales, dashboards. Todo lo que debe funcionar en el navegador — rápido y fácil.",
+    srv3_h: "Software empresarial", srv3_p: "CRM, módulos ERP, sistemas de seguimiento y automatización. Herramientas que realmente simplifican el trabajo de tu equipo.",
+    srv4_h: "MVP y prototipos", srv4_p: "Lanzamos productos funcionales en poco tiempo. Ayudamos a validar hipótesis y mostrar algo tangible a los inversores.",
+    apps_h: "Aplicaciones<br>que hemos creado", apps_sub: "Nuestros propios productos son la mejor prueba. Esto es lo que hemos construido con nuestras propias manos.",
+    app1_h: "Nombre de la app", app1_p: "Descripción breve — en qué consiste y qué problema resuelve para el usuario.",
+    app2_h: "Nombre de la app", app2_p: "Descripción breve — en qué consiste y qué problema resuelve para el usuario.",
+    app3_h: "Nombre de la app", app3_p: "Descripción breve — en qué consiste y qué problema resuelve para el usuario.",
+    app_more: "Saber más →",
+    cta_tag: "Trabaja con nosotros",
+    cta_h: "¿Tienes un reto?<br><em>Vamos a resolverlo.</em>",
+    cta_p: "Cuéntanos qué está pasando en tu negocio. No nos limitaremos a escuchar — encontraremos la solución más eficaz y accesible para tu situación concreta. Sin rodeos, sin pasos innecesarios.",
+    cta_btn1: "Escríbenos", cta_btn2: "Telegram →",
+    footer: "© 2026 Tynk Studio — Todos los derechos reservados"
+  },
+  pt: {
+    nav_about: "Sobre nós", nav_expertise: "Expertise", nav_services: "Serviços",
+    nav_apps: "Aplicações", nav_contact: "Contacto",
+    hero_h1: "Resolvemos desafios de negócio<br><em>através da tecnologia</em>",
+    hero_p: "Criamos as nossas próprias aplicações e desenvolvemos soluções à medida. Abraçamos o complexo — porque percorremos este caminho nós próprios e sabemos como encontrar respostas onde outros desistem.",
+    hero_btn1: "As nossas apps", hero_btn2: "Falar sobre um projeto",
+    stat1: "Projetos em portfolio", stat2: "Anos no mercado", stat3: "Plataformas",
+    trust1_h: "Equipa própria — sem intermediários",
+    trust1_p: "Design, desenvolvimento, produto — tudo feito pela nossa equipa. Sem cadeias de agências ou subcontratados. Trabalha diretamente com quem constrói o produto e assumimos total responsabilidade.",
+    trust2_h: "Preço justo sem margens ocultas",
+    trust2_p: "Construímos os nossos processos para minimizar o atrito entre o problema e a solução. Sem margens de agência ou custos escondidos — pagas por expertise real, e o preço reflete isso.",
+    trust3_h: "Conhecemos por dentro",
+    trust3_p: "Percorremos nós próprios o caminho da gestão e construção de processos — como empresa à procura de soluções. Essa experiência dá-nos uma compreensão que não se aprende em cursos.",
+    about_h: "Uma equipa pequena.<br><em>Grande expertise.</em>",
+    about_p1: "A Tynk é um estúdio de produto com história. Antes de criar produtos para outros, gerimos equipas, desenhamos processos e procurámos soluções tecnológicas para empresas reais.",
+    about_p2: "Esta perspetiva interior é a nossa vantagem essencial. Entendemos o teu desafio não só como programadores, mas como pessoas que viveram os mesmos problemas e sabem encontrar o caminho.",
+    about_p3: "Criamos as nossas próprias aplicações e aceitamos projetos à medida de qualquer complexidade — desde MVPs para startups até software empresarial.",
+    about_card_title: "Desenvolvimento ciclo completo",
+    about_card_sub: "da ideia ao lançamento — tudo internamente",
+    about_card_p: "Do primeiro protótipo à publicação na App Store e Google Play. Não externalizamos — a equipa que projeta é a mesma que desenvolve.",
+    exp_h: "Onde somos fortes", exp_sub: "Não tentamos fazer tudo. Trabalhamos onde somos verdadeiramente fortes — e é isso que gera resultados.",
+    exp1_h: "Mobile Development", exp1_p: "Desenvolvimento nativo iOS e Android. Swift, Kotlin, React Native — escolhemos a tecnologia certa para a tarefa, não para a moda.",
+    exp2_h: "Product Design", exp2_p: "Investigação UX, prototipagem, UI design. Criamos interfaces que se tem vontade de usar — não só bonitas, mas intuitivas.",
+    exp3_h: "Web Applications", exp3_p: "Apps web, SPAs, painéis de administração, CRMs personalizados. React, Next.js — escolhemos o que resolve o problema.",
+    exp4_h: "MVP e lançamento rápido", exp4_p: "Sabemos lançar rápido e com inteligência. Ajudamos startups a chegar ao mercado com um produto funcional.",
+    exp5_h: "Processos de negócio e eficiência", exp5_p: "Encontramos pontos de estrangulamento, construímos processos transparentes e mensuráveis e propomos soluções concretas.",
+    exp6_h: "Software empresarial", exp6_p: "Ferramentas de negócio: automatização, sistemas internos, integrações. Tornamos o complexo simples e funcional.",
+    srv_h: "O que desenvolvemos à medida", srv_sub: "As apps móveis são a nossa força, mas não nos limitamos a elas. Aceitamos qualquer projeto que requeira expertise em produto e tecnologia.",
+    srv1_h: "Aplicações móveis", srv1_p: "iOS e Android — nativo ou multiplataforma. Escolhemos a abordagem segundo a tarefa e o orçamento.",
+    srv2_h: "Apps web e serviços", srv2_p: "Plataformas online, áreas pessoais, dashboards. Tudo o que deve funcionar no browser — rápido e fácil.",
+    srv3_h: "Software empresarial", srv3_p: "CRM, módulos ERP, sistemas de rastreamento e automatização. Ferramentas que simplificam genuinamente o trabalho da tua equipa.",
+    srv4_h: "MVP e protótipos", srv4_p: "Lançamos produtos funcionais em pouco tempo. Ajudamos a validar hipóteses e mostrar algo tangível a investidores.",
+    apps_h: "Aplicações<br>que criámos", apps_sub: "Os nossos próprios produtos são a melhor prova. Isto é o que construímos com as nossas próprias mãos.",
+    app1_h: "Nome da aplicação", app1_p: "Breve descrição — no que consiste e que problema resolve para o utilizador.",
+    app2_h: "Nome da aplicação", app2_p: "Breve descrição — no que consiste e que problema resolve para o utilizador.",
+    app3_h: "Nome da aplicação", app3_p: "Breve descrição — no que consiste e que problema resolve para o utilizador.",
+    app_more: "Saiba mais →",
+    cta_tag: "Trabalhe connosco",
+    cta_h: "Tens um desafio?<br><em>Vamos resolvê-lo.</em>",
+    cta_p: "Conta-nos o que está a acontecer no teu negócio. Não nos limitamos a ouvir — encontramos a solução mais eficaz e acessível para a tua situação concreta. Sem rodeios, sem passos desnecessários.",
+    cta_btn1: "Escreve-nos", cta_btn2: "Telegram →",
+    footer: "© 2026 Tynk Studio — Todos os direitos reservados"
+  }
+};
+
+let currentLang = 'ru';
+
+function applyTranslations(lang) {
+  const t = translations[lang];
+  if (!t) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.documentElement.lang = lang;
+  currentLang = lang;
+}
+
+document.getElementById('langSwitcher').addEventListener('click', (e) => {
+  const btn = e.target.closest('.lang-btn');
+  if (!btn) return;
+  const lang = btn.dataset.lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyTranslations(lang);
+});
+
+// Init
+applyTranslations('ru');
+</script>
+</body>
+</html>
