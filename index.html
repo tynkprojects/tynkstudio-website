@@ -701,7 +701,6 @@ document.getElementById('astrolyIcon').src = 'data:image/png;base64,/9j/4AAQSkZJ
 let popup = null;
 let popupOpen = false;
 
-// Wait for DOM to be ready
 function initContactPopup() {
   popup = document.getElementById('contactPopup');
   if (!popup) {
@@ -709,27 +708,17 @@ function initContactPopup() {
     return;
   }
   
-  // Attach global function
-  window.openPopup = function(btn) {
-    if (!popup) return;
-    
-    const rect = btn.getBoundingClientRect();
-    const popupW = 210;
-    let left = rect.left;
-    let top = rect.bottom + 10 + window.scrollY;
-    
-    // Adjust if popup goes off-screen
-    if (left + popupW > window.innerWidth - 16) {
-      left = window.innerWidth - popupW - 16;
-    }
-    if (left < 8) left = 8;
-    
-    popup.style.position = 'fixed';
-    popup.style.left = left + 'px';
-    popup.style.top = top + 'px';
-    popup.classList.toggle('open');
-    popupOpen = popup.classList.contains('open');
-  };
+  // Find all trigger buttons
+  const triggerButtons = document.querySelectorAll('[onclick*="openPopup"]');
+  console.log('Found trigger buttons:', triggerButtons.length);
+  
+  // Add click handlers to all trigger buttons
+  triggerButtons.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openPopup(this);
+    });
+  });
   
   // Close popup on outside click
   document.addEventListener('click', function(e) {
@@ -737,13 +726,39 @@ function initContactPopup() {
     
     // Check if click is outside popup and not on a trigger button
     const isClickOnPopup = popup.contains(e.target);
-    const isClickOnTrigger = e.target.closest('[onclick="openPopup(this)"]');
+    const isClickOnTrigger = e.target.closest('[onclick*="openPopup"]');
     
     if (!isClickOnPopup && !isClickOnTrigger) {
       popup.classList.remove('open');
       popupOpen = false;
     }
   });
+}
+
+function openPopup(btn) {
+  if (!popup) {
+    console.error('Popup not initialized');
+    return;
+  }
+  
+  const rect = btn.getBoundingClientRect();
+  const popupW = 210;
+  let left = rect.left;
+  let top = rect.bottom + 10 + window.scrollY;
+  
+  // Adjust if popup goes off-screen
+  if (left + popupW > window.innerWidth - 16) {
+    left = window.innerWidth - popupW - 16;
+  }
+  if (left < 8) left = 8;
+  
+  popup.style.position = 'fixed';
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
+  popup.classList.toggle('open');
+  popupOpen = popup.classList.contains('open');
+  
+  console.log('Popup toggled, now open:', popupOpen);
 }
 
 // Initialize when DOM is ready
