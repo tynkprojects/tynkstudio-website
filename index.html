@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZVYF96901"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KZVYF96901');
+</script>
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgcng9IjQ0IiBmaWxsPSIjMTExMTIyIi8+PHJlY3QgeD0iMzgiIHk9IjM4IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iI0U4NDQxRSIvPjxyZWN0IHg9IjgyIiB5PSIzOCIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiByeD0iMTAiIGZpbGw9IiNBODU1RjciLz48cmVjdCB4PSIxMjYiIHk9IjM4IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iIzBEOTQ4OCIvPjxyZWN0IHg9IjgyIiB5PSI4MiIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiByeD0iMTAiIGZpbGw9IiNGNTlFMEIiLz48cmVjdCB4PSI4MiIgeT0iMTI2IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iIzI1NjNFQiIvPjwvc3ZnPg==">
 <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgcng9IjQ0IiBmaWxsPSIjMTExMTIyIi8+PHJlY3QgeD0iMzgiIHk9IjM4IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iI0U4NDQxRSIvPjxyZWN0IHg9IjgyIiB5PSIzOCIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiByeD0iMTAiIGZpbGw9IiNBODU1RjciLz48cmVjdCB4PSIxMjYiIHk9IjM4IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iIzBEOTQ4OCIvPjxyZWN0IHg9IjgyIiB5PSI4MiIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiByeD0iMTAiIGZpbGw9IiNGNTlFMEIiLz48cmVjdCB4PSI4MiIgeT0iMTI2IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iIzI1NjNFQiIvPjwvc3ZnPg==">
 <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgcng9IjQ0IiBmaWxsPSIjMTExMTIyIi8+PHJlY3QgeD0iMzgiIHk9IjM4IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iI0U4NDQxRSIvPjxyZWN0IHg9IjgyIiB5PSIzOCIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiByeD0iMTAiIGZpbGw9IiNBODU1RjciLz48cmVjdCB4PSIxMjYiIHk9IjM4IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iIzBEOTQ4OCIvPjxyZWN0IHg9IjgyIiB5PSI4MiIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiByeD0iMTAiIGZpbGw9IiNGNTlFMEIiLz48cmVjdCB4PSI4MiIgeT0iMTI2IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iIzI1NjNFQiIvPjwvc3ZnPg==">
@@ -710,6 +719,13 @@ function openPopup(btn) {
   if (modal) {
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+    // Track event in GA4
+    if (typeof gtag === 'function') {
+      gtag('event', 'open_contact_modal', {
+        'event_category': 'engagement',
+        'event_label': btn ? (btn.textContent || '').trim() : 'unknown'
+      });
+    }
   }
 }
 
@@ -731,6 +747,52 @@ document.addEventListener('DOMContentLoaded', function() {
   if (modal) {
     modal.addEventListener('click', function(e) {
       if (e.target === modal) closeModal();
+    });
+    
+    // Track clicks on contact channel links inside modal
+    var contactLinks = modal.querySelectorAll('a[href]');
+    contactLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (typeof gtag !== 'function') return;
+        var href = link.getAttribute('href') || '';
+        var channel = 'unknown';
+        if (href.indexOf('mailto:') === 0) channel = 'email';
+        else if (href.indexOf('instagram.com') !== -1) channel = 'instagram';
+        else if (href.indexOf('tiktok.com') !== -1) channel = 'tiktok';
+        gtag('event', 'contact_click_' + channel, {
+          'event_category': 'conversion',
+          'event_label': channel
+        });
+      });
+    });
+  }
+  
+  // Track clicks on social icons in nav and footer (outside modal)
+  var socialLinks = document.querySelectorAll('.social-btn');
+  socialLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (typeof gtag !== 'function') return;
+      var href = link.getAttribute('href') || '';
+      var channel = 'unknown';
+      if (href.indexOf('mailto:') === 0) channel = 'email';
+      else if (href.indexOf('instagram.com') !== -1) channel = 'instagram';
+      else if (href.indexOf('tiktok.com') !== -1) channel = 'tiktok';
+      gtag('event', 'social_click_' + channel, {
+        'event_category': 'engagement',
+        'event_label': channel
+      });
+    });
+  });
+  
+  // Track clicks on Google Play button
+  var gplayBtn = document.querySelector('.gplay-btn');
+  if (gplayBtn) {
+    gplayBtn.addEventListener('click', function() {
+      if (typeof gtag !== 'function') return;
+      gtag('event', 'app_click_astroly', {
+        'event_category': 'engagement',
+        'event_label': 'google_play'
+      });
     });
   }
   
