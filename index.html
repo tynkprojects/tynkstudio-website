@@ -51,7 +51,7 @@
   "@type": "Organization",
   "name": "Tynk Studio",
   "url": "https://tynkstudio.dev",
-  "email": "tynkstudio@gmail.com",
+  "email": "infotynkstudio@gmail.com",
   "foundingDate": "2018",
   "description": "Продуктовая студия по разработке мобильных приложений, веб-сервисов и коммерческого ПО. Работаем без посредников — дизайн, разработка и продукт внутри одной команды.",
   "sameAs": [
@@ -60,7 +60,7 @@
   ],
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "tynkstudio@gmail.com",
+    "email": "infotynkstudio@gmail.com",
     "contactType": "customer service",
     "availableLanguage": ["Russian", "English", "German", "French", "Spanish", "Portuguese"]
   },
@@ -197,10 +197,42 @@ nav ul a:hover { color:var(--navy); }
 .social-btn svg { width:15px; height:15px; fill:currentColor; }
 .sb-instagram { background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
 .sb-tiktok { background:#000; }
+.sb-telegram { background:linear-gradient(135deg,#2AABEE,#229ED9); }
+.sb-whatsapp { background:linear-gradient(135deg,#25D366,#128C7E); }
 .sb-email { background:linear-gradient(135deg,#EA4335,#c5221f); }
 
 /* ── LANG SWITCHER ── */
-.lang-switcher { display:flex; align-items:center; gap:2px; background:var(--ice); border:1px solid rgba(15,23,42,.08); border-radius:50px; padding:3px; flex-shrink:0; }
+.lang-switcher { position:relative; flex-shrink:0; }
+.lang-current {
+  display:flex; align-items:center; gap:6px;
+  background:var(--ice); border:1px solid rgba(15,23,42,.08);
+  border-radius:50px; padding:6px 12px; cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:.85rem;
+  color:var(--navy); transition:background .15s;
+  user-select:none;
+}
+.lang-current:hover { background:#eef2ff; }
+.lang-current .lang-flag { font-size:1rem; }
+.lang-current .lang-arrow { font-size:.6rem; opacity:.5; transition:transform .2s; margin-left:2px; }
+.lang-switcher.open .lang-current .lang-arrow { transform:rotate(180deg); }
+.lang-dropdown {
+  position:absolute; top:calc(100% + 6px); right:0;
+  background:#fff; border:1px solid rgba(15,23,42,.1);
+  border-radius:12px; box-shadow:0 12px 40px rgba(15,23,42,.12);
+  padding:6px; min-width:140px; z-index:1000;
+  display:none; flex-direction:column; gap:2px;
+}
+.lang-switcher.open .lang-dropdown { display:flex; }
+.lang-option {
+  display:flex; align-items:center; gap:10px;
+  padding:8px 12px; border-radius:8px; cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; font-size:.85rem;
+  color:var(--navy); background:transparent; border:none; text-align:left;
+  transition:background .15s; width:100%;
+}
+.lang-option:hover { background:var(--sky); }
+.lang-option.active { background:var(--sky); font-weight:700; }
+.lang-option .lang-flag { font-size:1rem; }
 .lang-btn { background:transparent; border:none; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; font-size:.68rem; font-weight:700; color:var(--slate); padding:.28rem .52rem; border-radius:50px; transition:background .15s,color .15s; line-height:1; display:flex; align-items:center; gap:3px; white-space:nowrap; }
 .lang-btn:hover { color:var(--navy); }
 .lang-btn.active { background:var(--navy); color:var(--white); }
@@ -308,31 +340,74 @@ nav ul a:hover { color:var(--navy); }
 
 /* ── SERVICES ── */
 .services { background:var(--navy); padding:6rem 5%; position:relative; overflow:hidden; }
-.services-inner { max-width:1100px; margin:0 auto; position:relative; z-index:1; }
+.services-inner { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
 .services .section-title { color:var(--white); }
 .services .section-tag { color:rgba(255,255,255,.4); }
 .services .section-sub { color:rgba(255,255,255,.45); }
-.services-header { margin-bottom:3.5rem; }
+.services-header { margin-bottom:2.5rem; }
 
-.service-featured { background:linear-gradient(135deg,#1a2744,#1e3060); border:1px solid rgba(37,99,235,.3); border-radius:var(--radius-lg); padding:2.5rem; margin-bottom:1.2rem; position:relative; overflow:hidden; display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; }
-.service-featured::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; background:radial-gradient(circle,rgba(37,99,235,.2) 0%,transparent 70%); border-radius:50%; }
-.service-featured-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(37,99,235,.2); color:#93c5fd; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .8rem; border-radius:50px; border:1px solid rgba(37,99,235,.3); margin-bottom:1rem; }
-.service-featured h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.2rem; font-weight:700; color:var(--white); margin-bottom:.6rem; }
-.srv-desc { font-size:.9rem; color:rgba(255,255,255,.55); line-height:1.8; margin-bottom:.8rem; }
-.srv-fine { font-size:.78rem; color:rgba(255,255,255,.3); line-height:1.7; }
-.service-price { text-align:center; flex-shrink:0; position:relative; z-index:1; }
-.price-from { font-size:.75rem; color:rgba(255,255,255,.35); text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:.2rem; }
-.price-num { font-family:'Plus Jakarta Sans',sans-serif; font-size:2.2rem; font-weight:700; color:var(--white); line-height:1; }
-.price-note { font-size:.72rem; color:rgba(255,255,255,.3); margin-top:.3rem; display:block; }
+/* Compact mini service tiles */
+.services-mini-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:4rem; }
+.service-mini { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius-md); padding:1.4rem; transition:background .2s,border-color .2s; }
+.service-mini:hover { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.12); }
+.service-mini-icon { width:32px; height:32px; border-radius:8px; margin-bottom:1rem; display:grid; grid-template-columns:repeat(2,1fr); gap:2px; padding:5px; background:rgba(255,255,255,.06); }
+.service-mini-icon span { border-radius:2px; display:block; opacity:.85; }
+.service-mini h4 { font-family:'Plus Jakarta Sans',sans-serif; font-size:.95rem; font-weight:700; color:var(--white); margin-bottom:.4rem; }
+.service-mini p { font-size:.78rem; color:rgba(255,255,255,.5); line-height:1.55; }
 
-.services-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(255,255,255,.06); border-radius:var(--radius-lg); overflow:hidden; }
-.service-cell { background:#0f172a; padding:2.5rem 2.5rem 1.8rem; transition:background .2s; position:relative; }
-.service-cell:hover { background:#1a2744; }
-.service-tile { width:36px; height:36px; border-radius:var(--radius-sm); margin-bottom:1.4rem; display:grid; grid-template-columns:repeat(2,1fr); gap:3px; padding:6px; background:rgba(255,255,255,.06); }
-.service-tile span { border-radius:2px; display:block; opacity:.85; }
-.service-cell h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.05rem; font-weight:700; color:var(--white); margin-bottom:.6rem; }
-.service-cell p { font-size:.87rem; color:rgba(255,255,255,.45); line-height:1.8; margin-bottom:1.2rem; }
-.service-cell-footer { display:flex; justify-content:flex-end; }
+/* Packages section */
+.packages-header { text-align:center; margin-bottom:2.5rem; }
+.packages-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:700; color:var(--white); margin-bottom:.7rem; letter-spacing:-0.02em; }
+.packages-sub { font-size:.95rem; color:rgba(255,255,255,.5); max-width:600px; margin:0 auto; line-height:1.6; }
+
+.packages-wrapper { position:relative; }
+.packages-carousel { display:flex; gap:1.2rem; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding:1rem .25rem 1.5rem; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.packages-carousel::-webkit-scrollbar { display:none; }
+
+.package-card { flex:0 0 calc(25% - .9rem); min-width:280px; background:#fff; border-radius:20px; padding:1.8rem 1.6rem; position:relative; scroll-snap-align:start; display:flex; flex-direction:column; box-shadow:0 4px 20px rgba(0,0,0,.15); transition:transform .25s,box-shadow .25s; overflow:hidden; }
+.package-card:hover { transform:translateY(-4px); box-shadow:0 12px 35px rgba(0,0,0,.25); }
+.package-card.pkg-featured { background:linear-gradient(180deg,#f5f3ff 0%,#fff 60%); box-shadow:0 8px 30px rgba(168,85,247,.2); }
+
+.pkg-color-strip { position:absolute; top:0; left:0; right:0; height:4px; }
+
+.pkg-badge { position:absolute; top:14px; right:14px; background:linear-gradient(135deg,var(--c-purple),var(--c-blue)); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:50px; box-shadow:0 4px 12px rgba(168,85,247,.3); }
+
+.pkg-head { margin-top:.6rem; margin-bottom:1rem; }
+.pkg-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.5rem; color:var(--navy); letter-spacing:-0.02em; line-height:1; margin-bottom:.4rem; }
+.pkg-tagline { font-size:.78rem; color:#64748b; line-height:1.5; min-height:2.2em; }
+
+.pkg-price { display:flex; align-items:baseline; gap:.4rem; margin-bottom:.8rem; }
+.pkg-price-from { font-size:.75rem; color:#94a3b8; text-transform:uppercase; letter-spacing:.04em; font-weight:600; }
+.pkg-price-num { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.8rem; color:var(--navy); line-height:1; }
+
+.pkg-desc { font-size:.82rem; color:#475569; line-height:1.6; margin-bottom:1.2rem; min-height:3.8em; }
+
+.pkg-btn { width:100%; background:#0f172a; color:#fff; border:none; border-radius:50px; padding:.85rem 1.4rem; font-family:'Plus Jakarta Sans',sans-serif; font-size:.88rem; font-weight:700; cursor:pointer; transition:background .2s,transform .15s; margin-bottom:1.2rem; }
+.pkg-btn:hover { background:#1e293b; transform:translateY(-1px); }
+.pkg-btn-primary { background:linear-gradient(135deg,#7c3aed,#2563eb); }
+.pkg-btn-primary:hover { background:linear-gradient(135deg,#6d28d9,#1d4ed8); }
+
+.pkg-divider { height:1px; background:rgba(15,23,42,.08); margin:0 -.4rem 1rem; }
+.pkg-features-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:.7rem; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:.08em; margin-bottom:.7rem; }
+.pkg-features { list-style:none; padding:0; margin:0 0 1rem; flex:1; }
+.pkg-features li { font-size:.82rem; color:#334155; line-height:1.5; padding:.32rem 0 .32rem 1.4rem; position:relative; }
+.pkg-features li::before { content:''; position:absolute; left:0; top:.7rem; width:14px; height:14px; background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><circle cx='7' cy='7' r='6' fill='%2310b981' opacity='.15'/><path d='M4 7l2 2 4-4' stroke='%2310b981' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") no-repeat; }
+
+.pkg-deadline { font-size:.78rem; color:#64748b; padding:.5rem 0; border-top:1px solid rgba(15,23,42,.06); margin-top:auto; }
+.pkg-deadline strong { color:var(--navy); font-weight:700; }
+.pkg-fine { font-size:.72rem; color:#94a3b8; line-height:1.55; padding-top:.5rem; border-top:1px solid rgba(15,23,42,.06); margin-top:auto; font-style:italic; }
+
+/* Carousel arrows */
+.carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; background:#fff; border:1px solid rgba(15,23,42,.1); cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--navy); box-shadow:0 4px 16px rgba(0,0,0,.15); z-index:5; transition:transform .15s,box-shadow .15s; }
+.carousel-arrow:hover { transform:translateY(-50%) scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,.2); }
+.carousel-arrow svg { width:20px; height:20px; }
+.carousel-prev { left:-22px; }
+.carousel-next { right:-22px; }
+
+/* Carousel dots */
+.packages-dots { display:flex; justify-content:center; gap:8px; margin-top:1rem; }
+.packages-dots .dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.2); cursor:pointer; transition:background .2s,width .2s; border:none; padding:0; }
+.packages-dots .dot.active { background:var(--c-blue); width:24px; border-radius:8px; }
 
 /* Contact trigger button (on service cards) */
 .contact-trigger { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:50px; padding:.3rem .85rem; font-size:.75rem; font-weight:600; color:rgba(255,255,255,.55); cursor:pointer; transition:background .15s,color .15s; font-family:'Plus Jakarta Sans',sans-serif; }
@@ -387,15 +462,25 @@ footer p { font-size:.8rem; color:var(--slate); }
 /* RESPONSIVE */
 @media (max-width:1024px) {
   nav ul { display:none; }
-  .lang-btn { padding:.24rem .44rem; font-size:.64rem; }
   .lang-flag { font-size:.8rem; }
+  .services-mini-grid { grid-template-columns:repeat(2,1fr); }
+  .package-card { flex:0 0 calc(50% - .6rem); }
+  .carousel-prev { left:-10px; }
+  .carousel-next { right:-10px; }
 }
 @media (max-width:768px) {
   .about-grid,.expertise-grid,.apps-grid,.trust-grid { grid-template-columns:1fr; }
-  .services-grid { grid-template-columns:1fr; }
-  .service-featured { grid-template-columns:1fr; }
-  .service-price { text-align:left; }
+  .services-mini-grid { grid-template-columns:repeat(2,1fr); gap:.6rem; }
+  .service-mini { padding:1rem; }
+  .service-mini h4 { font-size:.85rem; }
+  .service-mini p { font-size:.72rem; }
+  .package-card { flex:0 0 calc(100% - 2rem); min-width:240px; }
+  .carousel-arrow { width:36px; height:36px; }
+  .carousel-arrow svg { width:16px; height:16px; }
   .hero-stats { gap:1.8rem; flex-wrap:wrap; }
+  .social-links { gap:6px; }
+  .social-btn { width:30px; height:30px; }
+  .social-btn svg { width:14px; height:14px; }
 }
 </style>
 </head>
@@ -446,9 +531,17 @@ footer p { font-size:.8rem; color:var(--slate); }
     <button id="closeModalBtn" style="position:absolute;top:12px;right:12px;background:transparent;border:none;cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#64748b;font-size:18px;">✕</button>
     <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#0f172a;margin-bottom:16px;padding-right:30px;">Связаться с нами</h3>
     <div style="display:flex;flex-direction:column;gap:8px;">
-      <a href="mailto:tynkstudio@gmail.com" style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;text-decoration:none;color:#0f172a;background:#f8faff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:.9rem;transition:background .15s;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='#f8faff'">
+      <a href="https://t.me/tynkstudio" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;text-decoration:none;color:#0f172a;background:#f8faff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:.9rem;transition:background .15s;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='#f8faff'">
+        <div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></div>
+        <div><div style="font-weight:700;">Telegram</div><div style="font-size:.78rem;color:#64748b;">@tynkstudio</div></div>
+      </a>
+      <a href="https://wa.me/tynkstudio" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;text-decoration:none;color:#0f172a;background:#f8faff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:.9rem;transition:background .15s;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='#f8faff'">
+        <div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <div><div style="font-weight:700;">WhatsApp</div><div style="font-size:.78rem;color:#64748b;">@tynkstudio</div></div>
+      </a>
+      <a href="mailto:infotynkstudio@gmail.com" style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;text-decoration:none;color:#0f172a;background:#f8faff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:.9rem;transition:background .15s;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='#f8faff'">
         <div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#EA4335,#c5221f);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" width="16" height="16" fill="#fff"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-        <div><div style="font-weight:700;">Email</div><div style="font-size:.78rem;color:#64748b;">tynkstudio@gmail.com</div></div>
+        <div><div style="font-weight:700;">Email</div><div style="font-size:.78rem;color:#64748b;">infotynkstudio@gmail.com</div></div>
       </a>
       <a href="https://www.instagram.com/tynkstudio.dev/" target="_blank" style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;text-decoration:none;color:#0f172a;background:#f8faff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:.9rem;transition:background .15s;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='#f8faff'">
         <div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" width="16" height="16" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
@@ -487,17 +580,30 @@ footer p { font-size:.8rem; color:var(--slate); }
       <a href="https://www.tiktok.com/@tynkstudio" target="_blank" class="social-btn sb-tiktok" title="TikTok">
         <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
       </a>
-      <a href="mailto:tynkstudio@gmail.com" class="social-btn sb-email" title="Email">
+      <a href="https://t.me/tynkstudio" target="_blank" class="social-btn sb-telegram" title="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      </a>
+      <a href="https://wa.me/tynkstudio" target="_blank" class="social-btn sb-whatsapp" title="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="mailto:infotynkstudio@gmail.com" class="social-btn sb-email" title="Email">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       </a>
     </div>
     <div class="lang-switcher" id="langSwitcher">
-      <button class="lang-btn active" data-lang="ru"><span class="lang-flag">🇷🇺</span>RU</button>
-      <button class="lang-btn" data-lang="en"><span class="lang-flag">🇬🇧</span>EN</button>
-      <button class="lang-btn" data-lang="de"><span class="lang-flag">🇩🇪</span>DE</button>
-      <button class="lang-btn" data-lang="fr"><span class="lang-flag">🇫🇷</span>FR</button>
-      <button class="lang-btn" data-lang="es"><span class="lang-flag">🇪🇸</span>ES</button>
-      <button class="lang-btn" data-lang="pt"><span class="lang-flag">🇵🇹</span>PT</button>
+      <button class="lang-current" id="langCurrent" type="button">
+        <span class="lang-flag" id="langFlag">🇬🇧</span>
+        <span id="langLabel">EN</span>
+        <span class="lang-arrow">▼</span>
+      </button>
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span>English</button>
+        <button class="lang-option" data-lang="de"><span class="lang-flag">🇩🇪</span>Deutsch</button>
+        <button class="lang-option" data-lang="fr"><span class="lang-flag">🇫🇷</span>Français</button>
+        <button class="lang-option" data-lang="pt"><span class="lang-flag">🇵🇹</span>Português</button>
+        <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span>Español</button>
+        <button class="lang-option" data-lang="ru"><span class="lang-flag">🇷🇺</span>Русский</button>
+      </div>
     </div>
   </div>
 </nav>
@@ -604,23 +710,159 @@ footer p { font-size:.8rem; color:var(--slate); }
       <h2 class="section-title" data-i18n="srv_h"></h2>
       <p class="section-sub" data-i18n="srv_sub"></p>
     </div>
-    <!-- Featured -->
-    <div class="service-featured">
-      <div style="position:relative;z-index:1">
-        <div class="service-featured-badge"><div class="btn-icon" style="width:12px;height:12px"><span style="background:var(--c-blue)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-amber)"></span><span style="background:var(--c-red)"></span></div><span data-i18n="srv0_badge"></span></div>
-        <h3 data-i18n="srv0_h"></h3>
-        <p class="srv-desc" data-i18n="srv0_p"></p>
-        <p class="srv-fine" data-i18n="srv0_fine"></p>
-        <div style="margin-top:1.2rem"><button class="contact-trigger" onclick="openPopup(this)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span data-i18n="contact_us"></span></button></div>
+
+    <!-- Small service tiles (compact) -->
+    <div class="services-mini-grid">
+      <div class="service-mini">
+        <div class="service-mini-icon"><span style="background:var(--c-blue)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span><span style="background:transparent"></span></div>
+        <h4 data-i18n="srv1_h"></h4>
+        <p data-i18n="srv1_p_short"></p>
       </div>
-      <div class="service-price"><span class="price-from" data-i18n="price_from"></span><span class="price-num">300 €</span><span class="price-note" data-i18n="price_note"></span></div>
+      <div class="service-mini">
+        <div class="service-mini-icon"><span style="background:var(--c-teal)"></span><span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:var(--c-teal);opacity:.4"></span></div>
+        <h4 data-i18n="srv2_h"></h4>
+        <p data-i18n="srv2_p_short"></p>
+      </div>
+      <div class="service-mini">
+        <div class="service-mini-icon"><span style="background:var(--c-amber)"></span><span style="background:var(--c-amber);opacity:.4"></span><span style="background:transparent"></span><span style="background:var(--c-amber)"></span></div>
+        <h4 data-i18n="srv3_h"></h4>
+        <p data-i18n="srv3_p_short"></p>
+      </div>
+      <div class="service-mini">
+        <div class="service-mini-icon"><span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:transparent"></span><span style="background:var(--c-blue)"></span></div>
+        <h4 data-i18n="srv4_h"></h4>
+        <p data-i18n="srv4_p_short"></p>
+      </div>
     </div>
-    <div class="services-grid">
-      <div class="service-cell"><div class="service-tile"><span style="background:var(--c-blue)"></span><span style="background:var(--c-purple)"></span><span style="background:var(--c-teal)"></span><span style="background:transparent"></span></div><h3 data-i18n="srv1_h"></h3><p data-i18n="srv1_p"></p><div class="service-cell-footer"><button class="contact-trigger" onclick="openPopup(this)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span data-i18n="contact_us"></span></button></div></div>
-      <div class="service-cell"><div class="service-tile"><span style="background:var(--c-teal)"></span><span style="background:transparent"></span><span style="background:var(--c-amber)"></span><span style="background:var(--c-teal);opacity:.4"></span></div><h3 data-i18n="srv2_h"></h3><p data-i18n="srv2_p"></p><div class="service-cell-footer"><button class="contact-trigger" onclick="openPopup(this)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span data-i18n="contact_us"></span></button></div></div>
-      <div class="service-cell"><div class="service-tile"><span style="background:var(--c-amber)"></span><span style="background:var(--c-amber);opacity:.4"></span><span style="background:transparent"></span><span style="background:var(--c-amber)"></span></div><h3 data-i18n="srv3_h"></h3><p data-i18n="srv3_p"></p><div class="service-cell-footer"><button class="contact-trigger" onclick="openPopup(this)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span data-i18n="contact_us"></span></button></div></div>
-      <div class="service-cell"><div class="service-tile"><span style="background:var(--c-red)"></span><span style="background:var(--c-purple)"></span><span style="background:transparent"></span><span style="background:var(--c-blue)"></span></div><h3 data-i18n="srv4_h"></h3><p data-i18n="srv4_p"></p><div class="service-cell-footer"><button class="contact-trigger" onclick="openPopup(this)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span data-i18n="contact_us"></span></button></div></div>
+
+    <!-- Packages section header -->
+    <div class="packages-header">
+      <h3 class="packages-title" data-i18n="packages_h"></h3>
+      <p class="packages-sub" data-i18n="packages_sub"></p>
     </div>
+
+    <!-- Packages Carousel -->
+    <div class="packages-wrapper">
+      <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="packages-carousel" id="packagesCarousel">
+        <!-- WEBSITE -->
+        <div class="package-card pkg-website">
+          <div class="pkg-color-strip" style="background:linear-gradient(90deg,var(--c-amber),var(--c-red))"></div>
+          <div class="pkg-head">
+            <h3 class="pkg-name">Website</h3>
+            <p class="pkg-tagline" data-i18n="pkg_website_tagline"></p>
+          </div>
+          <div class="pkg-price">
+            <span class="pkg-price-from" data-i18n="pkg_from"></span>
+            <span class="pkg-price-num">300 €</span>
+          </div>
+          <p class="pkg-desc" data-i18n="pkg_website_desc"></p>
+          <button class="pkg-btn" onclick="openPopup(this)"><span data-i18n="pkg_choose"></span></button>
+          <div class="pkg-divider"></div>
+          <div class="pkg-features-title" data-i18n="pkg_includes"></div>
+          <ul class="pkg-features">
+            <li data-i18n="pkg_website_f1"></li>
+            <li data-i18n="pkg_website_f2"></li>
+            <li data-i18n="pkg_website_f3"></li>
+            <li data-i18n="pkg_website_f4"></li>
+            <li data-i18n="pkg_website_f5"></li>
+          </ul>
+          <p class="pkg-fine" data-i18n="pkg_website_fine"></p>
+        </div>
+
+        <!-- START -->
+        <div class="package-card pkg-start">
+          <div class="pkg-color-strip" style="background:linear-gradient(90deg,var(--c-teal),var(--c-blue))"></div>
+          <div class="pkg-head">
+            <h3 class="pkg-name">START</h3>
+            <p class="pkg-tagline" data-i18n="pkg_start_tagline"></p>
+          </div>
+          <div class="pkg-price">
+            <span class="pkg-price-from" data-i18n="pkg_from"></span>
+            <span class="pkg-price-num">5 000 €</span>
+          </div>
+          <p class="pkg-desc" data-i18n="pkg_start_desc"></p>
+          <button class="pkg-btn" onclick="openPopup(this)"><span data-i18n="pkg_choose"></span></button>
+          <div class="pkg-divider"></div>
+          <div class="pkg-features-title" data-i18n="pkg_includes"></div>
+          <ul class="pkg-features">
+            <li data-i18n="pkg_start_f1"></li>
+            <li data-i18n="pkg_start_f2"></li>
+            <li data-i18n="pkg_start_f3"></li>
+            <li data-i18n="pkg_start_f4"></li>
+            <li data-i18n="pkg_start_f5"></li>
+            <li data-i18n="pkg_start_f6"></li>
+            <li data-i18n="pkg_start_f7"></li>
+          </ul>
+          <p class="pkg-deadline"><span data-i18n="pkg_deadline"></span>: <strong data-i18n="pkg_start_deadline"></strong></p>
+        </div>
+
+        <!-- BUSINESS (Featured) -->
+        <div class="package-card pkg-business pkg-featured">
+          <div class="pkg-badge" data-i18n="pkg_popular"></div>
+          <div class="pkg-color-strip" style="background:linear-gradient(90deg,var(--c-blue),var(--c-purple))"></div>
+          <div class="pkg-head">
+            <h3 class="pkg-name">BUSINESS</h3>
+            <p class="pkg-tagline" data-i18n="pkg_business_tagline"></p>
+          </div>
+          <div class="pkg-price">
+            <span class="pkg-price-from" data-i18n="pkg_from"></span>
+            <span class="pkg-price-num">7 500 €</span>
+          </div>
+          <p class="pkg-desc" data-i18n="pkg_business_desc"></p>
+          <button class="pkg-btn pkg-btn-primary" onclick="openPopup(this)"><span data-i18n="pkg_choose"></span></button>
+          <div class="pkg-divider"></div>
+          <div class="pkg-features-title" data-i18n="pkg_includes"></div>
+          <ul class="pkg-features">
+            <li data-i18n="pkg_business_f1"></li>
+            <li data-i18n="pkg_business_f2"></li>
+            <li data-i18n="pkg_business_f3"></li>
+            <li data-i18n="pkg_business_f4"></li>
+            <li data-i18n="pkg_business_f5"></li>
+            <li data-i18n="pkg_business_f6"></li>
+            <li data-i18n="pkg_business_f7"></li>
+            <li data-i18n="pkg_business_f8"></li>
+            <li data-i18n="pkg_business_f9"></li>
+          </ul>
+          <p class="pkg-deadline"><span data-i18n="pkg_deadline"></span>: <strong data-i18n="pkg_business_deadline"></strong></p>
+        </div>
+
+        <!-- PRO -->
+        <div class="package-card pkg-pro">
+          <div class="pkg-color-strip" style="background:linear-gradient(90deg,var(--c-purple),var(--c-red))"></div>
+          <div class="pkg-head">
+            <h3 class="pkg-name">PRO</h3>
+            <p class="pkg-tagline" data-i18n="pkg_pro_tagline"></p>
+          </div>
+          <div class="pkg-price">
+            <span class="pkg-price-from" data-i18n="pkg_from"></span>
+            <span class="pkg-price-num">11 000 €</span>
+          </div>
+          <p class="pkg-desc" data-i18n="pkg_pro_desc"></p>
+          <button class="pkg-btn" onclick="openPopup(this)"><span data-i18n="pkg_choose"></span></button>
+          <div class="pkg-divider"></div>
+          <div class="pkg-features-title" data-i18n="pkg_includes"></div>
+          <ul class="pkg-features">
+            <li data-i18n="pkg_pro_f1"></li>
+            <li data-i18n="pkg_pro_f2"></li>
+            <li data-i18n="pkg_pro_f3"></li>
+            <li data-i18n="pkg_pro_f4"></li>
+            <li data-i18n="pkg_pro_f5"></li>
+            <li data-i18n="pkg_pro_f6"></li>
+            <li data-i18n="pkg_pro_f7"></li>
+            <li data-i18n="pkg_pro_f8"></li>
+            <li data-i18n="pkg_pro_f9"></li>
+          </ul>
+          <p class="pkg-deadline"><span data-i18n="pkg_deadline"></span>: <strong data-i18n="pkg_pro_deadline"></strong></p>
+        </div>
+      </div>
+      <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="packages-dots" id="packagesDots"></div>
   </div>
 </section>
 
@@ -705,7 +947,9 @@ footer p { font-size:.8rem; color:var(--slate); }
   <div class="footer-right">
     <a href="https://www.instagram.com/tynkstudio.dev/" target="_blank" class="social-btn sb-instagram" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
     <a href="https://www.tiktok.com/@tynkstudio" target="_blank" class="social-btn sb-tiktok" title="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-    <a href="mailto:tynkstudio@gmail.com" class="social-btn sb-email" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    <a href="https://t.me/tynkstudio" target="_blank" class="social-btn sb-telegram" title="Telegram"><svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+    <a href="https://wa.me/tynkstudio" target="_blank" class="social-btn sb-whatsapp" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <a href="mailto:infotynkstudio@gmail.com" class="social-btn sb-email" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
   </div>
 </footer>
 
@@ -803,12 +1047,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ── TRANSLATIONS ──
 const T = {
-  ru:{nav_about:"О нас",nav_expertise:"Экспертиза",nav_services:"Услуги",nav_apps:"Приложения",nav_contact:"Связаться",hero_h1:"Решаем задачи бизнеса<br><em>через технологии</em>",hero_p:"Делаем собственные приложения и разрабатываем на заказ. Беремся за сложное — потому что прошли этот путь сами и знаем, как найти решение там, где другие разводят руками.",hero_btn1:"Наши приложения",hero_btn2:"Обсудить проект",stat1:"Проектов в портфолио",stat2:"Лет на рынке",stat3:"Платформы",trust1_h:"Своя команда — без посредников",trust1_p:"Дизайн, разработка, продукт — всё делают наши люди. Никаких агентских цепочек и субподрядчиков. Вы работаете напрямую с теми, кто создаёт продукт, и именно мы несём ответственность за каждый результат.",trust2_h:"Честная цена без накруток",trust2_p:"Мы выстроили процессы так, чтобы между задачей и решением было как можно меньше лишнего. Никаких агентских наценок и скрытых издержек — вы платите за реальную экспертизу.",trust3_h:"Знаем изнутри — не по книгам",trust3_p:"Мы сами прошли большой путь в управлении и построении процессов — в роли бизнеса, который искал решения. Этот опыт даёт понимание, которое не купишь на курсах.",about_h:"Небольшая команда.<br><em>Большая экспертиза.</em>",about_p1:"Tynk — продуктовая студия с историей. Прежде чем строить продукты для других, мы сами прошли через управление командами, выстраивание процессов и поиск технологических решений для реального бизнеса.",about_p2:"Этот опыт изнутри — наше главное отличие. Мы понимаем задачу не только как разработчики, но и как люди, которые сами сталкивались с теми же проблемами.",about_p3:"Делаем собственные приложения и берёмся за заказные проекты любой сложности — от MVP для стартапа до корпоративного ПО.",about_card_title:"Полный цикл разработки",about_card_sub:"от идеи до релиза — всё внутри команды",about_card_p:"От первого прототипа до публикации в App Store и Google Play. Мы не передаём задачи на сторону — команда, которая проектирует, та же, что и реализует.",exp_h:"В чём мы сильны",exp_sub:"Не пытаемся делать всё подряд. Работаем в том, где по-настоящему сильны — и именно это приносит результат.",exp1_h:"Mobile Development",exp1_p:"Нативная разработка под iOS и Android. Swift, Kotlin, React Native — выбираем технологию под задачу, а не под моду.",exp2_h:"Product Design",exp2_p:"UX-исследования, прототипирование, UI. Делаем интерфейсы, которыми хочется пользоваться — не только красивые, но и понятные.",exp3_h:"Web Applications",exp3_p:"Веб-приложения, SPA, административные панели и кастомные CRM. React, Next.js — выбираем то, что решает задачу.",exp4_h:"MVP и быстрый запуск",exp4_p:"Умеем запускать быстро и по делу. Помогаем стартапам выйти на рынок с работающим продуктом — без перфекционизма, но с умом.",exp5_h:"Бизнес-процессы и эффективность",exp5_p:"Находим узкие места, выстраиваем прозрачные и измеримые процессы, предлагаем конкретные решения.",exp6_h:"Корпоративный софт",exp6_p:"Инструменты для бизнеса: автоматизация, внутренние системы, интеграции. Делаем сложное — простым и рабочим.",srv_h:"Что мы делаем на заказ",srv_sub:"Мобильные приложения — наша сила, но мы не ограничиваемся ими.",srv0_badge:"Популярно",srv0_h:"Сайт-визитка под ключ",srv0_p:"Одностраничный сайт для вашего бизнеса — дизайн, разработка и размещение. Быстро, чисто, без лишнего.",srv0_fine:"Не включает: регистрацию аккаунтов, личные кабинеты, интернет-магазин. Нужен более сложный функционал? Обсудим индивидуально — цены по запросу.",price_from:"от",price_note:"+ домен отдельно",srv1_h:"Мобильные приложения",srv1_p:"iOS и Android — нативно или кроссплатформа. Выбираем подход под задачу и бюджет.",srv2_h:"Веб-приложения и сервисы",srv2_p:"Онлайн-платформы, личные кабинеты, административные панели. Всё, что должно работать в браузере.",srv3_h:"Корпоративное ПО",srv3_p:"CRM, ERP-модули, системы учёта и автоматизации. Инструменты, которые упрощают работу команды.",srv4_h:"MVP и прототипы",srv4_p:"Запускаем рабочий продукт в сжатые сроки. Помогаем проверить гипотезу и выйти к инвесторам.",contact_us:"Написать нам",apps_h:"Приложения,<br>которые мы сделали",apps_sub:"Собственные продукты — лучшее доказательство.",app1_p:"AI-астрология, ежедневный гороскоп и натальная карта. Умный помощник для тех, кто живёт по звёздам.",app2_h:"Новое приложение",app2_p:"Следите за обновлениями — скоро расскажем.",app3_h:"Веб-проект",app3_p:"Следите за обновлениями — скоро расскажем.",coming_soon:"Скоро",gplay_top:"Скачать в",cta_tag:"Работать с нами",cta_h:"Есть задача?<br><em>Давайте решим.</em>",cta_p:"Расскажите, что происходит в вашем бизнесе. Мы не просто выслушаем — мы найдём максимально эффективное и доступное решение для вашей ситуации. Без воды, без лишних шагов.",cta_btn1:"Написать нам",footer:"© 2026 Tynk Studio — Все права защищены"},
-  en:{nav_about:"About",nav_expertise:"Expertise",nav_services:"Services",nav_apps:"Apps",nav_contact:"Contact",hero_h1:"We solve business problems<br><em>through technology</em>",hero_p:"We build our own apps and develop custom solutions. We take on the complex — because we've walked this path ourselves and know how to find answers where others give up.",hero_btn1:"Our apps",hero_btn2:"Discuss a project",stat1:"Projects in portfolio",stat2:"Years on the market",stat3:"Platforms",trust1_h:"Our own team — no middlemen",trust1_p:"Design, development, product — all done by our people. No agency chains, no subcontractors. You work directly with those who build the product.",trust2_h:"Fair pricing, no markups",trust2_p:"We've built our processes to keep as little friction as possible. No agency fees or hidden costs — you pay for real expertise.",trust3_h:"We know from the inside",trust3_p:"We've gone through the journey of managing teams and building processes — as a business searching for solutions. That hands-on experience gives us an understanding no classroom can provide.",about_h:"A small team.<br><em>Deep expertise.</em>",about_p1:"Tynk is a product studio with a story. Before building products for others, we went through team management, process design, and finding tech solutions for real businesses.",about_p2:"This inside perspective is what sets us apart. We understand your challenge not just as developers, but as people who've faced the same problems.",about_p3:"We build our own apps and take on custom projects of any complexity — from startup MVPs to enterprise software.",about_card_title:"Full-cycle development",about_card_sub:"from idea to release — all in-house",about_card_p:"From the first prototype to publishing on App Store and Google Play. We don't outsource — the team that designs is the team that builds.",exp_h:"Where we excel",exp_sub:"We don't try to do everything. We work where we're truly strong — and that's what delivers results.",exp1_h:"Mobile Development",exp1_p:"Native iOS and Android development. Swift, Kotlin, React Native — we pick the right technology for the job, not the trend.",exp2_h:"Product Design",exp2_p:"UX research, prototyping, UI design. Interfaces people actually want to use — not just beautiful, but intuitive.",exp3_h:"Web Applications",exp3_p:"Web apps, SPAs, admin panels, custom CRMs. React, Next.js — we choose what solves the problem.",exp4_h:"MVP & fast launch",exp4_p:"We know how to ship fast and smart. We help startups get to market with a working product — practical, not perfect.",exp5_h:"Business processes & efficiency",exp5_p:"We find bottlenecks, build transparent and measurable processes, and propose specific solutions.",exp6_h:"Enterprise software",exp6_p:"Business tools: automation, internal systems, integrations. We make the complex simple and functional.",srv_h:"What we build on demand",srv_sub:"Mobile apps are our strength, but we don't stop there.",srv0_badge:"Popular",srv0_h:"One-page website, turnkey",srv0_p:"A single-page site for your business — design, development and hosting included. Fast, clean, no fluff.",srv0_fine:"Does not include: user accounts, personal dashboards, online store or e-commerce. Need more? Let's talk — pricing on request.",price_from:"from",price_note:"+ domain separately",srv1_h:"Mobile applications",srv1_p:"iOS and Android — native or cross-platform. We choose the approach based on the task and budget.",srv2_h:"Web apps & services",srv2_p:"Online platforms, dashboards, admin panels. Everything that needs to work in a browser — fast and easy.",srv3_h:"Enterprise software",srv3_p:"CRM, ERP modules, tracking and automation systems. Tools that genuinely simplify your team's work.",srv4_h:"MVP & prototypes",srv4_p:"We launch working products fast. We help you validate your hypothesis and show investors something real.",contact_us:"Contact us",apps_h:"Apps<br>we've built",apps_sub:"Our own products are the best proof.",app1_p:"AI astrology, daily horoscope and natal chart. A smart companion for those who live by the stars.",app2_h:"New app",app2_p:"Stay tuned — we'll share more soon.",app3_h:"Web project",app3_p:"Stay tuned — we'll share more soon.",coming_soon:"Coming soon",gplay_top:"Get it on",cta_tag:"Work with us",cta_h:"Got a challenge?<br><em>Let's solve it.</em>",cta_p:"Tell us what's going on in your business. We won't just listen — we'll find the most effective and affordable solution for your specific situation. No fluff, no extra steps.",cta_btn1:"Write to us",footer:"© 2026 Tynk Studio — All rights reserved"},
-  de:{nav_about:"Über uns",nav_expertise:"Expertise",nav_services:"Leistungen",nav_apps:"Apps",nav_contact:"Kontakt",hero_h1:"Wir lösen Business-Probleme<br><em>durch Technologie</em>",hero_p:"Wir entwickeln eigene Apps und individuelle Software. Wir nehmen komplexe Aufgaben an — weil wir diesen Weg selbst gegangen sind.",hero_btn1:"Unsere Apps",hero_btn2:"Projekt besprechen",stat1:"Projekte im Portfolio",stat2:"Jahre am Markt",stat3:"Plattformen",trust1_h:"Eigenes Team — keine Mittelsmänner",trust1_p:"Design, Entwicklung, Produkt — alles von unseren Leuten. Keine Agenturen, keine Subunternehmer.",trust2_h:"Faire Preise ohne Aufschläge",trust2_p:"Wir haben unsere Prozesse so aufgebaut, dass zwischen Problem und Lösung so wenig Reibung wie möglich entsteht.",trust3_h:"Wir kennen es von innen",trust3_p:"Wir haben selbst den Weg des Managements und Prozessaufbaus durchlaufen. Diese Erfahrung gibt uns ein Verständnis, das man nicht in Kursen lernt.",about_h:"Kleines Team.<br><em>Große Expertise.</em>",about_p1:"Tynk ist ein Produktstudio mit Geschichte. Bevor wir Produkte für andere bauten, haben wir selbst Teams geführt und Prozesse gestaltet.",about_p2:"Diese Innenperspektive ist unser entscheidender Vorteil. Wir verstehen Ihre Aufgabe nicht nur als Entwickler.",about_p3:"Wir entwickeln eigene Apps und nehmen Auftragsarbeiten jeder Komplexität an.",about_card_title:"Full-Cycle-Entwicklung",about_card_sub:"von der Idee bis zum Release — alles inhouse",about_card_p:"Vom ersten Prototyp bis zur Veröffentlichung. Wir lagern nichts aus — das Team, das entwirft, setzt auch um.",exp_h:"Unsere Stärken",exp_sub:"Wir versuchen nicht, alles zu machen. Wir arbeiten dort, wo wir wirklich stark sind.",exp1_h:"Mobile Development",exp1_p:"Native iOS- und Android-Entwicklung. Swift, Kotlin, React Native — wir wählen die Technologie nach Aufgabe.",exp2_h:"Product Design",exp2_p:"UX-Forschung, Prototyping, UI-Design. Interfaces, die man wirklich nutzen möchte.",exp3_h:"Web Applications",exp3_p:"Web-Apps, SPAs, Admin-Panels, individuelle CRMs. React, Next.js — wir wählen, was das Problem löst.",exp4_h:"MVP & schneller Launch",exp4_p:"Wir können schnell und klug liefern. Wir helfen Startups mit einem funktionierenden Produkt auf den Markt.",exp5_h:"Geschäftsprozesse & Effizienz",exp5_p:"Wir finden Engpässe, bauen transparente Prozesse auf und schlagen konkrete Lösungen vor.",exp6_h:"Unternehmenssoftware",exp6_p:"Business-Tools: Automatisierung, interne Systeme, Integrationen.",srv_h:"Was wir auf Anfrage bauen",srv_sub:"Mobile Apps sind unsere Stärke, aber wir hören nicht dabei auf.",srv0_badge:"Beliebt",srv0_h:"Visitenkarten-Website, schlüsselfertig",srv0_p:"Eine einseitige Website für Ihr Unternehmen — Design, Entwicklung und Hosting inklusive.",srv0_fine:"Nicht enthalten: Benutzerkonten, persönliche Dashboards, Online-Shop. Benötigen Sie mehr? Sprechen Sie uns an.",price_from:"ab",price_note:"+ Domain separat",srv1_h:"Mobile Anwendungen",srv1_p:"iOS und Android — nativ oder plattformübergreifend.",srv2_h:"Web-Apps & Services",srv2_p:"Online-Plattformen, Dashboards, Admin-Panels.",srv3_h:"Unternehmenssoftware",srv3_p:"CRM, ERP-Module, Tracking- und Automatisierungssysteme.",srv4_h:"MVP & Prototypen",srv4_p:"Wir launchen schnell funktionierende Produkte und helfen Ihre Hypothese zu validieren.",contact_us:"Kontaktieren",apps_h:"Apps,<br>die wir gebaut haben",apps_sub:"Eigene Produkte sind der beste Beweis.",app1_p:"KI-Astrologie, tägliches Horoskop und Geburtshoroskop. Der smarte Begleiter für alle, die nach den Sternen leben.",app2_h:"Neue App",app2_p:"Bleiben Sie dran — wir berichten bald.",app3_h:"Web-Projekt",app3_p:"Bleiben Sie dran — wir berichten bald.",coming_soon:"Demnächst",gplay_top:"Jetzt bei",cta_tag:"Mit uns arbeiten",cta_h:"Haben Sie eine Aufgabe?<br><em>Lassen Sie uns lösen.</em>",cta_p:"Erzählen Sie uns, was in Ihrem Unternehmen passiert. Wir finden die effektivste Lösung für Ihre Situation.",cta_btn1:"Schreiben Sie uns",footer:"© 2026 Tynk Studio — Alle Rechte vorbehalten"},
-  fr:{nav_about:"À propos",nav_expertise:"Expertise",nav_services:"Services",nav_apps:"Applications",nav_contact:"Contact",hero_h1:"Nous résolvons les défis business<br><em>grâce à la technologie</em>",hero_p:"Nous créons nos propres applications et développons des solutions sur mesure. Nous relevons les défis complexes — car nous avons parcouru ce chemin nous-mêmes.",hero_btn1:"Nos applications",hero_btn2:"Discuter d'un projet",stat1:"Projets en portfolio",stat2:"Ans sur le marché",stat3:"Plateformes",trust1_h:"Notre équipe — sans intermédiaires",trust1_p:"Design, développement, produit — tout réalisé par nos collaborateurs. Aucune chaîne d'agences, aucun sous-traitant.",trust2_h:"Prix juste, sans surcoûts",trust2_p:"Nous avons structuré nos processus pour minimiser les frictions. Pas de marges d'agence ni de coûts cachés.",trust3_h:"Nous connaissons de l'intérieur",trust3_p:"Nous avons nous-mêmes traversé le chemin du management et de la construction de processus.",about_h:"Une petite équipe.<br><em>Une grande expertise.</em>",about_p1:"Tynk est un studio produit avec une histoire. Avant de créer des produits pour d'autres, nous avons géré des équipes et conçu des processus.",about_p2:"Cette perspective de l'intérieur est notre différence essentielle. Nous comprenons votre défi comme des personnes ayant vécu les mêmes problèmes.",about_p3:"Nous créons nos propres applications et prenons en charge des projets sur mesure de toute complexité.",about_card_title:"Développement cycle complet",about_card_sub:"de l'idée au lancement — tout en interne",about_card_p:"Du premier prototype à la publication. Nous n'externalisons rien — l'équipe qui conçoit est celle qui réalise.",exp_h:"Nos points forts",exp_sub:"Nous ne prétendons pas tout faire. Nous travaillons là où nous sommes vraiment forts.",exp1_h:"Mobile Development",exp1_p:"Développement natif iOS et Android. Swift, Kotlin, React Native — nous choisissons selon le besoin.",exp2_h:"Product Design",exp2_p:"Recherche UX, prototypage, UI design. Des interfaces qu'on a envie d'utiliser.",exp3_h:"Web Applications",exp3_p:"Applications web, SPA, tableaux de bord, CRM personnalisés.",exp4_h:"MVP & lancement rapide",exp4_p:"Nous savons livrer vite et intelligemment. Nous aidons les startups à aller sur le marché.",exp5_h:"Processus & efficacité",exp5_p:"Nous identifions les goulots d'étranglement et construisons des processus transparents.",exp6_h:"Logiciel d'entreprise",exp6_p:"Outils métier : automatisation, systèmes internes, intégrations.",srv_h:"Ce que nous développons",srv_sub:"Les applications mobiles sont notre force, mais nous ne nous y limitons pas.",srv0_badge:"Populaire",srv0_h:"Site vitrine clé en main",srv0_p:"Un site une page pour votre entreprise — design, développement et hébergement inclus.",srv0_fine:"Non inclus : comptes utilisateurs, espaces personnels, boutique en ligne. Besoin de plus ? Contactez-nous.",price_from:"à partir de",price_note:"+ domaine séparé",srv1_h:"Applications mobiles",srv1_p:"iOS et Android — natif ou multiplateforme.",srv2_h:"Applications web & services",srv2_p:"Plateformes en ligne, espaces personnels, tableaux de bord.",srv3_h:"Logiciel d'entreprise",srv3_p:"CRM, modules ERP, systèmes de gestion et d'automatisation.",srv4_h:"MVP & prototypes",srv4_p:"Nous lançons des produits fonctionnels rapidement pour valider vos hypothèses.",contact_us:"Nous contacter",apps_h:"Applications<br>que nous avons créées",apps_sub:"Nos propres produits sont la meilleure preuve.",app1_p:"Astrologie IA, horoscope quotidien et thème natal. L'assistant malin pour ceux qui vivent selon les étoiles.",app2_h:"Nouvelle application",app2_p:"Restez connectés — nous partagerons bientôt.",app3_h:"Projet web",app3_p:"Restez connectés — nous partagerons bientôt.",coming_soon:"Bientôt",gplay_top:"Disponible sur",cta_tag:"Travaillez avec nous",cta_h:"Vous avez un défi?<br><em>Résolvons-le.</em>",cta_p:"Parlez-nous de votre situation. Nous allons trouver la solution la plus efficace et accessible pour votre contexte.",cta_btn1:"Écrivez-nous",footer:"© 2026 Tynk Studio — Tous droits réservés"},
-  es:{nav_about:"Nosotros",nav_expertise:"Expertise",nav_services:"Servicios",nav_apps:"Aplicaciones",nav_contact:"Contacto",hero_h1:"Resolvemos desafíos de negocio<br><em>a través de la tecnología</em>",hero_p:"Creamos nuestras propias aplicaciones y desarrollamos soluciones a medida. Nos enfrentamos a lo complejo — porque hemos recorrido este camino nosotros mismos.",hero_btn1:"Nuestras apps",hero_btn2:"Hablar de un proyecto",stat1:"Proyectos en portfolio",stat2:"Años en el mercado",stat3:"Plataformas",trust1_h:"Equipo propio — sin intermediarios",trust1_p:"Diseño, desarrollo, producto — todo lo hacen nuestras personas. Sin agencias ni subcontratistas.",trust2_h:"Precio justo sin sobrecargos",trust2_p:"Hemos construido nuestros procesos para reducir al mínimo la fricción. Sin márgenes de agencia ni costes ocultos.",trust3_h:"Lo conocemos desde dentro",trust3_p:"Nosotros mismos hemos recorrido el camino de la gestión y construcción de procesos.",about_h:"Un equipo pequeño.<br><em>Gran expertise.</em>",about_p1:"Tynk es un estudio de producto con historia. Antes de crear productos para otros, gestionamos equipos y diseñamos procesos.",about_p2:"Esta perspectiva interior es nuestra ventaja clave. Entendemos tu reto como personas que han vivido los mismos problemas.",about_p3:"Creamos nuestras propias aplicaciones y tomamos proyectos a medida de cualquier complejidad.",about_card_title:"Desarrollo ciclo completo",about_card_sub:"de la idea al lanzamiento — todo en casa",about_card_p:"Desde el primer prototipo hasta la publicación. No externalizamos — el equipo que diseña es el que desarrolla.",exp_h:"En qué somos fuertes",exp_sub:"No intentamos hacerlo todo. Trabajamos donde somos verdaderamente fuertes.",exp1_h:"Mobile Development",exp1_p:"Desarrollo nativo para iOS y Android. Swift, Kotlin, React Native — elegimos según la tarea.",exp2_h:"Product Design",exp2_p:"Investigación UX, prototipado, diseño UI. Interfaces que da gusto usar.",exp3_h:"Web Applications",exp3_p:"Apps web, SPAs, paneles de administración, CRMs personalizados.",exp4_h:"MVP y lanzamiento rápido",exp4_p:"Sabemos lanzar rápido y con cabeza. Ayudamos a startups a llegar al mercado.",exp5_h:"Procesos de negocio y eficiencia",exp5_p:"Encontramos cuellos de botella y construimos procesos transparentes y medibles.",exp6_h:"Software empresarial",exp6_p:"Herramientas de negocio: automatización, sistemas internos, integraciones.",srv_h:"Qué desarrollamos a medida",srv_sub:"Las apps móviles son nuestra fortaleza, pero no nos limitamos a ellas.",srv0_badge:"Popular",srv0_h:"Sitio web de presentación, llave en mano",srv0_p:"Un sitio de una página para tu negocio — diseño, desarrollo y alojamiento incluidos.",srv0_fine:"No incluye: cuentas de usuario, paneles personales, tienda online. ¿Necesitas más? Hablamos.",price_from:"desde",price_note:"+ dominio aparte",srv1_h:"Aplicaciones móviles",srv1_p:"iOS y Android — nativo o multiplataforma.",srv2_h:"Apps web y servicios",srv2_p:"Plataformas online, paneles personales, dashboards.",srv3_h:"Software empresarial",srv3_p:"CRM, módulos ERP, sistemas de seguimiento y automatización.",srv4_h:"MVP y prototipos",srv4_p:"Lanzamos productos funcionales en poco tiempo para validar hipótesis.",contact_us:"Contáctanos",apps_h:"Aplicaciones<br>que hemos creado",apps_sub:"Nuestros propios productos son la mejor prueba.",app1_p:"Astrología IA, horóscopo diario y carta natal. El compañero inteligente para quienes viven según las estrellas.",app2_h:"Nueva aplicación",app2_p:"Estén atentos — compartiremos más pronto.",app3_h:"Proyecto web",app3_p:"Estén atentos — compartiremos más pronto.",coming_soon:"Próximamente",gplay_top:"Disponible en",cta_tag:"Trabaja con nosotros",cta_h:"¿Tienes un reto?<br><em>Vamos a resolverlo.</em>",cta_p:"Cuéntanos qué está pasando en tu negocio. Encontraremos la solución más eficaz y accesible para tu situación.",cta_btn1:"Escríbenos",footer:"© 2026 Tynk Studio — Todos los derechos reservados"},
-  pt:{nav_about:"Sobre nós",nav_expertise:"Expertise",nav_services:"Serviços",nav_apps:"Aplicações",nav_contact:"Contacto",hero_h1:"Resolvemos desafios de negócio<br><em>através da tecnologia</em>",hero_p:"Criamos as nossas próprias aplicações e desenvolvemos soluções à medida. Abraçamos o complexo — porque percorremos este caminho nós próprios.",hero_btn1:"As nossas apps",hero_btn2:"Falar sobre um projeto",stat1:"Projetos em portfolio",stat2:"Anos no mercado",stat3:"Plataformas",trust1_h:"Equipa própria — sem intermediários",trust1_p:"Design, desenvolvimento, produto — tudo feito pela nossa equipa. Sem agências nem subcontratados.",trust2_h:"Preço justo sem margens ocultas",trust2_p:"Construímos os nossos processos para minimizar o atrito. Sem margens de agência ou custos escondidos.",trust3_h:"Conhecemos por dentro",trust3_p:"Percorremos nós próprios o caminho da gestão e construção de processos.",about_h:"Uma equipa pequena.<br><em>Grande expertise.</em>",about_p1:"A Tynk é um estúdio de produto com história. Antes de criar produtos para outros, gerimos equipas e desenhamos processos.",about_p2:"Esta perspetiva interior é a nossa vantagem essencial. Entendemos o teu desafio como pessoas que viveram os mesmos problemas.",about_p3:"Criamos as nossas próprias aplicações e aceitamos projetos à medida de qualquer complexidade.",about_card_title:"Desenvolvimento ciclo completo",about_card_sub:"da ideia ao lançamento — tudo internamente",about_card_p:"Do primeiro protótipo à publicação. Não externalizamos — a equipa que projeta é a mesma que desenvolve.",exp_h:"Onde somos fortes",exp_sub:"Não tentamos fazer tudo. Trabalhamos onde somos verdadeiramente fortes.",exp1_h:"Mobile Development",exp1_p:"Desenvolvimento nativo iOS e Android. Swift, Kotlin, React Native — escolhemos a tecnologia certa.",exp2_h:"Product Design",exp2_p:"Investigação UX, prototipagem, UI design. Interfaces que se tem vontade de usar.",exp3_h:"Web Applications",exp3_p:"Apps web, SPAs, painéis de administração, CRMs personalizados.",exp4_h:"MVP e lançamento rápido",exp4_p:"Sabemos lançar rápido e com inteligência. Ajudamos startups a chegar ao mercado.",exp5_h:"Processos de negócio e eficiência",exp5_p:"Encontramos pontos de estrangulamento e construímos processos transparentes e mensuráveis.",exp6_h:"Software empresarial",exp6_p:"Ferramentas de negócio: automatização, sistemas internos, integrações.",srv_h:"O que desenvolvemos à medida",srv_sub:"As apps móveis são a nossa força, mas não nos limitamos a elas.",srv0_badge:"Popular",srv0_h:"Site de apresentação, chave na mão",srv0_p:"Um site de uma página para o teu negócio — design, desenvolvimento e alojamento incluídos.",srv0_fine:"Não inclui: contas de utilizador, áreas pessoais, loja online. Precisas de mais? Fala connosco.",price_from:"a partir de",price_note:"+ domínio separado",srv1_h:"Aplicações móveis",srv1_p:"iOS e Android — nativo ou multiplataforma.",srv2_h:"Apps web e serviços",srv2_p:"Plataformas online, áreas pessoais, dashboards.",srv3_h:"Software empresarial",srv3_p:"CRM, módulos ERP, sistemas de rastreamento e automatização.",srv4_h:"MVP e protótipos",srv4_p:"Lançamos produtos funcionais em pouco tempo para validar hipóteses.",contact_us:"Contactar",apps_h:"Aplicações<br>que criámos",apps_sub:"Os nossos próprios produtos são a melhor prova.",app1_p:"Astrologia IA, horóscopo diário e mapa natal. O companheiro inteligente para quem vive pelas estrelas.",app2_h:"Nova aplicação",app2_p:"Fique atento — partilharemos mais em breve.",app3_h:"Projeto web",app3_p:"Fique atento — partilharemos mais em breve.",coming_soon:"Em breve",gplay_top:"Disponível no",cta_tag:"Trabalhe connosco",cta_h:"Tens um desafio?<br><em>Vamos resolvê-lo.</em>",cta_p:"Conta-nos o que está a acontecer no teu negócio. Encontramos a solução mais eficaz e acessível para a tua situação.",cta_btn1:"Escreve-nos",footer:"© 2026 Tynk Studio — Todos os direitos reservados"}
+  ru:{nav_about:"О нас",nav_expertise:"Экспертиза",nav_services:"Услуги",nav_apps:"Приложения",nav_contact:"Связаться",hero_h1:"Решаем задачи бизнеса<br><em>через технологии</em>",hero_p:"Делаем собственные приложения и разрабатываем на заказ. Беремся за сложное — потому что прошли этот путь сами и знаем, как найти решение там, где другие разводят руками.",hero_btn1:"Наши приложения",hero_btn2:"Обсудить проект",stat1:"Проектов в портфолио",stat2:"Лет на рынке",stat3:"Платформы",trust1_h:"Своя команда — без посредников",trust1_p:"Дизайн, разработка, продукт — всё делают наши люди. Никаких агентских цепочек и субподрядчиков. Вы работаете напрямую с теми, кто создаёт продукт, и именно мы несём ответственность за каждый результат.",trust2_h:"Честная цена без накруток",trust2_p:"Мы выстроили процессы так, чтобы между задачей и решением было как можно меньше лишнего. Никаких агентских наценок и скрытых издержек — вы платите за реальную экспертизу.",trust3_h:"Знаем изнутри — не по книгам",trust3_p:"Мы сами прошли большой путь в управлении и построении процессов — в роли бизнеса, который искал решения. Этот опыт даёт понимание, которое не купишь на курсах.",about_h:"Небольшая команда.<br><em>Большая экспертиза.</em>",about_p1:"Tynk — продуктовая студия с историей. Прежде чем строить продукты для других, мы сами прошли через управление командами, выстраивание процессов и поиск технологических решений для реального бизнеса.",about_p2:"Этот опыт изнутри — наше главное отличие. Мы понимаем задачу не только как разработчики, но и как люди, которые сами сталкивались с теми же проблемами.",about_p3:"Делаем собственные приложения и берёмся за заказные проекты любой сложности — от MVP для стартапа до корпоративного ПО.",about_card_title:"Полный цикл разработки",about_card_sub:"от идеи до релиза — всё внутри команды",about_card_p:"От первого прототипа до публикации в App Store и Google Play. Мы не передаём задачи на сторону — команда, которая проектирует, та же, что и реализует.",exp_h:"В чём мы сильны",exp_sub:"Не пытаемся делать всё подряд. Работаем в том, где по-настоящему сильны — и именно это приносит результат.",exp1_h:"Мобильная разработка",exp1_p:"Нативная разработка под iOS и Android. Swift, Kotlin, React Native — выбираем технологию под задачу, а не под моду.",exp2_h:"Продуктовый дизайн",exp2_p:"UX-исследования, прототипирование, UI. Делаем интерфейсы, которыми хочется пользоваться — не только красивые, но и понятные.",exp3_h:"Веб-приложения",exp3_p:"Веб-приложения, SPA, административные панели и кастомные CRM. React, Next.js — выбираем то, что решает задачу.",exp4_h:"MVP и быстрый запуск",exp4_p:"Умеем запускать быстро и по делу. Помогаем стартапам выйти на рынок с работающим продуктом — без перфекционизма, но с умом.",exp5_h:"Бизнес-процессы",exp5_p:"Находим узкие места, выстраиваем прозрачные и измеримые процессы, предлагаем конкретные решения.",exp6_h:"Корпоративный софт",exp6_p:"Инструменты для бизнеса: автоматизация, внутренние системы, интеграции. Делаем сложное — простым и рабочим.",srv_h:"Что мы делаем на заказ",srv_sub:"Мобильные приложения — наша сила, но мы не ограничиваемся ими.",srv0_badge:"Популярно",srv0_h:"Сайт-визитка под ключ",srv0_p:"Одностраничный сайт для вашего бизнеса — дизайн, разработка и размещение. Быстро, чисто, без лишнего.",srv0_fine:"Не включает: регистрацию аккаунтов, личные кабинеты, интернет-магазин. Нужен более сложный функционал? Обсудим индивидуально — цены по запросу.",price_from:"от",price_note:"+ домен отдельно",srv1_h:"Мобильные приложения",srv1_p:"iOS и Android — нативно или кроссплатформа. Выбираем подход под задачу и бюджет.",srv2_h:"Веб-приложения и сервисы",srv2_p:"Онлайн-платформы, личные кабинеты, административные панели. Всё, что должно работать в браузере.",srv3_h:"Корпоративное ПО",srv3_p:"CRM, ERP-модули, системы учёта и автоматизации. Инструменты, которые упрощают работу команды.",srv4_h:"MVP и прототипы",srv4_p:"Запускаем рабочий продукт в сжатые сроки. Помогаем проверить гипотезу и выйти к инвесторам.",contact_us:"Написать нам",apps_h:"Приложения,<br>которые мы сделали",apps_sub:"Собственные продукты — лучшее доказательство.",app1_p:"AI-астрология, ежедневный гороскоп и натальная карта. Умный помощник для тех, кто живёт по звёздам.",app2_h:"Новое приложение",app2_p:"Следите за обновлениями — скоро расскажем.",app3_h:"Веб-проект",app3_p:"Следите за обновлениями — скоро расскажем.",coming_soon:"Скоро",gplay_top:"Скачать в",cta_tag:"Работать с нами",cta_h:"Есть задача?<br><em>Давайте решим.</em>",cta_p:"Расскажите, что происходит в вашем бизнесе. Мы не просто выслушаем — мы найдём максимально эффективное и доступное решение для вашей ситуации. Без воды, без лишних шагов.",cta_btn1:"Написать нам",footer:"© 2026 Tynk Studio — Все права защищены",srv1_p_short:"iOS, Android — нативно или кроссплатформа.",srv2_p_short:"Онлайн-платформы, кабинеты, админки.",srv3_p_short:"CRM, ERP, системы автоматизации.",srv4_p_short:"Рабочие продукты для проверки гипотез.",packages_h:"Готовые пакеты",packages_sub:"Выбирайте подходящий — фикс-цена, фикс-сроки, без сюрпризов.",pkg_from:"от",pkg_choose:"Выбрать",pkg_includes:"Что входит",pkg_popular:"Самый популярный",pkg_deadline:"Срок",pkg_website_tagline:"Чистая визитка для бизнеса",pkg_website_desc:"Одностраничный сайт — дизайн, разработка и размещение.",pkg_website_f1:"Кастомный дизайн",pkg_website_f2:"Адаптация под мобильные",pkg_website_f3:"Хостинг и размещение",pkg_website_f4:"SEO базовое",pkg_website_f5:"1 раунд правок",pkg_website_fine:"Домен оплачивается отдельно. Без личных кабинетов и интернет-магазина.",pkg_start_tagline:"Быстрый запуск MVP",pkg_start_desc:"MVP за 3–4 недели для проверки идеи на реальных пользователях.",pkg_start_f1:"4–5 экранов приложения",pkg_start_f2:"Упрощённый UX flow",pkg_start_f3:"UI дизайн",pkg_start_f4:"Flutter (iOS или Android)",pkg_start_f5:"Firebase (auth + база)",pkg_start_f6:"Базовый QA",pkg_start_f7:"1 итерация правок",pkg_start_deadline:"3–4 недели",pkg_business_tagline:"Полноценный продукт для рынка",pkg_business_desc:"Полноценное приложение для выхода на рынок — для серьёзных продуктов.",pkg_business_f1:"6–10 экранов",pkg_business_f2:"Полноценный UX user flow",pkg_business_f3:"Кастомный UI дизайн",pkg_business_f4:"Flutter (iOS + Android)",pkg_business_f5:"API интеграции",pkg_business_f6:"Авторизация + бизнес-логика",pkg_business_f7:"Полное QA тестирование",pkg_business_f8:"2 итерации правок",pkg_business_f9:"Публикация в App Store + Google Play",pkg_business_deadline:"5–8 недель",pkg_pro_tagline:"Готов к инвесторам и масштабу",pkg_pro_desc:"Startup-ready продукт для инвесторов, масштабирования и сложных сценариев.",pkg_pro_f1:"10–18 экранов",pkg_pro_f2:"CJM (карта пути пользователя)",pkg_pro_f3:"Сложные сценарии",pkg_pro_f4:"Масштабируемая архитектура",pkg_pro_f5:"Продвинутый UI",pkg_pro_f6:"API интеграции",pkg_pro_f7:"QA + регрессионное тестирование",pkg_pro_f8:"3 итерации правок",pkg_pro_f9:"2 недели поддержки после релиза",pkg_pro_deadline:"8–12 недель"},
+  en:{nav_about:"About",nav_expertise:"Expertise",nav_services:"Services",nav_apps:"Apps",nav_contact:"Contact",hero_h1:"We solve business problems<br><em>through technology</em>",hero_p:"We build our own apps and develop custom solutions. We take on the complex — because we've walked this path ourselves and know how to find answers where others give up.",hero_btn1:"Our apps",hero_btn2:"Discuss a project",stat1:"Projects in portfolio",stat2:"Years on the market",stat3:"Platforms",trust1_h:"Our own team — no middlemen",trust1_p:"Design, development, product — all done by our people. No agency chains, no subcontractors. You work directly with those who build the product.",trust2_h:"Fair pricing, no markups",trust2_p:"We've built our processes to keep as little friction as possible. No agency fees or hidden costs — you pay for real expertise.",trust3_h:"We know from the inside",trust3_p:"We've gone through the journey of managing teams and building processes — as a business searching for solutions. That hands-on experience gives us an understanding no classroom can provide.",about_h:"A small team.<br><em>Deep expertise.</em>",about_p1:"Tynk is a product studio with a story. Before building products for others, we went through team management, process design, and finding tech solutions for real businesses.",about_p2:"This inside perspective is what sets us apart. We understand your challenge not just as developers, but as people who've faced the same problems.",about_p3:"We build our own apps and take on custom projects of any complexity — from startup MVPs to enterprise software.",about_card_title:"Full-cycle development",about_card_sub:"from idea to release — all in-house",about_card_p:"From the first prototype to publishing on App Store and Google Play. We don't outsource — the team that designs is the team that builds.",exp_h:"Where we excel",exp_sub:"We don't try to do everything. We work where we're truly strong — and that's what delivers results.",exp1_h:"Mobile Development",exp1_p:"Native iOS and Android development. Swift, Kotlin, React Native — we pick the right technology for the job, not the trend.",exp2_h:"Product Design",exp2_p:"UX research, prototyping, UI design. Interfaces people actually want to use — not just beautiful, but intuitive.",exp3_h:"Web Applications",exp3_p:"Web apps, SPAs, admin panels, custom CRMs. React, Next.js — we choose what solves the problem.",exp4_h:"MVP & Fast Launch",exp4_p:"We know how to ship fast and smart. We help startups get to market with a working product — practical, not perfect.",exp5_h:"Business Processes",exp5_p:"We find bottlenecks, build transparent and measurable processes, and propose specific solutions.",exp6_h:"Enterprise Software",exp6_p:"Business tools: automation, internal systems, integrations. We make the complex simple and functional.",srv_h:"What we build on demand",srv_sub:"Mobile apps are our strength, but we don't stop there.",srv0_badge:"Popular",srv0_h:"One-page website, turnkey",srv0_p:"A single-page site for your business — design, development and hosting included. Fast, clean, no fluff.",srv0_fine:"Does not include: user accounts, personal dashboards, online store or e-commerce. Need more? Let's talk — pricing on request.",price_from:"from",price_note:"+ domain separately",srv1_h:"Mobile applications",srv1_p:"iOS and Android — native or cross-platform. We choose the approach based on the task and budget.",srv2_h:"Web apps & services",srv2_p:"Online platforms, dashboards, admin panels. Everything that needs to work in a browser — fast and easy.",srv3_h:"Enterprise software",srv3_p:"CRM, ERP modules, tracking and automation systems. Tools that genuinely simplify your team's work.",srv4_h:"MVP & prototypes",srv4_p:"We launch working products fast. We help you validate your hypothesis and show investors something real.",contact_us:"Contact us",apps_h:"Apps<br>we've built",apps_sub:"Our own products are the best proof.",app1_p:"AI astrology, daily horoscope and natal chart. A smart companion for those who live by the stars.",app2_h:"New app",app2_p:"Stay tuned — we'll share more soon.",app3_h:"Web project",app3_p:"Stay tuned — we'll share more soon.",coming_soon:"Coming soon",gplay_top:"Get it on",cta_tag:"Work with us",cta_h:"Got a challenge?<br><em>Let's solve it.</em>",cta_p:"Tell us what's going on in your business. We won't just listen — we'll find the most effective and affordable solution for your specific situation. No fluff, no extra steps.",cta_btn1:"Write to us",footer:"© 2026 Tynk Studio — All rights reserved",srv1_p_short:"iOS, Android — native or cross-platform.",srv2_p_short:"Online platforms, dashboards, admin panels.",srv3_p_short:"CRM, ERP, automation systems.",srv4_p_short:"Working products to validate hypotheses.",packages_h:"Ready-made packages",packages_sub:"Choose what fits — fixed price, fixed timeline, no surprises.",pkg_from:"from",pkg_choose:"Choose",pkg_includes:"What's included",pkg_popular:"Most popular",pkg_deadline:"Timeline",pkg_website_tagline:"A clean landing for your business",pkg_website_desc:"A single-page website — design, development and hosting included.",pkg_website_f1:"Custom design",pkg_website_f2:"Mobile-responsive",pkg_website_f3:"Hosting & deployment",pkg_website_f4:"SEO basics",pkg_website_f5:"1 round of edits",pkg_website_fine:"Domain billed separately. No user accounts or e-commerce.",pkg_start_tagline:"Validate your idea fast",pkg_start_desc:"Launch an MVP in 3–4 weeks to test your idea on real users.",pkg_start_f1:"4–5 app screens",pkg_start_f2:"Simplified UX flow",pkg_start_f3:"UI design",pkg_start_f4:"Flutter (iOS or Android)",pkg_start_f5:"Firebase (auth + database)",pkg_start_f6:"Basic QA",pkg_start_f7:"1 round of edits",pkg_start_deadline:"3–4 weeks",pkg_business_tagline:"Full-featured product for market",pkg_business_desc:"A complete app ready for market launch — for serious products.",pkg_business_f1:"6–10 screens",pkg_business_f2:"Full UX user flow",pkg_business_f3:"Custom UI design",pkg_business_f4:"Flutter (iOS + Android)",pkg_business_f5:"API integrations",pkg_business_f6:"Auth + business logic",pkg_business_f7:"Full QA testing",pkg_business_f8:"2 rounds of edits",pkg_business_f9:"App Store + Google Play publication",pkg_business_deadline:"5–8 weeks",pkg_pro_tagline:"Investor-ready, scalable",pkg_pro_desc:"A startup-ready product for investors, scaling and complex scenarios.",pkg_pro_f1:"10–18 screens",pkg_pro_f2:"CJM (user journey mapping)",pkg_pro_f3:"Complex scenarios",pkg_pro_f4:"Scalable architecture",pkg_pro_f5:"Advanced UI",pkg_pro_f6:"API integrations",pkg_pro_f7:"QA + regression testing",pkg_pro_f8:"3 rounds of edits",pkg_pro_f9:"2 weeks of post-launch support",pkg_pro_deadline:"8–12 weeks"},
+  de:{nav_about:"Über uns",nav_expertise:"Expertise",nav_services:"Leistungen",nav_apps:"Apps",nav_contact:"Kontakt",hero_h1:"Wir lösen Business-Probleme<br><em>durch Technologie</em>",hero_p:"Wir entwickeln eigene Apps und individuelle Software. Wir nehmen komplexe Aufgaben an — weil wir diesen Weg selbst gegangen sind.",hero_btn1:"Unsere Apps",hero_btn2:"Projekt besprechen",stat1:"Projekte im Portfolio",stat2:"Jahre am Markt",stat3:"Plattformen",trust1_h:"Eigenes Team — keine Mittelsmänner",trust1_p:"Design, Entwicklung, Produkt — alles von unseren Leuten. Keine Agenturen, keine Subunternehmer.",trust2_h:"Faire Preise ohne Aufschläge",trust2_p:"Wir haben unsere Prozesse so aufgebaut, dass zwischen Problem und Lösung so wenig Reibung wie möglich entsteht.",trust3_h:"Wir kennen es von innen",trust3_p:"Wir haben selbst den Weg des Managements und Prozessaufbaus durchlaufen. Diese Erfahrung gibt uns ein Verständnis, das man nicht in Kursen lernt.",about_h:"Kleines Team.<br><em>Große Expertise.</em>",about_p1:"Tynk ist ein Produktstudio mit Geschichte. Bevor wir Produkte für andere bauten, haben wir selbst Teams geführt und Prozesse gestaltet.",about_p2:"Diese Innenperspektive ist unser entscheidender Vorteil. Wir verstehen Ihre Aufgabe nicht nur als Entwickler.",about_p3:"Wir entwickeln eigene Apps und nehmen Auftragsarbeiten jeder Komplexität an.",about_card_title:"Full-Cycle-Entwicklung",about_card_sub:"von der Idee bis zum Release — alles inhouse",about_card_p:"Vom ersten Prototyp bis zur Veröffentlichung. Wir lagern nichts aus — das Team, das entwirft, setzt auch um.",exp_h:"Unsere Stärken",exp_sub:"Wir versuchen nicht, alles zu machen. Wir arbeiten dort, wo wir wirklich stark sind.",exp1_h:"Mobile Entwicklung",exp1_p:"Native iOS- und Android-Entwicklung. Swift, Kotlin, React Native — wir wählen die Technologie nach Aufgabe.",exp2_h:"Produktdesign",exp2_p:"UX-Forschung, Prototyping, UI-Design. Interfaces, die man wirklich nutzen möchte.",exp3_h:"Web-Anwendungen",exp3_p:"Web-Apps, SPAs, Admin-Panels, individuelle CRMs. React, Next.js — wir wählen, was das Problem löst.",exp4_h:"MVP & Schnellstart",exp4_p:"Wir können schnell und klug liefern. Wir helfen Startups mit einem funktionierenden Produkt auf den Markt.",exp5_h:"Geschäftsprozesse",exp5_p:"Wir finden Engpässe, bauen transparente Prozesse auf und schlagen konkrete Lösungen vor.",exp6_h:"Unternehmenssoftware",exp6_p:"Business-Tools: Automatisierung, interne Systeme, Integrationen.",srv_h:"Was wir auf Anfrage bauen",srv_sub:"Mobile Apps sind unsere Stärke, aber wir hören nicht dabei auf.",srv0_badge:"Beliebt",srv0_h:"Visitenkarten-Website, schlüsselfertig",srv0_p:"Eine einseitige Website für Ihr Unternehmen — Design, Entwicklung und Hosting inklusive.",srv0_fine:"Nicht enthalten: Benutzerkonten, persönliche Dashboards, Online-Shop. Benötigen Sie mehr? Sprechen Sie uns an.",price_from:"ab",price_note:"+ Domain separat",srv1_h:"Mobile Anwendungen",srv1_p:"iOS und Android — nativ oder plattformübergreifend.",srv2_h:"Web-Apps & Services",srv2_p:"Online-Plattformen, Dashboards, Admin-Panels.",srv3_h:"Unternehmenssoftware",srv3_p:"CRM, ERP-Module, Tracking- und Automatisierungssysteme.",srv4_h:"MVP & Prototypen",srv4_p:"Wir launchen schnell funktionierende Produkte und helfen Ihre Hypothese zu validieren.",contact_us:"Kontaktieren",apps_h:"Apps,<br>die wir gebaut haben",apps_sub:"Eigene Produkte sind der beste Beweis.",app1_p:"KI-Astrologie, tägliches Horoskop und Geburtshoroskop. Der smarte Begleiter für alle, die nach den Sternen leben.",app2_h:"Neue App",app2_p:"Bleiben Sie dran — wir berichten bald.",app3_h:"Web-Projekt",app3_p:"Bleiben Sie dran — wir berichten bald.",coming_soon:"Demnächst",gplay_top:"Jetzt bei",cta_tag:"Mit uns arbeiten",cta_h:"Haben Sie eine Aufgabe?<br><em>Lassen Sie uns lösen.</em>",cta_p:"Erzählen Sie uns, was in Ihrem Unternehmen passiert. Wir finden die effektivste Lösung für Ihre Situation.",cta_btn1:"Schreiben Sie uns",footer:"© 2026 Tynk Studio — Alle Rechte vorbehalten",srv1_p_short:"iOS, Android — nativ oder plattformübergreifend.",srv2_p_short:"Online-Plattformen, Dashboards, Admin-Panels.",srv3_p_short:"CRM, ERP, Automatisierungssysteme.",srv4_p_short:"Funktionierende Produkte zur Validierung.",packages_h:"Fertige Pakete",packages_sub:"Wählen Sie passend — fester Preis, fester Zeitrahmen, keine Überraschungen.",pkg_from:"ab",pkg_choose:"Wählen",pkg_includes:"Im Lieferumfang",pkg_popular:"Am beliebtesten",pkg_deadline:"Zeitrahmen",pkg_website_tagline:"Eine saubere Visitenkarte",pkg_website_desc:"Eine einseitige Website — Design, Entwicklung und Hosting inklusive.",pkg_website_f1:"Individuelles Design",pkg_website_f2:"Mobile-responsive",pkg_website_f3:"Hosting & Bereitstellung",pkg_website_f4:"SEO Grundlagen",pkg_website_f5:"1 Korrekturrunde",pkg_website_fine:"Domain wird separat berechnet. Keine Benutzerkonten oder E-Commerce.",pkg_start_tagline:"Idee schnell validieren",pkg_start_desc:"MVP in 3–4 Wochen, um Ihre Idee an echten Nutzern zu testen.",pkg_start_f1:"4–5 App-Bildschirme",pkg_start_f2:"Vereinfachter UX-Flow",pkg_start_f3:"UI-Design",pkg_start_f4:"Flutter (iOS oder Android)",pkg_start_f5:"Firebase (Auth + Datenbank)",pkg_start_f6:"Basis-QA",pkg_start_f7:"1 Korrekturrunde",pkg_start_deadline:"3–4 Wochen",pkg_business_tagline:"Vollwertiges Produkt für den Markt",pkg_business_desc:"Eine vollständige App für den Markteintritt — für seriöse Produkte.",pkg_business_f1:"6–10 Bildschirme",pkg_business_f2:"Vollständiger UX-Flow",pkg_business_f3:"Individuelles UI-Design",pkg_business_f4:"Flutter (iOS + Android)",pkg_business_f5:"API-Integrationen",pkg_business_f6:"Auth + Geschäftslogik",pkg_business_f7:"Vollständige QA-Tests",pkg_business_f8:"2 Korrekturrunden",pkg_business_f9:"App Store + Google Play Veröffentlichung",pkg_business_deadline:"5–8 Wochen",pkg_pro_tagline:"Investor-bereit, skalierbar",pkg_pro_desc:"Startup-ready Produkt für Investoren, Skalierung und komplexe Szenarien.",pkg_pro_f1:"10–18 Bildschirme",pkg_pro_f2:"CJM (Customer Journey)",pkg_pro_f3:"Komplexe Szenarien",pkg_pro_f4:"Skalierbare Architektur",pkg_pro_f5:"Erweiterte UI",pkg_pro_f6:"API-Integrationen",pkg_pro_f7:"QA + Regressionstests",pkg_pro_f8:"3 Korrekturrunden",pkg_pro_f9:"2 Wochen Support nach Launch",pkg_pro_deadline:"8–12 Wochen"},
+  fr:{nav_about:"À propos",nav_expertise:"Expertise",nav_services:"Services",nav_apps:"Applications",nav_contact:"Contact",hero_h1:"Nous résolvons les défis business<br><em>grâce à la technologie</em>",hero_p:"Nous créons nos propres applications et développons des solutions sur mesure. Nous relevons les défis complexes — car nous avons parcouru ce chemin nous-mêmes.",hero_btn1:"Nos applications",hero_btn2:"Discuter d'un projet",stat1:"Projets en portfolio",stat2:"Ans sur le marché",stat3:"Plateformes",trust1_h:"Notre équipe — sans intermédiaires",trust1_p:"Design, développement, produit — tout réalisé par nos collaborateurs. Aucune chaîne d'agences, aucun sous-traitant.",trust2_h:"Prix juste, sans surcoûts",trust2_p:"Nous avons structuré nos processus pour minimiser les frictions. Pas de marges d'agence ni de coûts cachés.",trust3_h:"Nous connaissons de l'intérieur",trust3_p:"Nous avons nous-mêmes traversé le chemin du management et de la construction de processus.",about_h:"Une petite équipe.<br><em>Une grande expertise.</em>",about_p1:"Tynk est un studio produit avec une histoire. Avant de créer des produits pour d'autres, nous avons géré des équipes et conçu des processus.",about_p2:"Cette perspective de l'intérieur est notre différence essentielle. Nous comprenons votre défi comme des personnes ayant vécu les mêmes problèmes.",about_p3:"Nous créons nos propres applications et prenons en charge des projets sur mesure de toute complexité.",about_card_title:"Développement cycle complet",about_card_sub:"de l'idée au lancement — tout en interne",about_card_p:"Du premier prototype à la publication. Nous n'externalisons rien — l'équipe qui conçoit est celle qui réalise.",exp_h:"Nos points forts",exp_sub:"Nous ne prétendons pas tout faire. Nous travaillons là où nous sommes vraiment forts.",exp1_h:"Développement mobile",exp1_p:"Développement natif iOS et Android. Swift, Kotlin, React Native — nous choisissons selon le besoin.",exp2_h:"Design produit",exp2_p:"Recherche UX, prototypage, UI design. Des interfaces qu'on a envie d'utiliser.",exp3_h:"Applications web",exp3_p:"Applications web, SPA, tableaux de bord, CRM personnalisés.",exp4_h:"MVP & lancement rapide",exp4_p:"Nous savons livrer vite et intelligemment. Nous aidons les startups à aller sur le marché.",exp5_h:"Processus business",exp5_p:"Nous identifions les goulots d'étranglement et construisons des processus transparents.",exp6_h:"Logiciel d'entreprise",exp6_p:"Outils métier : automatisation, systèmes internes, intégrations.",srv_h:"Ce que nous développons",srv_sub:"Les applications mobiles sont notre force, mais nous ne nous y limitons pas.",srv0_badge:"Populaire",srv0_h:"Site vitrine clé en main",srv0_p:"Un site une page pour votre entreprise — design, développement et hébergement inclus.",srv0_fine:"Non inclus : comptes utilisateurs, espaces personnels, boutique en ligne. Besoin de plus ? Contactez-nous.",price_from:"à partir de",price_note:"+ domaine séparé",srv1_h:"Applications mobiles",srv1_p:"iOS et Android — natif ou multiplateforme.",srv2_h:"Applications web & services",srv2_p:"Plateformes en ligne, espaces personnels, tableaux de bord.",srv3_h:"Logiciel d'entreprise",srv3_p:"CRM, modules ERP, systèmes de gestion et d'automatisation.",srv4_h:"MVP & prototypes",srv4_p:"Nous lançons des produits fonctionnels rapidement pour valider vos hypothèses.",contact_us:"Nous contacter",apps_h:"Applications<br>que nous avons créées",apps_sub:"Nos propres produits sont la meilleure preuve.",app1_p:"Astrologie IA, horoscope quotidien et thème natal. L'assistant malin pour ceux qui vivent selon les étoiles.",app2_h:"Nouvelle application",app2_p:"Restez connectés — nous partagerons bientôt.",app3_h:"Projet web",app3_p:"Restez connectés — nous partagerons bientôt.",coming_soon:"Bientôt",gplay_top:"Disponible sur",cta_tag:"Travaillez avec nous",cta_h:"Vous avez un défi?<br><em>Résolvons-le.</em>",cta_p:"Parlez-nous de votre situation. Nous allons trouver la solution la plus efficace et accessible pour votre contexte.",cta_btn1:"Écrivez-nous",footer:"© 2026 Tynk Studio — Tous droits réservés",srv1_p_short:"iOS, Android — natif ou multiplateforme.",srv2_p_short:"Plateformes en ligne, dashboards, admin.",srv3_p_short:"CRM, ERP, systèmes d'automatisation.",srv4_p_short:"Produits fonctionnels pour valider.",packages_h:"Packages prêts",packages_sub:"Choisissez celui qui convient — prix fixe, délai fixe, pas de surprises.",pkg_from:"à partir de",pkg_choose:"Choisir",pkg_includes:"Inclus",pkg_popular:"Le plus populaire",pkg_deadline:"Délai",pkg_website_tagline:"Une vitrine claire pour votre business",pkg_website_desc:"Site une page — design, développement et hébergement inclus.",pkg_website_f1:"Design sur mesure",pkg_website_f2:"Responsive mobile",pkg_website_f3:"Hébergement & déploiement",pkg_website_f4:"SEO de base",pkg_website_f5:"1 série de corrections",pkg_website_fine:"Domaine facturé séparément. Sans comptes ni e-commerce.",pkg_start_tagline:"Valider votre idée vite",pkg_start_desc:"Lancement d'un MVP en 3–4 semaines pour tester l'idée.",pkg_start_f1:"4–5 écrans",pkg_start_f2:"UX flow simplifié",pkg_start_f3:"Design UI",pkg_start_f4:"Flutter (iOS ou Android)",pkg_start_f5:"Firebase (auth + base de données)",pkg_start_f6:"QA de base",pkg_start_f7:"1 itération de corrections",pkg_start_deadline:"3–4 semaines",pkg_business_tagline:"Produit complet pour le marché",pkg_business_desc:"Une app complète prête pour le marché — pour les produits sérieux.",pkg_business_f1:"6–10 écrans",pkg_business_f2:"UX user flow complet",pkg_business_f3:"Design UI sur mesure",pkg_business_f4:"Flutter (iOS + Android)",pkg_business_f5:"Intégrations API",pkg_business_f6:"Auth + logique métier",pkg_business_f7:"Tests QA complets",pkg_business_f8:"2 itérations de corrections",pkg_business_f9:"Publication App Store + Google Play",pkg_business_deadline:"5–8 semaines",pkg_pro_tagline:"Prêt pour les investisseurs",pkg_pro_desc:"Produit startup-ready pour investisseurs et scénarios complexes.",pkg_pro_f1:"10–18 écrans",pkg_pro_f2:"CJM (parcours utilisateur)",pkg_pro_f3:"Scénarios complexes",pkg_pro_f4:"Architecture évolutive",pkg_pro_f5:"UI avancée",pkg_pro_f6:"Intégrations API",pkg_pro_f7:"QA + tests de régression",pkg_pro_f8:"3 itérations de corrections",pkg_pro_f9:"2 semaines de support post-lancement",pkg_pro_deadline:"8–12 semaines"},
+  es:{nav_about:"Nosotros",nav_expertise:"Expertise",nav_services:"Servicios",nav_apps:"Aplicaciones",nav_contact:"Contacto",hero_h1:"Resolvemos desafíos de negocio<br><em>a través de la tecnología</em>",hero_p:"Creamos nuestras propias aplicaciones y desarrollamos soluciones a medida. Nos enfrentamos a lo complejo — porque hemos recorrido este camino nosotros mismos.",hero_btn1:"Nuestras apps",hero_btn2:"Hablar de un proyecto",stat1:"Proyectos en portfolio",stat2:"Años en el mercado",stat3:"Plataformas",trust1_h:"Equipo propio — sin intermediarios",trust1_p:"Diseño, desarrollo, producto — todo lo hacen nuestras personas. Sin agencias ni subcontratistas.",trust2_h:"Precio justo sin sobrecargos",trust2_p:"Hemos construido nuestros procesos para reducir al mínimo la fricción. Sin márgenes de agencia ni costes ocultos.",trust3_h:"Lo conocemos desde dentro",trust3_p:"Nosotros mismos hemos recorrido el camino de la gestión y construcción de procesos.",about_h:"Un equipo pequeño.<br><em>Gran expertise.</em>",about_p1:"Tynk es un estudio de producto con historia. Antes de crear productos para otros, gestionamos equipos y diseñamos procesos.",about_p2:"Esta perspectiva interior es nuestra ventaja clave. Entendemos tu reto como personas que han vivido los mismos problemas.",about_p3:"Creamos nuestras propias aplicaciones y tomamos proyectos a medida de cualquier complejidad.",about_card_title:"Desarrollo ciclo completo",about_card_sub:"de la idea al lanzamiento — todo en casa",about_card_p:"Desde el primer prototipo hasta la publicación. No externalizamos — el equipo que diseña es el que desarrolla.",exp_h:"En qué somos fuertes",exp_sub:"No intentamos hacerlo todo. Trabajamos donde somos verdaderamente fuertes.",exp1_h:"Desarrollo móvil",exp1_p:"Desarrollo nativo para iOS y Android. Swift, Kotlin, React Native — elegimos según la tarea.",exp2_h:"Diseño de producto",exp2_p:"Investigación UX, prototipado, diseño UI. Interfaces que da gusto usar.",exp3_h:"Aplicaciones web",exp3_p:"Apps web, SPAs, paneles de administración, CRMs personalizados.",exp4_h:"MVP y lanzamiento rápido",exp4_p:"Sabemos lanzar rápido y con cabeza. Ayudamos a startups a llegar al mercado.",exp5_h:"Procesos de negocio",exp5_p:"Encontramos cuellos de botella y construimos procesos transparentes y medibles.",exp6_h:"Software empresarial",exp6_p:"Herramientas de negocio: automatización, sistemas internos, integraciones.",srv_h:"Qué desarrollamos a medida",srv_sub:"Las apps móviles son nuestra fortaleza, pero no nos limitamos a ellas.",srv0_badge:"Popular",srv0_h:"Sitio web de presentación, llave en mano",srv0_p:"Un sitio de una página para tu negocio — diseño, desarrollo y alojamiento incluidos.",srv0_fine:"No incluye: cuentas de usuario, paneles personales, tienda online. ¿Necesitas más? Hablamos.",price_from:"desde",price_note:"+ dominio aparte",srv1_h:"Aplicaciones móviles",srv1_p:"iOS y Android — nativo o multiplataforma.",srv2_h:"Apps web y servicios",srv2_p:"Plataformas online, paneles personales, dashboards.",srv3_h:"Software empresarial",srv3_p:"CRM, módulos ERP, sistemas de seguimiento y automatización.",srv4_h:"MVP y prototipos",srv4_p:"Lanzamos productos funcionales en poco tiempo para validar hipótesis.",contact_us:"Contáctanos",apps_h:"Aplicaciones<br>que hemos creado",apps_sub:"Nuestros propios productos son la mejor prueba.",app1_p:"Astrología IA, horóscopo diario y carta natal. El compañero inteligente para quienes viven según las estrellas.",app2_h:"Nueva aplicación",app2_p:"Estén atentos — compartiremos más pronto.",app3_h:"Proyecto web",app3_p:"Estén atentos — compartiremos más pronto.",coming_soon:"Próximamente",gplay_top:"Disponible en",cta_tag:"Trabaja con nosotros",cta_h:"¿Tienes un reto?<br><em>Vamos a resolverlo.</em>",cta_p:"Cuéntanos qué está pasando en tu negocio. Encontraremos la solución más eficaz y accesible para tu situación.",cta_btn1:"Escríbenos",footer:"© 2026 Tynk Studio — Todos los derechos reservados",srv1_p_short:"iOS, Android — nativo o multiplataforma.",srv2_p_short:"Plataformas online, dashboards, admin.",srv3_p_short:"CRM, ERP, sistemas de automatización.",srv4_p_short:"Productos funcionales para validar.",packages_h:"Paquetes listos",packages_sub:"Elige el adecuado — precio fijo, plazo fijo, sin sorpresas.",pkg_from:"desde",pkg_choose:"Elegir",pkg_includes:"Incluye",pkg_popular:"Más popular",pkg_deadline:"Plazo",pkg_website_tagline:"Una presentación limpia",pkg_website_desc:"Sitio de una página — diseño, desarrollo y hosting incluidos.",pkg_website_f1:"Diseño personalizado",pkg_website_f2:"Responsive móvil",pkg_website_f3:"Hosting y despliegue",pkg_website_f4:"SEO básico",pkg_website_f5:"1 ronda de cambios",pkg_website_fine:"Dominio se factura aparte. Sin cuentas ni tienda online.",pkg_start_tagline:"Valida tu idea rápido",pkg_start_desc:"Lanza un MVP en 3–4 semanas para probar tu idea.",pkg_start_f1:"4–5 pantallas",pkg_start_f2:"UX flow simplificado",pkg_start_f3:"Diseño UI",pkg_start_f4:"Flutter (iOS o Android)",pkg_start_f5:"Firebase (auth + base de datos)",pkg_start_f6:"QA básico",pkg_start_f7:"1 ronda de cambios",pkg_start_deadline:"3–4 semanas",pkg_business_tagline:"Producto completo para mercado",pkg_business_desc:"App completa lista para el mercado — para productos serios.",pkg_business_f1:"6–10 pantallas",pkg_business_f2:"UX user flow completo",pkg_business_f3:"Diseño UI personalizado",pkg_business_f4:"Flutter (iOS + Android)",pkg_business_f5:"Integraciones API",pkg_business_f6:"Auth + lógica de negocio",pkg_business_f7:"Pruebas QA completas",pkg_business_f8:"2 rondas de cambios",pkg_business_f9:"Publicación App Store + Google Play",pkg_business_deadline:"5–8 semanas",pkg_pro_tagline:"Listo para inversores",pkg_pro_desc:"Producto startup-ready para inversores y escenarios complejos.",pkg_pro_f1:"10–18 pantallas",pkg_pro_f2:"CJM (ruta del usuario)",pkg_pro_f3:"Escenarios complejos",pkg_pro_f4:"Arquitectura escalable",pkg_pro_f5:"UI avanzada",pkg_pro_f6:"Integraciones API",pkg_pro_f7:"QA + pruebas de regresión",pkg_pro_f8:"3 rondas de cambios",pkg_pro_f9:"2 semanas de soporte post-lanzamiento",pkg_pro_deadline:"8–12 semanas"},
+  pt:{nav_about:"Sobre nós",nav_expertise:"Expertise",nav_services:"Serviços",nav_apps:"Aplicações",nav_contact:"Contacto",hero_h1:"Resolvemos desafios de negócio<br><em>através da tecnologia</em>",hero_p:"Criamos as nossas próprias aplicações e desenvolvemos soluções à medida. Abraçamos o complexo — porque percorremos este caminho nós próprios.",hero_btn1:"As nossas apps",hero_btn2:"Falar sobre um projeto",stat1:"Projetos em portfolio",stat2:"Anos no mercado",stat3:"Plataformas",trust1_h:"Equipa própria — sem intermediários",trust1_p:"Design, desenvolvimento, produto — tudo feito pela nossa equipa. Sem agências nem subcontratados.",trust2_h:"Preço justo sem margens ocultas",trust2_p:"Construímos os nossos processos para minimizar o atrito. Sem margens de agência ou custos escondidos.",trust3_h:"Conhecemos por dentro",trust3_p:"Percorremos nós próprios o caminho da gestão e construção de processos.",about_h:"Uma equipa pequena.<br><em>Grande expertise.</em>",about_p1:"A Tynk é um estúdio de produto com história. Antes de criar produtos para outros, gerimos equipas e desenhamos processos.",about_p2:"Esta perspetiva interior é a nossa vantagem essencial. Entendemos o teu desafio como pessoas que viveram os mesmos problemas.",about_p3:"Criamos as nossas próprias aplicações e aceitamos projetos à medida de qualquer complexidade.",about_card_title:"Desenvolvimento ciclo completo",about_card_sub:"da ideia ao lançamento — tudo internamente",about_card_p:"Do primeiro protótipo à publicação. Não externalizamos — a equipa que projeta é a mesma que desenvolve.",exp_h:"Onde somos fortes",exp_sub:"Não tentamos fazer tudo. Trabalhamos onde somos verdadeiramente fortes.",exp1_h:"Desenvolvimento mobile",exp1_p:"Desenvolvimento nativo iOS e Android. Swift, Kotlin, React Native — escolhemos a tecnologia certa.",exp2_h:"Design de produto",exp2_p:"Investigação UX, prototipagem, UI design. Interfaces que se tem vontade de usar.",exp3_h:"Aplicações web",exp3_p:"Apps web, SPAs, painéis de administração, CRMs personalizados.",exp4_h:"MVP e lançamento rápido",exp4_p:"Sabemos lançar rápido e com inteligência. Ajudamos startups a chegar ao mercado.",exp5_h:"Processos de negócio",exp5_p:"Encontramos pontos de estrangulamento e construímos processos transparentes e mensuráveis.",exp6_h:"Software empresarial",exp6_p:"Ferramentas de negócio: automatização, sistemas internos, integrações.",srv_h:"O que desenvolvemos à medida",srv_sub:"As apps móveis são a nossa força, mas não nos limitamos a elas.",srv0_badge:"Popular",srv0_h:"Site de apresentação, chave na mão",srv0_p:"Um site de uma página para o teu negócio — design, desenvolvimento e alojamento incluídos.",srv0_fine:"Não inclui: contas de utilizador, áreas pessoais, loja online. Precisas de mais? Fala connosco.",price_from:"a partir de",price_note:"+ domínio separado",srv1_h:"Aplicações móveis",srv1_p:"iOS e Android — nativo ou multiplataforma.",srv2_h:"Apps web e serviços",srv2_p:"Plataformas online, áreas pessoais, dashboards.",srv3_h:"Software empresarial",srv3_p:"CRM, módulos ERP, sistemas de rastreamento e automatização.",srv4_h:"MVP e protótipos",srv4_p:"Lançamos produtos funcionais em pouco tempo para validar hipóteses.",contact_us:"Contactar",apps_h:"Aplicações<br>que criámos",apps_sub:"Os nossos próprios produtos são a melhor prova.",app1_p:"Astrologia IA, horóscopo diário e mapa natal. O companheiro inteligente para quem vive pelas estrelas.",app2_h:"Nova aplicação",app2_p:"Fique atento — partilharemos mais em breve.",app3_h:"Projeto web",app3_p:"Fique atento — partilharemos mais em breve.",coming_soon:"Em breve",gplay_top:"Disponível no",cta_tag:"Trabalhe connosco",cta_h:"Tens um desafio?<br><em>Vamos resolvê-lo.</em>",cta_p:"Conta-nos o que está a acontecer no teu negócio. Encontramos a solução mais eficaz e acessível para a tua situação.",cta_btn1:"Escreve-nos",footer:"© 2026 Tynk Studio — Todos os direitos reservados",srv1_p_short:"iOS, Android — nativo ou multiplataforma.",srv2_p_short:"Plataformas online, dashboards, admin.",srv3_p_short:"CRM, ERP, sistemas de automatização.",srv4_p_short:"Produtos funcionais para validar.",packages_h:"Pacotes prontos",packages_sub:"Escolhe o que serve — preço fixo, prazo fixo, sem surpresas.",pkg_from:"a partir de",pkg_choose:"Escolher",pkg_includes:"Inclui",pkg_popular:"Mais popular",pkg_deadline:"Prazo",pkg_website_tagline:"Uma apresentação limpa",pkg_website_desc:"Site de uma página — design, desenvolvimento e alojamento incluídos.",pkg_website_f1:"Design personalizado",pkg_website_f2:"Responsivo mobile",pkg_website_f3:"Alojamento & deploy",pkg_website_f4:"SEO básico",pkg_website_f5:"1 ronda de revisões",pkg_website_fine:"Domínio é cobrado à parte. Sem contas ou loja online.",pkg_start_tagline:"Valida a tua ideia rápido",pkg_start_desc:"Lança um MVP em 3–4 semanas para testar a tua ideia.",pkg_start_f1:"4–5 ecrãs",pkg_start_f2:"UX flow simplificado",pkg_start_f3:"Design UI",pkg_start_f4:"Flutter (iOS ou Android)",pkg_start_f5:"Firebase (auth + base de dados)",pkg_start_f6:"QA básico",pkg_start_f7:"1 iteração de revisões",pkg_start_deadline:"3–4 semanas",pkg_business_tagline:"Produto completo para o mercado",pkg_business_desc:"App completa pronta para o mercado — para produtos sérios.",pkg_business_f1:"6–10 ecrãs",pkg_business_f2:"UX user flow completo",pkg_business_f3:"Design UI personalizado",pkg_business_f4:"Flutter (iOS + Android)",pkg_business_f5:"Integrações API",pkg_business_f6:"Auth + lógica de negócio",pkg_business_f7:"Testes QA completos",pkg_business_f8:"2 iterações de revisões",pkg_business_f9:"Publicação App Store + Google Play",pkg_business_deadline:"5–8 semanas",pkg_pro_tagline:"Pronto para investidores",pkg_pro_desc:"Produto startup-ready para investidores e cenários complexos.",pkg_pro_f1:"10–18 ecrãs",pkg_pro_f2:"CJM (jornada do utilizador)",pkg_pro_f3:"Cenários complexos",pkg_pro_f4:"Arquitetura escalável",pkg_pro_f5:"UI avançado",pkg_pro_f6:"Integrações API",pkg_pro_f7:"QA + testes de regressão",pkg_pro_f8:"3 iterações de revisões",pkg_pro_f9:"2 semanas de suporte pós-lançamento",pkg_pro_deadline:"8–12 semanas"}
 };
 
 function applyTranslations(lang) {
@@ -818,16 +1062,103 @@ function applyTranslations(lang) {
     if (t[k] !== undefined) el.innerHTML = t[k];
   });
   document.documentElement.lang = lang;
+  
+  // Update language switcher current display
+  const flagMap = {en:'🇬🇧',de:'🇩🇪',fr:'🇫🇷',pt:'🇵🇹',es:'🇪🇸',ru:'🇷🇺'};
+  const labelMap = {en:'EN',de:'DE',fr:'FR',pt:'PT',es:'ES',ru:'RU'};
+  const flagEl = document.getElementById('langFlag');
+  const labelEl = document.getElementById('langLabel');
+  if (flagEl) flagEl.textContent = flagMap[lang] || '🇬🇧';
+  if (labelEl) labelEl.textContent = labelMap[lang] || 'EN';
+  
+  // Update active state in dropdown
+  document.querySelectorAll('.lang-option').forEach(opt => {
+    opt.classList.toggle('active', opt.dataset.lang === lang);
+  });
 }
 
-document.getElementById('langSwitcher').addEventListener('click', e => {
-  const btn = e.target.closest('.lang-btn'); if (!btn) return;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  applyTranslations(btn.dataset.lang);
+// Language switcher dropdown
+document.addEventListener('DOMContentLoaded', function() {
+  const switcher = document.getElementById('langSwitcher');
+  const current = document.getElementById('langCurrent');
+  if (current && switcher) {
+    current.addEventListener('click', function(e) {
+      e.stopPropagation();
+      switcher.classList.toggle('open');
+    });
+    document.querySelectorAll('.lang-option').forEach(opt => {
+      opt.addEventListener('click', function(e) {
+        e.stopPropagation();
+        applyTranslations(this.dataset.lang);
+        switcher.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!switcher.contains(e.target)) {
+        switcher.classList.remove('open');
+      }
+    });
+  }
+  
+  // Packages Carousel
+  const carousel = document.getElementById('packagesCarousel');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const dotsContainer = document.getElementById('packagesDots');
+  
+  if (carousel) {
+    const cards = carousel.querySelectorAll('.package-card');
+    const totalCards = cards.length;
+    
+    // Create dots
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalCards; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => {
+          cards[i].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+    
+    function scrollByAmount(direction) {
+      const card = cards[0];
+      if (!card) return;
+      const cardWidth = card.offsetWidth + 20;
+      carousel.scrollBy({left: direction * cardWidth, behavior:'smooth'});
+    }
+    
+    if (prevBtn) prevBtn.addEventListener('click', () => scrollByAmount(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => scrollByAmount(1));
+    
+    // Update active dot on scroll
+    carousel.addEventListener('scroll', () => {
+      const scrollLeft = carousel.scrollLeft;
+      const cardWidth = cards[0].offsetWidth + 20;
+      const activeIndex = Math.round(scrollLeft / cardWidth);
+      const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
+      dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+    });
+    
+    // Auto-scroll to BUSINESS card on first load (it's the featured one, index 2)
+    setTimeout(() => {
+      // Only on desktop
+      if (window.innerWidth > 1024) return;
+      // On mobile/tablet, start at first card
+    }, 100);
+  }
 });
 
-applyTranslations('ru');
+// Browser language detection
+function detectBrowserLang() {
+  const supported = ['en','de','fr','pt','es','ru'];
+  const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().split('-')[0];
+  return supported.includes(browserLang) ? browserLang : 'en';
+}
+
+applyTranslations(detectBrowserLang());
 </script>
 </body>
 </html>
