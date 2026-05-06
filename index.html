@@ -364,28 +364,41 @@ nav ul a:hover { color:var(--navy); }
 .packages-carousel { display:flex; gap:1.2rem; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding:1rem .25rem 1.5rem; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .packages-carousel::-webkit-scrollbar { display:none; }
 
-.package-card { flex:0 0 calc(25% - .9rem); min-width:280px; background:#fff; border-radius:20px; padding:1.8rem 1.6rem; position:relative; scroll-snap-align:start; display:flex; flex-direction:column; box-shadow:0 4px 20px rgba(0,0,0,.15); transition:transform .25s,box-shadow .25s; overflow:hidden; }
-.package-card:hover { transform:translateY(-4px); box-shadow:0 12px 35px rgba(0,0,0,.25); }
+.package-card { flex:0 0 calc(25% - .9rem); min-width:280px; background:#fff; border-radius:20px; padding:1.8rem 1.6rem; position:relative; scroll-snap-align:start; display:flex; flex-direction:column; box-shadow:0 4px 20px rgba(0,0,0,.15); transition:transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s; overflow:hidden; }
+.package-card::before {
+  content:''; position:absolute; top:-50%; left:-100%; width:200%; height:200%;
+  background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,.45) 50%, transparent 65%);
+  transform:translateX(0); transition:transform 1.2s cubic-bezier(.4,0,.2,1);
+  pointer-events:none; z-index:1;
+}
+.package-card:hover { transform:translateY(-10px) scale(1.01); box-shadow:0 25px 60px rgba(15,23,42,.2), 0 0 0 1px rgba(37,99,235,.15); }
+.package-card:hover::before { transform:translateX(80%); }
+.package-card > * { position:relative; z-index:2; }
+
 .package-card.pkg-featured { background:linear-gradient(180deg,#f5f3ff 0%,#fff 60%); box-shadow:0 8px 30px rgba(168,85,247,.2); }
+.package-card.pkg-featured:hover { box-shadow:0 28px 70px rgba(168,85,247,.35), 0 0 0 1px rgba(168,85,247,.25); }
+.package-card.pkg-featured::before {
+  background:linear-gradient(115deg, transparent 35%, rgba(168,85,247,.25) 50%, transparent 65%);
+}
 
-.pkg-color-strip { position:absolute; top:0; left:0; right:0; height:4px; }
+.pkg-color-strip { position:absolute; top:0; left:0; right:0; height:8px; z-index:3; }
 
-.pkg-badge { position:absolute; top:14px; right:14px; background:linear-gradient(135deg,var(--c-purple),var(--c-blue)); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:50px; box-shadow:0 4px 12px rgba(168,85,247,.3); }
+.pkg-badge { position:absolute; top:18px; right:14px; background:linear-gradient(135deg,var(--c-purple),var(--c-blue)); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:50px; box-shadow:0 4px 12px rgba(168,85,247,.3); z-index:4; }
 
-.pkg-head { margin-top:.6rem; margin-bottom:1rem; }
-.pkg-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.5rem; color:var(--navy); letter-spacing:-0.02em; line-height:1; margin-bottom:.4rem; }
+.pkg-head { margin-top:.6rem; margin-bottom:1rem; min-height:5em; }
+.pkg-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.5rem; color:var(--navy); letter-spacing:-0.02em; line-height:1; margin-bottom:.5rem; }
 .pkg-tagline { font-size:.78rem; color:#64748b; line-height:1.5; min-height:2.2em; }
 
-.pkg-price { display:flex; align-items:baseline; gap:.4rem; margin-bottom:.8rem; }
+.pkg-price { display:flex; align-items:baseline; gap:.4rem; margin-bottom:.8rem; min-height:2.2rem; }
 .pkg-price-from { font-size:.75rem; color:#94a3b8; text-transform:uppercase; letter-spacing:.04em; font-weight:600; }
 .pkg-price-num { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.8rem; color:var(--navy); line-height:1; }
 
-.pkg-desc { font-size:.82rem; color:#475569; line-height:1.6; margin-bottom:1.2rem; min-height:3.8em; }
+.pkg-desc { font-size:.82rem; color:#475569; line-height:1.6; margin-bottom:1.2rem; min-height:5.2em; }
 
-.pkg-btn { width:100%; background:#0f172a; color:#fff; border:none; border-radius:50px; padding:.85rem 1.4rem; font-family:'Plus Jakarta Sans',sans-serif; font-size:.88rem; font-weight:700; cursor:pointer; transition:background .2s,transform .15s; margin-bottom:1.2rem; }
-.pkg-btn:hover { background:#1e293b; transform:translateY(-1px); }
+.pkg-btn { width:100%; background:#0f172a; color:#fff; border:none; border-radius:50px; padding:.85rem 1.4rem; font-family:'Plus Jakarta Sans',sans-serif; font-size:.88rem; font-weight:700; cursor:pointer; transition:background .2s,transform .15s,box-shadow .2s; margin-bottom:1.2rem; position:relative; }
+.pkg-btn:hover { background:#1e293b; transform:translateY(-2px); box-shadow:0 8px 20px rgba(15,23,42,.25); }
 .pkg-btn-primary { background:linear-gradient(135deg,#7c3aed,#2563eb); }
-.pkg-btn-primary:hover { background:linear-gradient(135deg,#6d28d9,#1d4ed8); }
+.pkg-btn-primary:hover { background:linear-gradient(135deg,#6d28d9,#1d4ed8); box-shadow:0 8px 25px rgba(124,58,237,.4); }
 
 .pkg-divider { height:1px; background:rgba(15,23,42,.08); margin:0 -.4rem 1rem; }
 .pkg-features-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:.7rem; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:.08em; margin-bottom:.7rem; }
