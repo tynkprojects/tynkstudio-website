@@ -383,7 +383,7 @@ nav ul a:hover { color:var(--navy); }
 .packages-sub { font-size:.95rem; color:rgba(255,255,255,.5); max-width:600px; margin:0 auto; line-height:1.6; }
 
 .packages-wrapper { position:relative; }
-.packages-carousel { display:flex; gap:1.2rem; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding:1.5rem .25rem 1.5rem; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.packages-carousel { display:flex; gap:1.2rem; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x proximity; scroll-behavior:smooth; padding:3rem .25rem 1.5rem; -webkit-overflow-scrolling:touch; scrollbar-width:none; overscroll-behavior:contain; }
 .packages-carousel::-webkit-scrollbar { display:none; }
 
 .package-card { flex:0 0 calc(25% - .9rem); min-width:280px; background:#fff; border-radius:20px; padding:1.8rem 1.6rem; position:relative; scroll-snap-align:start; display:flex; flex-direction:column; box-shadow:0 4px 20px rgba(0,0,0,.15); transition:transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s; overflow:hidden; }
@@ -393,32 +393,44 @@ nav ul a:hover { color:var(--navy); }
   transform:translateX(0); transition:transform 1.2s cubic-bezier(.4,0,.2,1);
   pointer-events:none; z-index:1;
 }
-.package-card:hover { transform:translateY(-10px) scale(1.01); }
+.package-card:hover { transform:translateY(-6px); }
 .package-card:hover::before { transform:translateX(80%); }
 .package-card > * { position:relative; z-index:2; }
 
-/* Per-package hover colors – match the top color strip */
+/* Per-package hover colors – calmer, contained shadows */
 /* Website: amber → red */
-.pkg-website:hover { box-shadow:0 25px 60px rgba(232,68,30,.25), 0 0 0 1px rgba(245,158,11,.25); }
-.pkg-website::before { background:linear-gradient(115deg, transparent 35%, rgba(245,158,11,.25) 50%, transparent 65%); }
+.pkg-website:hover { box-shadow:0 12px 30px rgba(232,68,30,.18), 0 0 0 1px rgba(245,158,11,.18); }
+.pkg-website::before { background:linear-gradient(115deg, transparent 35%, rgba(245,158,11,.22) 50%, transparent 65%); }
 
 /* START: teal → blue */
-.pkg-start:hover { box-shadow:0 25px 60px rgba(13,148,136,.28), 0 0 0 1px rgba(37,99,235,.2); }
-.pkg-start::before { background:linear-gradient(115deg, transparent 35%, rgba(13,148,136,.25) 50%, transparent 65%); }
+.pkg-start:hover { box-shadow:0 12px 30px rgba(13,148,136,.2), 0 0 0 1px rgba(37,99,235,.15); }
+.pkg-start::before { background:linear-gradient(115deg, transparent 35%, rgba(13,148,136,.22) 50%, transparent 65%); }
 
 /* BUSINESS: blue → purple (featured) */
-.pkg-business:hover, .package-card.pkg-featured:hover { box-shadow:0 28px 70px rgba(168,85,247,.4), 0 0 0 1px rgba(168,85,247,.3); }
-.pkg-business::before, .package-card.pkg-featured::before { background:linear-gradient(115deg, transparent 35%, rgba(168,85,247,.3) 50%, transparent 65%); }
+.pkg-business:hover, .package-card.pkg-featured:hover { box-shadow:0 14px 35px rgba(168,85,247,.28), 0 0 0 1px rgba(168,85,247,.2); }
+.pkg-business::before, .package-card.pkg-featured::before { background:linear-gradient(115deg, transparent 35%, rgba(168,85,247,.25) 50%, transparent 65%); }
 
 /* PRO: purple → red */
-.pkg-pro:hover { box-shadow:0 25px 60px rgba(168,85,247,.3), 0 0 0 1px rgba(232,68,30,.2); }
-.pkg-pro::before { background:linear-gradient(115deg, transparent 35%, rgba(232,68,30,.22) 50%, transparent 65%); }
+.pkg-pro:hover { box-shadow:0 12px 30px rgba(168,85,247,.22), 0 0 0 1px rgba(232,68,30,.15); }
+.pkg-pro::before { background:linear-gradient(115deg, transparent 35%, rgba(232,68,30,.2) 50%, transparent 65%); }
 
-.package-card.pkg-featured { background:linear-gradient(180deg,#f5f3ff 0%,#fff 60%); box-shadow:0 8px 30px rgba(168,85,247,.2); overflow:visible; }
+.package-card.pkg-featured { background:linear-gradient(180deg,#f5f3ff 0%,#fff 60%); box-shadow:0 8px 30px rgba(168,85,247,.2); }
+
+/* Wrapper around BUSINESS card so badge can sit outside without leaks */
+.pkg-featured-wrap {
+  flex:0 0 calc(25% - .9rem);
+  min-width:280px;
+  scroll-snap-align:start;
+  position:relative;
+  display:flex;
+}
+.pkg-featured-wrap > .package-card {
+  flex:1; width:100%; min-width:0;
+}
 
 .pkg-color-strip { position:absolute; top:0; left:0; right:0; height:8px; z-index:3; }
 
-.pkg-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--c-purple),var(--c-blue)); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; padding:.35rem .85rem; border-radius:50px; box-shadow:0 6px 16px rgba(168,85,247,.4); z-index:5; white-space:nowrap; }
+.pkg-badge { position:absolute; top:-38px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--c-purple),var(--c-blue)); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; padding:.45rem .9rem; border-radius:50px; z-index:5; white-space:nowrap; }
 
 .pkg-head { margin-top:.6rem; margin-bottom:1rem; min-height:5em; }
 .pkg-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.5rem; color:var(--navy); letter-spacing:-0.02em; line-height:1; margin-bottom:.5rem; }
@@ -894,33 +906,35 @@ footer p { font-size:.8rem; color:var(--slate); }
         </div>
 
         <!-- BUSINESS (Featured) -->
-        <div class="package-card pkg-business pkg-featured">
+        <div class="pkg-featured-wrap">
           <div class="pkg-badge" data-i18n="pkg_popular"></div>
-          <div class="pkg-color-strip" style="background:linear-gradient(90deg,var(--c-blue),var(--c-purple))"></div>
-          <div class="pkg-head">
-            <h3 class="pkg-name">BUSINESS</h3>
-            <p class="pkg-tagline" data-i18n="pkg_business_tagline"></p>
+          <div class="package-card pkg-business pkg-featured">
+            <div class="pkg-color-strip" style="background:linear-gradient(90deg,var(--c-blue),var(--c-purple))"></div>
+            <div class="pkg-head">
+              <h3 class="pkg-name">BUSINESS</h3>
+              <p class="pkg-tagline" data-i18n="pkg_business_tagline"></p>
+            </div>
+            <div class="pkg-price">
+              <span class="pkg-price-from" data-i18n="pkg_from"></span>
+              <span class="pkg-price-num">7 500 €</span>
+            </div>
+            <p class="pkg-desc" data-i18n="pkg_business_desc"></p>
+            <button class="pkg-btn pkg-btn-primary" onclick="openPopup(this)"><span data-i18n="pkg_choose"></span></button>
+            <div class="pkg-divider"></div>
+            <div class="pkg-features-title" data-i18n="pkg_includes"></div>
+            <ul class="pkg-features">
+              <li data-i18n="pkg_business_f1"></li>
+              <li data-i18n="pkg_business_f2"></li>
+              <li data-i18n="pkg_business_f3"></li>
+              <li data-i18n="pkg_business_f4"></li>
+              <li data-i18n="pkg_business_f5"></li>
+              <li data-i18n="pkg_business_f6"></li>
+              <li data-i18n="pkg_business_f7"></li>
+              <li data-i18n="pkg_business_f8"></li>
+              <li data-i18n="pkg_business_f9"></li>
+            </ul>
+            <p class="pkg-deadline"><span data-i18n="pkg_deadline"></span>: <strong data-i18n="pkg_business_deadline"></strong></p>
           </div>
-          <div class="pkg-price">
-            <span class="pkg-price-from" data-i18n="pkg_from"></span>
-            <span class="pkg-price-num">7 500 €</span>
-          </div>
-          <p class="pkg-desc" data-i18n="pkg_business_desc"></p>
-          <button class="pkg-btn pkg-btn-primary" onclick="openPopup(this)"><span data-i18n="pkg_choose"></span></button>
-          <div class="pkg-divider"></div>
-          <div class="pkg-features-title" data-i18n="pkg_includes"></div>
-          <ul class="pkg-features">
-            <li data-i18n="pkg_business_f1"></li>
-            <li data-i18n="pkg_business_f2"></li>
-            <li data-i18n="pkg_business_f3"></li>
-            <li data-i18n="pkg_business_f4"></li>
-            <li data-i18n="pkg_business_f5"></li>
-            <li data-i18n="pkg_business_f6"></li>
-            <li data-i18n="pkg_business_f7"></li>
-            <li data-i18n="pkg_business_f8"></li>
-            <li data-i18n="pkg_business_f9"></li>
-          </ul>
-          <p class="pkg-deadline"><span data-i18n="pkg_deadline"></span>: <strong data-i18n="pkg_business_deadline"></strong></p>
         </div>
 
         <!-- PRO -->
@@ -1226,6 +1240,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (prevBtn) prevBtn.addEventListener('click', () => scrollByAmount(-1));
     if (nextBtn) nextBtn.addEventListener('click', () => scrollByAmount(1));
+    
+    // Ensure vertical mouse wheel always scrolls the page, not the carousel
+    carousel.addEventListener('wheel', function(e) {
+      // If wheel is mostly vertical, let the page scroll
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.stopPropagation();
+        // Don't preventDefault; let it bubble to window
+        window.scrollBy({ top: e.deltaY, left: 0, behavior: 'auto' });
+        e.preventDefault();
+      }
+    }, { passive: false });
     
     // Update active dot on scroll
     carousel.addEventListener('scroll', () => {
