@@ -18,7 +18,7 @@
 <title>Tynk Studio – Mobile & Software Development</title>
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="Tynk Studio – разработка мобильных приложений, веб-сервисов и коммерческого ПО. iOS, Android, Web. Своя команда, без посредников, честные цены.">
+<meta name="description" content="Разработка мобильных приложений iOS и Android с гарантией качества. Своя команда дизайнеров и разработчиков, без посредников. От 5000€ за MVP. 7+ лет опыта. Бесплатная консультация.">
 <meta name="keywords" content="разработка мобильных приложений, iOS разработка, Android разработка, веб-разработка, MVP стартап, корпоративное ПО, сайт визитка, mobile development, software studio">
 <meta name="author" content="Tynk Studio">
 <meta name="robots" content="index, follow">
@@ -37,6 +37,9 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="Tynk Studio">
+<meta property="og:image" content="https://tynkstudio.dev/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -51,9 +54,16 @@
   "@type": "Organization",
   "name": "Tynk Studio",
   "url": "https://tynkstudio.dev",
+  "logo": "https://tynkstudio.dev/logo.svg",
   "email": "hello.tynkstudio@gmail.com",
   "foundingDate": "2018",
   "description": "Продуктовая студия по разработке мобильных приложений, веб-сервисов и коммерческого ПО. Работаем без посредников – дизайн, разработка и продукт внутри одной команды.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "PT",
+    "addressRegion": "Setúbal"
+  },
+  "areaServed": ["PT", "ES", "FR", "DE", "RU", "GB"],
   "sameAs": [
     "https://www.instagram.com/tynkstudio.dev/",
     "https://www.tiktok.com/@tynkstudio"
@@ -144,6 +154,98 @@
         "description": "Быстрый запуск рабочего продукта для проверки гипотез.",
         "provider": { "@type": "Organization", "name": "Tynk Studio" }
       }
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema для AI-поисковиков -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько стоит разработка мобильного приложения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стоимость MVP начинается от 5000€. Точная цена зависит от сложности функционала, дизайна и платформ (iOS, Android или обе). Мы работаем без посредников – вся команда разработки внутри студии."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает разработка приложения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MVP можно запустить за 2-3 месяца. Полноценное приложение с расширенным функционалом занимает 4-6 месяцев. Сроки зависят от сложности проекта и требований к дизайну."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Вы разрабатываете только мобильные приложения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Мы специализируемся на мобильных приложениях для iOS и Android, но также разрабатываем веб-приложения, корпоративное ПО (CRM, ERP), личные кабинеты и административные панели."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли посмотреть примеры ваших работ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, в нашем портфолио представлены проекты: Astroly (астрология и гороскопы), Pawnia (уход за питомцами), Odoo CRM (корпоративная система), Redmine CRM (система управления проектами). Все проекты доступны для ознакомления на сайте."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие технологии вы используете?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Мы работаем с современным стеком: Swift и SwiftUI для iOS, Kotlin для Android, React и Vue для веб-разработки. Выбор технологий зависит от требований проекта и обеспечивает производительность и масштабируемость."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где находится ваша студия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Мы базируемся в Португалии (регион Сетубал) и работаем с клиентами по всему миру: Португалия, Испания, Франция, Германия, Россия и Великобритания. Поддерживаем коммуникацию на 6 языках."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://tynkstudio.dev"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Приложения",
+      "item": "https://tynkstudio.dev#apps"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Портфолио",
+      "item": "https://tynkstudio.dev#portfolio"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Контакты",
+      "item": "https://tynkstudio.dev#contact"
     }
   ]
 }

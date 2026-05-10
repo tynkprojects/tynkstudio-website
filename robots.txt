@@ -1,0 +1,30 @@
+# robots.txt для tynkstudio.dev
+# Разрешаем индексацию всем поисковым системам
+
+User-agent: *
+Disallow: 
+
+# Разрешаем все AI-боты (ChatGPT, Claude, Gemini и др.)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Карта сайта
+Sitemap: https://tynkstudio.dev/sitemap.xml
+
+# Дополнительная информация
+# Host: tynkstudio.dev
