@@ -1548,6 +1548,10 @@ function detectBrowserLang() {
 }
 
 // ── BRIEF FORM ──
+// Auto-open form if URL has ?brief=1
+if (window.location.search.indexOf('brief=1') !== -1 || window.location.hash === '#brief') {
+  window.addEventListener('DOMContentLoaded', function(){ setTimeout(function(){ openBriefForm(); }, 300); });
+}
 function openBriefForm(btn) {
   var ov = document.getElementById('briefOverlay');
   if (ov) { ov.classList.add('open'); document.body.style.overflow = 'hidden'; }
