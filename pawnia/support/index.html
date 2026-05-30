@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pawnia – Support | Tynk Studio</title>
+<title>Pawnia – Privacy Policy | Tynk Studio</title>
 
-<meta name="description" content="Pawnia support page – contact, FAQ and privacy policy for the Pawnia pet care app by Tynk Studio.">
+<meta name="description" content="Privacy Policy for the Pawnia pet care app by Tynk Studio. Learn how we handle your data — offline-first, stored locally on your device.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://tynkstudio.dev/pawnia/support">
+<link rel="canonical" href="https://tynkstudio.dev/pawnia/privacy">
 
 <!-- Favicon (same as the main Tynk Studio site) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgcng9IjQ0IiBmaWxsPSIjMTExMTIyIi8+PHJlY3QgeD0iMzgiIHk9IjM4IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iI0U4NDQxRSIvPjxyZWN0IHg9IjgyIiB5PSIzOCIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiByeD0iMTAiIGZpbGw9IiNBODU1RjciLz48cmVjdCB4PSIxMjYiIHk9IjM4IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iIzBEOTQ4OCIvPjxyZWN0IHg9IjgyIiB5PSI4MiIgd2lkdGg9IjM3IiBoZWlnaHQ9IjM3IiByeD0iMTAiIGZpbGw9IiNGNTlFMEIiLz48cmVjdCB4PSI4MiIgeT0iMTI2IiB3aWR0aD0iMzciIGhlaWdodD0iMzciIHJ4PSIxMCIgZmlsbD0iIzI1NjNFQiIvPjwvc3ZnPg==">
@@ -88,6 +88,11 @@ h1{
   font-size:clamp(1.8rem,4.4vw,2.5rem);line-height:1.15;margin:0 0 .8rem;
 }
 .lead{color:var(--slate);font-size:1.05rem;margin:0 0 .4rem;max-width:560px}
+.effective{
+  display:inline-block;
+  font-family:'Sora',sans-serif;font-size:.85rem;color:var(--slate);
+  background:var(--ice);padding:.3rem .8rem;border-radius:999px;margin-top:1rem;
+}
 
 /* Sections */
 section.block{padding:2rem 0;border-top:1px solid var(--line)}
@@ -95,7 +100,20 @@ h2{
   font-family:'Sora',sans-serif;font-weight:600;
   font-size:1.3rem;margin:0 0 1rem;
 }
+h3{
+  font-family:'Sora',sans-serif;font-weight:600;
+  font-size:1.05rem;margin:1.4rem 0 .6rem;color:var(--navy);
+}
 .muted{color:var(--slate);font-size:.95rem;margin:0 0 .8rem}
+p{margin:0 0 .9rem;color:var(--slate);font-size:.97rem}
+ul{margin:0 0 1rem;padding-left:1.3rem;color:var(--slate);font-size:.97rem}
+ul li{margin-bottom:.4rem}
+ul li strong{color:var(--navy);font-weight:600}
+.highlight{
+  background:var(--ice);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:1rem 1.2rem;margin:1rem 0;
+}
+.highlight p{margin:0;color:var(--navy);font-size:.95rem}
 
 /* Contact card */
 .card{
@@ -109,47 +127,17 @@ h2{
 .card .value{font-weight:600;font-size:1rem;color:var(--navy)}
 .card .value a{color:var(--blue)}
 .card-side{flex:1;min-width:200px}
-.response{
-  font-size:.85rem;color:var(--slate);
-  background:#fff;border:1px solid var(--line);border-radius:999px;padding:.4rem .8rem;
-}
 
-/* FAQ */
-details{
-  border:1px solid var(--line);border-radius:var(--radius-sm);
-  margin-bottom:.6rem;background:#fff;overflow:hidden;
-  transition:border-color .15s, box-shadow .15s;
-}
-details[open]{border-color:rgba(37,99,235,.25);box-shadow:0 1px 0 rgba(15,23,42,.02)}
-summary{
-  list-style:none;cursor:pointer;
-  padding:1rem 1.2rem;
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;
-  font-family:'Sora',sans-serif;font-weight:500;font-size:.98rem;color:var(--navy);
-}
-summary::-webkit-details-marker{display:none}
-summary::after{
-  content:"+";font-family:'Sora',sans-serif;font-weight:400;font-size:1.3rem;
-  color:var(--slate);line-height:1;flex-shrink:0;transition:transform .2s;
-}
-details[open] summary::after{content:"−";color:var(--blue)}
-.faq-body{
-  padding:0 1.2rem 1.1rem;color:var(--slate);font-size:.95rem;
-}
-.faq-body p{margin:0 0 .6rem}
-.faq-body p:last-child{margin-bottom:0}
-
-/* Privacy link */
-.legal-link{
+/* Back link */
+.back-link{
   display:inline-flex;align-items:center;gap:.5rem;
   padding:.8rem 1.2rem;border:1.5px solid var(--line);border-radius:999px;
   font-family:'Sora',sans-serif;font-weight:500;color:var(--navy);
-  transition:all .15s;
+  transition:all .15s;margin-top:.5rem;
 }
-.legal-link:hover{
+.back-link:hover{
   text-decoration:none;border-color:var(--blue);color:var(--blue);background:var(--sky);
 }
-.legal-link::after{content:"↗";font-size:.9rem}
 
 /* Footer */
 footer{
@@ -163,8 +151,7 @@ footer a:hover{color:var(--navy)}
 @media(max-width:520px){
   .hero{padding:2rem 0 1rem}
   section.block{padding:1.5rem 0}
-  summary{padding:.9rem 1rem;font-size:.93rem}
-  .faq-body{padding:0 1rem 1rem}
+  h3{font-size:1rem}
 }
 </style>
 </head>
@@ -195,76 +182,155 @@ footer a:hover{color:var(--navy)}
 <main class="container">
 
   <section class="hero">
-    <span class="eyebrow" data-i18n="eyebrow">App Support</span>
-    <h1 data-i18n="h1">Pawnia – Help &amp; Support</h1>
-    <p class="lead" data-i18n="lead">Need help with Pawnia? You're in the right place. Browse the FAQ or reach out to us directly — we read every message.</p>
+    <span class="eyebrow" data-i18n="eyebrow">Legal</span>
+    <h1 data-i18n="h1">Privacy Policy</h1>
+    <p class="lead" data-i18n="lead">How Pawnia handles your data. Short version: everything stays on your device — we don't collect, store, or share anything on our servers.</p>
+    <span class="effective" data-i18n="effective">Effective Date: May 15, 2026</span>
   </section>
 
-  <section class="block" id="contact">
-    <h2 data-i18n="contact_h">Contact</h2>
-    <p class="muted" data-i18n="contact_p">The fastest way to reach us is by email. We typically reply within one business day.</p>
+  <section class="block">
+    <h2 data-i18n="s1_h">1. General Provisions</h2>
+    <p data-i18n="s1_p1">This Privacy Policy (the "Policy") describes what data the Pawnia application (the "Application") collects and processes, the purposes for which it is used, and the rights users have regarding their data.</p>
+    <p data-i18n="s1_p2">By using the Application, you agree to the terms of this Policy. If you do not agree, please discontinue use of the Application.</p>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="s2_h">2. Data Controller</h2>
+    <p data-i18n="s2_p1">The data controller is the developer of the Pawnia application (referred to as "We" or the "Controller").</p>
+    <p data-i18n="s2_p2">For privacy-related inquiries, contact us at:</p>
     <div class="card">
       <div class="card-side">
-        <div class="label" data-i18n="contact_label">Email</div>
-        <div class="value"><a href="mailto:hello.tynkstudio@gmail.com?subject=Pawnia%20support">hello.tynkstudio@gmail.com</a></div>
+        <div class="label" data-i18n="s2_label">Email</div>
+        <div class="value"><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></div>
       </div>
-      <div class="response" data-i18n="response">Avg. response: within 1 business day</div>
     </div>
   </section>
 
-  <section class="block" id="faq">
-    <h2 data-i18n="faq_h">Frequently asked questions</h2>
+  <section class="block">
+    <h2 data-i18n="s3_h">3. Data We Collect</h2>
 
-    <details>
-      <summary data-i18n="q1">How do I add a pet to Pawnia?</summary>
-      <div class="faq-body" data-i18n="a1">
-        <p>Open Pawnia and tap the <strong>+</strong> button on the home screen. Fill in your pet's basic info — name, species, breed, date of birth, photo — and tap <em>Save</em>. You can add multiple pets and edit their profiles at any time.</p>
-      </div>
-    </details>
+    <h3 data-i18n="s3_1_h">3.1. Data You Provide</h3>
+    <p data-i18n="s3_1_p">While using the Application, you may enter the following information about your pet:</p>
+    <ul>
+      <li data-i18n="s3_1_l1">Name, species, breed, sex, date of birth</li>
+      <li data-i18n="s3_1_l2">Weight records (history of weigh-ins)</li>
+      <li data-i18n="s3_1_l3">Behavioral journal entries (user-written observations)</li>
+      <li data-i18n="s3_1_l4">Tasks and events (reminders, scheduled activities)</li>
+      <li data-i18n="s3_1_l5">Uploaded documents (photos, files)</li>
+    </ul>
+    <p data-i18n="s3_1_p2">For the emergency pet card (optional), you may provide:</p>
+    <ul>
+      <li data-i18n="s3_1_e1">Diet type, allergies, medical conditions, special needs</li>
+      <li data-i18n="s3_1_e2">Owner contact details (optional)</li>
+      <li data-i18n="s3_1_e3">Emergency contacts (optional)</li>
+      <li data-i18n="s3_1_e4">Veterinary clinic or doctor information (optional)</li>
+      <li data-i18n="s3_1_e5">Additional notes</li>
+    </ul>
+    <div class="highlight">
+      <p data-i18n="s3_1_note">All emergency card data is provided voluntarily. You decide what to include.</p>
+    </div>
 
-    <details>
-      <summary data-i18n="q2">How do I create a Quick Card (groomer, vet, travel, etc.)?</summary>
-      <div class="faq-body" data-i18n="a2">
-        <p>Open your pet's profile, go to <strong>Documents</strong> and tap <strong>New card</strong>. Choose the card type — groomer, pet sitter, boarding, emergency, travel checklist, vet visit, lost-pet card — then select which fields to include and arrange them in the order you need.</p>
-        <p>Once saved, you can export the card as a <strong>PDF</strong> or <strong>PNG</strong> and share it via Messages, AirDrop, email or any other app.</p>
-      </div>
-    </details>
+    <h3 data-i18n="s3_2_h">3.2. Data Collected Automatically</h3>
+    <p data-i18n="s3_2_p">When using the Application, the following may be processed automatically:</p>
+    <ul>
+      <li data-i18n="s3_2_l1"><strong>Device push token</strong> — used for sending local and push notifications (task and event reminders). This token is stored locally on your device and is not transmitted to external servers.</li>
+    </ul>
 
-    <details>
-      <summary data-i18n="q3">Where is my data stored? Does Pawnia work offline?</summary>
-      <div class="faq-body" data-i18n="a3">
-        <p>Pawnia is built <strong>offline-first</strong>. All your pets' profiles and documents are stored locally on your device. The app works fully without an internet connection and your data is not uploaded to our servers.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary data-i18n="q4">How do I move my data to a new phone?</summary>
-      <div class="faq-body" data-i18n="a4">
-        <p>Because data is stored locally, we recommend exporting your most important documents as PDF files before switching devices and saving them to iCloud, Google Drive or another cloud you trust.</p>
-        <p>A built-in backup &amp; restore feature is on our roadmap and will be added in an upcoming update. If you need help in the meantime, email us at <a href="mailto:hello.tynkstudio@gmail.com">hello.tynkstudio@gmail.com</a>.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary data-i18n="q5">How do I delete my data or remove the app?</summary>
-      <div class="faq-body" data-i18n="a5">
-        <p>Pawnia doesn't require registration and doesn't store your data on any server. To remove all data, simply delete the app from your device — everything stored locally will be removed with it.</p>
-        <p>You can also clear individual pets or documents from within the app: open the item, tap the menu (<strong>⋯</strong>) and choose <em>Delete</em>.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary data-i18n="q6">I found a bug or have a feature request. What should I do?</summary>
-      <div class="faq-body" data-i18n="a6">
-        <p>We'd love to hear from you. Send a short description (and a screenshot if it's a bug) to <a href="mailto:hello.tynkstudio@gmail.com?subject=Pawnia%20feedback">hello.tynkstudio@gmail.com</a>. Please include your device model and iOS version — that helps us reproduce issues faster.</p>
-      </div>
-    </details>
+    <h3 data-i18n="s3_3_h">3.3. Data We Do NOT Collect</h3>
+    <p data-i18n="s3_3_p">We do <strong>not</strong> collect or process:</p>
+    <ul>
+      <li data-i18n="s3_3_l1">Your name, phone number, or address (unless you manually enter it in the emergency card)</li>
+      <li data-i18n="s3_3_l2">Geolocation data</li>
+      <li data-i18n="s3_3_l3">Login credentials (no authentication required in the current version)</li>
+      <li data-i18n="s3_3_l4">Payment data (the Application is free)</li>
+      <li data-i18n="s3_3_l5">Advertising identifiers</li>
+    </ul>
   </section>
 
-  <section class="block" id="legal">
-    <h2 data-i18n="legal_h">Privacy &amp; legal</h2>
-    <p class="muted" data-i18n="legal_p">Read how we handle your data — short version: we keep it on your device.</p>
-    <a class="legal-link" href="https://docs.google.com/document/d/1r0HFHDFmRJKVlzjqOECdGS9JcyJk6TDe0Ntl-oSXtGc/edit?tab=t.0" target="_blank" rel="noopener" data-i18n="legal_btn">Privacy Policy</a>
+  <section class="block">
+    <h2 data-i18n="s4_h">4. Data Storage</h2>
+    <p data-i18n="s4_p1">All data you enter in the Application is stored locally on your device. We do not use cloud servers to store user data.</p>
+    <p data-i18n="s4_p2">Data you export (PDF, PNG, reports) is shared only through your device's standard system mechanisms (e.g., "Share," email, messaging apps) and only at your initiative.</p>
+    <p data-i18n="s4_p3">We do not receive or store copies of exported files.</p>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="s5_h">5. Third-Party Libraries and SDKs</h2>
+    <p data-i18n="s5_p1">The Application uses open-source third-party libraries solely for functionality and interface purposes. None of them collect or transmit your personal data to third parties:</p>
+    <ul>
+      <li data-i18n="s5_l1"><strong>camera, image_picker</strong> — access to camera and gallery (only upon user request)</li>
+      <li data-i18n="s5_l2"><strong>video_player, just_audio</strong> — media playback</li>
+      <li data-i18n="s5_l3"><strong>path_provider, shared_preferences</strong> — local storage access</li>
+      <li data-i18n="s5_l4"><strong>pdf, printing, flutter_native_html_to_pdf, html_to_image</strong> — PDF/PNG generation and export</li>
+      <li data-i18n="s5_l5"><strong>share_plus</strong> — system sharing dialog</li>
+      <li data-i18n="s5_l6"><strong>flutter_email_sender</strong> — opening email client</li>
+      <li data-i18n="s5_l7"><strong>url_launcher</strong> — opening external links</li>
+      <li data-i18n="s5_l8"><strong>fl_chart</strong> — charts and graphs</li>
+      <li data-i18n="s5_l9"><strong>flutter_bloc, bloc, meta</strong> — state management (no data collection)</li>
+      <li data-i18n="s5_l10"><strong>flutter_localizations, intl</strong> — localization</li>
+      <li data-i18n="s5_l11"><strong>liquid_glass_renderer, material_symbols_icons, another_flushbar</strong> — UI components</li>
+    </ul>
+    <div class="highlight">
+      <p data-i18n="s5_note">None of these libraries perform analytics, advertising, or data transmission to external servers.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="s6_h">6. Purpose of Data Processing</h2>
+    <p data-i18n="s6_p">The data you enter is processed exclusively for the following purposes:</p>
+    <ul>
+      <li data-i18n="s6_l1">Displaying and storing pet information on your device</li>
+      <li data-i18n="s6_l2">Creating the pet emergency card</li>
+      <li data-i18n="s6_l3">Generating weight charts and reports</li>
+      <li data-i18n="s6_l4">Creating PDF/PNG documents and sharing them at your request</li>
+      <li data-i18n="s6_l5">Sending reminders for tasks and events via notifications</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="s7_h">7. Data Sharing with Third Parties</h2>
+    <p data-i18n="s7_p1">We do <strong>not</strong> share your data with third parties, advertisers, analytics services, or government authorities, except where required by applicable law.</p>
+    <p data-i18n="s7_p2">Exported data (PDF, PNG, reports) is shared only at your initiative through your device's system tools. You choose the recipient.</p>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="s8_h">8. User Rights</h2>
+    <p data-i18n="s8_p">You have the right to:</p>
+    <ul>
+      <li data-i18n="s8_l1">Access information about what data is stored in the Application</li>
+      <li data-i18n="s8_l2">Correct or update your data directly within the Application</li>
+      <li data-i18n="s8_l3">Delete all data by removing the Application from your device</li>
+      <li data-i18n="s8_l4">Request confirmation of data deletion by contacting us at <a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></li>
+    </ul>
+    <div class="highlight">
+      <p data-i18n="s8_note">Since all data is stored locally, deleting the Application results in complete deletion of all associated data.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="s9_h">9. Children</h2>
+    <p data-i18n="s9_p1">The Application is not intended for children under 4 years old. We do not knowingly collect data from children.</p>
+    <p data-i18n="s9_p2">If you believe a child has provided personal data, please contact us at <a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a>.</p>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="s10_h">10. Changes to This Policy</h2>
+    <p data-i18n="s10_p1">We reserve the right to modify this Policy. In case of significant changes, we will notify you via the Application or update the effective date.</p>
+    <p data-i18n="s10_p2">Continued use of the Application after changes are published constitutes your acceptance of the updated Policy.</p>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="s11_h">11. Contact</h2>
+    <p data-i18n="s11_p">For any questions regarding this Privacy Policy, data processing, or data deletion requests, please contact:</p>
+    <div class="card">
+      <div class="card-side">
+        <div class="label" data-i18n="s11_label">Email</div>
+        <div class="value"><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem">
+      <a class="back-link" href="https://tynkstudio.dev/pawnia/support" data-i18n="back_btn">← Back to Pawnia Support</a>
+    </p>
   </section>
 
 </main>
@@ -279,56 +345,200 @@ footer a:hover{color:var(--navy)}
 <script>
 const T = {
   en: {
-    eyebrow: "App Support",
-    h1: "Pawnia – Help &amp; Support",
-    lead: "Need help with Pawnia? You're in the right place. Browse the FAQ or reach out to us directly — we read every message.",
-    contact_h: "Contact",
-    contact_p: "The fastest way to reach us is by email. We typically reply within one business day.",
-    contact_label: "Email",
-    response: "Avg. response: within 1 business day",
-    faq_h: "Frequently asked questions",
-    q1: "How do I add a pet to Pawnia?",
-    a1: "<p>Open Pawnia and tap the <strong>+</strong> button on the home screen. Fill in your pet's basic info — name, species, breed, date of birth, photo — and tap <em>Save</em>. You can add multiple pets and edit their profiles at any time.</p>",
-    q2: "How do I create a Quick Card (groomer, vet, travel, etc.)?",
-    a2: "<p>Open your pet's profile, go to <strong>Documents</strong> and tap <strong>New card</strong>. Choose the card type — groomer, pet sitter, boarding, emergency, travel checklist, vet visit, lost-pet card — then select which fields to include and arrange them in the order you need.</p><p>Once saved, you can export the card as a <strong>PDF</strong> or <strong>PNG</strong> and share it via Messages, AirDrop, email or any other app.</p>",
-    q3: "Where is my data stored? Does Pawnia work offline?",
-    a3: "<p>Pawnia is built <strong>offline-first</strong>. All your pets' profiles and documents are stored locally on your device. The app works fully without an internet connection and your data is not uploaded to our servers.</p>",
-    q4: "How do I move my data to a new phone?",
-    a4: "<p>Because data is stored locally, we recommend exporting your most important documents as PDF files before switching devices and saving them to iCloud, Google Drive or another cloud you trust.</p><p>A built-in backup &amp; restore feature is on our roadmap and will be added in an upcoming update. If you need help in the meantime, email us at <a href=\"mailto:hello.tynkstudio@gmail.com\">hello.tynkstudio@gmail.com</a>.</p>",
-    q5: "How do I delete my data or remove the app?",
-    a5: "<p>Pawnia doesn't require registration and doesn't store your data on any server. To remove all data, simply delete the app from your device — everything stored locally will be removed with it.</p><p>You can also clear individual pets or documents from within the app: open the item, tap the menu (<strong>⋯</strong>) and choose <em>Delete</em>.</p>",
-    q6: "I found a bug or have a feature request. What should I do?",
-    a6: "<p>We'd love to hear from you. Send a short description (and a screenshot if it's a bug) to <a href=\"mailto:hello.tynkstudio@gmail.com?subject=Pawnia%20feedback\">hello.tynkstudio@gmail.com</a>. Please include your device model and iOS version — that helps us reproduce issues faster.</p>",
-    legal_h: "Privacy &amp; legal",
-    legal_p: "Read how we handle your data — short version: we keep it on your device.",
-    legal_btn: "Privacy Policy",
+    eyebrow: "Legal",
+    h1: "Privacy Policy",
+    lead: "How Pawnia handles your data. Short version: everything stays on your device — we don't collect, store, or share anything on our servers.",
+    effective: "Effective Date: May 15, 2026",
+
+    s1_h: "1. General Provisions",
+    s1_p1: "This Privacy Policy (the \"Policy\") describes what data the Pawnia application (the \"Application\") collects and processes, the purposes for which it is used, and the rights users have regarding their data.",
+    s1_p2: "By using the Application, you agree to the terms of this Policy. If you do not agree, please discontinue use of the Application.",
+
+    s2_h: "2. Data Controller",
+    s2_p1: "The data controller is the developer of the Pawnia application (referred to as \"We\" or the \"Controller\").",
+    s2_p2: "For privacy-related inquiries, contact us at:",
+    s2_label: "Email",
+
+    s3_h: "3. Data We Collect",
+    s3_1_h: "3.1. Data You Provide",
+    s3_1_p: "While using the Application, you may enter the following information about your pet:",
+    s3_1_l1: "Name, species, breed, sex, date of birth",
+    s3_1_l2: "Weight records (history of weigh-ins)",
+    s3_1_l3: "Behavioral journal entries (user-written observations)",
+    s3_1_l4: "Tasks and events (reminders, scheduled activities)",
+    s3_1_l5: "Uploaded documents (photos, files)",
+    s3_1_p2: "For the emergency pet card (optional), you may provide:",
+    s3_1_e1: "Diet type, allergies, medical conditions, special needs",
+    s3_1_e2: "Owner contact details (optional)",
+    s3_1_e3: "Emergency contacts (optional)",
+    s3_1_e4: "Veterinary clinic or doctor information (optional)",
+    s3_1_e5: "Additional notes",
+    s3_1_note: "All emergency card data is provided voluntarily. You decide what to include.",
+
+    s3_2_h: "3.2. Data Collected Automatically",
+    s3_2_p: "When using the Application, the following may be processed automatically:",
+    s3_2_l1: "<strong>Device push token</strong> — used for sending local and push notifications (task and event reminders). This token is stored locally on your device and is not transmitted to external servers.",
+
+    s3_3_h: "3.3. Data We Do NOT Collect",
+    s3_3_p: "We do <strong>not</strong> collect or process:",
+    s3_3_l1: "Your name, phone number, or address (unless you manually enter it in the emergency card)",
+    s3_3_l2: "Geolocation data",
+    s3_3_l3: "Login credentials (no authentication required in the current version)",
+    s3_3_l4: "Payment data (the Application is free)",
+    s3_3_l5: "Advertising identifiers",
+
+    s4_h: "4. Data Storage",
+    s4_p1: "All data you enter in the Application is stored locally on your device. We do not use cloud servers to store user data.",
+    s4_p2: "Data you export (PDF, PNG, reports) is shared only through your device's standard system mechanisms (e.g., \"Share,\" email, messaging apps) and only at your initiative.",
+    s4_p3: "We do not receive or store copies of exported files.",
+
+    s5_h: "5. Third-Party Libraries and SDKs",
+    s5_p1: "The Application uses open-source third-party libraries solely for functionality and interface purposes. None of them collect or transmit your personal data to third parties:",
+    s5_l1: "<strong>camera, image_picker</strong> — access to camera and gallery (only upon user request)",
+    s5_l2: "<strong>video_player, just_audio</strong> — media playback",
+    s5_l3: "<strong>path_provider, shared_preferences</strong> — local storage access",
+    s5_l4: "<strong>pdf, printing, flutter_native_html_to_pdf, html_to_image</strong> — PDF/PNG generation and export",
+    s5_l5: "<strong>share_plus</strong> — system sharing dialog",
+    s5_l6: "<strong>flutter_email_sender</strong> — opening email client",
+    s5_l7: "<strong>url_launcher</strong> — opening external links",
+    s5_l8: "<strong>fl_chart</strong> — charts and graphs",
+    s5_l9: "<strong>flutter_bloc, bloc, meta</strong> — state management (no data collection)",
+    s5_l10: "<strong>flutter_localizations, intl</strong> — localization",
+    s5_l11: "<strong>liquid_glass_renderer, material_symbols_icons, another_flushbar</strong> — UI components",
+    s5_note: "None of these libraries perform analytics, advertising, or data transmission to external servers.",
+
+    s6_h: "6. Purpose of Data Processing",
+    s6_p: "The data you enter is processed exclusively for the following purposes:",
+    s6_l1: "Displaying and storing pet information on your device",
+    s6_l2: "Creating the pet emergency card",
+    s6_l3: "Generating weight charts and reports",
+    s6_l4: "Creating PDF/PNG documents and sharing them at your request",
+    s6_l5: "Sending reminders for tasks and events via notifications",
+
+    s7_h: "7. Data Sharing with Third Parties",
+    s7_p1: "We do <strong>not</strong> share your data with third parties, advertisers, analytics services, or government authorities, except where required by applicable law.",
+    s7_p2: "Exported data (PDF, PNG, reports) is shared only at your initiative through your device's system tools. You choose the recipient.",
+
+    s8_h: "8. User Rights",
+    s8_p: "You have the right to:",
+    s8_l1: "Access information about what data is stored in the Application",
+    s8_l2: "Correct or update your data directly within the Application",
+    s8_l3: "Delete all data by removing the Application from your device",
+    s8_l4: "Request confirmation of data deletion by contacting us at <a href=\"mailto:tynkprojects@gmail.com\">tynkprojects@gmail.com</a>",
+    s8_note: "Since all data is stored locally, deleting the Application results in complete deletion of all associated data.",
+
+    s9_h: "9. Children",
+    s9_p1: "The Application is not intended for children under 4 years old. We do not knowingly collect data from children.",
+    s9_p2: "If you believe a child has provided personal data, please contact us at <a href=\"mailto:tynkprojects@gmail.com\">tynkprojects@gmail.com</a>.",
+
+    s10_h: "10. Changes to This Policy",
+    s10_p1: "We reserve the right to modify this Policy. In case of significant changes, we will notify you via the Application or update the effective date.",
+    s10_p2: "Continued use of the Application after changes are published constitutes your acceptance of the updated Policy.",
+
+    s11_h: "11. Contact",
+    s11_p: "For any questions regarding this Privacy Policy, data processing, or data deletion requests, please contact:",
+    s11_label: "Email",
+    back_btn: "← Back to Pawnia Support",
+
     footer: "© 2026 Tynk Studio – All rights reserved",
     footer_back: "← Back to tynkstudio.dev"
   },
   ru: {
-    eyebrow: "Поддержка приложения",
-    h1: "Pawnia – Помощь и поддержка",
-    lead: "Нужна помощь с Pawnia? Вы в нужном месте. Загляните в FAQ или напишите нам напрямую — мы читаем каждое сообщение.",
-    contact_h: "Контакты",
-    contact_p: "Быстрее всего связаться с нами по электронной почте. Обычно отвечаем в течение одного рабочего дня.",
-    contact_label: "Email",
-    response: "Среднее время ответа: 1 рабочий день",
-    faq_h: "Часто задаваемые вопросы",
-    q1: "Как добавить питомца в Pawnia?",
-    a1: "<p>Откройте Pawnia и нажмите <strong>+</strong> на главном экране. Заполните данные питомца — имя, вид, породу, дату рождения, фото — и нажмите <em>Сохранить</em>. Можно добавлять несколько питомцев и редактировать их профили в любой момент.</p>",
-    q2: "Как создать Quick Card (грумер, ветеринар, путешествие и т.д.)?",
-    a2: "<p>Откройте профиль питомца, перейдите в раздел <strong>Документы</strong> и нажмите <strong>Новая карточка</strong>. Выберите тип карточки — грумер, пет-ситтер, передержка, экстренная карточка, чек-лист для путешествий, визит к ветеринару, карточка потерянного питомца — затем выберите нужные поля и расставьте их в удобном порядке.</p><p>После сохранения карточку можно экспортировать в <strong>PDF</strong> или <strong>PNG</strong> и отправить через Сообщения, AirDrop, почту или любое другое приложение.</p>",
-    q3: "Где хранятся мои данные? Работает ли Pawnia без интернета?",
-    a3: "<p>Pawnia построена по принципу <strong>offline-first</strong>. Все профили питомцев и документы хранятся локально на вашем устройстве. Приложение полностью работает без подключения к интернету, ваши данные не загружаются на наши серверы.</p>",
-    q4: "Как перенести данные на новый телефон?",
-    a4: "<p>Поскольку данные хранятся локально, рекомендуем перед сменой устройства экспортировать самые важные документы в PDF и сохранить их в iCloud, Google Drive или другое надёжное облако.</p><p>Встроенная функция резервного копирования и восстановления в планах и появится в одном из ближайших обновлений. Если нужна помощь — напишите нам на <a href=\"mailto:hello.tynkstudio@gmail.com\">hello.tynkstudio@gmail.com</a>.</p>",
-    q5: "Как удалить мои данные или само приложение?",
-    a5: "<p>Pawnia не требует регистрации и не хранит ваши данные ни на каком сервере. Чтобы удалить все данные, достаточно удалить приложение с устройства — всё, что хранилось локально, удалится вместе с ним.</p><p>Также можно удалять отдельных питомцев и документы прямо в приложении: откройте элемент, нажмите меню (<strong>⋯</strong>) и выберите <em>Удалить</em>.</p>",
-    q6: "Нашёл баг или есть идея для новой функции. Что делать?",
-    a6: "<p>Будем рады услышать. Пришлите короткое описание (и скриншот, если это баг) на <a href=\"mailto:hello.tynkstudio@gmail.com?subject=Pawnia%20feedback\">hello.tynkstudio@gmail.com</a>. Пожалуйста, укажите модель устройства и версию iOS — это поможет нам быстрее воспроизвести проблему.</p>",
-    legal_h: "Конфиденциальность",
-    legal_p: "Как мы обращаемся с вашими данными — если коротко: мы храним их только на вашем устройстве.",
-    legal_btn: "Политика конфиденциальности",
+    eyebrow: "Правовая информация",
+    h1: "Политика конфиденциальности",
+    lead: "Как Pawnia обращается с вашими данными. Если коротко: всё хранится на вашем устройстве — мы ничего не собираем, не храним и не передаём на свои серверы.",
+    effective: "Дата вступления в силу: 15 мая 2026 г.",
+
+    s1_h: "1. Общие положения",
+    s1_p1: "Настоящая Политика конфиденциальности (далее — «Политика») описывает, какие данные собирает и обрабатывает приложение Pawnia (далее — «Приложение»), для каких целей они используются и какие права имеют пользователи в отношении своих данных.",
+    s1_p2: "Используя Приложение, вы соглашаетесь с условиями настоящей Политики. Если вы не согласны с ними, прекратите использование Приложения.",
+
+    s2_h: "2. Контролёр данных",
+    s2_p1: "Контролёром данных является разработчик приложения Pawnia (далее — «Мы» или «Контролёр»).",
+    s2_p2: "По вопросам, связанным с конфиденциальностью, свяжитесь с нами:",
+    s2_label: "Email",
+
+    s3_h: "3. Какие данные мы собираем",
+    s3_1_h: "3.1. Данные, которые вы предоставляете",
+    s3_1_p: "При использовании Приложения вы можете вносить следующую информацию о своём питомце:",
+    s3_1_l1: "Кличка, вид, порода, пол, дата рождения",
+    s3_1_l2: "Записи веса (история взвешиваний)",
+    s3_1_l3: "Записи в дневнике поведения (пользовательские наблюдения)",
+    s3_1_l4: "Задачи и события (напоминания, запланированные мероприятия)",
+    s3_1_l5: "Загруженные документы (фотографии, файлы)",
+    s3_1_p2: "Для экстренной карточки питомца (необязательно) вы можете указать:",
+    s3_1_e1: "Тип питания, аллергии, заболевания, особые потребности",
+    s3_1_e2: "Контактные данные владельца (необязательно)",
+    s3_1_e3: "Экстренные контакты (необязательно)",
+    s3_1_e4: "Информацию о ветеринарной клинике или враче (необязательно)",
+    s3_1_e5: "Дополнительные заметки",
+    s3_1_note: "Все данные экстренной карточки предоставляются добровольно. Вы сами решаете, что включить.",
+
+    s3_2_h: "3.2. Данные, собираемые автоматически",
+    s3_2_p: "При использовании Приложения могут обрабатываться автоматически:",
+    s3_2_l1: "<strong>Push-токен устройства</strong> — используется для отправки локальных и push-уведомлений (напоминания о задачах и событиях). Этот токен хранится локально на вашем устройстве и не передаётся на внешние серверы.",
+
+    s3_3_h: "3.3. Что мы НЕ собираем",
+    s3_3_p: "Мы <strong>не</strong> собираем и не обрабатываем:",
+    s3_3_l1: "Ваше имя, номер телефона или адрес (если только вы не указали их вручную в экстренной карточке)",
+    s3_3_l2: "Геолокационные данные",
+    s3_3_l3: "Учётные данные для входа (в текущей версии аутентификация не требуется)",
+    s3_3_l4: "Платёжные данные (Приложение бесплатное)",
+    s3_3_l5: "Рекламные идентификаторы",
+
+    s4_h: "4. Хранение данных",
+    s4_p1: "Все данные, которые вы вносите в Приложение, хранятся локально на вашем устройстве. Мы не используем облачные серверы для хранения пользовательских данных.",
+    s4_p2: "Данные, которые вы экспортируете (PDF, PNG, отчёты), передаются только через стандартные системные механизмы вашего устройства (например, «Поделиться», email, мессенджеры) и только по вашей инициативе.",
+    s4_p3: "Мы не получаем и не храним копии экспортированных файлов.",
+
+    s5_h: "5. Сторонние библиотеки и SDK",
+    s5_p1: "Приложение использует сторонние open-source библиотеки исключительно для функциональности и интерфейса. Ни одна из них не собирает и не передаёт ваши персональные данные третьим лицам:",
+    s5_l1: "<strong>camera, image_picker</strong> — доступ к камере и галерее (только по запросу пользователя)",
+    s5_l2: "<strong>video_player, just_audio</strong> — воспроизведение медиа",
+    s5_l3: "<strong>path_provider, shared_preferences</strong> — доступ к локальному хранилищу",
+    s5_l4: "<strong>pdf, printing, flutter_native_html_to_pdf, html_to_image</strong> — генерация и экспорт PDF/PNG",
+    s5_l5: "<strong>share_plus</strong> — системный диалог «Поделиться»",
+    s5_l6: "<strong>flutter_email_sender</strong> — открытие почтового клиента",
+    s5_l7: "<strong>url_launcher</strong> — открытие внешних ссылок",
+    s5_l8: "<strong>fl_chart</strong> — графики и диаграммы",
+    s5_l9: "<strong>flutter_bloc, bloc, meta</strong> — управление состоянием (без сбора данных)",
+    s5_l10: "<strong>flutter_localizations, intl</strong> — локализация",
+    s5_l11: "<strong>liquid_glass_renderer, material_symbols_icons, another_flushbar</strong> — UI-компоненты",
+    s5_note: "Ни одна из этих библиотек не выполняет аналитику, не показывает рекламу и не передаёт данные на внешние серверы.",
+
+    s6_h: "6. Цели обработки данных",
+    s6_p: "Вносимые вами данные обрабатываются исключительно в следующих целях:",
+    s6_l1: "Отображение и хранение информации о питомце на вашем устройстве",
+    s6_l2: "Создание экстренной карточки питомца",
+    s6_l3: "Формирование графиков веса и отчётов",
+    s6_l4: "Создание PDF/PNG-документов и их отправка по вашему запросу",
+    s6_l5: "Отправка напоминаний о задачах и событиях через уведомления",
+
+    s7_h: "7. Передача данных третьим лицам",
+    s7_p1: "Мы <strong>не</strong> передаём ваши данные третьим лицам, рекламодателям, аналитическим сервисам или государственным органам, за исключением случаев, предусмотренных применимым законодательством.",
+    s7_p2: "Экспортированные данные (PDF, PNG, отчёты) передаются только по вашей инициативе через системные средства вашего устройства. Получателя выбираете вы.",
+
+    s8_h: "8. Права пользователя",
+    s8_p: "Вы имеете право:",
+    s8_l1: "Получать информацию о том, какие данные хранятся в Приложении",
+    s8_l2: "Изменять или обновлять свои данные прямо в Приложении",
+    s8_l3: "Удалить все данные, удалив Приложение со своего устройства",
+    s8_l4: "Запросить подтверждение удаления данных, написав нам на <a href=\"mailto:tynkprojects@gmail.com\">tynkprojects@gmail.com</a>",
+    s8_note: "Поскольку все данные хранятся локально, удаление Приложения приводит к полному удалению всех связанных с ним данных.",
+
+    s9_h: "9. Дети",
+    s9_p1: "Приложение не предназначено для детей младше 4 лет. Мы сознательно не собираем данные от детей.",
+    s9_p2: "Если вы считаете, что ребёнок предоставил персональные данные, свяжитесь с нами по адресу <a href=\"mailto:tynkprojects@gmail.com\">tynkprojects@gmail.com</a>.",
+
+    s10_h: "10. Изменения в Политике",
+    s10_p1: "Мы оставляем за собой право вносить изменения в настоящую Политику. В случае существенных изменений мы уведомим вас через Приложение или обновим дату вступления в силу.",
+    s10_p2: "Продолжение использования Приложения после публикации изменений означает ваше согласие с обновлённой Политикой.",
+
+    s11_h: "11. Контакты",
+    s11_p: "По всем вопросам, касающимся настоящей Политики конфиденциальности, обработки данных или запросов на удаление данных, обращайтесь:",
+    s11_label: "Email",
+    back_btn: "← Вернуться к поддержке Pawnia",
+
     footer: "© 2026 Tynk Studio – Все права защищены",
     footer_back: "← Вернуться на tynkstudio.dev"
   }
@@ -344,6 +554,7 @@ function applyLang(lang){
   document.querySelectorAll('.lang-toggle button').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
+  // Shared key with support page so language choice persists across both
   try { localStorage.setItem('pawnia_support_lang', lang); } catch(e){}
 }
 
