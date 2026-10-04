@@ -1,0 +1,312 @@
+/* App Launch Playbook — shared design system */
+
+:root {
+  --ink: #1b2024;
+  --ink-soft: #4a5258;
+  --paper: #faf8f3;
+  --paper-raised: #ffffff;
+  --line: #e4ddd0;
+  --accent: #1f7a68;
+  --accent-soft: #e3f1ec;
+  --amber: #b5750a;
+  --amber-soft: #fbf0dd;
+  --red: #a23b2e;
+  --red-soft: #fbe9e5;
+  --sidebar-bg: #171b1f;
+  --sidebar-text: #c7cdd1;
+  --sidebar-text-dim: #7d8690;
+  --sidebar-active: #2a3138;
+  --mockup-chrome: #f2f2f3;
+  --mockup-border: #d8d8da;
+  --pin: #f2441d;
+  --pin-blur: #7a3ff0;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0 0 0.5em;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---- Sidebar ---- */
+.sidebar {
+  flex: 0 0 280px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 28px 22px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar .brand {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.sidebar .brand-sub {
+  font-size: 0.78rem;
+  color: var(--sidebar-text-dim);
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.sidebar nav .part-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sidebar-text-dim);
+  margin: 22px 0 8px;
+}
+.sidebar nav a {
+  display: block;
+  color: var(--sidebar-text);
+  font-size: 0.88rem;
+  padding: 7px 10px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+}
+.sidebar nav a:hover { background: var(--sidebar-active); text-decoration: none; }
+.sidebar nav a.active { background: var(--sidebar-active); color: #fff; font-weight: 500; }
+.sidebar .private-note {
+  margin-top: 28px;
+  padding: 12px 14px;
+  background: #22262b;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--sidebar-text-dim);
+  line-height: 1.5;
+}
+
+/* ---- Main content ---- */
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 48px 48px 120px;
+  max-width: 1240px;
+}
+.content h1 { max-width: 760px; }
+.content .eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.content h1 { font-size: 2.1rem; }
+.content > p.lede {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 640px;
+}
+
+.step {
+  margin: 56px 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.step .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  margin-right: 10px;
+}
+.step h2 { display: inline; font-size: 1.3rem; vertical-align: middle; }
+.step .step-body { margin-top: 14px; max-width: 640px; }
+
+.callout-box {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  margin: 16px 0;
+  max-width: 640px;
+}
+.callout-box.tip { background: var(--accent-soft); color: #15503f; }
+.callout-box.warn { background: var(--amber-soft); color: #7a4d06; }
+.callout-box.danger { background: var(--red-soft); color: #7a2a1f; }
+.callout-box .icon { flex: 0 0 auto; }
+
+/* ---- Mockup frame (fake screenshot) ---- */
+.mockup-wrap {
+  position: relative;
+  margin: 24px 0 8px;
+  max-width: 100%;
+}
+.mockup {
+  position: relative;
+  border: 1px solid var(--mockup-border);
+  border-radius: 10px;
+  overflow: visible;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 10px 30px -18px rgba(0,0,0,0.25);
+  font-family: -apple-system, "Segoe UI", sans-serif;
+}
+.mockup-caption {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* numbered callout pins over a mockup */
+/* A pin is anchored (top/left in %) to an edge point of its target,
+   then pushed outward by a fixed screen-pixel gap so it never covers the target. */
+.pin {
+  --gap: 5px;
+  position: absolute;
+  box-sizing: border-box;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: transparent;
+  border: 0.9px solid var(--pin);
+  color: var(--pin);
+  font-family: var(--mono);
+  font-size: 8.5px;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  padding-bottom: 0.5px;
+  cursor: pointer;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  transition: scale 0.15s ease;
+}
+.pin.top    { transform: translate(-50%, calc(-100% - var(--gap))); }
+.pin.bottom { transform: translate(-50%, var(--gap)); }
+.pin.left   { transform: translate(calc(-100% - var(--gap)), -50%); }
+.pin.right  { transform: translate(var(--gap), -50%); }
+.pin.corner-tl { transform: translate(calc(-100% + 5px), calc(-100% + 5px)); }
+.pin:hover { scale: 1.25; }
+.pin.open { border-color: var(--ink); color: var(--ink); }
+
+.pin.blur-marker { border-color: var(--pin-blur); color: var(--pin-blur); }
+
+/* legend shown above every screenshot */
+.pin-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 20px 0 10px;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+.pin-legend .row { display: flex; align-items: center; gap: 10px; }
+.pin.sample {
+  position: static;
+  transform: none;
+  flex: 0 0 auto;
+  cursor: default;
+}
+.pin.sample:hover { scale: 1; }
+
+.mockup-wrap img.screenshot {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.highlight-box {
+  position: absolute;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  background: rgba(31,122,104,0.07);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.popover {
+  position: absolute;
+  z-index: 20;
+  width: 280px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  box-shadow: 0 14px 40px -10px rgba(0,0,0,0.45);
+  display: none;
+}
+.popover.visible { display: block; }
+.popover h4 {
+  color: #fff;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+.popover p { margin: 0 0 8px; color: #d8dce0; }
+.popover a { color: #7fd9c4; font-size: 0.8rem; }
+.popover .close-x {
+  position: absolute;
+  top: 8px; right: 10px;
+  cursor: pointer;
+  color: #8a9199;
+  font-size: 0.9rem;
+}
+
+/* fake app icon shapes used inside mockups — purely decorative, no real art */
+.fake-icon {
+  width: 40px; height: 40px;
+  border-radius: 9px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.fake-icon.icon-a { background: linear-gradient(135deg,#6fb3a0,#2f8f7f); }
+.fake-icon.icon-b { background: linear-gradient(135deg,#7a8fd1,#45569e); }
+
+.status-pill {
+  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.status-pill.ready { color: #1f7a3f; }
+.status-pill.waiting { color: #a3720b; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+.status-dot.ready { background: #2fae5c; }
+.status-dot.waiting { background: #e0a526; }
+
+code { font-family: var(--mono); background: #f0ece0; padding: 1px 6px; border-radius: 4px; font-size: 0.86em; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  .sidebar { position: relative; height: auto; flex: none; width: 100%; }
+  .content { padding: 32px 20px 100px; max-width: 100%; }
+}

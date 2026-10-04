@@ -2,7 +2,7 @@
 # Разрешаем индексацию всем поисковым системам
 
 User-agent: *
-Disallow: 
+Disallow: /launch-guide/
 
 # Разрешаем все AI-боты (ChatGPT, Claude, Gemini и др.)
 User-agent: GPTBot

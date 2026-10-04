@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>App Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand">App Launch Playbook</div>
+    <div class="brand-sub">Внутренний документ</div>
+    <nav>
+      <a href="index.html" class="active">← Обзор</a>
+      <div class="part-label">Часть 1 · Apple</div>
+      <a href="apple.html#create-app">1.1 Создание записи приложения</a>
+      <a href="apple.html#certificates">1.2 Сертификаты и profiles</a>
+      <a href="apple.html#testflight">1.3 TestFlight</a>
+      <a href="apple.html#card">1.4 Карточка приложения</a>
+      <a href="apple.html#submit">1.5 Submit for Review</a>
+      <div class="part-label">Часть 2 · Google</div>
+      <a href="google.html" style="color:var(--sidebar-text-dim)">Скоро</a>
+      <div class="part-label">Часть 3 · Meta</div>
+      <a href="meta.html" style="color:var(--sidebar-text-dim)">Скоро</a>
+    </nav>
+    <div class="private-note">Приватная страница: не в sitemap и не индексируется. Скрины реальные; ID, email и ключи на них заблюрены.</div>
+  </aside>
+
+  <main class="content">
+    <div class="eyebrow">Внутренний playbook</div>
+    <h1>От готового приложения до запущенной рекламы</h1>
+    <p class="lede">Пошаговый путь: завести приложение в App Store Connect и Google Play Console, довести его через TestFlight/внутреннее тестирование до продакшена, затем подключить Meta Business, настроить измерение событий и запустить рекламную кампанию. Рассчитан на то, что аккаунты разработчика (Apple Developer, Google Play Console, Meta Business) уже существуют — регистрация самих аккаунтов вынесена в короткие блоки со ссылками на официальные гайды.</p>
+
+    <div class="callout-box tip">
+      <span class="icon">🔒</span>
+      <span>Страница приватная: не в навигации сайта, не в sitemap.xml, помечена <code>noindex</code>. Скрины реальные. Имя автора и названия приложений оставлены, а ID, email, ключи и прочие идентификаторы заблюрены, и у каждого такого места есть пояснение.</span>
+    </div>
+
+    <div class="step" style="border-top:none; padding-top:0;">
+      <h2>Часть 1 — Apple</h2>
+      <div class="step-body">
+        <p>App Store Connect: запись приложения → сертификаты и profiles → TestFlight → карточка приложения (App Privacy, цена) → Submit for Review.</p>
+        <p><a href="apple.html">Начать →</a> (в процессе, раздел 1.1 готов)</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>Часть 2 — Google</h2>
+      <div class="step-body">
+        <p>Google Play Console: создание приложения → подписание (Play App Signing) → внутреннее/закрытое тестирование → Контент приложения (Data Safety, Privacy Policy, Ads, Advertising ID) → продакшен и staged rollout.</p>
+        <p style="color:var(--ink-soft);">Скоро.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>Часть 3 — Meta</h2>
+      <div class="step-body">
+        <p>Meta Business Manager → приложение в Meta for Developers → Events Manager → рекламный аккаунт и платёжный метод → кампания в Ads Manager → проверка атрибуции.</p>
+        <p style="color:var(--ink-soft);">Скоро.</p>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
