@@ -305,6 +305,37 @@ a:hover { text-decoration: underline; }
 
 code { font-family: var(--mono); background: #f0ece0; padding: 1px 6px; border-radius: 4px; font-size: 0.86em; }
 
+.sidebar nav .nav-soon { display:block; font-size:0.88rem; padding:7px 10px; color:var(--sidebar-text-dim); cursor:default; }
+
+/* hub page — step cards */
+.step-cards { display:flex; flex-direction:column; gap:14px; margin:28px 0; }
+.step-card {
+  display:flex; align-items:flex-start; gap:16px;
+  padding:18px 20px; border:1px solid var(--line); border-radius:10px;
+  background:var(--paper-raised);
+}
+.step-card .num {
+  flex:0 0 auto; font-family:var(--mono); font-size:0.78rem; color:var(--accent);
+  background:var(--accent-soft); border-radius:6px; padding:4px 8px;
+}
+.step-card .body { flex:1; }
+.step-card .body h3 { font-size:1.05rem; margin-bottom:4px; }
+.step-card .body p { margin:0; color:var(--ink-soft); font-size:0.9rem; }
+.step-card .status {
+  flex:0 0 auto; font-size:0.76rem; padding:4px 10px; border-radius:20px;
+  white-space:nowrap;
+}
+.step-card .status.done { background:var(--accent-soft); color:#15503f; }
+.step-card .status.soon { background:#eee; color:#888; }
+.step-card a.card-link { text-decoration:none; color:inherit; display:flex; flex:1; gap:16px; align-items:flex-start; }
+.step-card:has(a.card-link):hover { border-color:var(--accent); }
+
+.step-nav {
+  display:flex; justify-content:space-between; margin-top:48px; padding-top:24px;
+  border-top:1px solid var(--line); font-size:0.92rem;
+}
+.step-nav .disabled { color:var(--sidebar-text-dim, #999); }
+
 @media (max-width: 860px) {
   .layout { flex-direction: column; }
   .sidebar { position: relative; height: auto; flex: none; width: 100%; }
