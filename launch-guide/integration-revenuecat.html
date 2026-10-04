@@ -24,6 +24,11 @@
       <span>Это не замена шагам 1.4/1.5 (Apple) и аналогичным в Google — покупки (In-App Purchases/Subscriptions) всё равно создаются в App Store Connect и Google Play Console. RevenueCat подключается к ним и читает уже существующие продукты, а не создаёт их за тебя.</span>
     </div>
 
+    <div class="callout-box warn">
+      <span class="icon">✅</span>
+      <span><b>Уже работает в Real PM</b> (не гипотетический пример): iOS подключён, Pro-подписка открывается через пейволл RevenueCat, покупка привязывается к аккаунту бэкенда. <b>Android пока не подключён</b> — это открытая задача, по сути следующий шаг этого же мануала для того же приложения.</span>
+    </div>
+
     <div class="step">
       <span class="step-num">1</span><h2>Три понятия, которые нужно знать до начала</h2>
       <div class="step-body">
@@ -86,8 +91,24 @@
     <div class="step">
       <span class="step-num">5</span><h2>Подключи SDK в коде приложения</h2>
       <div class="step-body">
-        <p>Дальше — уже работа разработчика в коде: установить SDK (<code>purchases_flutter</code> для Flutter, нативные SDK для Swift/Kotlin), инициализировать с публичным API-ключом RevenueCat, получить Offering и показать пэйволл, после покупки проверять статус через Entitlement, а не напрямую через Product ID.</p>
+        <p>Дальше — уже работа разработчика в коде: установить SDK (<code>react-native-purchases</code> для React Native, <code>purchases_flutter</code> для Flutter, нативные SDK для Swift/Kotlin), инициализировать с публичным API-ключом RevenueCat, после входа пользователя вызвать <code>Purchases.logIn(userId)</code>, чтобы подписка не терялась при переустановке или входе с другого устройства.</p>
       </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">6</span><h2>Пейволл — без кастомного UI</h2>
+      <div class="step-body">
+        <p>Отдельный пакет <code>react-native-purchases-ui</code> (и аналоги для Flutter/Swift/Kotlin) показывает готовый экран покупки одной строкой — <code>RevenueCatUI.presentPaywall()</code> — а сам дизайн, тексты и состав Offering настраиваются в дашборде RevenueCat (Paywalls → визуальный редактор или AI Editor), без правок кода и без обновления приложения в сторе. В Real PM именно так это и сделано: в коде — один вызов, весь дизайн пейволла собран и правится в дашборде.</p>
+      </div>
+      <div class="callout-box tip">
+        <span class="icon">📚</span>
+        <span><a href="https://www.revenuecat.com/docs/tools/paywalls/creating-paywalls" target="_blank" rel="noopener">Creating Paywalls</a> и <a href="https://www.revenuecat.com/docs/tools/paywalls/displaying-paywalls" target="_blank" rel="noopener">Displaying Paywalls</a> — официальная документация RevenueCat.</span>
+      </div>
+    </div>
+
+    <div class="callout-box danger">
+      <span class="icon">🚧</span>
+      <span>Открытая задача для Real PM: подключить Android (шаг 3 выше) — сейчас Pro доступен только на iOS. Как только сделаем — допишем сюда реальные скрины из дашборда RevenueCat.</span>
     </div>
 
     <div class="step-nav">
