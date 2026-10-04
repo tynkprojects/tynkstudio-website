@@ -58,4 +58,26 @@ function navKey(href) {
   html +=
     '</nav><div class="private-note" data-i18n="nav_private_note">Приватная страница: не в sitemap и не индексируется. Скрины реальные; ID, email и ключи на них заблюрены.</div>';
   el.innerHTML = html;
+
+  // Remember the sidebar's scroll position across full page navigations
+  // (this is a static multi-page site, so every link click reloads the DOM
+  // from scratch and would otherwise reset scroll to the top).
+  const SCROLL_KEY = "sidebarScroll";
+  try {
+    const saved = parseInt(localStorage.getItem(SCROLL_KEY), 10);
+    if (!Number.isNaN(saved)) el.scrollTop = saved;
+  } catch (e) {
+    /* storage blocked — just starts at the top, same as before */
+  }
+  let scrollSaveTimer = null;
+  el.addEventListener("scroll", () => {
+    clearTimeout(scrollSaveTimer);
+    scrollSaveTimer = setTimeout(() => {
+      try {
+        localStorage.setItem(SCROLL_KEY, String(el.scrollTop));
+      } catch (e) {
+        /* storage blocked — position just won't persist */
+      }
+    }, 120);
+  });
 })();

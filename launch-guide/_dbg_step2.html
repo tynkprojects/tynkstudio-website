@@ -101,3 +101,10 @@
 <script src="i18n.js?v=202610042323"></script>
 </body>
 </html>
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.title = 'STEP2_RESTORED=' + document.getElementById('sidebar').scrollTop + ' | ls=' + localStorage.getItem('sidebarScroll');
+  }, 200);
+});
+</script>
