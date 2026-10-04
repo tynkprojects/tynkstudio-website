@@ -210,7 +210,7 @@ a:hover { text-decoration: underline; }
 .pin.bottom { transform: translate(-50%, var(--gap)); }
 .pin.left   { transform: translate(calc(-100% - var(--gap)), -50%); }
 .pin.right  { transform: translate(var(--gap), -50%); }
-.pin.corner-tl { transform: translate(calc(-100% + 5px), calc(-100% + 5px)); }
+.pin.corner-tl { transform: translate(calc(-100% - var(--gap)), calc(-100% - var(--gap))); }
 .pin:hover { scale: 1.25; }
 .pin.open { border-color: var(--ink); color: var(--ink); }
 
@@ -327,6 +327,7 @@ code { font-family: var(--mono); background: #f0ece0; padding: 1px 6px; border-r
 }
 .step-card .status.done { background:var(--accent-soft); color:#15503f; }
 .step-card .status.soon { background:#eee; color:#888; }
+.step-card .status.partial { background:var(--amber-soft); color:#7a4d06; }
 .step-card a.card-link { text-decoration:none; color:inherit; display:flex; flex:1; gap:16px; align-items:flex-start; }
 .step-card:has(a.card-link):hover { border-color:var(--accent); }
 

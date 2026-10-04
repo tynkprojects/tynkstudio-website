@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · 1.4 Карточка приложения</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Часть 1 · Apple</div>
+    <h1>1.4 Карточка приложения</h1>
+    <p class="lede">Открыв своё приложение в App Store Connect, попадаешь на страницу конкретной версии. Слева — разделы карточки: что показывается пользователям в сторе, цена, покупки внутри приложения и декларация приватности. Разберём самые важные.</p>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>Разделы карточки приложения</h2>
+      <div class="step-body">
+        <p>Сайдбар делится на три блока: <b>General</b> (информация о самом приложении), <b>App Store</b> (всё, что видят пользователи и что касается приватности/цены), и верхние вкладки <b>Distribution / Analytics / TestFlight</b> — это разные режимы работы с тем же приложением, а не подразделы карточки.</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/apple-1-4-sections.png" alt="App Store Connect — разделы карточки приложения Pawnia">
+
+          <div class="pin corner-tl" data-id="p1" style="top:23.99%; left:4.99%;">1</div>
+          <div class="pin corner-tl" data-id="p2" style="top:42.39%; left:4.99%;">2</div>
+          <div class="pin corner-tl" data-id="p3" style="top:74.28%; left:4.99%;">3</div>
+          <div class="pin corner-tl" data-id="p4" style="top:77.25%; left:4.99%;">4</div>
+          <div class="pin top" data-id="p5" style="top:2.39%; left:63.44%;">5</div>
+          <div class="pin top" data-id="p6" style="top:2.10%; left:33.28%;">6</div>
+          <div class="pin left" data-id="p7" style="top:15.14%; left:33.69%;">7</div>
+
+          <div class="popover" data-for="p1" style="top:26%; left:4%;">
+            <span class="close-x">✕</span>
+            <h4>App Information</h4>
+            <p>Название приложения, основная категория, вторичная категория, контактный email для App Review, возрастной рейтинг. Часть полей (название, категория) блокируются после первой публикации версии и редактируются только в новой draft-версии.</p>
+            <a href="https://developer.apple.com/help/app-store-connect/create-an-app-record/view-and-edit-app-information/" target="_blank" rel="noopener">Документация Apple →</a>
+          </div>
+          <div class="popover" data-for="p2" style="top:45%; left:4%;">
+            <span class="close-x">✕</span>
+            <h4>App Privacy</h4>
+            <p>Декларация о том, какие данные собирает приложение и SDK внутри него — именно та форма, что должна совпадать с реальным поведением приложения (мы разбирали это подробно для Meta SDK). Подробнее об этом разделе — на скрине ниже.</p>
+            <a href="https://developer.apple.com/help/app-store-connect/manage-app-information/manage-app-privacy" target="_blank" rel="noopener">Документация Apple →</a>
+          </div>
+          <div class="popover" data-for="p3" style="top:76%; left:4%;">
+            <span class="close-x">✕</span>
+            <h4>Pricing and Availability</h4>
+            <p>Цена приложения (или «Free») и в каких странах/регионах оно доступно. До принятия Paid Apps Agreement доступна только бесплатная цена.</p>
+            <a href="https://developer.apple.com/help/app-store-connect/manage-app-pricing/set-a-price/" target="_blank" rel="noopener">Документация Apple →</a>
+          </div>
+          <div class="popover" data-for="p4" style="top:79%; left:4%;">
+            <span class="close-x">✕</span>
+            <h4>In-App Purchases</h4>
+            <p>Покупки внутри приложения (разовые, подписки). Для Pawnia здесь настроена покупка Pawnia Pro — каждая создаётся отдельно: тип (Consumable/Non-Consumable/Subscription), Reference Name, Product ID.</p>
+            <a href="https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/create-consumable-or-non-consumable-in-app-purchases" target="_blank" rel="noopener">Документация Apple →</a>
+          </div>
+          <div class="popover" data-for="p5" style="top:6%; left:45%;">
+            <span class="close-x">✕</span>
+            <h4>Вкладка TestFlight</h4>
+            <p>Отдельный режим для бета-тестирования сборок до публикации — туда попадают уже загруженные builds. Разберём на следующем шаге (1.3).</p>
+            <a href="https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview" target="_blank" rel="noopener">Документация Apple →</a>
+          </div>
+          <div class="popover" data-for="p6" style="top:6%; left:25%;">
+            <span class="close-x">✕</span>
+            <h4>Заголовок App Privacy</h4>
+            <p>Открывается после клика по пункту «App Privacy» в сайдбаре (метка 2) — это и есть содержимое этого раздела.</p>
+          </div>
+          <div class="popover" data-for="p7" style="top:18%; left:25%;">
+            <span class="close-x">✕</span>
+            <h4>Сводка собранных типов данных</h4>
+            <p>Короткая сводка того, что уже задекларировано — у Pawnia это Purchase History, Device ID, Product Interaction (всё от Meta SDK, при согласии пользователя на «Рекламную аналитику»). Ниже на странице каждый тип разворачивается в детали — для кого он используется, привязан ли к личности, используется ли для трекинга.</p>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин App Store Connect автора.</div>
+      </div>
+
+      <div class="callout-box warn">
+        <span class="icon">⚠️</span>
+        <span>Частая ошибка: задекларировать в App Privacy не то, что реально делает приложение и встроенные SDK. Несовпадение — повод для отказа при ревью или для жалобы пользователя позже. Мы разбирали это подробно при подключении Meta SDK к Pawnia.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span><h2>App Privacy → Privacy Policy URL и статус версии</h2>
+      <div class="step-body">
+        <p>Внутри App Privacy есть поле ссылки на политику конфиденциальности — она обязательна и должна быть реальной публичной страницей (не Google Docs, не PDF). Слева — список версий с их статусами: именно по этому списку видно, в каком состоянии сейчас сборка.</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/apple-1-4-privacy-policy.png" alt="App Store Connect — Privacy Policy URL и список версий">
+
+          <div class="pin corner-tl" data-id="p8" style="top:27.37%; left:5.30%;">1</div>
+          <div class="pin corner-tl" data-id="p9" style="top:32.87%; left:4.05%;">2</div>
+          <div class="pin corner-tl" data-id="p10" style="top:47.73%; left:20.15%;">3</div>
+
+          <div class="popover" data-for="p8" style="top:30%; left:16%;">
+            <span class="close-x">✕</span>
+            <h4>Статус «Prepare for Submission»</h4>
+            <p>Версия создана, но ещё не отправлена на ревью — метаданные (название, цена, App Privacy, Privacy Policy URL) в этом статусе можно свободно редактировать. Именно в этом статусе мы правили Privacy Policy URL для Pawnia 1.1.20.</p>
+            <a href="https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/app-and-version-statuses" target="_blank" rel="noopener">Все статусы версий →</a>
+          </div>
+          <div class="popover" data-for="p9" style="top:36%; left:16%;">
+            <span class="close-x">✕</span>
+            <h4>Статус «Ready for Distribution»</h4>
+            <p>Предыдущая версия уже опубликована и доступна пользователям. Её метаданные (название, категория, Privacy Policy URL) заблокированы — поменять их можно только через создание новой версии, как мы и сделали для 1.1.20.</p>
+          </div>
+          <div class="popover" data-for="p10" style="top:52%; left:16%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>Privacy Policy URL</h4>
+            <p>Обязательное поле — обычная веб-страница (не документ для скачивания), описывающая реальную обработку данных. Желтая плашка «Edited» означает несохранённое изменение в этом черновике версии.</p>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин App Store Connect автора — тот самый экран, где мы правили ссылку на политику конфиденциальности Pawnia в этой сессии.</div>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <a href="apple-1-3.html">← 1.3 TestFlight</a>
+      <a href="apple-1-5.html">1.5 Submit for Review →</a>
+    </div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

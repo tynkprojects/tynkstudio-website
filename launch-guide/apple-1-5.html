@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · 1.5 Submit for Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Часть 1 · Apple</div>
+    <h1>1.5 Submit for Review</h1>
+    <p class="lede">Последний шаг: привязать загруженный билд (TestFlight, шаг 1.3) к версии с готовыми метаданными (шаг 1.4) и отправить на проверку Apple. Ниже — реальное «до» и «после» этого шага на примере Pawnia 1.1.20.</p>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>«До»: версия в статусе Prepare for Submission</h2>
+      <div class="step-body">
+        <p>Метаданные готовы (Privacy Policy URL поправлена, App Privacy задекларирована), но билд ещё не выбран и кнопки отправки не было.</p>
+      </div>
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/apple-1-4-privacy-policy.png" alt="App Store Connect — версия 1.1.20 в статусе Prepare for Submission">
+          <div class="pin corner-tl" data-id="p1" style="top:27.37%; left:5.30%;">1</div>
+          <div class="popover" data-for="p1" style="top:30%; left:16%;">
+            <span class="close-x">✕</span>
+            <h4>Prepare for Submission</h4>
+            <p>Версия создана, метаданные редактируемые, но на ревью ничего не отправлено.</p>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин App Store Connect автора.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span><h2>Выбери билд и заполни Export Compliance</h2>
+      <div class="step-body">
+        <p>На странице версии (раздел <b>Build</b>) нажми «+» или «Select a build» — откроется список билдов, уже прошедших обработку в TestFlight (шаг 1.3). После выбора появится вопрос про экспортные ограничения — для обычного HTTPS-шифрования без собственной криптографии отвечай «No» (используется только стандартное шифрование ОС, документацию предоставлять не нужно).</p>
+      </div>
+      <div class="callout-box tip">
+        <span class="icon">💡</span>
+        <span>Если в приложении нет шифрования своей разработки (только HTTPS/TLS от системы) — Export Compliance почти всегда отвечается «No» и не требует отдельных документов.</span>
+      </div>
+      <div class="callout-box warn">
+        <span class="icon">📚</span>
+        <span>Подробнее: <a href="https://developer.apple.com/help/app-store-connect/manage-builds/choose-a-build-to-submit/" target="_blank" rel="noopener">Choose a build to submit</a> и <a href="https://developer.apple.com/help/app-store-connect/manage-app-information/overview-of-export-compliance" target="_blank" rel="noopener">Overview of export compliance</a> в документации Apple.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span><h2>Нажми «Add for Review» / «Submit for Review»</h2>
+      <div class="step-body">
+        <p>Версия уходит в очередь Apple. Дальше статус меняется автоматически — обычно от нескольких часов до 1–2 суток, иногда быстрее.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">4</span><h2>«После»: статус Waiting for Review</h2>
+      <div class="step-body">
+        <p>Именно это мы увидели для Pawnia 1.1.20 после отправки — подтверждение, что всё прошло без ошибок на стороне App Store Connect.</p>
+      </div>
+      <div class="mockup-wrap" style="width:820px; max-width:100%;">
+        <div class="mockup">
+          <img class="screenshot" src="assets/apple-1-1-apps-list.png" alt="App Store Connect — Pawnia в статусе Waiting for Review">
+          <div class="pin right" data-id="p2" style="top:79.09%; left:24.1%; --gap:7px;">2</div>
+          <div class="popover" data-for="p2" style="top:86%; left:22%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>Waiting for Review</h4>
+            <p>Версия успешно отправлена и стоит в очереди Apple. Если что-то было заполнено неправильно (например, не выбран билд) — отправка просто не прошла бы, а не ушла бы в этот статус.</p>
+            <a href="https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/app-and-version-statuses" target="_blank" rel="noopener">Статусы версий →</a>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин App Store Connect автора — Pawnia 1.1.20 сразу после отправки на проверку.</div>
+      </div>
+    </div>
+
+    <div class="callout-box danger">
+      <span class="icon">🚫</span>
+      <span>Если после этого статуса придут замечания (Rejected) — чаще всего причина именно в несовпадении App Privacy/Privacy Policy с реальным поведением приложения (шаг 1.4) или в неверно выбранном билде, а не в самой кнопке отправки.</span>
+    </div>
+
+    <div class="step-nav">
+      <a href="apple-1-4.html">← 1.4 Карточка приложения</a>
+      <span class="disabled">Часть 1 завершена</span>
+    </div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · 1.2 Сертификаты и profiles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Часть 1 · Apple</div>
+    <h1>1.2 Сертификаты и profiles</h1>
+    <p class="lede">У этого шага нет своего экрана в App Store Connect — подпись сборки происходит либо в Xcode на твоём Mac, либо (что сейчас используется для Pawnia) автоматически через CI-сервис вроде Codemagic или Xcode Cloud. Здесь — что это такое и на что обратить внимание, без привязки к конкретному интерфейсу.</p>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>Что вообще подписывается и зачем</h2>
+      <div class="step-body">
+        <p>Apple не пускает на устройства и в App Store ничем не подписанный код. Нужны три вещи, выпущенные через твой Apple Developer аккаунт:</p>
+        <ul>
+          <li><b>Сертификат распространения (Distribution Certificate)</b> — подтверждает, что сборку собрал именно ты/твоя команда.</li>
+          <li><b>App ID</b> — тот самый Bundle ID, который мы указали при создании записи приложения в шаге 1.1 (например, <code>com.yourcompany.yourapp</code>).</li>
+          <li><b>Provisioning Profile</b> — связывает сертификат, App ID и (для тестовых сборок) конкретные устройства в один файл, который зашивается в собранный <code>.ipa</code>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span><h2>Два способа получить всё это</h2>
+      <div class="step-body">
+        <p><b>Вручную, через Xcode:</b> в настройках проекта включаешь «Automatically manage signing», выбираешь свою команду (Team) — Xcode сам создаёт и скачивает сертификат и profile при каждой сборке. Подходит, если собираешь на одной машине.</p>
+        <p><b>Через CI (Codemagic, Xcode Cloud, Fastlane match и т.п.):</b> сертификат и profile генерируются и хранятся на стороне сервиса, привязываются к App Store Connect через API-ключ (App Store Connect API Key, создаётся в Users and Access → Integrations). Так работает текущая сборка Pawnia — сборка 1.1.20/229 была собрана и подписана Codemagic, а не вручную.</p>
+      </div>
+      <div class="callout-box tip">
+        <span class="icon">💡</span>
+        <span>Если используешь CI — тебе достаточно один раз создать App Store Connect API Key (Users and Access → Integrations → App Store Connect API) и отдать его сервису. Дальше сертификаты/profiles обновляются автоматически, без твоего участия.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span><h2>Частые проблемы</h2>
+      <div class="step-body">
+        <ul>
+          <li><b>Сертификат просрочен</b> (действует 1 год) — новая сборка перестаёт собираться, пока не перевыпустишь.</li>
+          <li><b>Bundle ID в Xcode/CI не совпадает</b> с тем, что создан в App Store Connect на шаге 1.1 — сборка загрузится с ошибкой привязки.</li>
+          <li><b>Несколько разработчиков используют разные сертификаты</b> без общего хранилища (Fastlane match решает это централизованным репозиторием сертификатов).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-box warn">
+      <span class="icon">📚</span>
+      <span>Если настраиваешь вручную в Xcode — официальный путь: <a href="https://developer.apple.com/help/account/manage-certificates/create-a-certificate-signing-request" target="_blank" rel="noopener">Create a certificate signing request</a> и <a href="https://developer.apple.com/help/account/manage-profiles/create-a-development-provisioning-profile" target="_blank" rel="noopener">Create a provisioning profile</a> в документации Apple Developer.</span>
+    </div>
+
+    <div class="step-nav">
+      <a href="apple-1-1.html">← 1.1 Создание записи приложения</a>
+      <a href="apple-1-3.html">1.3 TestFlight →</a>
+    </div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
