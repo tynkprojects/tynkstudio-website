@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · 3.2 Настройки приложения</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=202610042241">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Часть 3 · Meta</div>
+    <h1>3.2 Настройки приложения (Meta for Developers)</h1>
+    <p class="lede">developers.facebook.com → выбери приложение → Настройки приложения → Основное. Это базовая карточка приложения — аналог App Information у Apple и App content у Google, только здесь ещё и живёт App ID/Secret, которые нужны SDK в коде.</p>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>Основные поля</h2>
+      <div class="step-body">
+        <p>ID и секрет приложения — встраиваются в SDK (ID публичный, секрет — только на сервере, если он вообще используется; для клиентского SDK, как у Pawnia, достаточно Client Token, который берётся отдельно во вкладке «Дополнительно», не здесь).</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/meta-3-2-basic-settings.png" alt="Meta for Developers — основные настройки приложения">
+          <div class="pin left" data-id="p1" style="top:18.26%; left:25.35%;">1</div>
+          <div class="pin left" data-id="p2" style="top:47.42%; left:25.35%;">2</div>
+          <div class="pin left" data-id="p3" style="top:60.66%; left:25.35%;">3</div>
+
+          <div class="popover" data-for="p1" style="top:21%; left:26%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>ID приложения</h4>
+            <p>Публичный идентификатор — он и зашит в SDK/манифесты, не секрет. «Секрет приложения» справа — для серверных вызовов, в клиентском SDK Pawnia не используется.</p>
+          </div>
+          <div class="popover" data-for="p2" style="top:50%; left:26%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>URL Политики конфиденциальности</h4>
+            <p>Та же страница, что мы указывали в App Store Connect (1.4) и Google Play (2.3/2.4) — должна совпадать везде.</p>
+            <a href="https://developers.facebook.com/documentation/development/create-an-app/app-dashboard" target="_blank" rel="noopener">App Dashboard →</a>
+          </div>
+          <div class="popover" data-for="p3" style="top:64%; left:26%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>Удаление данных пользователей</h4>
+            <p>Отдельное требование Meta — URL с инструкцией, как пользователь может запросить удаление своих данных. Та же логика, что в Data Safety у Google (шаг 2.4), но отдельное поле именно здесь.</p>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин Meta for Developers автора.</div>
+      </div>
+
+      <div class="callout-box warn">
+        <span class="icon">⚠️</span>
+        <span>Три разных Privacy Policy URL (сайт, App Store Connect, Google Play, здесь) должны вести на один и тот же реальный текст. Несовпадение между ними — ровно та же категория проблемы, что мы ловили на Google (чужая ссылка на удаление данных).</span>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <a href="meta-3-1.html">← 3.1 Business Manager</a>
+      <a href="meta-3-3.html">3.3 Платформа Android →</a>
+    </div>
+  </main>
+</div>
+<script src="nav.js?v=202610042241"></script>
+<script src="script.js?v=202610042241"></script>
+</body>
+</html>

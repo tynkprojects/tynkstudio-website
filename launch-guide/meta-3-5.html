@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · 3.5 Ads Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=202610042241">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Часть 3 · Meta</div>
+    <h1>3.5 Ads Manager — кампания</h1>
+    <p class="lede">Последний шаг: сама рекламная кампания, которая использует события из шага 3.4 для оптимизации. В архиве этой сессии нет подходящего реального скрина создания кампании — этот раздел ждёт скриншотов.</p>
+
+    <div class="callout-box warn">
+      <span class="icon">📸</span>
+      <span>Нужны скрины (Ads Manager → Кампании → Создать):</span>
+    </div>
+    <div class="step-body">
+      <ol>
+        <li>Выбор цели кампании (Objective) — для установок приложения это «Promote your app».</li>
+        <li>Уровень группы объявлений: выбор приложения/стора и события оптимизации (Optimization event) — например «Purchase» или «Install».</li>
+        <li>Бюджет и геотаргетинг.</li>
+        <li>Итоговый экран запуска кампании.</li>
+      </ol>
+    </div>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>Что будет на этом шаге (конспективно)</h2>
+      <div class="step-body">
+        <p>Цель кампании «Продвижение приложения» привязывается к конкретному приложению из Meta for Developers (шаг 3.2) через выбор магазина (App Store/Google Play) и указание Store ID. Событие оптимизации — то самое, что мы видели живым в Events Manager (шаг 3.4): если там «Неактивно», кампания физически не может оптимизироваться под это событие, сколько бы бюджета в неё ни заложить.</p>
+      </div>
+      <div class="callout-box danger">
+        <span class="icon">🚫</span>
+        <span>Запускать/увеличивать кампанию без живых событий в Events Manager (статус «Неактивно» на шаге 3.4) — гарантированная трата бюджета без возможности оптимизации. Сначала 3.4 должен показать реальные события, потом сюда.</span>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <a href="meta-3-4.html">← 3.4 Events Manager</a>
+      <span class="disabled">Часть 3 — ждёт скринов</span>
+    </div>
+  </main>
+</div>
+<script src="nav.js?v=202610042241"></script>
+<script src="script.js?v=202610042241"></script>
+</body>
+</html>

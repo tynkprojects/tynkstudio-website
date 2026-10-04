@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · 3.4 Events Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=202610042241">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Часть 3 · Meta</div>
+    <h1>3.4 Events Manager — проверка событий</h1>
+    <p class="lede">Все предыдущие шаги — это настройка. Этот экран — единственный способ узнать, доходят ли события от SDK до Meta на самом деле. Именно здесь был пойман реальный баг Pawnia: SDK был настроен правильно по всем чек-листам, но события не приходили.</p>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>Наборы данных → Обзор</h2>
+      <div class="step-body">
+        <p>business.facebook.com → Events Manager → «Наборы данных» → выбери приложение. Статус в правом верхнем углу — это первое, на что смотреть, раньше, чем в таблицу событий ниже.</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/meta-3-4-events-datasets.png" alt="Meta Events Manager — наборы данных Pawnia">
+          <div class="pin top" data-id="p1" style="top:20.81%; left:35.00%;">1</div>
+          <div class="pin left" data-id="p2" style="top:27.69%; left:81.00%;">2</div>
+          <div class="pin left" data-id="p3" style="top:37.44%; left:82.55%;">3</div>
+          <div class="pin blur-marker corner-tl" data-id="b1" style="top:4.31%; left:79.55%;">i</div>
+
+          <div class="popover" data-for="p1" style="top:24%; left:30%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>Тестирование событий / Диагностика</h4>
+            <p>«Тестирование событий» — для живой проверки одного события в реальном времени (установи приложение, дай согласие, событие должно появиться тут за секунды). «Диагностика» — список уже обнаруженных проблем за последние 24 часа.</p>
+            <a href="https://www.facebook.com/business/help/667164051342757" target="_blank" rel="noopener">About Diagnostics →</a>
+          </div>
+          <div class="popover" data-for="p2" style="top:31%; left:55%; width:280px;">
+            <span class="close-x">✕</span>
+            <h4>«Неактивно»</h4>
+            <p>Именно этот статус у Pawnia на момент разбора — события от SDK ещё не получены вообще, несмотря на то, что по коду и настройкам всё выглядело правильно. Статус «Неактивно» значит буквально «ни одного события не пришло», а не «есть проблема с конкретным событием».</p>
+          </div>
+          <div class="popover" data-for="p3" style="top:41%; left:72%; width:260px;">
+            <span class="close-x">✕</span>
+            <h4>ID приложения</h4>
+            <p>Сверь с тем же ID в Meta for Developers (3.2) — на этом экране легко по ошибке смотреть набор данных не того приложения.</p>
+          </div>
+          <div class="popover" data-for="b1" style="top:9%; left:55%; width:280px;">
+            <span class="close-x">✕</span>
+            <h4>Скрыт: ID рекламного аккаунта</h4>
+            <p>Переключатель аккаунта в правом верхнем углу — у себя там будет твой собственный ID.</p>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин Meta Events Manager автора.</div>
+      </div>
+
+      <div class="callout-box danger">
+        <span class="icon">🚫</span>
+        <span>«Настроено правильно по документации» ≠ «события реально доходят». Для Pawnia первопричиной оказалось то, что доработка на стороне разработчика (правильная версия SDK, вызов activateApp) ещё не была задеплоена в прод — чек-лист настройки Meta был пройден полностью, но без боевого кода проверять нечего.</span>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <a href="meta-3-3.html">← 3.3 Платформа Android</a>
+      <a href="meta-3-5.html">3.5 Ads Manager →</a>
+    </div>
+  </main>
+</div>
+<script src="nav.js?v=202610042241"></script>
+<script src="script.js?v=202610042241"></script>
+</body>
+</html>
