@@ -77,13 +77,23 @@ a:hover { text-decoration: underline; }
 }
 .lang-switcher {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin-bottom: 8px;
+}
+.lang-globe {
+  flex: 0 0 auto;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--sidebar-text-dim);
 }
 .lang-current {
   display: flex;
   align-items: center;
   gap: 7px;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   background: #22262b;
   border: none;
   color: var(--sidebar-text);

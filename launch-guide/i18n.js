@@ -58,6 +58,7 @@ function buildLangSwitcher() {
   wrap.className = "lang-switcher";
   wrap.id = "langSwitcher";
   wrap.innerHTML =
+    '<span class="lang-globe" title="Язык">🌐</span>' +
     '<button type="button" class="lang-current" id="langCurrentBtn">' +
     '<span id="langCurrentFlag"></span><span id="langCurrentCode"></span>' +
     '<span class="lang-caret">▾</span></button>' +
