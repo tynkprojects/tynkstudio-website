@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · Expo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Доп. интеграции</div>
+    <h1>Expo (EAS Build / Submit)</h1>
+    <p class="lede">Если приложение написано на React Native через Expo — EAS (Expo Application Services) делает то же, что для Pawnia делает Codemagic: собирает и подписывает сборку в облаке и отправляет её в App Store Connect / Google Play. Это альтернатива шагам 1.2–1.3 и 2.2 (сертификаты, загрузка билда), а не отдельная новая часть пути.</p>
+
+    <div class="callout-box tip">
+      <span class="icon">🔗</span>
+      <span>EAS не заменяет Часть 1 и Часть 2 этого мануала целиком — запись приложения в App Store Connect (1.1) и в Google Play Console (2.1), его метаданные и App Privacy/Data Safety (1.4, 2.3) всё равно настраиваются там же, руками, один раз.</span>
+    </div>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>Установка и первый вход</h2>
+      <div class="step-body">
+        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>npm install -g eas-cli
+eas login</code></pre>
+        <p>Дальше, из папки проекта:</p>
+        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>eas build:configure</code></pre>
+        <p>Эта команда создаёт <code>eas.json</code> с профилями сборки (например, <code>development</code>, <code>preview</code>, <code>production</code>) — отдельными наборами настроек для теста и для публикации.</p>
+      </div>
+      <div class="callout-box warn">
+        <span class="icon">📚</span>
+        <span><a href="https://docs.expo.dev/build/introduction/" target="_blank" rel="noopener">EAS Build — обзор</a> и <a href="https://docs.expo.dev/submit/eas-json/" target="_blank" rel="noopener">eas.json: профили сборки</a> — официальная документация Expo.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span><h2>Сборка в облаке</h2>
+      <div class="step-body">
+        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>eas build --platform ios
+eas build --platform android</code></pre>
+        <p>Сборка идёт на серверах Expo — Mac для iOS-сборки не нужен. Сертификаты и profiles (наш шаг 1.2) EAS может сгенерировать и хранить сама, либо использовать уже существующие — при первом запуске она спросит.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span><h2>Отправка в стор</h2>
+      <div class="step-body">
+        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>eas submit --platform ios
+eas submit --platform android</code></pre>
+        <p>На iOS билд уходит в App Store Connect и становится доступен в TestFlight (наш шаг 1.3) обычно за 10–15 минут. На Android — во внутреннее тестирование Google Play (наш шаг 2.2). Дальше — те же шаги 1.5/2.4 этого мануала: выбрать билд у версии и отправить на ревью.</p>
+        <p>Можно объединить всё в одну команду:</p>
+        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>eas build --auto-submit</code></pre>
+      </div>
+      <div class="callout-box warn">
+        <span class="icon">📚</span>
+        <span><a href="https://docs.expo.dev/submit/ios/" target="_blank" rel="noopener">EAS Submit → iOS</a> и <a href="https://docs.expo.dev/submit/android/" target="_blank" rel="noopener">EAS Submit → Android</a> — официальная документация Expo.</span>
+      </div>
+    </div>
+
+    <div class="callout-box danger">
+      <span class="icon">🚫</span>
+      <span>EAS всё равно должна знать твой Apple Team ID / ASC API Key и Google Play service account (тот же, что мы создавали для RevenueCat) — это не отдельные учётки, а доступ к тем же аккаунтам из Части 1 и 2.</span>
+    </div>
+
+    <div class="step-nav">
+      <a href="integration-revenuecat.html">← RevenueCat</a>
+      <span class="disabled">Конец раздела</span>
+    </div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

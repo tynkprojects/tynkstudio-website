@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · RevenueCat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Доп. интеграции</div>
+    <h1>RevenueCat</h1>
+    <p class="lede">Сервис, который берёт на себя учёт покупок и подписок: вместо того чтобы вручную проверять чеки Apple/Google и хранить статус подписки на своём сервере, ты спрашиваешь у RevenueCat «у этого пользователя активна подписка?» и получаешь готовый ответ — одинаково для iOS, Android и даже веба.</p>
+
+    <div class="callout-box tip">
+      <span class="icon">🔗</span>
+      <span>Это не замена шагам 1.4/1.5 (Apple) и аналогичным в Google — покупки (In-App Purchases/Subscriptions) всё равно создаются в App Store Connect и Google Play Console. RevenueCat подключается к ним и читает уже существующие продукты, а не создаёт их за тебя.</span>
+    </div>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>Три понятия, которые нужно знать до начала</h2>
+      <div class="step-body">
+        <ul>
+          <li><b>Product</b> — конкретная покупка, та же, что ты создал в App Store Connect/Google Play (например, «Pawnia Pro, разовая покупка» с конкретным Product ID).</li>
+          <li><b>Entitlement</b> — уровень доступа в твоём приложении («premium», «pro»). Код приложения проверяет не конкретный Product, а именно Entitlement — это позволяет менять цены/продукты без правок кода.</li>
+          <li><b>Offering</b> — набор продуктов, который показывается пользователю на экране покупки (пэйволл). Можно менять состав предложения удалённо, без обновления приложения.</li>
+        </ul>
+        <p>Поток: пользователь покупает <b>Product</b> → это открывает <b>Entitlement</b> → код приложения проверяет Entitlement и даёт доступ.</p>
+      </div>
+      <div class="callout-box warn">
+        <span class="icon">📚</span>
+        <span><a href="https://www.revenuecat.com/docs/offerings/overview" target="_blank" rel="noopener">Offerings</a>, <a href="https://www.revenuecat.com/docs/getting-started/entitlements" target="_blank" rel="noopener">Entitlements</a>, <a href="https://www.revenuecat.com/docs/offerings/products-overview" target="_blank" rel="noopener">Products</a> — официальная документация RevenueCat.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span><h2>Подключи iOS</h2>
+      <div class="step-body">
+        <p>В App Store Connect: открой приложение → <b>App Information</b> → прокрути до <b>App-Specific Shared Secret</b> → Manage → Generate. Скопируй секрет и вставь его в RevenueCat (Project → твоё iOS-приложение → App configuration).</p>
+      </div>
+      <div class="callout-box warn">
+        <span class="icon">⚠️</span>
+        <span>Shared Secret — это старый механизм (StoreKit 1), Apple его не развивает. Для новых приложений RevenueCat рекомендует <b>App Store Connect API Key</b> (StoreKit 2) — создаётся в Users and Access → Integrations → App Store Connect API, тот же механизм, что мы уже использовали в шаге 1.2 для CI.</span>
+      </div>
+      <div class="callout-box tip">
+        <span class="icon">📚</span>
+        <span><a href="https://www.revenuecat.com/docs/service-credentials/itunesconnect-app-specific-shared-secret" target="_blank" rel="noopener">App-Specific Shared Secret</a> и <a href="https://www.revenuecat.com/docs/service-credentials/itunesconnect-app-specific-shared-secret/app-store-connect-api-key-configuration" target="_blank" rel="noopener">App Store Connect API Key</a> — официальная документация RevenueCat.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span><h2>Подключи Android</h2>
+      <div class="step-body">
+        <p>Здесь сложнее, чем на iOS — нужен сервисный аккаунт Google Cloud:</p>
+        <ol>
+          <li>В Google Cloud Console (тот же проект, что привязан к Play Console) создай Service Account — IAM & Admin → Service Accounts.</li>
+          <li>Включи <b>Google Play Android Developer API</b> в APIs & Services → Library.</li>
+          <li>В Google Play Console → Users and Permissions → Invite user — добавь email сервисного аккаунта, дай доступ именно к своему приложению.</li>
+          <li>Скачай JSON-ключ сервисного аккаунта и загрузи его в RevenueCat: твоё Android-приложение → App Settings → Service credentials (Google Play) → Upload key.</li>
+        </ol>
+      </div>
+      <div class="callout-box warn">
+        <span class="icon">⏳</span>
+        <span>После загрузки ключа Google может подтверждать доступ до 36 часов — это нормально, не признак ошибки.</span>
+      </div>
+      <div class="callout-box tip">
+        <span class="icon">📚</span>
+        <span><a href="https://www.revenuecat.com/docs/service-credentials/creating-play-service-credentials" target="_blank" rel="noopener">Google Play Service Credentials</a> — официальная документация RevenueCat, с точными названиями экранов Google Cloud.</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">4</span><h2>Настрой Products, Entitlement и Offering в дашборде RevenueCat</h2>
+      <div class="step-body">
+        <p>Product ID в RevenueCat должен <b>точно совпадать</b> с тем, что ты создал в App Store Connect (шаг 1.4) и Google Play — иначе RevenueCat не свяжет покупку с нужным продуктом. Дальше создай один Entitlement (например, «premium») и привяжи к нему все Products, которые должны его открывать, и один Offering с этими продуктами для показа в приложении.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">5</span><h2>Подключи SDK в коде приложения</h2>
+      <div class="step-body">
+        <p>Дальше — уже работа разработчика в коде: установить SDK (<code>purchases_flutter</code> для Flutter, нативные SDK для Swift/Kotlin), инициализировать с публичным API-ключом RevenueCat, получить Offering и показать пэйволл, после покупки проверять статус через Entitlement, а не напрямую через Product ID.</p>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <a href="meta.html">← Часть 3 · Meta</a>
+      <a href="integration-expo.html">Expo →</a>
+    </div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

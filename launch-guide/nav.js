@@ -11,6 +11,9 @@ const NAV = [
   { href: "google.html", label: "Обзор части", soon: true },
   { part: "Часть 3 · Meta" },
   { href: "meta.html", label: "Обзор части", soon: true },
+  { part: "Доп. интеграции" },
+  { href: "integration-revenuecat.html", label: "RevenueCat" },
+  { href: "integration-expo.html", label: "Expo" },
 ];
 
 (function () {
