@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · 2.4 Безопасность данных</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=202610042224">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="eyebrow">Часть 2 · Google</div>
+    <h1>2.4 Безопасность данных (Data Safety)</h1>
+    <p class="lede">Самая длинная декларация во всём мануале — аналог App Privacy у Apple, но устроена как визард из 5 шагов, а не как список переключателей на одной странице. На шаге 2.3 нажми «Настроить» у пункта «Безопасность данных».</p>
+
+    <div class="step">
+      <span class="step-num">1</span><h2>Пять шагов визарда</h2>
+      <div class="step-body">
+        <p>Общие сведения → <b>Сбор и безопасность данных</b> (вопрос «собирает ли приложение данные вообще») → Типы данных (чек-листы по категориям: Местоположение, Личная информация, Финансовые сведения и т.д.) → Использование и обработка данных (для каждого выбранного типа — временная обработка, обязательность, цель) → Предварительный просмотр.</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/google-2-4-datasafety-steps.png" alt="Google Play Console — шаги визарда Безопасность данных">
+          <div class="pin left" data-id="p1" style="top:77.45%; left:2.85%;">1</div>
+          <div class="pin top" data-id="p2" style="top:16.33%; left:37.72%;">2</div>
+
+          <div class="popover" data-for="p1" style="top:80%; left:4%; width:280px;">
+            <span class="close-x">✕</span>
+            <h4>Контент приложения</h4>
+            <p>Отсюда попадаешь в визард — тот же путь, что описан на шаге 2.1/2.3.</p>
+          </div>
+          <div class="popover" data-for="p2" style="top:21%; left:34%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>Шаг 2 из 5</h4>
+            <p>Первый содержательный вопрос: собирает ли приложение данные/передаёт ли третьим лицам. Если ответ «Нет» — визард завершается здесь же, остальные шаги не нужны.</p>
+            <a href="https://support.google.com/googleplay/android-developer/answer/10787469?hl=ru" target="_blank" rel="noopener">Документация по разделу безопасности данных →</a>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин Google Play Console автора.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span><h2>Способы создания аккаунта</h2>
+      <div class="step-body">
+        <p>На шаге 2 визарда отдельно спрашивают про способы регистрации в приложении — список чекбоксов плюс отдельный независимый переключатель «Нет» внизу. Это не то же самое, что сами типы данных (шаг 3 визарда).</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/google-2-4-datasafety-accounts.png" alt="Google Play Console — способы создания аккаунта">
+          <div class="pin left" data-id="p3" style="top:86.98%; left:4.90%;">3</div>
+          <div class="pin left" data-id="p4" style="top:93.16%; left:5.29%;">4</div>
+
+          <div class="popover" data-for="p3" style="top:90%; left:6%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>«В приложении нельзя создать аккаунт»</h4>
+            <p>Это один из чекбоксов в верхнем списке — выбирается, если в приложении нет регистрации вообще (как у Pawnia).</p>
+          </div>
+          <div class="popover" data-for="p4" style="top:96%; left:3%; width:280px;">
+            <span class="close-x">✕</span>
+            <h4>Отдельный переключатель «Нет»</h4>
+            <p>Независимый от чекбоксов выше радио-вариант — по смыслу то же самое («нет способов создать аккаунт»), но это отдельный элемент формы, легко перепутать с чекбоксом выше.</p>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин Google Play Console автора.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span><h2>Шаг 5: Предварительный просмотр</h2>
+      <div class="step-body">
+        <p>Финальная сводка перед сохранением: что собирается и передаётся, ссылка на удаление данных, подтверждение шифрования, ссылка на политику конфиденциальности. Именно на этом экране мы в своё время поймали чужую ссылку (от другого приложения команды) в поле «Удаление данных» — несовпадающие политики разных продуктов попадают сюда одинаково незаметно.</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/google-2-4-datasafety-preview.png" alt="Google Play Console — предварительный просмотр безопасности данных">
+          <div class="pin top" data-id="p5" style="top:53.07%; left:49.18%;">5</div>
+          <div class="pin top" data-id="p6" style="top:86.21%; left:10.30%;">6</div>
+          <div class="pin top" data-id="p7" style="top:94.62%; left:95.23%;">7</div>
+
+          <div class="popover" data-for="p5" style="top:56%; left:30%; width:320px;">
+            <span class="close-x">✕</span>
+            <h4>Ссылка на удаление данных</h4>
+            <p>Отдельное поле от политики конфиденциальности ниже — легко оставить тут ссылку на другое приложение по ошибке, если копируешь шаблон. Проверяй отдельно.</p>
+          </div>
+          <div class="popover" data-for="p6" style="top:89%; left:4%; width:300px;">
+            <span class="close-x">✕</span>
+            <h4>Политика конфиденциальности</h4>
+            <p>Должна совпадать с той, что указана в Контенте приложения (шаг 2.3) и с реальным текстом на сайте.</p>
+          </div>
+          <div class="popover" data-for="p7" style="top:91%; right:2%; width:260px;">
+            <span class="close-x">✕</span>
+            <h4>Сохранить / Сохранить как проект</h4>
+            <p>«Сохранить как проект» — черновик, не отправляется на проверку. «Сохранить» фиксирует форму и возвращает в «Контент приложения» — само отправление на проверку происходит отдельно, на шаге 2.6.</p>
+          </div>
+        </div>
+        <div class="mockup-caption">Реальный скрин Google Play Console автора.</div>
+      </div>
+
+      <div class="callout-box danger">
+        <span class="icon">🚫</span>
+        <span>Сверяй ссылку на удаление данных и ссылку на политику конфиденциальности построчно, особенно если в компании больше одного приложения — обе ссылки выглядят одинаково достоверно, даже если ведут на чужой продукт.</span>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <a href="google-2-3.html">← 2.3 Контент приложения</a>
+      <a href="google-2-5.html">2.5 Реклама →</a>
+    </div>
+  </main>
+</div>
+<script src="nav.js?v=202610042224"></script>
+<script src="script.js?v=202610042224"></script>
+</body>
+</html>
