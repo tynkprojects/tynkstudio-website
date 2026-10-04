@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202610042241">
+<link rel="stylesheet" href="style.css?v=202610042258">
 </head>
 <body>
 <div class="layout">
@@ -16,40 +16,41 @@
   <aside class="sidebar" id="sidebar"></aside>
 
   <main class="content">
-    <div class="eyebrow">Внутренний playbook</div>
-    <h1>От готового приложения до запущенной рекламы</h1>
-    <p class="lede">Пошаговый путь: завести приложение в App Store Connect и Google Play Console, довести его через TestFlight/внутреннее тестирование до продакшена, затем подключить Meta Business, настроить измерение событий и запустить рекламную кампанию. Рассчитан на то, что аккаунты разработчика (Apple Developer, Google Play Console, Meta Business) уже существуют — регистрация самих аккаунтов вынесена в короткие блоки со ссылками на официальные гайды.</p>
+    <div data-i18n="index_1" class="eyebrow">Внутренний playbook</div>
+    <h1 data-i18n="index_2">От готового приложения до запущенной рекламы</h1>
+    <p data-i18n="index_3" class="lede">Пошаговый путь: завести приложение в App Store Connect и Google Play Console, довести его через TestFlight/внутреннее тестирование до продакшена, затем подключить Meta Business, настроить измерение событий и запустить рекламную кампанию. Рассчитан на то, что аккаунты разработчика (Apple Developer, Google Play Console, Meta Business) уже существуют — регистрация самих аккаунтов вынесена в короткие блоки со ссылками на официальные гайды.</p>
 
     <div class="callout-box tip">
       <span class="icon">🔒</span>
-      <span>Страница приватная: не в навигации сайта, не в sitemap.xml, помечена <code>noindex</code>. Скрины реальные. Имя автора и названия приложений оставлены, а ID, email, ключи и прочие идентификаторы заблюрены, и у каждого такого места есть пояснение.</span>
+      <span data-i18n="index_4">Страница приватная: не в навигации сайта, не в sitemap.xml, помечена <code>noindex</code>. Скрины реальные. Имя автора и названия приложений оставлены, а ID, email, ключи и прочие идентификаторы заблюрены, и у каждого такого места есть пояснение.</span>
     </div>
 
     <div class="step" style="border-top:none; padding-top:0;">
-      <h2>Часть 1 — Apple</h2>
+      <h2 data-i18n="index_5">Часть 1 — Apple</h2>
       <div class="step-body">
-        <p>App Store Connect: запись приложения → сертификаты и profiles → TestFlight → карточка приложения (App Privacy, цена) → Submit for Review.</p>
-        <p><a href="apple.html">Начать →</a></p>
+        <p data-i18n="index_6">App Store Connect: запись приложения → сертификаты и profiles → TestFlight → карточка приложения (App Privacy, цена) → Submit for Review.</p>
+        <p data-i18n="index_7"><a href="apple.html">Начать →</a></p>
       </div>
     </div>
 
     <div class="step">
-      <h2>Часть 2 — Google</h2>
+      <h2 data-i18n="index_8">Часть 2 — Google</h2>
       <div class="step-body">
-        <p>Google Play Console: создание приложения → подписание (Play App Signing) → внутреннее/закрытое тестирование → Контент приложения (Data Safety, Privacy Policy, Ads, Advertising ID) → продакшен и staged rollout.</p>
-        <p style="color:var(--ink-soft);">Скоро.</p>
+        <p data-i18n="index_9">Google Play Console: создание приложения → подписание (Play App Signing) → внутреннее/закрытое тестирование → Контент приложения (Data Safety, Privacy Policy, Ads, Advertising ID) → продакшен и staged rollout.</p>
+        <p data-i18n="index_10" style="color:var(--ink-soft);">Скоро.</p>
       </div>
     </div>
 
     <div class="step">
-      <h2>Часть 3 — Meta</h2>
+      <h2 data-i18n="index_11">Часть 3 — Meta</h2>
       <div class="step-body">
-        <p>Meta Business Manager → приложение в Meta for Developers → Events Manager → рекламный аккаунт и платёжный метод → кампания в Ads Manager → проверка атрибуции.</p>
-        <p style="color:var(--ink-soft);">Скоро.</p>
+        <p data-i18n="index_12">Meta Business Manager → приложение в Meta for Developers → Events Manager → рекламный аккаунт и платёжный метод → кампания в Ads Manager → проверка атрибуции.</p>
+        <p data-i18n="index_13" style="color:var(--ink-soft);">Скоро.</p>
       </div>
     </div>
   </main>
 </div>
-<script src="nav.js?v=202610042241"></script>
+<script src="nav.js?v=202610042258"></script>
+<script src="i18n.js?v=202610042258"></script>
 </body>
 </html>

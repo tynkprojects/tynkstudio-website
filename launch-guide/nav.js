@@ -27,17 +27,35 @@ const NAV = [
   { href: "integration-expo.html", label: "Expo" },
 ];
 
+// data-i18n keys derived from href/position so this file stays the single
+// source of truth for Russian labels; i18n.js only needs to supply translations.
+function navKey(href) {
+  return "nav_" + href.replace(".html", "").replace(/-/g, "_");
+}
+
 (function () {
   const el = document.getElementById("sidebar");
   if (!el) return;
   const here = location.pathname.split("/").pop() || "index.html";
-  let html = '<div class="brand">App Launch Playbook</div><div class="brand-sub">Внутренний документ</div><nav>';
+  let html =
+    '<div class="brand">App Launch Playbook</div>' +
+    '<div class="brand-sub" data-i18n="nav_brand_sub">Внутренний документ</div><nav>';
+  let partIndex = 0;
   for (const item of NAV) {
-    if (item.part) { html += `<div class="part-label">${item.part}</div>`; continue; }
-    if (item.soon) { html += `<span class="nav-soon">${item.label} · скоро</span>`; continue; }
+    if (item.part) {
+      partIndex++;
+      html += `<div class="part-label" data-i18n="nav_part_${partIndex}">${item.part}</div>`;
+      continue;
+    }
+    const key = navKey(item.href);
+    if (item.soon) {
+      html += `<span class="nav-soon" data-i18n="${key}">${item.label} · скоро</span>`;
+      continue;
+    }
     const active = item.href === here ? ' class="active"' : "";
-    html += `<a href="${item.href}"${active}>${item.label}</a>`;
+    html += `<a href="${item.href}"${active} data-i18n="${key}">${item.label}</a>`;
   }
-  html += '</nav><div class="private-note">Приватная страница: не в sitemap и не индексируется. Скрины реальные; ID, email и ключи на них заблюрены.</div>';
+  html +=
+    '</nav><div class="private-note" data-i18n="nav_private_note">Приватная страница: не в sitemap и не индексируется. Скрины реальные; ID, email и ключи на них заблюрены.</div>';
   el.innerHTML = html;
 })();

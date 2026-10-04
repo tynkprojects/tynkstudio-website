@@ -8,21 +8,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202610042241">
+<link rel="stylesheet" href="style.css?v=202610042258">
 </head>
 <body>
 <div class="layout">
   <aside class="sidebar" id="sidebar"></aside>
 
   <main class="content">
-    <div class="eyebrow">Часть 2 · Google</div>
-    <h1>2.2 Тестирование и выпуск</h1>
-    <p class="lede">Загруженные сборки (App Bundle) и сами релизы (версии, которые реально дошли до пользователей) — это два разных списка на одной странице. Легко спутать «сборка загружена» с «версия опубликована».</p>
+    <div data-i18n="google_2_2_1" class="eyebrow">Часть 2 · Google</div>
+    <h1 data-i18n="google_2_2_2">2.2 Тестирование и выпуск</h1>
+    <p data-i18n="google_2_2_3" class="lede">Загруженные сборки (App Bundle) и сами релизы (версии, которые реально дошли до пользователей) — это два разных списка на одной странице. Легко спутать «сборка загружена» с «версия опубликована».</p>
 
     <div class="step">
-      <span class="step-num">1</span><h2>Последние выпуски и наборы</h2>
+      <span class="step-num">1</span><h2 data-i18n="google_2_2_4">Последние выпуски и наборы</h2>
       <div class="step-body">
-        <p>Левое меню раздела «Тестирование и выпуск» → <b>Последние выпуски и наборы</b>. Сверху — таблица <b>релизов</b> (версия, статус публикации, % раскатки); снизу — таблица загруженных <b>App Bundle</b> (просто файлы, без статуса публикации, пока не привязаны к релизу).</p>
+        <p data-i18n="google_2_2_5">Левое меню раздела «Тестирование и выпуск» → <b>Последние выпуски и наборы</b>. Сверху — таблица <b>релизов</b> (версия, статус публикации, % раскатки); снизу — таблица загруженных <b>App Bundle</b> (просто файлы, без статуса публикации, пока не привязаны к релизу).</p>
       </div>
 
       <div class="mockup-wrap">
@@ -34,38 +34,39 @@
 
           <div class="popover" data-for="p1" style="top:52%; left:3%; width:300px;">
             <span class="close-x">✕</span>
-            <h4>Рабочая версия (Production)</h4>
-            <p>Трек, который видят обычные пользователи в сторе. Есть и другие треки (внутреннее/закрытое тестирование) — выше в этом же меню.</p>
-            <a href="https://support.google.com/googleplay/android-developer/answer/6346149?hl=ru" target="_blank" rel="noopener">Поэтапное внедрение обновлений →</a>
+            <h4 data-i18n="google_2_2_6">Рабочая версия (Production)</h4>
+            <p data-i18n="google_2_2_7">Трек, который видят обычные пользователи в сторе. Есть и другие треки (внутреннее/закрытое тестирование) — выше в этом же меню.</p>
+            <a data-i18n="google_2_2_8" href="https://support.google.com/googleplay/android-developer/answer/6346149?hl=ru" target="_blank" rel="noopener">Поэтапное внедрение обновлений →</a>
           </div>
           <div class="popover" data-for="p2" style="top:37%; left:40%; width:300px;">
             <span class="close-x">✕</span>
-            <h4>Статус релиза</h4>
-            <p>«Доступен в Google Play» — версия реально опубликована и раскатана на нужный % пользователей (в колонке «Количество установок» справа).</p>
-            <a href="https://support.google.com/googleplay/android-developer/answer/9859348?hl=ru" target="_blank" rel="noopener">Как подготовить и внедрить выпуск →</a>
+            <h4 data-i18n="google_2_2_9">Статус релиза</h4>
+            <p data-i18n="google_2_2_10">«Доступен в Google Play» — версия реально опубликована и раскатана на нужный % пользователей (в колонке «Количество установок» справа).</p>
+            <a data-i18n="google_2_2_11" href="https://support.google.com/googleplay/android-developer/answer/9859348?hl=ru" target="_blank" rel="noopener">Как подготовить и внедрить выпуск →</a>
           </div>
           <div class="popover" data-for="p3" style="top:86%; left:55%; width:300px;">
             <span class="close-x">✕</span>
-            <h4>Статус «Активно»</h4>
-            <p>Это статус самого файла App Bundle (загружен и валиден), а не релиза. Такой бандл может быть загружен, но ещё не привязан ни к одному выпуску — как было с 1.1.20 у Pawnia до создания релиза.</p>
+            <h4 data-i18n="google_2_2_12">Статус «Активно»</h4>
+            <p data-i18n="google_2_2_13">Это статус самого файла App Bundle (загружен и валиден), а не релиза. Такой бандл может быть загружен, но ещё не привязан ни к одному выпуску — как было с 1.1.20 у Pawnia до создания релиза.</p>
           </div>
         </div>
-        <div class="mockup-caption">Реальный скрин Google Play Console автора.</div>
+        <div data-i18n="google_2_2_14" class="mockup-caption">Реальный скрин Google Play Console автора.</div>
       </div>
 
       <div class="callout-box tip">
         <span class="icon">💡</span>
-        <span>Если нужной сборки нет в списке App Bundle — сначала загрузи её через Android Studio/Gradle (<code>bundleRelease</code>) или через CI (Codemagic/EAS — см. раздел «Доп. интеграции»). Сама загрузка файла в Play Console этим мануалом не описывается, она происходит на стороне инструмента сборки.</span>
+        <span data-i18n="google_2_2_15">Если нужной сборки нет в списке App Bundle — сначала загрузи её через Android Studio/Gradle (<code>bundleRelease</code>) или через CI (Codemagic/EAS — см. раздел «Доп. интеграции»). Сама загрузка файла в Play Console этим мануалом не описывается, она происходит на стороне инструмента сборки.</span>
       </div>
     </div>
 
     <div class="step-nav">
-      <a href="google-2-1.html">← 2.1 Панель управления</a>
-      <a href="google-2-3.html">2.3 Контент приложения →</a>
+      <a data-i18n="google_2_2_16" href="google-2-1.html">← 2.1 Панель управления</a>
+      <a data-i18n="google_2_2_17" href="google-2-3.html">2.3 Контент приложения →</a>
     </div>
   </main>
 </div>
-<script src="nav.js?v=202610042241"></script>
-<script src="script.js?v=202610042241"></script>
+<script src="nav.js?v=202610042258"></script>
+<script src="script.js?v=202610042258"></script>
+<script src="i18n.js?v=202610042258"></script>
 </body>
 </html>

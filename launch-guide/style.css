@@ -71,10 +71,29 @@ a:hover { text-decoration: underline; }
 .sidebar .brand-sub {
   font-size: 0.78rem;
   color: var(--sidebar-text-dim);
-  margin-bottom: 28px;
+  margin-bottom: 14px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
+.lang-switcher {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 22px;
+}
+.lang-switcher button {
+  flex: 1;
+  background: #22262b;
+  border: none;
+  color: var(--sidebar-text-dim);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 6px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lang-switcher button:hover { background: var(--sidebar-active); color: var(--sidebar-text); }
+.lang-switcher button.active { background: var(--accent); color: #fff; }
 .sidebar nav .part-label {
   font-size: 0.72rem;
   text-transform: uppercase;

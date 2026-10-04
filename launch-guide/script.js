@@ -27,11 +27,11 @@ document.querySelectorAll(".mockup-wrap").forEach((wrap) => {
   legend.className = "pin-legend";
   legend.innerHTML =
     '<div class="row"><span class="pin sample">1</span>' +
-    "<span>Нажми на цифру на скрине — откроется пояснение: что это за элемент, зачем он нужен, и ссылка на документацию.</span></div>";
+    '<span data-i18n="common_legend_pin">Нажми на цифру на скрине — откроется пояснение: что это за элемент, зачем он нужен, и ссылка на документацию.</span></div>';
   if (wrap.querySelector(".pin.blur-marker")) {
     legend.innerHTML +=
       '<div class="row"><span class="pin sample blur-marker">i</span>' +
-      "<span>Здесь данные скрыты (ID, email, ключ). Нажми — узнаешь, что именно скрыто и где это взять в своём аккаунте.</span></div>";
+      '<span data-i18n="common_legend_blur">Здесь данные скрыты (ID, email, ключ). Нажми — узнаешь, что именно скрыто и где это взять в своём аккаунте.</span></div>';
   }
   wrap.before(legend);
 });

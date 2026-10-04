@@ -8,21 +8,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202610042241">
+<link rel="stylesheet" href="style.css?v=202610042258">
 </head>
 <body>
 <div class="layout">
   <aside class="sidebar" id="sidebar"></aside>
 
   <main class="content">
-    <div class="eyebrow">Часть 2 · Google</div>
-    <h1>2.5 Реклама и рекламный идентификатор</h1>
-    <p class="lede">Две разные декларации, которые легко спутать. «Реклама» — про показ рекламы внутри приложения. «Рекламный идентификатор» — про использование Advertising ID (для чего угодно, включая просто измерение чужой рекламы через Meta SDK).</p>
+    <div data-i18n="google_2_5_1" class="eyebrow">Часть 2 · Google</div>
+    <h1 data-i18n="google_2_5_2">2.5 Реклама и рекламный идентификатор</h1>
+    <p data-i18n="google_2_5_3" class="lede">Две разные декларации, которые легко спутать. «Реклама» — про показ рекламы внутри приложения. «Рекламный идентификатор» — про использование Advertising ID (для чего угодно, включая просто измерение чужой рекламы через Meta SDK).</p>
 
     <div class="step">
-      <span class="step-num">1</span><h2>Декларация «Реклама»</h2>
+      <span class="step-num">1</span><h2 data-i18n="google_2_5_4">Декларация «Реклама»</h2>
       <div class="step-body">
-        <p>Контент приложения → Реклама. Единственный вопрос: показывает ли приложение рекламу (баннеры, интерстишлы, видео) пользователю внутри самого приложения.</p>
+        <p data-i18n="google_2_5_5">Контент приложения → Реклама. Единственный вопрос: показывает ли приложение рекламу (баннеры, интерстишлы, видео) пользователю внутри самого приложения.</p>
       </div>
 
       <div class="mockup-wrap" style="width:800px; max-width:100%;">
@@ -32,34 +32,35 @@
 
           <div class="popover" data-for="p1" style="top:82%; left:30%; width:320px;">
             <span class="close-x">✕</span>
-            <h4>«Нет, моё приложение не содержит рекламу»</h4>
-            <p>Верный ответ для Pawnia — несмотря на то, что подключён Meta SDK. Meta здесь используется только для измерения эффективности чужой рекламы (которая крутится в других приложениях), а не для показа рекламы в самом Pawnia. Эти две вещи раздел различает явно.</p>
-            <a href="https://support.google.com/googleplay/android-developer/answer/9857753?hl=ru" target="_blank" rel="noopener">Документация: Реклама →</a>
+            <h4 data-i18n="google_2_5_6">«Нет, моё приложение не содержит рекламу»</h4>
+            <p data-i18n="google_2_5_7">Верный ответ для Pawnia — несмотря на то, что подключён Meta SDK. Meta здесь используется только для измерения эффективности чужой рекламы (которая крутится в других приложениях), а не для показа рекламы в самом Pawnia. Эти две вещи раздел различает явно.</p>
+            <a data-i18n="google_2_5_8" href="https://support.google.com/googleplay/android-developer/answer/9857753?hl=ru" target="_blank" rel="noopener">Документация: Реклама →</a>
           </div>
         </div>
-        <div class="mockup-caption">Реальный скрин Google Play Console автора.</div>
+        <div data-i18n="google_2_5_9" class="mockup-caption">Реальный скрин Google Play Console автора.</div>
       </div>
     </div>
 
     <div class="step">
-      <span class="step-num">2</span><h2>Декларация «Рекламный идентификатор»</h2>
+      <span class="step-num">2</span><h2 data-i18n="google_2_5_10">Декларация «Рекламный идентификатор»</h2>
       <div class="step-body">
-        <p>Отдельная страница — спрашивает, использует ли приложение (или сторонний SDK внутри него) Advertising ID. Ответ «Да» нужен, даже если ответ на «Рекламу» выше был «Нет»: Meta SDK читает рекламный ID для атрибуции, значит использование есть.</p>
-        <p>После «Да» нужно отметить цель использования — для Pawnia это «Реклама или маркетинг» (и при необходимости «Аналитика»), точно так же, как мы указывали для Apple App Privacy.</p>
+        <p data-i18n="google_2_5_11">Отдельная страница — спрашивает, использует ли приложение (или сторонний SDK внутри него) Advertising ID. Ответ «Да» нужен, даже если ответ на «Рекламу» выше был «Нет»: Meta SDK читает рекламный ID для атрибуции, значит использование есть.</p>
+        <p data-i18n="google_2_5_12">После «Да» нужно отметить цель использования — для Pawnia это «Реклама или маркетинг» (и при необходимости «Аналитика»), точно так же, как мы указывали для Apple App Privacy.</p>
       </div>
       <div class="callout-box warn">
         <span class="icon">⚠️</span>
-        <span>Эта декларация обязательна для приложений, использующих <code>AD_ID</code> permission на Android 13+, независимо от того, показывает ли приложение рекламу само. Несовпадение этой декларации с реальным поведением SDK — то же нарушение, что и в App Privacy у Apple. <a href="https://support.google.com/googleplay/android-developer/answer/6048248?hl=ru" target="_blank" rel="noopener">Документация: Рекламный идентификатор →</a></span>
+        <span data-i18n="google_2_5_13">Эта декларация обязательна для приложений, использующих <code>AD_ID</code> permission на Android 13+, независимо от того, показывает ли приложение рекламу само. Несовпадение этой декларации с реальным поведением SDK — то же нарушение, что и в App Privacy у Apple. <a href="https://support.google.com/googleplay/android-developer/answer/6048248?hl=ru" target="_blank" rel="noopener">Документация: Рекламный идентификатор →</a></span>
       </div>
     </div>
 
     <div class="step-nav">
-      <a href="google-2-4.html">← 2.4 Безопасность данных</a>
-      <a href="google-2-6.html">2.6 Отправка на проверку →</a>
+      <a data-i18n="google_2_5_14" href="google-2-4.html">← 2.4 Безопасность данных</a>
+      <a data-i18n="google_2_5_15" href="google-2-6.html">2.6 Отправка на проверку →</a>
     </div>
   </main>
 </div>
-<script src="nav.js?v=202610042241"></script>
-<script src="script.js?v=202610042241"></script>
+<script src="nav.js?v=202610042258"></script>
+<script src="script.js?v=202610042258"></script>
+<script src="i18n.js?v=202610042258"></script>
 </body>
 </html>

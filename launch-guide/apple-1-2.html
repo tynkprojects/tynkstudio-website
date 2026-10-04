@@ -8,64 +8,65 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202610042241">
+<link rel="stylesheet" href="style.css?v=202610042258">
 </head>
 <body>
 <div class="layout">
   <aside class="sidebar" id="sidebar"></aside>
 
   <main class="content">
-    <div class="eyebrow">Часть 1 · Apple</div>
-    <h1>1.2 Сертификаты и profiles</h1>
-    <p class="lede">У этого шага нет своего экрана в App Store Connect — подпись сборки происходит либо в Xcode на твоём Mac, либо (что сейчас используется для Pawnia) автоматически через CI-сервис вроде Codemagic или Xcode Cloud. Здесь — что это такое и на что обратить внимание, без привязки к конкретному интерфейсу.</p>
+    <div data-i18n="apple_1_2_1" class="eyebrow">Часть 1 · Apple</div>
+    <h1 data-i18n="apple_1_2_2">1.2 Сертификаты и profiles</h1>
+    <p data-i18n="apple_1_2_3" class="lede">У этого шага нет своего экрана в App Store Connect — подпись сборки происходит либо в Xcode на твоём Mac, либо (что сейчас используется для Pawnia) автоматически через CI-сервис вроде Codemagic или Xcode Cloud. Здесь — что это такое и на что обратить внимание, без привязки к конкретному интерфейсу.</p>
 
     <div class="step">
-      <span class="step-num">1</span><h2>Что вообще подписывается и зачем</h2>
+      <span class="step-num">1</span><h2 data-i18n="apple_1_2_4">Что вообще подписывается и зачем</h2>
       <div class="step-body">
-        <p>Apple не пускает на устройства и в App Store ничем не подписанный код. Нужны три вещи, выпущенные через твой Apple Developer аккаунт:</p>
+        <p data-i18n="apple_1_2_5">Apple не пускает на устройства и в App Store ничем не подписанный код. Нужны три вещи, выпущенные через твой Apple Developer аккаунт:</p>
         <ul>
-          <li><b>Сертификат распространения (Distribution Certificate)</b> — подтверждает, что сборку собрал именно ты/твоя команда.</li>
-          <li><b>App ID</b> — тот самый Bundle ID, который мы указали при создании записи приложения в шаге 1.1 (например, <code>com.yourcompany.yourapp</code>).</li>
-          <li><b>Provisioning Profile</b> — связывает сертификат, App ID и (для тестовых сборок) конкретные устройства в один файл, который зашивается в собранный <code>.ipa</code>.</li>
+          <li data-i18n="apple_1_2_6"><b>Сертификат распространения (Distribution Certificate)</b> — подтверждает, что сборку собрал именно ты/твоя команда.</li>
+          <li data-i18n="apple_1_2_7"><b>App ID</b> — тот самый Bundle ID, который мы указали при создании записи приложения в шаге 1.1 (например, <code>com.yourcompany.yourapp</code>).</li>
+          <li data-i18n="apple_1_2_8"><b>Provisioning Profile</b> — связывает сертификат, App ID и (для тестовых сборок) конкретные устройства в один файл, который зашивается в собранный <code>.ipa</code>.</li>
         </ul>
       </div>
     </div>
 
     <div class="step">
-      <span class="step-num">2</span><h2>Два способа получить всё это</h2>
+      <span class="step-num">2</span><h2 data-i18n="apple_1_2_9">Два способа получить всё это</h2>
       <div class="step-body">
-        <p><b>Вручную, через Xcode:</b> в настройках проекта включаешь «Automatically manage signing», выбираешь свою команду (Team) — Xcode сам создаёт и скачивает сертификат и profile при каждой сборке. Подходит, если собираешь на одной машине.</p>
-        <p><b>Через CI (Codemagic, Xcode Cloud, Fastlane match и т.п.):</b> сертификат и profile генерируются и хранятся на стороне сервиса, привязываются к App Store Connect через API-ключ (App Store Connect API Key, создаётся в Users and Access → Integrations). Так работает текущая сборка Pawnia — сборка 1.1.20/229 была собрана и подписана Codemagic, а не вручную.</p>
+        <p data-i18n="apple_1_2_10"><b>Вручную, через Xcode:</b> в настройках проекта включаешь «Automatically manage signing», выбираешь свою команду (Team) — Xcode сам создаёт и скачивает сертификат и profile при каждой сборке. Подходит, если собираешь на одной машине.</p>
+        <p data-i18n="apple_1_2_11"><b>Через CI (Codemagic, Xcode Cloud, Fastlane match и т.п.):</b> сертификат и profile генерируются и хранятся на стороне сервиса, привязываются к App Store Connect через API-ключ (App Store Connect API Key, создаётся в Users and Access → Integrations). Так работает текущая сборка Pawnia — сборка 1.1.20/229 была собрана и подписана Codemagic, а не вручную.</p>
       </div>
       <div class="callout-box tip">
         <span class="icon">💡</span>
-        <span>Если используешь CI — тебе достаточно один раз создать App Store Connect API Key (Users and Access → Integrations → App Store Connect API) и отдать его сервису. Дальше сертификаты/profiles обновляются автоматически, без твоего участия.</span>
+        <span data-i18n="apple_1_2_12">Если используешь CI — тебе достаточно один раз создать App Store Connect API Key (Users and Access → Integrations → App Store Connect API) и отдать его сервису. Дальше сертификаты/profiles обновляются автоматически, без твоего участия.</span>
       </div>
     </div>
 
     <div class="step">
-      <span class="step-num">3</span><h2>Частые проблемы</h2>
+      <span class="step-num">3</span><h2 data-i18n="apple_1_2_13">Частые проблемы</h2>
       <div class="step-body">
         <ul>
-          <li><b>Сертификат просрочен</b> (действует 1 год) — новая сборка перестаёт собираться, пока не перевыпустишь.</li>
-          <li><b>Bundle ID в Xcode/CI не совпадает</b> с тем, что создан в App Store Connect на шаге 1.1 — сборка загрузится с ошибкой привязки.</li>
-          <li><b>Несколько разработчиков используют разные сертификаты</b> без общего хранилища (Fastlane match решает это централизованным репозиторием сертификатов).</li>
+          <li data-i18n="apple_1_2_14"><b>Сертификат просрочен</b> (действует 1 год) — новая сборка перестаёт собираться, пока не перевыпустишь.</li>
+          <li data-i18n="apple_1_2_15"><b>Bundle ID в Xcode/CI не совпадает</b> с тем, что создан в App Store Connect на шаге 1.1 — сборка загрузится с ошибкой привязки.</li>
+          <li data-i18n="apple_1_2_16"><b>Несколько разработчиков используют разные сертификаты</b> без общего хранилища (Fastlane match решает это централизованным репозиторием сертификатов).</li>
         </ul>
       </div>
     </div>
 
     <div class="callout-box warn">
       <span class="icon">📚</span>
-      <span>Если настраиваешь вручную в Xcode — официальный путь: <a href="https://developer.apple.com/help/account/manage-certificates/create-a-certificate-signing-request" target="_blank" rel="noopener">Create a certificate signing request</a> и <a href="https://developer.apple.com/help/account/manage-profiles/create-a-development-provisioning-profile" target="_blank" rel="noopener">Create a provisioning profile</a> в документации Apple Developer.</span>
+      <span data-i18n="apple_1_2_17">Если настраиваешь вручную в Xcode — официальный путь: <a href="https://developer.apple.com/help/account/manage-certificates/create-a-certificate-signing-request" target="_blank" rel="noopener">Create a certificate signing request</a> и <a href="https://developer.apple.com/help/account/manage-profiles/create-a-development-provisioning-profile" target="_blank" rel="noopener">Create a provisioning profile</a> в документации Apple Developer.</span>
     </div>
 
     <div class="step-nav">
-      <a href="apple-1-1.html">← 1.1 Создание записи приложения</a>
-      <a href="apple-1-3.html">1.3 TestFlight →</a>
+      <a data-i18n="apple_1_2_18" href="apple-1-1.html">← 1.1 Создание записи приложения</a>
+      <a data-i18n="apple_1_2_19" href="apple-1-3.html">1.3 TestFlight →</a>
     </div>
   </main>
 </div>
-<script src="nav.js?v=202610042241"></script>
-<script src="script.js?v=202610042241"></script>
+<script src="nav.js?v=202610042258"></script>
+<script src="script.js?v=202610042258"></script>
+<script src="i18n.js?v=202610042258"></script>
 </body>
 </html>
