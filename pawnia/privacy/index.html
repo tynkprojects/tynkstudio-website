@@ -184,8 +184,8 @@ footer a:hover{color:var(--navy)}
   <section class="hero">
     <span class="eyebrow" data-i18n="eyebrow">Legal</span>
     <h1 data-i18n="h1">Privacy Policy</h1>
-    <p class="lead" data-i18n="lead">How Pawnia handles your data. Short version: everything stays on your device — we don't collect, store, or share anything on our servers.</p>
-    <span class="effective" data-i18n="effective">Effective Date: May 15, 2026</span>
+    <p class="lead" data-i18n="lead">How Pawnia handles your data. Most of what you enter stays on your device. With your consent, we use Meta's SDK to measure how our ads perform — see Section 3.2.</p>
+    <span class="effective" data-i18n="effective">Effective Date: October 4, 2026</span>
   </section>
 
   <section class="block">
@@ -234,6 +234,7 @@ footer a:hover{color:var(--navy)}
     <p data-i18n="s3_2_p">When using the Application, the following may be processed automatically:</p>
     <ul>
       <li data-i18n="s3_2_l1"><strong>Device push token</strong> — used for sending local and push notifications (task and event reminders). This token is stored locally on your device and is not transmitted to external servers.</li>
+      <li data-i18n="s3_2_l2"><strong>Advertising identifier and app activity (Meta SDK)</strong> — only if you opt in to "Ad Analytics" in Settings (and, on iOS, allow tracking when prompted by the system). When enabled, we use Meta's SDK (Facebook App Events) to share your device's advertising identifier and basic app-activity events (app opens, and whether you purchased Pawnia Pro) with Meta Platforms, Inc., so we can measure how our ads perform. You can opt out at any time in Settings → Ad Analytics; on iOS, you can also withdraw tracking permission in your device's System Settings. If you don't consent, none of this is collected.</li>
     </ul>
 
     <h3 data-i18n="s3_3_h">3.3. Data We Do NOT Collect</h3>
@@ -242,8 +243,7 @@ footer a:hover{color:var(--navy)}
       <li data-i18n="s3_3_l1">Your name, phone number, or address (unless you manually enter it in the emergency card)</li>
       <li data-i18n="s3_3_l2">Geolocation data</li>
       <li data-i18n="s3_3_l3">Login credentials (no authentication required in the current version)</li>
-      <li data-i18n="s3_3_l4">Payment data (the Application is free)</li>
-      <li data-i18n="s3_3_l5">Advertising identifiers</li>
+      <li data-i18n="s3_3_l4">Payment data for the optional Pawnia Pro purchase — this is handled entirely by Apple/Google; we never see your card details</li>
     </ul>
   </section>
 
@@ -269,9 +269,10 @@ footer a:hover{color:var(--navy)}
       <li data-i18n="s5_l9"><strong>flutter_bloc, bloc, meta</strong> — state management (no data collection)</li>
       <li data-i18n="s5_l10"><strong>flutter_localizations, intl</strong> — localization</li>
       <li data-i18n="s5_l11"><strong>liquid_glass_renderer, material_symbols_icons, another_flushbar</strong> — UI components</li>
+      <li data-i18n="s5_l12"><strong>facebook_app_events</strong> — Meta's SDK for advertising measurement. Active only if you opt in to Ad Analytics in Settings (see Section 3.2).</li>
     </ul>
     <div class="highlight">
-      <p data-i18n="s5_note">None of these libraries perform analytics, advertising, or data transmission to external servers.</p>
+      <p data-i18n="s5_note">Except for facebook_app_events — which is active only with your consent, as described in Section 3.2 — none of these libraries perform analytics, advertising, or data transmission to external servers.</p>
     </div>
   </section>
 
@@ -284,12 +285,13 @@ footer a:hover{color:var(--navy)}
       <li data-i18n="s6_l3">Generating weight charts and reports</li>
       <li data-i18n="s6_l4">Creating PDF/PNG documents and sharing them at your request</li>
       <li data-i18n="s6_l5">Sending reminders for tasks and events via notifications</li>
+      <li data-i18n="s6_l6">Measuring ad performance via Meta's SDK — only if you opt in (Section 3.2)</li>
     </ul>
   </section>
 
   <section class="block">
     <h2 data-i18n="s7_h">7. Data Sharing with Third Parties</h2>
-    <p data-i18n="s7_p1">We do <strong>not</strong> share your data with third parties, advertisers, analytics services, or government authorities, except where required by applicable law.</p>
+    <p data-i18n="s7_p1">We do <strong>not</strong> share your data with third parties, advertisers, analytics services, or government authorities, except where required by applicable law — with one exception: if you opt in to Ad Analytics (Section 3.2), we share your advertising identifier and basic app-activity events with Meta Platforms, Inc. for ad measurement. This is off by default and you can turn it off anytime.</p>
     <p data-i18n="s7_p2">Exported data (PDF, PNG, reports) is shared only at your initiative through your device's system tools. You choose the recipient.</p>
   </section>
 
@@ -347,8 +349,8 @@ const T = {
   en: {
     eyebrow: "Legal",
     h1: "Privacy Policy",
-    lead: "How Pawnia handles your data. Short version: everything stays on your device — we don't collect, store, or share anything on our servers.",
-    effective: "Effective Date: May 15, 2026",
+    lead: "How Pawnia handles your data. Most of what you enter stays on your device. With your consent, we use Meta's SDK to measure how our ads perform — see Section 3.2.",
+    effective: "Effective Date: October 4, 2026",
 
     s1_h: "1. General Provisions",
     s1_p1: "This Privacy Policy (the \"Policy\") describes what data the Pawnia application (the \"Application\") collects and processes, the purposes for which it is used, and the rights users have regarding their data.",
@@ -378,14 +380,14 @@ const T = {
     s3_2_h: "3.2. Data Collected Automatically",
     s3_2_p: "When using the Application, the following may be processed automatically:",
     s3_2_l1: "<strong>Device push token</strong> — used for sending local and push notifications (task and event reminders). This token is stored locally on your device and is not transmitted to external servers.",
+    s3_2_l2: "<strong>Advertising identifier and app activity (Meta SDK)</strong> — only if you opt in to \"Ad Analytics\" in Settings (and, on iOS, allow tracking when prompted by the system). When enabled, we use Meta's SDK (Facebook App Events) to share your device's advertising identifier and basic app-activity events (app opens, and whether you purchased Pawnia Pro) with Meta Platforms, Inc., so we can measure how our ads perform. You can opt out at any time in Settings → Ad Analytics; on iOS, you can also withdraw tracking permission in your device's System Settings. If you don't consent, none of this is collected.",
 
     s3_3_h: "3.3. Data We Do NOT Collect",
     s3_3_p: "We do <strong>not</strong> collect or process:",
     s3_3_l1: "Your name, phone number, or address (unless you manually enter it in the emergency card)",
     s3_3_l2: "Geolocation data",
     s3_3_l3: "Login credentials (no authentication required in the current version)",
-    s3_3_l4: "Payment data (the Application is free)",
-    s3_3_l5: "Advertising identifiers",
+    s3_3_l4: "Payment data for the optional Pawnia Pro purchase — this is handled entirely by Apple/Google; we never see your card details",
 
     s4_h: "4. Data Storage",
     s4_p1: "All data you enter in the Application is stored locally on your device. We do not use cloud servers to store user data.",
@@ -405,7 +407,8 @@ const T = {
     s5_l9: "<strong>flutter_bloc, bloc, meta</strong> — state management (no data collection)",
     s5_l10: "<strong>flutter_localizations, intl</strong> — localization",
     s5_l11: "<strong>liquid_glass_renderer, material_symbols_icons, another_flushbar</strong> — UI components",
-    s5_note: "None of these libraries perform analytics, advertising, or data transmission to external servers.",
+    s5_l12: "<strong>facebook_app_events</strong> — Meta's SDK for advertising measurement. Active only if you opt in to Ad Analytics in Settings (see Section 3.2).",
+    s5_note: "Except for facebook_app_events — which is active only with your consent, as described in Section 3.2 — none of these libraries perform analytics, advertising, or data transmission to external servers.",
 
     s6_h: "6. Purpose of Data Processing",
     s6_p: "The data you enter is processed exclusively for the following purposes:",
@@ -414,9 +417,10 @@ const T = {
     s6_l3: "Generating weight charts and reports",
     s6_l4: "Creating PDF/PNG documents and sharing them at your request",
     s6_l5: "Sending reminders for tasks and events via notifications",
+    s6_l6: "Measuring ad performance via Meta's SDK — only if you opt in (Section 3.2)",
 
     s7_h: "7. Data Sharing with Third Parties",
-    s7_p1: "We do <strong>not</strong> share your data with third parties, advertisers, analytics services, or government authorities, except where required by applicable law.",
+    s7_p1: "We do <strong>not</strong> share your data with third parties, advertisers, analytics services, or government authorities, except where required by applicable law — with one exception: if you opt in to Ad Analytics (Section 3.2), we share your advertising identifier and basic app-activity events with Meta Platforms, Inc. for ad measurement. This is off by default and you can turn it off anytime.",
     s7_p2: "Exported data (PDF, PNG, reports) is shared only at your initiative through your device's system tools. You choose the recipient.",
 
     s8_h: "8. User Rights",
@@ -446,8 +450,8 @@ const T = {
   ru: {
     eyebrow: "Правовая информация",
     h1: "Политика конфиденциальности",
-    lead: "Как Pawnia обращается с вашими данными. Если коротко: всё хранится на вашем устройстве — мы ничего не собираем, не храним и не передаём на свои серверы.",
-    effective: "Дата вступления в силу: 15 мая 2026 г.",
+    lead: "Как Pawnia обращается с вашими данными. Большая часть того, что вы вводите, остаётся на вашем устройстве. С вашего согласия мы используем SDK Meta для измерения эффективности нашей рекламы — подробнее в разделе 3.2.",
+    effective: "Дата вступления в силу: 4 октября 2026 г.",
 
     s1_h: "1. Общие положения",
     s1_p1: "Настоящая Политика конфиденциальности (далее — «Политика») описывает, какие данные собирает и обрабатывает приложение Pawnia (далее — «Приложение»), для каких целей они используются и какие права имеют пользователи в отношении своих данных.",
@@ -477,14 +481,14 @@ const T = {
     s3_2_h: "3.2. Данные, собираемые автоматически",
     s3_2_p: "При использовании Приложения могут обрабатываться автоматически:",
     s3_2_l1: "<strong>Push-токен устройства</strong> — используется для отправки локальных и push-уведомлений (напоминания о задачах и событиях). Этот токен хранится локально на вашем устройстве и не передаётся на внешние серверы.",
+    s3_2_l2: "<strong>Рекламный идентификатор и активность в приложении (Meta SDK)</strong> — только если вы включите «Рекламную аналитику» в Настройках (а на iOS также разрешите отслеживание в системном запросе). При включении мы используем SDK Meta (Facebook App Events), чтобы передавать рекламный идентификатор вашего устройства и базовые события активности (открытие приложения, факт покупки Pawnia Pro) компании Meta Platforms, Inc. — это помогает нам измерять эффективность рекламы. Вы можете отключить это в любой момент в Настройки → Рекламная аналитика; на iOS разрешение на отслеживание также можно отозвать в системных настройках устройства. Если вы не дали согласие, ничего из этого не собирается.",
 
     s3_3_h: "3.3. Что мы НЕ собираем",
     s3_3_p: "Мы <strong>не</strong> собираем и не обрабатываем:",
     s3_3_l1: "Ваше имя, номер телефона или адрес (если только вы не указали их вручную в экстренной карточке)",
     s3_3_l2: "Геолокационные данные",
     s3_3_l3: "Учётные данные для входа (в текущей версии аутентификация не требуется)",
-    s3_3_l4: "Платёжные данные (Приложение бесплатное)",
-    s3_3_l5: "Рекламные идентификаторы",
+    s3_3_l4: "Платёжные данные для необязательной покупки Pawnia Pro — это полностью обрабатывает Apple/Google; мы никогда не видим данные вашей карты",
 
     s4_h: "4. Хранение данных",
     s4_p1: "Все данные, которые вы вносите в Приложение, хранятся локально на вашем устройстве. Мы не используем облачные серверы для хранения пользовательских данных.",
@@ -504,7 +508,8 @@ const T = {
     s5_l9: "<strong>flutter_bloc, bloc, meta</strong> — управление состоянием (без сбора данных)",
     s5_l10: "<strong>flutter_localizations, intl</strong> — локализация",
     s5_l11: "<strong>liquid_glass_renderer, material_symbols_icons, another_flushbar</strong> — UI-компоненты",
-    s5_note: "Ни одна из этих библиотек не выполняет аналитику, не показывает рекламу и не передаёт данные на внешние серверы.",
+    s5_l12: "<strong>facebook_app_events</strong> — SDK Meta для измерения эффективности рекламы. Активен только если вы включили Рекламную аналитику в Настройках (см. раздел 3.2).",
+    s5_note: "За исключением facebook_app_events — который активен только с вашего согласия, как описано в разделе 3.2, — ни одна из этих библиотек не выполняет аналитику, не показывает рекламу и не передаёт данные на внешние серверы.",
 
     s6_h: "6. Цели обработки данных",
     s6_p: "Вносимые вами данные обрабатываются исключительно в следующих целях:",
@@ -513,9 +518,10 @@ const T = {
     s6_l3: "Формирование графиков веса и отчётов",
     s6_l4: "Создание PDF/PNG-документов и их отправка по вашему запросу",
     s6_l5: "Отправка напоминаний о задачах и событиях через уведомления",
+    s6_l6: "Измерение эффективности рекламы через SDK Meta — только если вы дали согласие (раздел 3.2)",
 
     s7_h: "7. Передача данных третьим лицам",
-    s7_p1: "Мы <strong>не</strong> передаём ваши данные третьим лицам, рекламодателям, аналитическим сервисам или государственным органам, за исключением случаев, предусмотренных применимым законодательством.",
+    s7_p1: "Мы <strong>не</strong> передаём ваши данные третьим лицам, рекламодателям, аналитическим сервисам или государственным органам, за исключением случаев, предусмотренных применимым законодательством — за одним исключением: если вы включили Рекламную аналитику (раздел 3.2), мы передаём рекламный идентификатор и базовые события активности компании Meta Platforms, Inc. для измерения эффективности рекламы. Эта функция по умолчанию выключена, и вы можете отключить её в любой момент.",
     s7_p2: "Экспортированные данные (PDF, PNG, отчёты) передаются только по вашей инициативе через системные средства вашего устройства. Получателя выбираете вы.",
 
     s8_h: "8. Права пользователя",
