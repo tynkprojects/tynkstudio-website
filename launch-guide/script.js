@@ -1,5 +1,26 @@
 // App Launch Playbook — pin/popover interaction
 
+// Copy button on every command block.
+document.querySelectorAll(".code-block").forEach((block) => {
+  const btn = document.createElement("button");
+  btn.className = "copy-btn";
+  btn.type = "button";
+  btn.setAttribute("aria-label", "Скопировать");
+  btn.textContent = "⧉";
+  btn.addEventListener("click", () => {
+    const code = block.querySelector("pre").textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.classList.add("copied");
+      btn.textContent = "✓";
+      setTimeout(() => {
+        btn.classList.remove("copied");
+        btn.textContent = "⧉";
+      }, 1200);
+    });
+  });
+  block.appendChild(btn);
+});
+
 // Legend above every screenshot; the blur row appears only where the screenshot has blur markers.
 document.querySelectorAll(".mockup-wrap").forEach((wrap) => {
   const legend = document.createElement("div");

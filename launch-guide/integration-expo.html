@@ -27,10 +27,10 @@
     <div class="step">
       <span class="step-num">1</span><h2>Установка и первый вход</h2>
       <div class="step-body">
-        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>npm install -g eas-cli
-eas login</code></pre>
+        <div class="code-block"><pre><code>npm install -g eas-cli
+eas login</code></pre></div>
         <p>Дальше, из папки проекта:</p>
-        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>eas build:configure</code></pre>
+        <div class="code-block"><pre><code>eas build:configure</code></pre></div>
         <p>Эта команда создаёт <code>eas.json</code> с профилями сборки (например, <code>development</code>, <code>preview</code>, <code>production</code>) — отдельными наборами настроек для теста и для публикации.</p>
       </div>
       <div class="callout-box warn">
@@ -42,8 +42,8 @@ eas login</code></pre>
     <div class="step">
       <span class="step-num">2</span><h2>Сборка в облаке</h2>
       <div class="step-body">
-        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>eas build --platform ios
-eas build --platform android</code></pre>
+        <div class="code-block"><pre><code>eas build --platform ios
+eas build --platform android</code></pre></div>
         <p>Сборка идёт на серверах Expo — Mac для iOS-сборки не нужен. Сертификаты и profiles (наш шаг 1.2) EAS может сгенерировать и хранить сама, либо использовать уже существующие — при первом запуске она спросит.</p>
       </div>
     </div>
@@ -51,11 +51,11 @@ eas build --platform android</code></pre>
     <div class="step">
       <span class="step-num">3</span><h2>Отправка в стор</h2>
       <div class="step-body">
-        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>eas submit --platform ios
-eas submit --platform android</code></pre>
+        <div class="code-block"><pre><code>eas submit --platform ios
+eas submit --platform android</code></pre></div>
         <p>На iOS билд уходит в App Store Connect и становится доступен в TestFlight (наш шаг 1.3) обычно за 10–15 минут. На Android — во внутреннее тестирование Google Play (наш шаг 2.2). Дальше — те же шаги 1.5/2.4 этого мануала: выбрать билд у версии и отправить на ревью.</p>
         <p>Можно объединить всё в одну команду:</p>
-        <pre style="background:#f0ece0; padding:14px 16px; border-radius:8px; overflow-x:auto;"><code>eas build --auto-submit</code></pre>
+        <div class="code-block"><pre><code>eas build --auto-submit</code></pre></div>
       </div>
       <div class="callout-box warn">
         <span class="icon">📚</span>
