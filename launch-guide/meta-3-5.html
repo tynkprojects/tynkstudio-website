@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202610042323">
+<link rel="stylesheet" href="style.css?v=202610051228">
 </head>
 <body>
 <div class="layout">
@@ -17,40 +17,116 @@
   <main class="content">
     <div data-i18n="meta_3_5_1" class="eyebrow">Часть 3 · Meta</div>
     <h1 data-i18n="meta_3_5_2">3.5 Ads Manager — кампания</h1>
-    <p data-i18n="meta_3_5_3" class="lede">Последний шаг: сама рекламная кампания, которая использует события из шага 3.4 для оптимизации. В архиве этой сессии нет подходящего реального скрина создания кампании — этот раздел ждёт скриншотов.</p>
+    <p data-i18n="meta_3_5_3" class="lede">Последний шаг: сама рекламная кампания, которая использует события из шага 3.4 для оптимизации. Ниже — реальный процесс создания кампании продвижения приложения.</p>
 
-    <div class="callout-box warn">
-      <span class="icon">📸</span>
-      <span data-i18n="meta_3_5_4">Нужны скрины (Ads Manager → Кампании → Создать):</span>
-    </div>
-    <div class="step-body">
-      <ol>
-        <li data-i18n="meta_3_5_5">Выбор цели кампании (Objective) — для установок приложения это «Promote your app».</li>
-        <li data-i18n="meta_3_5_6">Уровень группы объявлений: выбор приложения/стора и события оптимизации (Optimization event) — например «Purchase» или «Install».</li>
-        <li data-i18n="meta_3_5_7">Бюджет и геотаргетинг.</li>
-        <li data-i18n="meta_3_5_8">Итоговый экран запуска кампании.</li>
-      </ol>
+    <div class="step">
+      <span class="step-num">1</span><h2 data-i18n="meta_3_5_9">Открой «Кампании» → нажми «Создать»</h2>
+      <div class="step-body">
+        <p data-i18n="meta_3_5_10">Кнопка «Создать» открывает выбор цели кампании. Ниже на этом же скрине — список уже существующих кампаний: по каждой видно статус показа, результат, цену за результат, бюджет и потраченную сумму (названия кампаний и суммы на скрине автора заблюрены — у тебя будут свои).</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/meta-3-5-campaigns.png" alt="Meta Ads Manager — список кампаний">
+          <div class="pin top" data-id="p1" style="top:43.62%; left:6.00%;">1</div>
+          <div class="popover" data-for="p1" style="top:52%; left:3%;">
+            <span class="close-x">✕</span>
+            <h4 data-i18n="meta_3_5_14">Кнопка «Создать»</h4>
+            <p data-i18n="meta_3_5_15">Открывает выбор цели новой кампании — следующий шаг этой страницы.</p>
+          </div>
+          <div class="pin blur-marker top" data-id="b1" style="top:55.93%; left:13.42%;">i</div>
+          <div class="popover" data-for="b1" style="top:64%; left:4%; width:280px;">
+            <span class="close-x">✕</span>
+            <h4 data-i18n="meta_3_5_16">Скрыто: названия кампаний</h4>
+            <p data-i18n="meta_3_5_17">Это реальные кампании автора — названия не несут обучающей ценности, поэтому заблюрены. У тебя здесь будут собственные названия.</p>
+          </div>
+          <div class="pin blur-marker top" data-id="b2" style="top:55.93%; left:89.16%;">i</div>
+          <div class="popover" data-for="b2" style="top:64%; left:70%; width:280px;">
+            <span class="close-x">✕</span>
+            <h4 data-i18n="meta_3_5_18">Скрыто: бюджет и расходы</h4>
+            <p data-i18n="meta_3_5_19">Реальные суммы автора по его кампаниям — заблюрены, чтобы не путать с твоими значениями. Цифры здесь полностью зависят от твоего собственного бюджета.</p>
+          </div>
+        </div>
+        <div data-i18n="meta_3_5_20" class="mockup-caption">Реальный скрин Meta Ads Manager автора.</div>
+      </div>
     </div>
 
     <div class="step">
-      <span class="step-num">1</span><h2 data-i18n="meta_3_5_9">Что будет на этом шаге (конспективно)</h2>
+      <span class="step-num">2</span><h2 data-i18n="meta_3_5_21">Выбери цель «Продвижение приложения»</h2>
       <div class="step-body">
-        <p data-i18n="meta_3_5_10">Цель кампании «Продвижение приложения» привязывается к конкретному приложению из Meta for Developers (шаг 3.2) через выбор магазина (App Store/Google Play) и указание Store ID. Событие оптимизации — то самое, что мы видели живым в Events Manager (шаг 3.4): если там «Неактивно», кампания физически не может оптимизироваться под это событие, сколько бы бюджета в неё ни заложить.</p>
+        <p data-i18n="meta_3_5_22">Среди целей кампании (Узнаваемость, Трафик, Вовлечённость, Лиды, Продвижение приложения, Продажи) — выбирай именно «Продвижение приложения». Справка Meta сразу поясняет: поиск новых людей, которые установят приложение и будут его использовать, подходит для установок приложения и событий в приложении.</p>
       </div>
-      <div class="callout-box danger">
-        <span class="icon">🚫</span>
-        <span data-i18n="meta_3_5_11">Запускать/увеличивать кампанию без живых событий в Events Manager (статус «Неактивно» на шаге 3.4) — гарантированная трата бюджета без возможности оптимизации. Сначала 3.4 должен показать реальные события, потом сюда.</span>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/meta-3-5-objective.png" alt="Meta Ads Manager — выбор цели кампании «Продвижение приложения»">
+          <div class="pin right" data-id="p2" style="top:56.88%; left:38.83%; --gap:7px;">2</div>
+          <div class="popover" data-for="p2" style="top:63%; left:5%; width:290px;">
+            <span class="close-x">✕</span>
+            <h4 data-i18n="meta_3_5_23">Продвижение приложения</h4>
+            <p data-i18n="meta_3_5_24">Единственная цель, которая умеет оптимизироваться под установки приложения и события внутри него — ровно то, что мы настраивали в Events Manager на шаге 3.4.</p>
+            <a data-i18n="meta_3_5_25" href="https://www.facebook.com/business/help/1438417719786914" target="_blank" rel="noopener">Справка Meta →</a>
+          </div>
+        </div>
+        <div data-i18n="meta_3_5_26" class="mockup-caption">Реальный скрин Meta Ads Manager автора.</div>
       </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span><h2 data-i18n="meta_3_5_27">Настрой кампанию и бюджет</h2>
+      <div class="step-body">
+        <p data-i18n="meta_3_5_28">Современный Ads Manager объединяет уровень кампании и бюджета в одном экране (режим «Advantage+ для приложения» включён по умолчанию и сам распределяет бюджет между самыми эффективными объявлениями). Здесь задаётся дневной или общий бюджет — в этом примере 20 € в день.</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/meta-3-5-budget-top.png" alt="Meta Ads Manager — настройка кампании и бюджета">
+          <div class="pin top" data-id="p3" style="top:38.73%; left:42.85%;">3</div>
+          <div class="popover" data-for="p3" style="top:44%; left:20%; width:290px;">
+            <span class="close-x">✕</span>
+            <h4 data-i18n="meta_3_5_29">Цель кампании</h4>
+            <p data-i18n="meta_3_5_30">Подтверждение выбранной на предыдущем шаге цели — «Продвижение приложения».</p>
+          </div>
+          <div class="pin top" data-id="p4" style="top:88.45%; left:59.59%;">4</div>
+          <div class="popover" data-for="p4" style="top:94%; left:40%; width:290px;">
+            <span class="close-x">✕</span>
+            <h4 data-i18n="meta_3_5_31">Дневной бюджет</h4>
+            <p data-i18n="meta_3_5_32">20 € в день — Meta прогнозирует расход «около 20 € в день, максимум 35 € в день и 140 € в неделю» за счёт автоматического перераспределения внутри Advantage+.</p>
+          </div>
+        </div>
+        <div data-i18n="meta_3_5_33" class="mockup-caption">Реальный скрин Meta Ads Manager автора.</div>
+      </div>
+
+      <div class="step-body">
+        <p data-i18n="meta_3_5_34">Ниже на той же странице — дополнительные настройки: стратегия ставок, планирование показа, переключатель «Кампания для iOS 14+» (Aggregated Event Measurement — нужен, если ты таргетируешься на iOS-пользователей, не давших ATT-согласие) и декларация особых категорий рекламы (финансы, недвижимость, трудоустройство, выборы — для обычного продвижения приложения оставляешь пустым).</p>
+      </div>
+
+      <div class="mockup-wrap">
+        <div class="mockup">
+          <img class="screenshot" src="assets/meta-3-5-budget-bottom.png" alt="Meta Ads Manager — дополнительные настройки кампании">
+        </div>
+        <div data-i18n="meta_3_5_35" class="mockup-caption">Реальный скрин Meta Ads Manager автора.</div>
+      </div>
+
+      <div class="callout-box tip">
+        <span class="icon">💡</span>
+        <span data-i18n="meta_3_5_36">Можно дойти до этого экрана и изучить все настройки без реального запуска — деньги списываются только после нажатия «Опубликовать» на последнем шаге.</span>
+      </div>
+    </div>
+
+    <div class="callout-box danger">
+      <span class="icon">🚫</span>
+      <span data-i18n="meta_3_5_11">Запускать/увеличивать кампанию без живых событий в Events Manager (статус «Неактивно» на шаге 3.4) — гарантированная трата бюджета без возможности оптимизации. Сначала 3.4 должен показать реальные события, потом сюда.</span>
     </div>
 
     <div class="step-nav">
       <a data-i18n="meta_3_5_12" href="meta-3-4.html">← 3.4 Events Manager</a>
-      <span data-i18n="meta_3_5_13" class="disabled">Часть 3 — ждёт скринов</span>
+      <span data-i18n="meta_3_5_13" class="disabled">Часть 3 завершена</span>
     </div>
   </main>
 </div>
-<script src="nav.js?v=202610042323"></script>
-<script src="script.js?v=202610042323"></script>
-<script src="i18n.js?v=202610042323"></script>
+<script src="nav.js?v=202610051228"></script>
+<script src="script.js?v=202610051228"></script>
+<script src="i18n.js?v=202610051228"></script>
 </body>
 </html>
