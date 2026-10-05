@@ -439,6 +439,12 @@ code { font-family: var(--mono); background: #f0ece0; padding: 1px 6px; border-r
 .step-card .status.done { background:var(--accent-soft); color:#15503f; }
 .step-card .status.soon { background:#eee; color:#888; }
 .step-card .status.partial { background:var(--amber-soft); color:#7a4d06; }
+.step-card .card-icon {
+  flex:0 0 auto; width:40px; height:40px; display:flex; align-items:center; justify-content:center;
+  border-radius:10px; background:var(--accent-soft); color:var(--accent);
+}
+.step-card .card-icon svg { width:21px; height:21px; display:block; }
+.step-card .card-icon.brand { background:#fff; border:1px solid var(--line); }
 .step-card a.card-link { text-decoration:none; color:inherit; display:flex; flex:1; gap:16px; align-items:flex-start; }
 .step-card:has(a.card-link):hover { border-color:var(--accent); }
 
