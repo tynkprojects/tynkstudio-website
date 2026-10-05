@@ -7,7 +7,7 @@
 <title>Playbook · Вариант 2 — Field Notes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink-green: #16352a;
@@ -22,61 +22,95 @@
   --oxblood-soft: #f3e1df;
   --serif: "Source Serif 4", serif;
   --mono: "JetBrains Mono", monospace;
+  --display: "Oswald", sans-serif;
 }
 * { box-sizing: border-box; }
 html,body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif); }
-h1,h2,h3 { font-family:"Fjalla One",sans-serif; font-weight:400; letter-spacing:0.01em; }
+h1,h2,h3 { font-family:var(--display); font-weight:500; letter-spacing:0.01em; }
 .page { display:flex; min-height:100vh; }
-.side { flex:0 0 280px; background:var(--ink-green); color:#dce9e0; padding:28px 22px; }
-.brand { font-family:"Fjalla One"; font-size:1.3rem; color:#fff; }
+.side { flex:0 0 280px; background:var(--ink-green); color:#dce9e0; padding:28px 22px; display:flex; flex-direction:column; }
+.brand { font-family:var(--display); font-weight:600; font-size:1.3rem; color:#fff; }
 .brand-sub { font-family:var(--mono); font-size:0.68rem; color:#9fc2ae; text-transform:uppercase; letter-spacing:0.07em; margin:4px 0 20px; }
 .lang {
   display:flex; align-items:center; gap:7px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2);
   padding:7px 10px; border-radius:16px; font-family:var(--mono); font-size:0.75rem; margin-bottom:22px; cursor:pointer;
 }
+.lang .lang-globe { font-size:0.85rem; line-height:1; }
 .lang .car { margin-left:auto; }
 .part { font-family:var(--mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.07em; color:#7fa690; margin:20px 0 6px; }
 .navlink { display:block; padding:6px 10px; color:#dce9e0; text-decoration:none; font-size:0.9rem; border-radius:16px; }
 .navlink.active { background:rgba(255,255,255,0.12); color:#fff; font-weight:600; }
+.side-footer { margin-top:auto; padding-top:18px; border-top:1px solid rgba(255,255,255,0.14); }
+.copyright { font-family:var(--mono); font-size:0.66rem; color:#9fc2ae; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.copyright a { color:#dce9e0; text-decoration:underline; }
+.c-badge { display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border:1px solid #9fc2ae; border-radius:50%; font-size:9px; flex-shrink:0; }
+.app-links { display:flex; gap:8px; margin-top:10px; }
+.app-links a { display:block; line-height:0; }
+.app-links img { width:26px; height:26px; border-radius:22%; display:block; }
 .content { flex:1; padding:48px 56px; max-width:900px; }
 .eyebrow { font-family:var(--mono); color:var(--panel-green); text-transform:uppercase; font-size:0.78rem; letter-spacing:0.08em; margin-bottom:8px; }
 .lede { color:var(--ink-soft); max-width:640px; font-size:1.08rem; }
 .step { margin:44px 0; padding-top:26px; border-top:2px dotted #c8bd9e; }
 .step-num {
   display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%;
-  border:2.5px solid var(--ink-green); color:var(--ink-green); font-family:"Fjalla One"; font-size:1rem;
+  border:2.5px solid var(--ink-green); color:var(--ink-green); font-family:var(--display); font-size:1rem;
   margin-right:10px; transform:rotate(-3deg);
 }
 .step h2 { display:inline; font-size:1.3rem; vertical-align:middle; }
-.callout { display:flex; gap:10px; padding:13px 15px; border-radius:4px; font-size:0.94rem; margin:16px 0; max-width:640px; }
+.callout { display:flex; align-items:flex-start; gap:10px; padding:13px 15px; border-radius:4px; font-size:0.94rem; margin:16px 0; max-width:640px; }
 .callout.tip { background:var(--ochre-soft); color:#5a4106; border:1px dashed var(--ochre); }
 .callout.warn { background:#fdeeda; color:#7a4d06; border:1px dashed #c97a1f; }
 .callout.danger { background:var(--oxblood-soft); color:#5a1f1f; border:1px dashed var(--oxblood); }
+.warn-icon {
+  flex-shrink:0; margin-top:2px; width:18px; height:16px; position:relative;
+  background:#ff6a00; clip-path:polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.warn-icon::after {
+  content:"!"; position:absolute; left:0; right:0; bottom:1px; text-align:center;
+  color:#fff; font-family:var(--display); font-weight:700; font-size:11px; line-height:1;
+}
 .frame-wrap { position:relative; margin:26px 0 10px; max-width:100%; transform:rotate(-0.8deg); }
-.tape { position:absolute; top:-10px; left:40px; width:90px; height:28px; background:rgba(216,196,140,0.75); transform:rotate(-4deg); box-shadow:0 2px 4px rgba(0,0,0,0.15); z-index:2; }
+.tape {
+  position:absolute; top:-13px; left:36px; width:100px; height:30px; z-index:2;
+  background: repeating-linear-gradient(112deg, rgba(232,216,171,0.92) 0px, rgba(232,216,171,0.92) 3px, rgba(208,186,128,0.88) 3px, rgba(208,186,128,0.88) 6px);
+  clip-path: polygon(2% 22%, 98% 0%, 100% 76%, 1% 100%);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transform: rotate(-4deg);
+}
 .frame { position:relative; background:#fff; padding:10px; box-shadow:0 8px 20px -6px rgba(0,0,0,0.3); border:1px solid #d8c9a0; }
 .frame img { display:block; width:100%; }
 .pin {
   position:absolute; width:16px; height:16px; border:2px solid var(--ink-green); border-radius:50%;
-  background:var(--paper-raised); color:var(--ink-green); font-family:"Fjalla One"; font-size:10px;
+  background:var(--paper-raised); color:var(--ink-green); font-family:var(--display); font-size:10px;
   display:grid; place-items:center; cursor:pointer; transform:translate(-50%,-150%) rotate(-4deg);
+}
+.pin::after {
+  content:""; position:absolute; top:100%; left:50%; width:1.5px; height:15px;
+  background:var(--ink-green); opacity:0.75;
 }
 .popover {
   display:none; position:absolute; z-index:9; width:260px; background:var(--paper-raised); color:var(--ink);
   border:1px solid #d8c9a0; border-radius:4px; padding:12px 14px; font-size:0.85rem; box-shadow:0 10px 24px -8px rgba(0,0,0,0.35);
 }
 .popover.show { display:block; }
-.popover h4 { font-family:"Fjalla One"; font-size:0.95rem; margin:0 0 6px; }
+.popover h4 { font-family:var(--display); font-size:0.95rem; margin:0 0 6px; }
 .caption { font-family:var(--mono); font-size:0.74rem; color:var(--ink-soft); margin-top:10px; }
 .code { position:relative; background:#efe6cc; color:#3a3222; font-family:var(--mono); font-size:0.85rem; padding:14px 44px 14px 16px; margin:14px 0; max-width:640px; border-radius:4px; border:1px solid #d8c9a0; }
 .code .copy { position:absolute; top:8px; right:8px; width:26px; height:26px; background:rgba(0,0,0,0.08); border:none; color:#3a3222; border-radius:4px; cursor:pointer; }
 .cards { display:flex; flex-direction:column; gap:10px; max-width:640px; margin:18px 0; }
 .card { display:flex; justify-content:space-between; align-items:center; border:1px solid #d8c9a0; border-radius:6px; padding:14px 16px; background:var(--paper-raised); }
-.card h3 { font-family:"Fjalla One"; font-size:1rem; margin:0 0 4px; }
+.card h3 { font-family:var(--display); font-size:1rem; margin:0 0 4px; }
 .card p { font-size:0.86rem; color:var(--ink-soft); margin:0; }
 .status { font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; padding:4px 10px; border-radius:12px; }
 .status.done { color:#1f5c3f; background:#dcefe2; }
 .status.partial { color:#7a4d06; background:var(--ochre-soft); }
+.apps-promo { margin:40px 0 10px; max-width:640px; }
+.apps-promo-title { font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-soft); margin-bottom:10px; }
+.apps-promo-row { display:flex; gap:12px; flex-wrap:wrap; }
+.apps-promo-btn { display:flex; align-items:center; gap:10px; background:var(--ink-green); color:#fff; padding:10px 16px; border-radius:10px; text-decoration:none; }
+.apps-promo-btn img { width:34px; height:34px; border-radius:22%; display:block; flex-shrink:0; }
+.apps-promo-btn span { font-size:0.82rem; line-height:1.3; font-family:var(--serif); color:#dce9e0; }
+.apps-promo-btn b { font-family:var(--display); font-weight:500; font-size:0.95rem; display:block; color:#fff; }
 </style>
 </head>
 <body>
@@ -84,12 +118,19 @@ h1,h2,h3 { font-family:"Fjalla One",sans-serif; font-weight:400; letter-spacing:
   <aside class="side">
     <div class="brand">App Launch Playbook</div>
     <div class="brand-sub">Полевой мануал · вариант 2</div>
-    <div class="lang"><span>🇷🇺</span><span>RU</span><span class="car">▾</span></div>
+    <div class="lang"><span class="lang-globe">🌐</span><span>🇷🇺</span><span>RU</span><span class="car">▾</span></div>
     <a class="navlink" href="#">Обзор</a>
     <div class="part">Часть 1 · Apple</div>
     <a class="navlink active" href="#">1.1 Создание записи приложения</a>
     <a class="navlink" href="#">1.2 Сертификаты и profiles</a>
     <a class="navlink" href="#">1.3 TestFlight</a>
+    <div class="side-footer">
+      <div class="copyright"><span class="c-badge">©</span> 2026 Tynk Studio · <a href="https://tynkstudio.dev" target="_blank" rel="noopener">tynkstudio.dev</a></div>
+      <div class="app-links">
+        <a href="https://apps.apple.com/us/app/pawnia/id6762463113" target="_blank" rel="noopener" title="Pawnia — App Store"><img src="../assets/app-pawnia-icon.png" alt="Pawnia"></a>
+        <a href="https://apps.apple.com/us/app/%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-pm/id6809838216" target="_blank" rel="noopener" title="Реальный PM — App Store"><img src="../assets/app-realpm-icon.png" alt="Реальный PM"></a>
+      </div>
+    </div>
   </aside>
   <main class="content">
     <div class="eyebrow">Часть 1 · Apple — ВАРИАНТ 2</div>
@@ -113,7 +154,7 @@ h1,h2,h3 { font-family:"Fjalla One",sans-serif; font-weight:400; letter-spacing:
     </div>
 
     <div class="callout tip">💡 Совет: если это первое приложение — сначала подпиши соглашение в разделе Business.</div>
-    <div class="callout warn">⚠ Внимание: Privacy Policy URL редактируется только в новой draft-версии.</div>
+    <div class="callout warn"><span class="warn-icon"></span>Внимание: Privacy Policy URL редактируется только в новой draft-версии.</div>
     <div class="callout danger">🚫 Осторожно: несовпадение App Privacy с реальным поведением SDK — повод для отказа на ревью.</div>
 
     <div class="code">
@@ -124,6 +165,20 @@ h1,h2,h3 { font-family:"Fjalla One",sans-serif; font-weight:400; letter-spacing:
     <div class="cards">
       <div class="card"><div><h3>1.1 Создание записи приложения</h3><p>App Store Connect → Apps → New App.</p></div><span class="status done">Готово</span></div>
       <div class="card"><div><h3>1.3 TestFlight</h3><p>Загрузка сборки, тестеры.</p></div><span class="status partial">Нужен скрин</span></div>
+    </div>
+
+    <div class="apps-promo">
+      <div class="apps-promo-title">Приложения авторов гайда</div>
+      <div class="apps-promo-row">
+        <a class="apps-promo-btn" href="https://apps.apple.com/us/app/pawnia/id6762463113" target="_blank" rel="noopener">
+          <img src="../assets/app-pawnia-icon.png" alt="Pawnia">
+          <span><b>Pawnia</b>App Store</span>
+        </a>
+        <a class="apps-promo-btn" href="https://apps.apple.com/us/app/%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-pm/id6809838216" target="_blank" rel="noopener">
+          <img src="../assets/app-realpm-icon.png" alt="Реальный PM">
+          <span><b>Реальный PM</b>App Store</span>
+        </a>
+      </div>
     </div>
   </main>
 </div>
