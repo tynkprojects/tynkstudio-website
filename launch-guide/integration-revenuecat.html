@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202610051424">
+<link rel="stylesheet" href="style.css?v=202610051435">
 </head>
 <body>
 <div class="layout">
@@ -17,7 +17,7 @@
   <main class="content">
     <div data-i18n="integration_revenuecat_1" class="eyebrow">Доп. интеграции</div>
     <h1 data-i18n="integration_revenuecat_2">RevenueCat</h1>
-    <p data-i18n="integration_revenuecat_3" class="lede">Сервис, который берёт на себя учёт покупок и подписок: вместо того чтобы вручную проверять чеки Apple/Google и хранить статус подписки на своём сервере, ты спрашиваешь у RevenueCat «у этого пользователя активна подписка?» и получаешь готовый ответ — одинаково для iOS, Android и даже веба.</p>
+    <p data-i18n="integration_revenuecat_3" class="lede">Сервис, который берёт на себя учёт покупок и подписок: вместо того чтобы вручную проверять чеки Apple/Google и хранить статус подписки на своём сервере, ты спрашиваешь у RevenueCat «у этого пользователя активна подписка?» и получаешь готовый ответ — одинаково для iOS, Android и даже веба. Дашборд: <a href="https://app.revenuecat.com" target="_blank" rel="noopener">app.revenuecat.com</a> (регистрация отдельная, сюда не входит).</p>
 
     <div class="callout-box tip">
       <span class="icon">🔗</span>
@@ -48,7 +48,7 @@
     <div class="step">
       <span class="step-num">2</span><h2 data-i18n="integration_revenuecat_12">Подключи iOS</h2>
       <div class="step-body">
-        <p data-i18n="integration_revenuecat_13">В App Store Connect: открой приложение → <b>App Information</b> → прокрути до <b>App-Specific Shared Secret</b> → Manage → Generate. Скопируй секрет и вставь его в RevenueCat (Project → твоё iOS-приложение → App configuration).</p>
+        <p data-i18n="integration_revenuecat_13">В App Store Connect: открой приложение → <b>App Information</b> → прокрути до <b>App-Specific Shared Secret</b> → Manage → Generate. Скопируй секрет и вставь его в <a href="https://app.revenuecat.com" target="_blank" rel="noopener">app.revenuecat.com</a> (Project → твоё iOS-приложение → App configuration).</p>
       </div>
       <div class="callout-box warn">
         <span class="icon">⚠️</span>
@@ -65,7 +65,7 @@
       <div class="step-body">
         <p data-i18n="integration_revenuecat_17">Здесь сложнее, чем на iOS — нужен сервисный аккаунт Google Cloud:</p>
         <ol>
-          <li data-i18n="integration_revenuecat_18">В Google Cloud Console (тот же проект, что привязан к Play Console) создай Service Account — IAM & Admin → Service Accounts.</li>
+          <li data-i18n="integration_revenuecat_18">В <a href="https://console.cloud.google.com" target="_blank" rel="noopener">console.cloud.google.com</a> (тот же проект, что привязан к Play Console) создай Service Account — IAM & Admin → Service Accounts.</li>
           <li data-i18n="integration_revenuecat_19">Включи <b>Google Play Android Developer API</b> в APIs & Services → Library.</li>
           <li data-i18n="integration_revenuecat_20">В Google Play Console → Users and Permissions → Invite user — добавь email сервисного аккаунта, дай доступ именно к своему приложению.</li>
           <li data-i18n="integration_revenuecat_21">Скачай JSON-ключ сервисного аккаунта и загрузи его в RevenueCat: твоё Android-приложение → App Settings → Service credentials (Google Play) → Upload key.</li>
@@ -84,7 +84,7 @@
     <div class="step">
       <span class="step-num">4</span><h2 data-i18n="integration_revenuecat_24">Настрой Products, Entitlement и Offering в дашборде RevenueCat</h2>
       <div class="step-body">
-        <p data-i18n="integration_revenuecat_25">Product ID в RevenueCat должен <b>точно совпадать</b> с тем, что ты создал в App Store Connect (шаг 1.4) и Google Play — иначе RevenueCat не свяжет покупку с нужным продуктом. Дальше создай один Entitlement (например, «premium») и привяжи к нему все Products, которые должны его открывать, и один Offering с этими продуктами для показа в приложении.</p>
+        <p data-i18n="integration_revenuecat_25">Открой <a href="https://app.revenuecat.com" target="_blank" rel="noopener">app.revenuecat.com</a> → твой проект. Product ID в RevenueCat должен <b>точно совпадать</b> с тем, что ты создал в App Store Connect (шаг 1.4) и Google Play — иначе RevenueCat не свяжет покупку с нужным продуктом. Дальше создай один Entitlement (например, «premium») и привяжи к нему все Products, которые должны его открывать, и один Offering с этими продуктами для показа в приложении.</p>
       </div>
     </div>
 
@@ -117,8 +117,8 @@
     </div>
   </main>
 </div>
-<script src="nav.js?v=202610051424"></script>
-<script src="script.js?v=202610051424"></script>
-<script src="i18n.js?v=202610051424"></script>
+<script src="nav.js?v=202610051435"></script>
+<script src="script.js?v=202610051435"></script>
+<script src="i18n.js?v=202610051435"></script>
 </body>
 </html>

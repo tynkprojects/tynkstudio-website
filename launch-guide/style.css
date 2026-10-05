@@ -198,6 +198,13 @@ a:hover { text-decoration: underline; }
   color: var(--ink-soft);
   max-width: 640px;
 }
+.lede-links {
+  list-style: none; margin: 10px 0 24px; padding: 14px 16px; max-width: 640px;
+  background: var(--paper-raised); border: 1px solid var(--line); border-radius: 10px;
+  font-size: 0.92rem; color: var(--ink-soft);
+}
+.lede-links li { margin: 6px 0; }
+.lede-links a { font-family: var(--mono); font-weight: 600; }
 
 .step {
   margin: 56px 0;
