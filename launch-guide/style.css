@@ -326,12 +326,13 @@ a:hover { text-decoration: underline; }
 .pin.bottom { transform: translate(-50%, var(--gap)); }
 .pin.left   { transform: translate(calc(-100% - var(--gap)), -50%); }
 .pin.right  { transform: translate(var(--gap), -50%); }
-.pin.corner-tl { transform: translate(calc(-100% - var(--gap)), calc(-100% - var(--gap))); }
-.pin.top::after    { top: calc(100% + 2px); left: 50%; width: 1.5px; height: calc(var(--gap) - 3px); transform: translateX(-50%); }
-.pin.bottom::after { bottom: calc(100% + 2px); left: 50%; width: 1.5px; height: calc(var(--gap) - 3px); transform: translateX(-50%); }
-.pin.left::after   { left: calc(100% + 2px); top: 50%; height: 1.5px; width: calc(var(--gap) - 3px); transform: translateY(-50%); }
-.pin.right::after  { right: calc(100% + 2px); top: 50%; height: 1.5px; width: calc(var(--gap) - 3px); transform: translateY(-50%); }
-.pin.corner-tl::after { top: 85%; left: 85%; height: 1.5px; width: calc(var(--gap) * 1.414 + 2px); transform-origin: 0 50%; transform: rotate(45deg); }
+/* corner-tl: anchor = top-left corner of the target; sits to its left, level with its first line */
+.pin.corner-tl { transform: translate(calc(-100% - var(--gap) - 5px), calc(-50% + 5px)); }
+.pin.top::after    { top: calc(100% + 2px); left: 50%; width: 1.5px; height: calc(var(--gap) - 5px); transform: translateX(-50%); }
+.pin.bottom::after { bottom: calc(100% + 2px); left: 50%; width: 1.5px; height: calc(var(--gap) - 5px); transform: translateX(-50%); }
+.pin.left::after   { left: calc(100% + 2px); top: 50%; height: 1.5px; width: calc(var(--gap) - 5px); transform: translateY(-50%); }
+.pin.right::after  { right: calc(100% + 2px); top: 50%; height: 1.5px; width: calc(var(--gap) - 5px); transform: translateY(-50%); }
+.pin.corner-tl::after { left: calc(100% + 2px); top: 50%; height: 1.5px; width: calc(var(--gap) - 4px); transform: translateY(-50%); }
 .pin:hover { scale: 1.2; }
 .pin.open { color: #c0392b; }
 .pin.blur-marker { color: var(--pin-blur); }
@@ -509,4 +510,7 @@ code { font-family: var(--mono); background: #efe6cc; color: #3a3222; padding: 1
   .sidebar { position: relative; height: auto; flex: none; width: 100%; }
   .side-scroll { overflow: visible; }
   .content { padding: 32px 20px 100px; max-width: 100%; }
+  /* screenshots are scaled down a lot here, so pins shrink too to keep covering as little as possible */
+  .pin { --size: 13px; --gap: 8px !important; }
+  .pin.corner-tl { transform: translate(calc(-100% - var(--gap) - 3px), calc(-50% + 3px)); }
 }

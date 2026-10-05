@@ -93,6 +93,18 @@ if (location.hash === "#pincheck") {
 }
 
 // #open-p3 in the URL opens that popover on load (used to check popover placement in renders).
+// Keep an opened popover inside the viewport (narrow screens: pins near the right edge).
+function fitPopover(pop) {
+  pop.style.translate = "";
+  const r = pop.getBoundingClientRect();
+  const vw = document.documentElement.clientWidth;
+  const margin = 8;
+  let dx = 0;
+  if (r.right > vw - margin) dx = vw - margin - r.right;
+  if (r.left + dx < margin) dx = margin - r.left;
+  if (dx) pop.style.translate = `${Math.round(dx)}px 0`;
+}
+
 const openMatch = location.hash.match(/^#open-(.+)$/);
 if (openMatch) {
   const pin = document.querySelector(`.pin[data-id="${openMatch[1]}"]`);
@@ -100,6 +112,7 @@ if (openMatch) {
   if (pop) {
     pop.classList.add("visible");
     pin.classList.add("open");
+    fitPopover(pop);
     pin.scrollIntoView({ block: "center" });
   }
 }
@@ -120,6 +133,7 @@ document.addEventListener("click", (e) => {
     if (pop) {
       pop.classList.toggle("visible");
       pin.classList.toggle("open");
+      if (pop.classList.contains("visible")) fitPopover(pop);
     }
     e.stopPropagation();
   } else if (!e.target.closest(".popover")) {
