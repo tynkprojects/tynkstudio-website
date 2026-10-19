@@ -181,6 +181,8 @@ footer a:hover{color:var(--navy)}
       <button data-lang="it" type="button">IT</button>
       <button data-lang="pt" type="button">PT</button>
       <button data-lang="ru" type="button">RU</button>
+      <button data-lang="ja" type="button">JA</button>
+      <button data-lang="ko" type="button">KO</button>
     </div>
   </div>
 </div>
@@ -641,6 +643,152 @@ footer a:hover{color:var(--navy)}
 <p><em>© Pawnia, 15 мая 2026 г. Все права защищены.</em></p>
 </section>
 </div>
+<div class="lang-block" data-lang="ja" lang="ja" hidden>
+<section class="hero"><span class="eyebrow" data-i18n="eyebrow"></span><h1>プライバシーポリシー</h1><p class="lead">Pawnia アプリ</p><span class="effective">施行日：2026-10-07</span></section><section class="block"><h2>1. 総則</h2>
+<p>本プライバシーポリシー（以下「本ポリシー」）は、Pawnia アプリ（以下「本アプリ」）が収集・処理するデータ、その利用目的、およびデータに関する利用者の権利について説明するものです。</p>
+<p>本アプリを利用することにより、利用者は本ポリシーに同意したものとみなされます。同意いただけない場合は、本アプリの利用を中止してください。</p>
+</section>
+<section class="block"><h2>2. データ管理者</h2>
+<p>データ管理者は Pawnia アプリの開発者（以下「当方」または「管理者」）です。</p>
+<p>プライバシーに関するお問い合わせ先：<strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong></p>
+</section>
+<section class="block"><h2>3. 収集するデータ</h2>
+<h3>3.1. 利用者が入力するデータ</h3>
+<p>本アプリの利用中、ペットについて次の情報を入力できます。</p>
+<ul><li>名前、種類、品種、性別、誕生日</li><li>体重の記録（測定履歴）</li><li>様子の記録（利用者が書いたメモ）</li><li>予定やできごと（お知らせ、予定した世話）</li><li>アップロードした書類（写真、ファイル）</li></ul>
+<p><strong>緊急カード</strong>（任意）には、次の情報を入力できます。</p>
+<ul><li>食事の種類、アレルギー、持病、配慮が必要なこと</li><li>飼い主の連絡先（任意）</li><li>緊急連絡先（任意）</li><li>動物病院・獣医師の情報（任意）</li><li>その他のメモ</li></ul>
+<div class="highlight"><p>緊急カードの情報はすべて任意で入力するものです。何を記載するかは利用者が決めます。</p></div>
+<h3>3.2. 自動的に処理されるデータ</h3>
+<p>本アプリの利用時に、次の情報が自動的に処理される場合があります。</p>
+<ul><li><strong>端末のプッシュトークン</strong> — ローカル通知およびプッシュ通知（予定やできごとのお知らせ）の送信に使用します。</li></ul>
+<div class="highlight"><p>このトークンは端末内に保存され、外部のサーバーには送信されません。</p></div>
+<p>利用者が任意で同意した場合、Pawnia は広告の効果測定と改善のために Meta App Events を使用します。Meta は、インストール、アプリの起動、自動検出されたアプリ内課金、（許可されている場合）広告識別子、SDK が生成する識別子、IP アドレス、端末およびアプリの情報を受け取ることがあります。ペットの記録、写真、書類、連絡先、購入の復元に使うメールアドレスは、これらのイベントに含まれません。</p>
+<h3>3.3. 収集しないデータ</h3>
+<p>当方は次の情報を収集・処理しません。</p>
+<ul><li>利用者の氏名、電話番号、住所<em>（緊急カードに自分で入力した場合を除く）</em></li><li>位置情報</li><li>ログイン情報<em>（本アプリは登録が不要です。任意のメールアドレス連携は購入の復元にのみ使用します）</em></li></ul>
+</section>
+<section class="block"><h2>4. データの保存</h2>
+<p>本アプリに入力したデータはすべて<strong>利用者の端末内</strong>に保存されます。利用者データの保存にクラウドサーバーは使用しません。</p>
+<p>書き出したデータ（PDF、PNG、レポート）は、端末の標準機能（「共有」、メール、メッセージアプリなど）を通じて、利用者の操作によってのみ共有されます。</p>
+<p>当方は書き出されたファイルの複製を受け取ったり保存したりしません。</p>
+<p>Pawnia Pro の購入を復元するためにメールアドレスを任意で連携した場合、復元サーバーに送信されるのはメールアドレスと購入情報（プラン、有効期限）のみです。その他のペットのデータはすべて端末内にのみ保存されます。メールアドレスの連携は任意で、連携しなくても本アプリと Pawnia Pro を利用できます。</p>
+</section>
+<section class="block"><h2>5. 外部ライブラリと SDK</h2>
+<p>次のライブラリは、本アプリの機能と画面表示に使用しています。また、下記のとおり任意の広告分析のために Meta App Events を使用します。</p>
+<div class="table-wrap"><table><thead><tr><th>ライブラリ</th><th>用途</th></tr></thead><tbody><tr><td><code>camera</code>, <code>image_picker</code></td><td>カメラと写真へのアクセス（利用者が操作したときのみ）</td></tr><tr><td><code>video_player</code>, <code>just_audio</code></td><td>動画・音声の再生</td></tr><tr><td><code>path_provider</code>, <code>shared_preferences</code></td><td>端末内ストレージへのアクセス</td></tr><tr><td><code>pdf</code>, <code>printing</code>, <code>flutter_native_html_to_pdf</code>, <code>html_to_image</code></td><td>PDF・PNG の作成と書き出し</td></tr><tr><td><code>share_plus</code></td><td>端末の共有画面</td></tr><tr><td><code>flutter_email_sender</code></td><td>メールアプリの起動</td></tr><tr><td><code>url_launcher</code></td><td>外部リンクを開く</td></tr><tr><td><code>fl_chart</code></td><td>グラフ表示</td></tr><tr><td><code>flutter_bloc</code>, <code>bloc</code>, <code>meta</code></td><td>状態管理（データ収集なし）</td></tr><tr><td><code>flutter_localizations</code>, <code>intl</code></td><td>多言語対応</td></tr><tr><td><code>liquid_glass_renderer</code>, <code>material_symbols_icons</code>, <code>another_flushbar</code></td><td>画面部品</td></tr></tbody></table></div>
+<p>イベントの自動記録と広告識別子の収集は、初期設定では無効です。利用者の同意後に有効になります。iOS 14 以降では、システムのトラッキング許可も必要です。トラッキングを許可しない場合、Meta にイベントは送信されません。同意は「設定」→「広告分析」からいつでも撤回できます。撤回すると新たなイベントの収集は停止しますが、Meta がすでに受け取ったデータは削除されません。SDK は、イベントの記録とは別に、技術的な設定情報の取得のために通信する場合があります。Meta は受け取った情報を同社の<a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">プライバシーポリシー</a>に従って取り扱います。</p>
+</section>
+<section class="block"><h2>6. データの利用目的</h2>
+<p>入力されたデータは、次の目的にのみ利用します。</p>
+<ul><li>ペットの情報を端末内で表示・保存すること</li><li>緊急カードの作成</li><li>体重のグラフやレポートの作成</li><li>PDF・PNG の書類を作成し、利用者の求めに応じて共有すること</li><li>予定やできごとを通知でお知らせすること</li></ul>
+<p>利用者が同意した場合は、広告の効果測定と改善のためにアプリのイベントも処理します（第5条）。</p>
+</section>
+<section class="block"><h2>7. 第三者への提供</h2>
+<p>データを第三者に提供するのは、第5条の任意の Meta 広告分析、任意の購入の復元、利用者自身による書き出し、または法令で求められる場合に限られます。</p>
+<p>書き出したデータ（PDF、PNG、レポート）は、端末のシステム機能を通じて利用者の操作によってのみ共有されます。共有先は利用者が選びます。</p>
+<p>任意の購入復元サーバーについて：メールアドレスを連携した場合、サーバーにはメールアドレスと購入記録（プラン、有効期限）が保存されます。これらの削除は、いつでも <a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a> 宛てにご依頼いただけます。</p>
+</section>
+<section class="block"><h2>8. 利用者の権利</h2>
+<p>利用者には次の権利があります。</p>
+<ul><li>本アプリに保存されているデータについて<strong>確認</strong>すること</li><li>本アプリ内で直接データを<strong>訂正・更新</strong>すること</li><li>本アプリを端末から削除して、すべてのデータを<strong>削除</strong>すること</li><li>データ削除の<strong>確認を求める</strong>こと：<strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong></li><li>購入復元サーバーのデータ（メールアドレスと購入記録）の<strong>削除を求める</strong>こと：<strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong></li></ul>
+<div class="highlight"><p>データのほぼすべてが端末内に保存されているため、本アプリを削除すると関連するデータはすべて削除されます。例外は復元サーバーのデータ（メールアドレスと購入記録）で、ご依頼に応じて削除します。</p></div>
+</section>
+<section class="block"><h2>9. 子どもについて</h2>
+<p>本アプリは4歳未満の子どもを対象としていません。当方が子どものデータを故意に収集することはありません。</p>
+<p>子どもが個人情報を提供したと思われる場合は、<strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong> までご連絡ください。</p>
+</section>
+<section class="block"><h2>10. 本ポリシーの変更</h2>
+<p>当方は本ポリシーを変更することがあります。重要な変更がある場合は、本アプリ内でお知らせするか、施行日を更新します。</p>
+<p>変更の公表後に本アプリを引き続き利用した場合、変更後のポリシーに同意したものとみなされます。</p>
+</section>
+<section class="block"><h2>11. 外国にある第三者への提供（日本の利用者の方へ）</h2>
+<p>個人情報の保護に関する法律に基づき、次のとおりお知らせします。</p>
+<ul><li>広告分析に同意した場合、第3.2条のイベント情報は Meta Platforms, Inc.（米国）および Meta Platforms Ireland Ltd.（アイルランド）に提供されます。米国には日本と同等の包括的な個人情報保護法はありません。アイルランドには EU の一般データ保護規則（GDPR）が適用されます。</li><li>購入復元のためにメールアドレスを連携した場合、メールアドレスと購入記録は当方が管理する復元サーバー（フィンランド、EU、ホスティング：Hetzner Online GmbH）に保存されます。フィンランドには EU の一般データ保護規則（GDPR）が適用されます。</li></ul>
+</section>
+<section class="block"><h2>12. お問い合わせ</h2>
+<p>本ポリシー、データの取り扱い、データ削除のご依頼については、次までご連絡ください。</p>
+<p>📧 <strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong></p>
+<p><em>© Pawnia, 2026年5月15日. All rights reserved.</em></p>
+</section>
+</div>
+<div class="lang-block" data-lang="ko" lang="ko" hidden>
+<section class="hero"><span class="eyebrow" data-i18n="eyebrow"></span><h1>개인정보 처리방침</h1><p class="lead">Pawnia 앱</p><span class="effective">시행일: 2026-10-07</span></section><section class="block"><h2>1. 총칙</h2>
+<p>본 개인정보 처리방침(이하 "방침")은 Pawnia 앱(이하 "앱")이 수집·처리하는 데이터, 그 이용 목적, 그리고 데이터에 대한 이용자의 권리를 설명합니다.</p>
+<p>앱을 이용하면 본 방침에 동의한 것으로 봅니다. 동의하지 않는 경우 앱 이용을 중단해 주세요.</p>
+</section>
+<section class="block"><h2>2. 개인정보 처리자</h2>
+<p>개인정보 처리자는 Pawnia 앱의 개발자(이하 "당사" 또는 "처리자")입니다.</p>
+<p>개인정보 관련 문의: <strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong></p>
+</section>
+<section class="block"><h2>3. 수집하는 데이터</h2>
+<h3>3.1. 이용자가 입력하는 데이터</h3>
+<p>앱을 이용하면서 반려동물에 대해 다음 정보를 입력할 수 있습니다.</p>
+<ul><li>이름, 종, 품종, 성별, 생일</li><li>체중 기록(측정 이력)</li><li>컨디션 기록(이용자가 작성한 메모)</li><li>일정과 이벤트(알림, 예정된 돌봄)</li><li>업로드한 서류(사진, 파일)</li></ul>
+<p><strong>응급 카드</strong>(선택)에는 다음 정보를 입력할 수 있습니다.</p>
+<ul><li>식이 종류, 알레르기, 질환, 특별히 신경 써야 할 점</li><li>보호자 연락처(선택)</li><li>비상 연락처(선택)</li><li>동물병원·수의사 정보(선택)</li><li>기타 메모</li></ul>
+<div class="highlight"><p>응급 카드의 모든 정보는 선택 사항입니다. 무엇을 기재할지는 이용자가 결정합니다.</p></div>
+<h3>3.2. 자동으로 처리되는 데이터</h3>
+<p>앱 이용 시 다음 정보가 자동으로 처리될 수 있습니다.</p>
+<ul><li><strong>기기 푸시 토큰</strong> — 로컬 알림 및 푸시 알림(일정·이벤트 알림) 전송에 사용됩니다.</li></ul>
+<div class="highlight"><p>이 토큰은 기기에만 저장되며 외부 서버로 전송되지 않습니다.</p></div>
+<p>이용자가 선택적으로 동의한 경우, Pawnia는 광고 성과 측정과 개선을 위해 Meta App Events를 사용합니다. Meta는 설치, 앱 실행, 자동으로 감지된 인앱 구매, (허용된 경우) 광고 식별자, SDK가 생성한 식별자, IP 주소, 기기 및 앱 정보를 받을 수 있습니다. 반려동물 기록, 사진, 서류, 연락처, 구매 복원용 이메일은 이 이벤트에 포함되지 않습니다.</p>
+<h3>3.3. 수집하지 않는 데이터</h3>
+<p>당사는 다음 정보를 수집·처리하지 않습니다.</p>
+<ul><li>이용자의 이름, 전화번호, 주소<em>(응급 카드에 직접 입력한 경우 제외)</em></li><li>위치 정보</li><li>로그인 정보<em>(앱은 회원가입이 필요 없습니다. 선택적인 이메일 연결은 구매 복원에만 사용됩니다)</em></li></ul>
+</section>
+<section class="block"><h2>4. 데이터 저장</h2>
+<p>앱에 입력한 모든 데이터는 <strong>이용자의 기기에만</strong> 저장됩니다. 당사는 이용자 데이터 저장에 클라우드 서버를 사용하지 않습니다.</p>
+<p>내보낸 데이터(PDF, PNG, 보고서)는 기기의 기본 기능(공유, 이메일, 메신저 등)을 통해 이용자가 직접 선택한 경우에만 공유됩니다.</p>
+<p>당사는 내보낸 파일의 사본을 받거나 저장하지 않습니다.</p>
+<p>Pawnia Pro 구매 복원을 위해 이메일을 선택적으로 연결한 경우, 복원 서버에는 이메일과 구매 정보(요금제, 만료일)만 전송됩니다. 그 밖의 반려동물 데이터는 모두 기기에만 저장됩니다. 이메일 연결은 선택 사항이며, 연결하지 않아도 앱과 Pawnia Pro를 이용할 수 있습니다.</p>
+</section>
+<section class="block"><h2>5. 외부 라이브러리와 SDK</h2>
+<p>다음 라이브러리는 앱의 기능과 화면 구성에 사용됩니다. 또한 아래와 같이 선택적인 광고 분석을 위해 Meta App Events를 사용합니다.</p>
+<div class="table-wrap"><table><thead><tr><th>라이브러리</th><th>용도</th></tr></thead><tbody><tr><td><code>camera</code>, <code>image_picker</code></td><td>카메라와 사진 접근(이용자가 요청할 때만)</td></tr><tr><td><code>video_player</code>, <code>just_audio</code></td><td>미디어 재생</td></tr><tr><td><code>path_provider</code>, <code>shared_preferences</code></td><td>기기 저장소 접근</td></tr><tr><td><code>pdf</code>, <code>printing</code>, <code>flutter_native_html_to_pdf</code>, <code>html_to_image</code></td><td>PDF·PNG 생성과 내보내기</td></tr><tr><td><code>share_plus</code></td><td>시스템 공유 화면</td></tr><tr><td><code>flutter_email_sender</code></td><td>이메일 앱 열기</td></tr><tr><td><code>url_launcher</code></td><td>외부 링크 열기</td></tr><tr><td><code>fl_chart</code></td><td>그래프</td></tr><tr><td><code>flutter_bloc</code>, <code>bloc</code>, <code>meta</code></td><td>상태 관리(데이터 수집 없음)</td></tr><tr><td><code>flutter_localizations</code>, <code>intl</code></td><td>다국어 지원</td></tr><tr><td><code>liquid_glass_renderer</code>, <code>material_symbols_icons</code>, <code>another_flushbar</code></td><td>화면 구성 요소</td></tr></tbody></table></div>
+<p>이벤트 자동 기록과 광고 식별자 수집은 기본적으로 꺼져 있습니다. 이용자가 동의한 후에 켜지며, iOS 14 이상에서는 시스템 추적 허용도 필요합니다. 추적을 허용하지 않으면 Meta로 이벤트가 전송되지 않습니다. 동의는 설정 → 광고 분석에서 언제든지 철회할 수 있습니다. 철회하면 새로운 이벤트 수집은 중단되지만 Meta가 이미 받은 데이터는 삭제되지 않습니다. SDK는 이벤트 기록과 별개로 기술적인 설정 정보를 요청할 수 있습니다. Meta는 받은 정보를 자사의 <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">개인정보처리방침</a>에 따라 처리합니다.</p>
+</section>
+<section class="block"><h2>6. 데이터 이용 목적</h2>
+<p>입력한 데이터는 다음 목적으로만 이용됩니다.</p>
+<ul><li>반려동물 정보를 기기에서 표시·저장</li><li>응급 카드 작성</li><li>체중 그래프와 보고서 작성</li><li>PDF·PNG 서류 작성 및 이용자 요청 시 공유</li><li>일정과 이벤트 알림 전송</li></ul>
+<p>이용자가 동의한 경우 광고 성과 측정과 개선을 위해 앱 이벤트도 처리합니다(제5조).</p>
+</section>
+<section class="block"><h2>7. 제3자 제공</h2>
+<p>데이터는 제5조의 선택적 Meta 광고 분석, 선택적 구매 복원, 이용자가 직접 실행한 내보내기, 또는 법령에서 요구하는 경우에만 제공됩니다.</p>
+<p>내보낸 데이터(PDF, PNG, 보고서)는 기기의 시스템 기능을 통해 이용자가 직접 선택한 경우에만 공유됩니다. 받는 사람은 이용자가 정합니다.</p>
+<p>선택적 구매 복원 서버: 이메일을 연결한 경우 서버에 이메일과 구매 기록(요금제, 만료일)이 저장됩니다. 언제든지 <a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a>으로 삭제를 요청할 수 있습니다.</p>
+</section>
+<section class="block"><h2>8. 이용자의 권리</h2>
+<p>이용자는 다음 권리를 가집니다.</p>
+<ul><li>앱에 저장된 데이터를 <strong>열람</strong>할 권리</li><li>앱에서 직접 데이터를 <strong>정정·수정</strong>할 권리</li><li>기기에서 앱을 삭제하여 모든 데이터를 <strong>삭제</strong>할 권리</li><li>데이터 삭제 <strong>확인을 요청</strong>할 권리: <strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong></li><li>구매 복원 서버의 데이터(이메일과 구매 기록) <strong>삭제를 요청</strong>할 권리: <strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong></li></ul>
+<div class="highlight"><p>데이터 대부분이 기기에 저장되므로 앱을 삭제하면 관련 데이터가 모두 삭제됩니다. 예외는 복원 서버의 데이터(이메일과 구매 기록)로, 요청 시 삭제합니다.</p></div>
+</section>
+<section class="block"><h2>9. 아동</h2>
+<p>앱은 4세 미만 아동을 대상으로 하지 않습니다. 당사는 아동의 데이터를 고의로 수집하지 않습니다.</p>
+<p>아동이 개인정보를 제공했다고 생각되면 <strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong>으로 연락해 주세요.</p>
+</section>
+<section class="block"><h2>10. 방침의 변경</h2>
+<p>당사는 본 방침을 변경할 수 있습니다. 중요한 변경이 있는 경우 앱에서 알리거나 시행일을 갱신합니다.</p>
+<p>변경 사항이 공개된 후에도 앱을 계속 이용하면 변경된 방침에 동의한 것으로 봅니다.</p>
+</section>
+<section class="block"><h2>11. 한국 이용자를 위한 추가 안내</h2>
+<h3>11.1. 보유 및 이용 기간</h3>
+<ul><li>기기에 저장된 데이터: 이용자가 앱에서 삭제하거나 앱을 삭제할 때까지</li><li>복원 서버의 이메일과 구매 기록: 이용자가 삭제를 요청할 때까지</li></ul>
+<h3>11.2. 파기 절차와 방법</h3>
+<p>기기의 데이터는 설정 → "모든 데이터 삭제" 또는 앱 삭제 시 즉시 삭제됩니다. 복원 서버의 데이터는 요청을 받은 후 지체 없이 복구할 수 없는 방법으로 삭제합니다.</p>
+<h3>11.3. 개인정보의 국외 이전</h3>
+<div class="table-wrap"><table><thead><tr><th>받는 자</th><th>국가</th><th>항목</th><th>시기·방법</th><th>목적·보유 기간</th></tr></thead><tbody><tr><td>Meta Platforms, Inc. / Meta Platforms Ireland Ltd.</td><td>미국 / 아일랜드</td><td>제3.2조의 앱 이벤트 정보</td><td>광고 분석 동의 후 앱 이용 시, 네트워크 전송</td><td>광고 성과 측정 / Meta 방침에 따름</td></tr><tr><td>Hetzner Online GmbH(복원 서버 호스팅)</td><td>핀란드</td><td>이메일, 구매 기록</td><td>이메일 연결 시, 네트워크 전송</td><td>구매 복원 / 삭제 요청 시까지</td></tr></tbody></table></div>
+<p>국외 이전을 원하지 않으면 광고 분석에 동의하지 않거나 이메일을 연결하지 않으면 됩니다. 이 경우에도 앱의 모든 기능을 이용할 수 있습니다.</p>
+<h3>11.4. 개인정보 보호책임자</h3>
+<p>Tynk Studio(Pawnia 개발자) · <a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></p>
+<p>개인정보 침해에 대한 상담은 개인정보침해신고센터(privacy.kisa.or.kr, 국번 없이 118)에도 문의할 수 있습니다.</p>
+</section>
+<section class="block"><h2>12. 문의</h2>
+<p>본 방침, 데이터 처리, 데이터 삭제 요청에 관한 문의는 아래로 연락해 주세요.</p>
+<p>📧 <strong><a href="mailto:tynkprojects@gmail.com">tynkprojects@gmail.com</a></strong></p>
+<p><em>© Pawnia, 2026년 5월 15일. All rights reserved.</em></p>
+</section>
+</div>
 <div style="margin-top:32px"><a class="back-link" id="back-link" href="https://tynkstudio.dev/pawnia/support/" data-i18n="back"></a></div>
 </main>
 
@@ -652,8 +800,8 @@ footer a:hover{color:var(--navy)}
 </footer>
 
 <script>
-const UI = {"en": {"eyebrow": "Legal", "back": "← Back to Pawnia Support", "footer": "© 2026 Tynk Studio – All rights reserved", "footer_back": "← Back to tynkstudio.dev"}, "de": {"eyebrow": "Rechtliches", "back": "← Zurück zum Pawnia-Support", "footer": "© 2026 Tynk Studio – Alle Rechte vorbehalten", "footer_back": "← Zurück zu tynkstudio.dev"}, "es": {"eyebrow": "Legal", "back": "← Volver al soporte de Pawnia", "footer": "© 2026 Tynk Studio – Todos los derechos reservados", "footer_back": "← Volver a tynkstudio.dev"}, "fr": {"eyebrow": "Mentions légales", "back": "← Retour à l’assistance Pawnia", "footer": "© 2026 Tynk Studio – Tous droits réservés", "footer_back": "← Retour à tynkstudio.dev"}, "it": {"eyebrow": "Note legali", "back": "← Torna al supporto Pawnia", "footer": "© 2026 Tynk Studio – Tutti i diritti riservati", "footer_back": "← Torna a tynkstudio.dev"}, "pt": {"eyebrow": "Informação legal", "back": "← Voltar ao suporte da Pawnia", "footer": "© 2026 Tynk Studio – Todos os direitos reservados", "footer_back": "← Voltar a tynkstudio.dev"}, "ru": {"eyebrow": "Правовая информация", "back": "← Вернуться к поддержке Pawnia", "footer": "© 2026 Tynk Studio – Все права защищены", "footer_back": "← Вернуться на tynkstudio.dev"}};
-const LANGS = ["en", "de", "es", "fr", "it", "pt", "ru"];
+const UI = {"en": {"eyebrow": "Legal", "back": "← Back to Pawnia Support", "footer": "© 2026 Tynk Studio – All rights reserved", "footer_back": "← Back to tynkstudio.dev"}, "de": {"eyebrow": "Rechtliches", "back": "← Zurück zum Pawnia-Support", "footer": "© 2026 Tynk Studio – Alle Rechte vorbehalten", "footer_back": "← Zurück zu tynkstudio.dev"}, "es": {"eyebrow": "Legal", "back": "← Volver al soporte de Pawnia", "footer": "© 2026 Tynk Studio – Todos los derechos reservados", "footer_back": "← Volver a tynkstudio.dev"}, "fr": {"eyebrow": "Mentions légales", "back": "← Retour à l’assistance Pawnia", "footer": "© 2026 Tynk Studio – Tous droits réservés", "footer_back": "← Retour à tynkstudio.dev"}, "it": {"eyebrow": "Note legali", "back": "← Torna al supporto Pawnia", "footer": "© 2026 Tynk Studio – Tutti i diritti riservati", "footer_back": "← Torna a tynkstudio.dev"}, "pt": {"eyebrow": "Informação legal", "back": "← Voltar ao suporte da Pawnia", "footer": "© 2026 Tynk Studio – Todos os direitos reservados", "footer_back": "← Voltar a tynkstudio.dev"}, "ru": {"eyebrow": "Правовая информация", "back": "← Вернуться к поддержке Pawnia", "footer": "© 2026 Tynk Studio – Все права защищены", "footer_back": "← Вернуться на tynkstudio.dev"}, "ja": {"eyebrow": "法的情報", "back": "← Pawnia サポートに戻る", "footer": "© 2026 Tynk Studio – All rights reserved", "footer_back": "← tynkstudio.dev に戻る"}, "ko": {"eyebrow": "법적 고지", "back": "← Pawnia 고객 지원으로 돌아가기", "footer": "© 2026 Tynk Studio – All rights reserved", "footer_back": "← tynkstudio.dev로 돌아가기"}};
+const LANGS = ["en", "de", "es", "fr", "it", "pt", "ru", "ja", "ko"];
 function applyLang(lang){
   if (!LANGS.includes(lang)) lang = 'en';
   document.querySelectorAll('.lang-block').forEach(b => { b.hidden = b.dataset.lang !== lang; });
