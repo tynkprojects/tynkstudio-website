@@ -64,7 +64,16 @@ const SIDE_FOOTER =
   let html =
     '<div class="side-scroll">' +
     '<div class="brand">App Launch Playbook</div>' +
-    '<div class="brand-sub" data-i18n="nav_brand_sub">Внутренний документ</div><nav>';
+    '<div class="brand-sub" data-i18n="nav_brand_sub">Внутренний документ</div>';
+  // Mobile-only: the nav is collapsed behind this button so the page content
+  // is visible right away instead of being pushed below a full-screen menu.
+  const activeItem = NAV.find((i) => i.href === here) || NAV[0];
+  html +=
+    '<button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="sideNav">' +
+    '<span class="nav-toggle-icon" aria-hidden="true">☰</span>' +
+    `<span class="nav-toggle-label" data-i18n="${navKey(activeItem.href)}">${activeItem.label}</span>` +
+    '<span class="nav-toggle-caret" aria-hidden="true">▾</span></button>';
+  html += '<nav id="sideNav">';
   let partIndex = 0;
   for (const item of NAV) {
     if (item.part) {
@@ -85,6 +94,13 @@ const SIDE_FOOTER =
     "</div>" +
     SIDE_FOOTER;
   el.innerHTML = html;
+
+  const toggle = el.querySelector("#navToggle");
+  toggle.addEventListener("click", () => {
+    const open = el.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) el.scrollTop = 0;
+  });
 
   // Remember the nav's scroll position across full page navigations
   // (this is a static multi-page site, so every link click reloads the DOM
