@@ -25,6 +25,12 @@ const NAV = [
   { part: "Доп. интеграции" },
   { href: "integration-revenuecat.html", label: "RevenueCat" },
   { href: "integration-expo.html", label: "Expo" },
+  { part: "Внутреннее · Upwork" },
+  { href: "upwork.html", label: "Обзор: как мы работаем" },
+  { href: "upwork-appstore.html", label: "U1 Публикация в App Store" },
+  { href: "upwork-bot.html", label: "U2 AI-бот Telegram / WhatsApp" },
+  { href: "upwork-mvp-spec.html", label: "U3 ТЗ и план MVP" },
+  { href: "upwork-audit.html", label: "U4 Аудит проекта" },
 ];
 
 // data-i18n keys derived from href/position so this file stays the single

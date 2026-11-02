@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · U3 ТЗ MVP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css?v=202611021100">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+<div class="eyebrow">Внутреннее · Upwork · U3</div>
+<h1>ТЗ, user flows и план запуска MVP</h1>
+<p class="lede">Превращаем идею клиента в понятный план, по которому любой разработчик или студия может назвать цену и сделать приложение. Результат — только документы. Дизайн экранов и разработка не входят. Любые оценки трудоёмкости и стоимости — ориентировочные, это не цена от команды разработки.</p>
+<div class="table-scroll"><table class="tier-table">
+<tr><th>Пакет</th><th>Что сдаём</th><th>Срок / правки / созвон</th></tr>
+<tr><td><b>Starter</b> $190<br>MVP Scope Snapshot</td><td>Один документ: состав MVP (что делаем сейчас, что потом), ключевые сценарии, главные риски.</td><td>6 дн / 1 / 30 мин</td></tr>
+<tr><td><b>Standard</b> $450<br>Full MVP Spec</td><td>Описание каждого экрана, user flows, user stories с критериями приёмки.</td><td>10 дн / 2 / 60 мин</td></tr>
+<tr><td><b>Advanced</b> $900<br>Spec + Backlog + Launch Plan</td><td>Всё из Standard + приоритизированный бэклог, план релизов, план запуска в сторах.</td><td>16 дн / 3 / 90 мин</td></tr>
+</table></div>
+<div class="callout-box warn"><span class="icon">📝</span><span>Время созвонов по пакету — общее на весь заказ (обсуждение + показ результата). Срок предполагает, что клиент отвечает и смотрит черновик в течение 2 рабочих дней; дольше — срок сдвигается на столько же.</span></div>
+<div class="role-legend"><span class="who n">Николай</span> делает Николай <span class="who c">Claude</span> делает Claude <span class="who b">Вместе</span> вместе <span class="who k">Клиент</span> делает клиент</div>
+<div class="step"><span class="step-num">✓</span><h2>Что клиент присылает в требованиях</h2><div class="step-body"><ol><li>Идея: какую проблему решает, кто пользователи, 3–5 главных вещей, которые приложение должно делать. Ссылки на похожие приложения.</li><li>Платформы (iOS, Android, обе), бюджет и срок, которые он держит в голове, имеющиеся материалы: заметки, дизайн, исследования, конкуренты.</li></ol></div></div>
+<div class="step"><span class="step-num">D</span><h2>Шаги</h2><div class="step-body"><p>Перед шагом 1 — общие шаги 1–3 из <a href="upwork.html">обзора</a>.</p></div>
+<details class="acc"><summary><span class="n">1</span><span class="t">Подготовка к созвону</span><span class="who c">Claude</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who c">Claude</span> изучает требования, ссылки на похожие приложения и конкурентов (по описаниям в сторах), и готовит:
+ <ul><li>повестку созвона;</li><li>10–15 вопросов простым английским (пользователи, главный сценарий, монетизация, вход в аккаунт, данные, интеграции, ограничения);</li><li>короткий список того, что уже понятно, — чтобы не тратить время звонка.</li></ul></li>
+<li><span class="who n">Николай</span> отправляет вопросы <b>письменно заранее</b> — часть ответов придёт текстом, звонок будет короче и проще.</li>
+<li>Договариваетесь о времени звонка (Upwork → контракт → встреча, или ссылка Google Meet).</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>To make our call productive, here are a few questions in advance. Short answers in writing are perfect, and we&#x27;ll go deeper on the call:
+1. [question]
+2. [question]
+...
+Would [day, time + timezone] work for a [30/60/90]-minute call?</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">2</span><span class="t">Созвон-знакомство (discovery)</span><span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li>В начале спроси разрешение записать звонок («Do you mind if I record this call for my notes?»). Если нет — ведёшь заметки сам.</li>
+<li>Иди по повестке. Не обещай сроки разработки и цены — «this will be in the plan as an estimate».</li>
+<li>Если чего-то не понял по-английски — нормально переспросить: «Could you type that in the chat?»</li>
+<li>Сразу после звонка: заметки / расшифровку / запись голосом на русском — в чат с Claude.</li>
+</ol>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Claude получил всё, что сказано на звонке.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">3</span><span class="t">Письменно подтвердить объём</span><span class="who c">Claude</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<p>Claude составляет подтверждение: что войдёт в документы, какие функции — в MVP, какие — «потом», что не входит. Отправляешь клиенту. Это общий шаг 4 обзора.</p>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Thanks for the call! To confirm what goes into your [Tier] package:
+In the MVP: [features]
+Later (not in MVP): [features]
+Documents I&#x27;ll deliver: [list for the tier]
+Not included: UI design, development, a fixed development quote.
+I&#x27;ll share a draft by [date] (estimate). Please reply if anything is off.</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">4</span><span class="t">Черновик документов</span><span class="who c">Claude</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<p><span class="who c">Claude</span> пишет документы в Google Docs (папка клиента в Drive). Состав по пакету:</p>
+<ul>
+<li><b>Все пакеты:</b> цель и пользователи; состав MVP: Must / Later (что точно сейчас, что откладываем и почему); ключевые сценарии (user flows) схемами; главные риски и допущения.</li>
+<li><b>Standard и Advanced:</b> экран за экраном (что на экране, действия, состояния: пусто / загрузка / ошибка); user stories «Как [кто], я хочу [что], чтобы [зачем]» с критериями приёмки; требования к сторам: вход, удаление аккаунта, подписки, конфиденциальность.</li>
+<li><b>Advanced:</b> бэклог — Google Таблица (ID, Эпик, История, Критерии, Приоритет, Оценка S/M/L, Релиз); план релизов (MVP → v1.1 → v1.2); план запуска в App Store / Google Play (что подготовить, сроки ревью, тестирование Google Play) — со ссылками на <a href="apple.html">Часть 1</a> и <a href="google.html">Часть 2</a> этого гайда как нашу основу.</li>
+</ul>
+<p>Схемы сценариев Claude рисует сам и вставляет картинками. Бэклог в Jira или ClickUp — если клиент просил: Claude даст файл CSV для импорта.</p>
+<p><span class="who n">Николай</span> проверяет черновик: понятно ли без нас, нет ли обещаний, все оценки помечены как ориентировочные.</p>
+<dl class="meta-grid"><dt>Что сохранить</dt><dd>Google Docs / Таблица в папке клиента в Drive.</dd><dt>Готово, когда</dt><dd>Черновик проверен Николаем.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">5</span><span class="t">Черновик на ревью клиенту</span><span class="who n">Николай</span> <span class="who k">Клиент</span></summary><div class="acc-body">
+
+<ol>
+<li>Дай клиенту доступ к документам <b>с правом комментировать</b> (Поделиться → его email → Комментатор).</li>
+<li>Отправь сообщение. Комментарии клиента копируй в чат с Claude.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>The draft is ready for your review: [links]
+You can comment directly in the documents. Please send all comments within 2 business days if possible, so we keep the timeline. This counts as revision round 1 of [N].</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">6</span><span class="t">Финальная версия и разбор на созвоне</span><span class="who b">Вместе</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who c">Claude</span> вносит правки, обновляет схемы и бэклог.</li>
+<li><span class="who n">Николай</span> проводит короткий созвон-разбор финала (остаток времени созвонов по пакету). Повестку готовит Claude.</li>
+<li>Передача: клиенту — копии документов в его Google Drive (Файл → Создать копию в его аккаунте или передача владельца) и PDF-версии. Бэклог — Таблица или CSV.</li>
+<li>Сдать работу (общий шаг 6).</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Here is the final version:
+- [Spec / Snapshot]: [link] (PDF attached)
+[- Backlog: [link]]
+[- Release roadmap and launch plan: [link]]
+These documents are ready to share with developers for quotes. Please note: effort estimates in them are indicative, the final price and timeline will come from the team that builds the app.</code></pre></div>
+</div></details>
+</div>
+<div class="step"><span class="step-num">✓</span><h2>Чек-лист перед сдачей</h2><div class="step-body"><ul>
+<li>Объём подтверждён письменно после созвона</li>
+<li>Состав документов соответствует пакету</li>
+<li>Все оценки помечены как ориентировочные</li>
+<li>Нет обещаний по цене и сроку разработки</li>
+<li>Учтены требования сторов (удаление аккаунта, подписки, конфиденциальность)</li>
+<li>Клиент получил копии в своём аккаунте и PDF</li>
+<li>Время созвонов не превысило пакет</li>
+</ul></div></div>
+<div class="step-nav"><a href="upwork-bot.html">← U2 AI-бот</a><a href="upwork-audit.html">U4 Аудит →</a></div>
+  </main>
+</div>
+<script src="nav.js?v=202611021100"></script>
+<script src="script.js?v=202611021100"></script>
+<script src="i18n.js?v=202611021100"></script>
+</body>
+</html>

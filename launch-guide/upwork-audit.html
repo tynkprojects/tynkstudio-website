@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · U4 Аудит</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css?v=202611021100">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+<div class="eyebrow">Внутреннее · Upwork · U4</div>
+<h1>Аудит и план спасения буксующего проекта</h1>
+<p class="lede">Проект клиента опаздывает, разрастается или стоит. Мы смотрим со стороны: план, трекер задач, процессы, команду и риски — и даём честный диагноз и практический план. Это аудит управления, а не кода: качество кода и безопасность не проверяем. Результат не гарантируем: он зависит от того, как клиент выполнит план.</p>
+<div class="table-scroll"><table class="tier-table">
+<tr><th>Пакет</th><th>Что входит</th><th>Срок / созвоны</th></tr>
+<tr><td><b>Quick Health Check</b> $250</td><td>Разбор плана и трекера, 1 созвон, короткий отчёт-диагноз.</td><td>7 дн / 45 мин</td></tr>
+<tr><td><b>Full Audit + Recovery Plan</b> $600</td><td>До 3 интервью, корневые причины, риски, план восстановления на 30/60/90 дней.</td><td>14 дн / до 180 мин</td></tr>
+<tr><td><b>Audit + Re-plan</b> $1 200</td><td>Всё из Full + пересобранный бэклог и роудмап, реестр рисков, сессия со стейкхолдерами.</td><td>21 дн / до 300 мин</td></tr>
+</table></div>
+<div class="callout-box warn"><span class="icon">⚖️</span><span>Не больше 2 аудитов одновременно. Созвоны на английском — ведёт Николай, Claude готовит вопросы. Срок зависит от того, когда клиент может назначить интервью.</span></div>
+<div class="role-legend"><span class="who n">Николай</span> делает Николай <span class="who c">Claude</span> делает Claude <span class="who b">Вместе</span> вместе <span class="who k">Клиент</span> делает клиент</div>
+<div class="step"><span class="step-num">✓</span><h2>Что клиент присылает в требованиях</h2><div class="step-body"><ol><li>Что за проект, что планировали (объём, срок, бюджет), что идёт не так сейчас. План или роудмап, если есть.</li><li>Доступ «только чтение» к трекеру (Jira, ClickUp, Trello и т.п.) или выгрузка задач; кого можно опросить (например владелец и тимлид).</li></ol></div></div>
+<div class="step"><span class="step-num">D</span><h2>Шаги</h2><div class="step-body"><p>Перед шагом 1 — общие шаги 1–3 из <a href="upwork.html">обзора</a>.</p></div>
+<details class="acc"><summary><span class="n">1</span><span class="t">Доступы и конфиденциальность</span><span class="who k">Клиент</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who k">Клиент</span> приглашает твой email в трекер с ролью «только просмотр» (Jira: Viewer / пользователь без прав редактирования; ClickUp: Guest с правом view; Trello: участник доски). Паролей не берём.</li>
+<li>Если трекер не даёт доступ — просим выгрузку: Jira — Фильтры → нужный фильтр → Export → CSV (all fields); ClickUp — экспорт списка в CSV; Trello — меню доски → Печать и экспорт → JSON.</li>
+<li>Если клиент просит NDA — сначала покажи текст Claude, он объяснит риски. Подписываешь сам, только если всё понятно.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>For the audit I need read-only access to your task tracker. Please invite [your email] as a viewer/guest (no passwords needed), or send an export of all tasks (CSV) if that&#x27;s easier. Also please share the original plan or roadmap and the names and roles of the people I can talk to.</code></pre></div>
+<dl class="meta-grid"><dt>Что сохранить</dt><dd>Выгрузки и документы клиента — только в папке клиента в Drive. После закрытия заказа удаляем.</dd><dt>Готово, когда</dt><dd>Доступ к трекеру или выгрузка есть.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">2</span><span class="t">Стартовый созвон</span><span class="who c">Claude</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who c">Claude</span> готовит повестку: цель аудита, что считаем успехом, главные боли, кого интервьюируем и когда, какие данные ещё нужны.</li>
+<li><span class="who n">Николай</span> проводит созвон (Quick: это единственный созвон, кроме разбора отчёта — уложиться в 45 мин всего). Заметки — Claude.</li>
+<li>Claude пишет подтверждение объёма аудита (общий шаг 4 обзора), ты отправляешь.</li>
+</ol>
+</div></details>
+<details class="acc"><summary><span class="n">3</span><span class="t">Анализ данных из трекера</span><span class="who c">Claude</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who n">Николай</span> загружает выгрузку задач в чат с Claude (или Claude сам смотрит трекер в твоём личном Chrome, только чтение).</li>
+<li><span class="who c">Claude</span> считает и показывает факты:
+ <ul>
+ <li>план против факта: сроки этапов и как они сдвигались;</li>
+ <li>рост объёма: сколько задач добавилось после старта;</li>
+ <li>просроченные, заблокированные, возвращённые в работу задачи;</li>
+ <li>сколько задач одновременно «в работе» у каждого, задачи без исполнителя;</li>
+ <li>сколько в среднем занимает задача от «в работе» до «готово»;</li>
+ <li>насколько оценки совпадали с фактом.</li>
+ </ul></li>
+<li>По итогам Claude даёт гипотезы «что сломалось» и вопросы для интервью.</li>
+</ol>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Есть картина в цифрах и вопросы для интервью.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">4</span><span class="t">Интервью (Full и Re-plan)</span><span class="who n">Николай</span> <span class="who c">Claude</span></summary><div class="acc-body">
+
+<ol>
+<li>До 3 человек, обычно: владелец/заказчик, тимлид или PM, один разработчик. По 45–60 минут.</li>
+<li><span class="who c">Claude</span> готовит вопросник под роль. Пример тем: что мешает, как принимаются решения, откуда берутся новые задачи, как оценивают, что бы изменили.</li>
+<li><span class="who n">Николай</span> проводит интервью. Обещай людям конфиденциальность ответов в отчёте (без имён у цитат), если клиент не против.</li>
+<li>Заметки после каждого интервью — Claude.</li>
+</ol>
+<div class="msg-label">После интервью (сотруднику клиента)</div>
+<div class="code-block msg"><pre><code>Thanks for your time today. Everything you shared will be used only for the audit report, without quoting you by name.</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">5</span><span class="t">Отчёт</span><span class="who c">Claude</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<p><span class="who c">Claude</span> пишет отчёт в Google Docs (папка клиента). Структура:</p>
+<ol>
+<li><b>Коротко главное</b> (1 страница): состояние, 3–5 главных причин, 3–5 первых действий.</li>
+<li><b>План против реальности</b> — цифры из шага 3.</li>
+<li><b>Находки</b> — каждая с доказательством (данные, интервью).</li>
+<li><b>Корневые причины</b> (Full, Re-plan).</li>
+<li><b>Риски</b>: вероятность, влияние, что делать. В Re-plan — полный реестр рисков таблицей.</li>
+<li><b>Рекомендации</b>. Full: план на 30 / 60 / 90 дней. Re-plan: пересобранный бэклог и роудмап (Google Таблица).</li>
+<li><b>Ограничения</b>: что не проверяли (код, безопасность), на каких данных основано, что результат зависит от выполнения плана.</li>
+</ol>
+<p><span class="who n">Николай</span> проверяет: нет ли обвинений конкретных людей, всё ли подкреплено фактами, нет ли обещаний результата.</p>
+</div></details>
+<details class="acc"><summary><span class="n">6</span><span class="t">Разбор с клиентом и сдача</span><span class="who n">Николай</span> <span class="who k">Клиент</span></summary><div class="acc-body">
+
+<ol>
+<li>Отправь отчёт заранее (за день до разбора).</li>
+<li>Созвон-разбор (Re-plan: сессия со стейкхолдерами клиента). Повестку и ответы на сложные вопросы готовит Claude.</li>
+<li>Правки по итогам → финальная версия, копия в аккаунт клиента + PDF. Сдать работу (общий шаг 6).</li>
+<li>Попроси убрать доступ к трекеру; удали выгрузки из Drive.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Here is the audit report: [link] (PDF attached).
+The first page has the summary and the first actions. Let&#x27;s walk through it on [date/time]. Please note: this is an independent diagnosis and plan; the outcome depends on how the plan is carried out and on factors outside my control.</code></pre></div>
+</div></details>
+</div>
+<div class="step"><span class="step-num">✓</span><h2>Чек-лист перед сдачей</h2><div class="step-body"><ul>
+<li>Каждая находка подкреплена данными или интервью</li>
+<li>Нет обвинений конкретных людей, цитаты без имён</li>
+<li>Состав отчёта соответствует пакету (30/60/90, бэклог, реестр рисков)</li>
+<li>Явно написано: аудит без кода, результат не гарантирован</li>
+<li>Время созвонов в рамках пакета</li>
+<li>Доступ к трекеру убран, выгрузки удалены</li>
+</ul></div></div>
+<div class="step-nav"><a href="upwork-mvp-spec.html">← U3 ТЗ MVP</a><span class="disabled">Конец раздела</span></div>
+  </main>
+</div>
+<script src="nav.js?v=202611021100"></script>
+<script src="script.js?v=202611021100"></script>
+<script src="i18n.js?v=202611021100"></script>
+</body>
+</html>

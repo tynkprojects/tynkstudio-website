@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · Upwork: как мы работаем</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css?v=202611021100">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+<div class="eyebrow">Внутреннее · Upwork</div>
+<h1>Как мы работаем с заказом на Upwork</h1>
+<p class="lede">Общий порядок для любой нашей услуги: от уведомления «у вас новый заказ» до закрытия контракта и отзыва. Внутри каждой услуги (U1–U4) — свой подробный плейбук. Здесь — то, что одинаково везде: кто что делает, где что лежит, какие сообщения писать клиенту и какие правила не нарушаем.</p>
+<div class="callout-box danger"><span class="icon">🔐</span><span><b>Никаких паролей, ключей и токенов на этой странице и вообще в тексте гайда.</b> Сайт лежит в публичном репозитории GitHub — его может открыть любой. Здесь написано только, <i>где</i> каждый секрет хранится. Сами секреты — только в приложении «Пароли» на твоём Mac/iPhone и на сервере клиента.</span></div>
+<div class="role-legend"><span class="who n">Николай</span> делает Николай <span class="who c">Claude</span> делает Claude <span class="who b">Вместе</span> вместе <span class="who k">Клиент</span> делает клиент</div>
+<div class="step"><span class="step-num">A</span><h2>Наши услуги</h2><div class="step-body">
+<p>Все четыре одобрены Upwork и видны в каталоге. Управление: <a href="https://www.upwork.com/nx/project-dashboard/" target="_blank" rel="noopener">Upwork → Project Catalog</a> (открывать только в личном Chrome).</p></div>
+<div class="table-scroll"><table class="tier-table">
+<tr><th>Услуга</th><th>Пакеты: цена / срок</th><th>Плейбук</th></tr>
+<tr><td>Публикация iOS-приложения в App Store</td><td>$120 / 5 дн · $290 / 9 дн · $590 / 16 дн</td><td><a href="upwork-appstore.html">U1 →</a></td></tr>
+<tr><td>AI-бот для Telegram или WhatsApp</td><td>$120 / 6 дн · $350 / 16 дн · $700 / 23 дн</td><td><a href="upwork-bot.html">U2 →</a></td></tr>
+<tr><td>ТЗ, user flows и план запуска MVP</td><td>$190 / 6 дн · $450 / 10 дн · $900 / 16 дн</td><td><a href="upwork-mvp-spec.html">U3 →</a></td></tr>
+<tr><td>Аудит и план спасения буксующего проекта</td><td>$250 / 7 дн · $600 / 14 дн · $1 200 / 21 дн</td><td><a href="upwork-audit.html">U4 →</a></td></tr>
+</table></div></div>
+<div class="step"><span class="step-num">B</span><h2>Где что лежит</h2><div class="step-body">
+<dl class="meta-grid"><dt>Upwork</dt><dd>Только <b>личный</b> Chrome (не рабочий). Заказы и переписка: Upwork → Contracts и Messages. Каталог: <a href="https://www.upwork.com/nx/project-dashboard/" target="_blank" rel="noopener">project-dashboard</a>.</dd><dt>Claude</dt><dd>claude.ai → проект <b>«Making money»</b> → <b>новый чат на каждый заказ</b>. В проекте лежит файл <code>claude/upwork-status.md</code> — общий статус Upwork.</dd><dt>Документы</dt><dd>Google Drive → папка <code>Upwork / Клиенты / ГГГГ-ММ Клиент — Услуга</code> (например <code>2026-11 Acme — App Store</code>). Всё, что отдаём клиенту, и заметки по заказу.</dd><dt>Код</dt><dd>GitHub <code>github.com/tynkprojects</code>, <b>приватный</b> репозиторий на заказ: <code>client-имя-услуга</code> (например <code>client-acme-bot</code>). Нужен только для U2 (бот).</dd><dt>Секреты</dt><dd>Приложение <b>«Пароли»</b> (Mac/iPhone), запись с названием <code>Upwork · Клиент · что это</code>. Тестовые логины, токены, ключи — только сюда. Не в чат с Claude, не в Google Drive, не в GitHub, не в Upwork-переписку открытым текстом.</dd><dt>Приём секретов</dt><dd>Клиент присылает ключ через одноразовую ссылку <a href="https://onetimesecret.com" target="_blank" rel="noopener">onetimesecret.com</a> (бесплатно, ссылка сгорает после открытия). Ты открываешь → копируешь в «Пароли» → ссылка больше не работает.</dd><dt>Сборки</dt><dd>Codemagic, бесплатные 500 минут в месяц на личном аккаунте. Оплату там не подключаем.</dd></dl>
+</div></div>
+<div class="step"><span class="step-num">C</span><h2>Правила, которые не нарушаем</h2><div class="step-body"><ul>
+<li>Делаем только то, что мы вдвоём <b>точно</b> можем сделать. Если в заказе есть что-то сверх — говорим об этом сразу, письменно, до начала работы.</li>
+<li>Все сроки — <b>ориентировочные</b>. Срок идёт с момента, когда клиент прислал требования <i>и</i> доступы. Ожидание клиента или третьих сторон (Apple, Meta, Google) сдвигает срок на то же время. Внутренний запас — 1–2 дня.</li>
+<li>Никаких гарантий того, что решает не он: одобрение Apple, верификация Meta, спасение проекта, рост продаж.</li>
+<li>Вся переписка и оплата — только внутри Upwork. Никаких оплат мимо Upwork и контактов вне платформы до начала контракта.</li>
+<li>Паролей от аккаунтов клиента не берём. Только приглашения с нужной ролью или одноразовые ссылки для ключей.</li>
+<li>Дополнительных платных сервисов не подключаем. Всё, за что надо платить (хостинг, ИИ-модель, сообщения WhatsApp), оплачивает клиент на своих аккаунтах.</li>
+<li>Созвоны на английском ведёт Николай. Claude заранее готовит повестку, вопросы и простые фразы. Всё важное после звонка подтверждаем письменно.</li>
+<li>Не больше 2 аудитов (U4) одновременно.</li>
+</ul></div></div>
+<div class="step"><span class="step-num">D</span><h2>Путь заказа от начала до конца</h2><div class="step-body"><p>Нажимай на шаг — откроются подробности. Внутри каждой услуги шаги 4–7 расписаны подробнее.</p></div>
+<details class="acc"><summary><span class="n">0</span><span class="t">Один раз, до первого заказа</span><span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li>В приложении Upwork на телефоне включи уведомления о сообщениях и заказах (Settings → Notifications). Заказ надо увидеть в тот же день.</li>
+<li>Создай в Google Drive папку <code>Upwork / Клиенты</code>.</li>
+<li>Открой приложение «Пароли» и создай группу (или просто договорись о названии записей) <code>Upwork · …</code>.</li>
+<li>Открой <a href="https://onetimesecret.com" target="_blank" rel="noopener">onetimesecret.com</a> и посмотри, как это работает: создай тестовый секрет и открой ссылку сам.</li>
+</ol>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Уведомления приходят на телефон, папка в Drive есть.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">1</span><span class="t">Пришёл заказ: поздороваться в тот же день</span><span class="who n">Николай</span></summary><div class="acc-body">
+
+<p>Клиент купил пакет в каталоге. Upwork пришлёт уведомление, в Upwork появится контракт. Срок <b>ещё не идёт</b>: он начнётся, когда клиент ответит на вопросы-требования.</p>
+<ol>
+<li>Открой контракт в личном Chrome: Upwork → Contracts → нужный контракт.</li>
+<li>Посмотри, какой пакет куплен (Starter / Standard / Advanced) — от этого зависит объём работы.</li>
+<li>Отправь приветствие (ниже). Подставь имя клиента.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Hi [Name], thanks for the order! I&#x27;m on it.
+
+To get started, please answer the requirement questions in this contract and share the access mentioned there. The delivery time starts once I have them.
+
+If anything is unclear, just reply here. I usually answer within one business day.</code></pre></div>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Приветствие отправлено.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">2</span><span class="t">Требования получены: зафиксировать старт</span><span class="who n">Николай</span> <span class="who c">Claude</span></summary><div class="acc-body">
+
+<ol>
+<li>Прочитай ответы клиента. Проверь, что прислано <b>всё</b>, что просили в требованиях (у каждой услуги свой список — смотри её плейбук).</li>
+<li>Если чего-то не хватает — попроси (ниже). Пока не прислано — срок не идёт, это так и написано в нашем FAQ.</li>
+<li>Когда всё есть: запиши <b>дату старта</b> и <b>расчётную дату сдачи</b> (старт + срок пакета) в заметку заказа в папке Drive.</li>
+</ol>
+<div class="msg-label">Если чего-то не хватает</div>
+<div class="code-block msg"><pre><code>Thanks, [Name]. To start I still need:
+- [what is missing]
+
+The delivery time will start as soon as I have it.</code></pre></div>
+<dl class="meta-grid"><dt>Что сохранить</dt><dd>Дата старта и дата сдачи — в заметке заказа (Google Drive, папка клиента).</dd><dt>Готово, когда</dt><dd>Всё нужное прислано, даты записаны.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">3</span><span class="t">Завести рабочее место</span><span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li>Google Drive: создай папку <code>Upwork / Клиенты / ГГГГ-ММ Клиент — Услуга</code> и внутри документ <code>Заметки</code>. Туда: пакет, даты, ссылка на контракт, кто есть кто у клиента.</li>
+<li>claude.ai → проект «Making money» → <b>новый чат</b>. Первое сообщение — шаблон ниже. Вставь туда требования клиента <b>без паролей и ключей</b>.</li>
+<li>Если клиент прислал секреты через одноразовую ссылку — открой её, сохрани в «Пароли» (<code>Upwork · Клиент · что это</code>). В чат с Claude не вставляй.</li>
+</ol>
+<div class="msg-label">Первое сообщение в новом чате с Claude</div>
+<div class="code-block msg"><pre><code>Новый заказ Upwork. Работаем по гайду tynkstudio.dev/launch-guide, раздел «Внутреннее · Upwork», услуга [U1/U2/U3/U4].
+Клиент: [имя/компания]. Пакет: [Starter/Standard/Advanced]. Старт: [дата]. Сдача: [дата].
+Ответы клиента на требования:
+[вставить текст, без паролей и ключей]
+Что уже знаю о клиенте: [если есть]
+Начни с шага 4 плейбука: что делаем первым, что нужно от меня.</code></pre></div>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Есть папка в Drive, чат с Claude, секреты в «Паролях».</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">4</span><span class="t">Подтвердить объём письменно</span><span class="who c">Claude</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<p>Claude готовит короткое подтверждение объёма по пакету: что входит, что не входит, что нужно от клиента, когда ждать первый результат. Ты проверяешь и отправляешь. Это защищает от «а я думал, это тоже входит».</p>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Here is what I&#x27;ll do within your [Tier] package:
+- [item 1]
+- [item 2]
+- [item 3]
+
+Not included: [items].
+
+What I need from you: [items].
+
+Expected [first result] by [date]. Please note all dates are estimates: they assume feedback within 2 business days, and waiting for you or third parties (e.g. Apple) moves them by the same time. I&#x27;ll tell you early if anything changes.</code></pre></div>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Сообщение отправлено. Если клиент возразил — объём согласован до начала работы.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">5</span><span class="t">Работа по плейбуку услуги + апдейты</span><span class="who b">Вместе</span></summary><div class="acc-body">
+
+<ol>
+<li>Идём по шагам плейбука услуги (<a href="upwork-appstore.html">U1</a>, <a href="upwork-bot.html">U2</a>, <a href="upwork-mvp-spec.html">U3</a>, <a href="upwork-audit.html">U4</a>).</li>
+<li>Каждые 2 рабочих дня — короткий апдейт клиенту, даже если всё по плану. Claude напишет текст, ты отправишь.</li>
+</ol>
+<div class="msg-label">Апдейт раз в 2 рабочих дня</div>
+<div class="code-block msg"><pre><code>Quick update: [what is done]. Next: [what&#x27;s next]. Still on track for [date] (estimate).</code></pre></div>
+<div class="msg-label">Если ждём клиента или третью сторону</div>
+<div class="code-block msg"><pre><code>Quick note: I&#x27;m waiting for [what] from [you / Apple / Meta] since [date]. The delivery date moves by the same time, so the new estimate is [date]. I&#x27;ll keep you posted.</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">6</span><span class="t">Сдача работы</span><span class="who n">Николай</span> <span class="who c">Claude</span></summary><div class="acc-body">
+
+<ol>
+<li>Claude собирает всё, что сдаём: файлы, ссылки, короткую инструкцию «что дальше».</li>
+<li>Ты проверяешь по чек-листу услуги (в конце её плейбука).</li>
+<li>В контракте: прикрепи файлы и отправь работу на проверку (кнопка отправки работы в контракте, обычно Submit work / Deliver).</li>
+<li>Отправь сообщение ниже.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Hi [Name], the work is ready for your review:
+- [deliverable 1 + link]
+- [deliverable 2 + link]
+
+[1–2 lines: what to do next]
+
+Your package includes [N] revision(s). If you&#x27;d like changes, list them here and I&#x27;ll take care of it. If all is good, please approve the work in the contract.</code></pre></div>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Работа отправлена в контракте, клиент получил сообщение.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">7</span><span class="t">Правки</span><span class="who b">Вместе</span></summary><div class="acc-body">
+
+<p>Количество правок — по пакету (1 / 2 / 3). Правка = исправить или уточнить то, что входило в объём. Новая функция или новый документ = не правка, а новый заказ.</p>
+<div class="msg-label">Если просят то, чего не было в объёме</div>
+<div class="code-block msg"><pre><code>Thanks for the feedback. Items 1–3 are within the package and I&#x27;ll update them by [date, estimate]. Item 4 is new scope (not part of the original package). I&#x27;m happy to do it as a separate small order: [short estimate].</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">8</span><span class="t">Закрытие, отзыв, уборка</span><span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li>После одобрения работы и оплаты — попроси отзыв (ниже). Отзыв сейчас для нас важнее всего.</li>
+<li>Попроси клиента убрать наш доступ (App Store Connect, трекер, сервер) — или убери сам, если можешь.</li>
+<li>Удали секреты клиента из «Паролей», если поддержка закончилась.</li>
+<li>Скажи Claude: «заказ закрыт» — он обновит <code>upwork-status.md</code> в проекте.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Thank you, [Name]! It was a pleasure working on [project]. If you&#x27;re happy with the result, a short review here would help me a lot.
+
+For security, you can now remove my access to [App Store Connect / tracker / server]. If you need anything later, just message me here.</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">9</span><span class="t">Если клиент недоволен</span><span class="who b">Вместе</span></summary><div class="acc-body">
+
+<ol>
+<li>Не спорь в переписке сразу. Попроси конкретику: что именно не так и как должно быть.</li>
+<li>Покажи Claude переписку — он сверит с объёмом, который мы подтвердили на шаге 4, и предложит ответ.</li>
+<li>Если претензия в рамках объёма — исправляем. Если нет — вежливо ссылаемся на согласованный объём и предлагаем доработку отдельным заказом.</li>
+<li>Если не договорились — у Upwork есть свой порядок решения споров (Help → споры по контракту). Ничего не обещай вне Upwork.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>I&#x27;m sorry it&#x27;s not what you expected. Could you list exactly what you&#x27;d like changed? I&#x27;ll check each point against the scope we agreed on [date] and come back with a clear plan.</code></pre></div>
+</div></details>
+</div>
+  </main>
+</div>
+<script src="nav.js?v=202611021100"></script>
+<script src="script.js?v=202611021100"></script>
+<script src="i18n.js?v=202611021100"></script>
+</body>
+</html>

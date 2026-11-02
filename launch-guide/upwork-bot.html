@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · U2 AI-бот</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css?v=202611021100">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+<div class="eyebrow">Внутреннее · Upwork · U2</div>
+<h1>AI-бот для Telegram или WhatsApp</h1>
+<p class="lede">Бот отвечает клиентам нашего клиента по его материалам (FAQ, прайс, сайт), а в старших пакетах ещё записывает на приём, собирает заявки в Google Таблицу и передаёт разговор живому человеку. Всё работает на аккаунтах клиента: его сервер, его ключ ИИ, его бот. Мы строим, настраиваем и передаём.</p>
+<div class="table-scroll"><table class="tier-table">
+<tr><th>Пакет</th><th>Что входит</th><th>Срок / правки / шаги / каналы</th></tr>
+<tr><td><b>Starter</b> $120</td><td>Бот отвечает на вопросы по материалам клиента в одном канале.</td><td>6 дн / 1 / 10 / 1</td></tr>
+<tr><td><b>Standard</b> $350</td><td>+ запись на приём, сбор заявок, синхронизация с Google Таблицей или CRM.</td><td>16 дн / 2 / 25 / 1</td></tr>
+<tr><td><b>Advanced</b> $700</td><td>+ многошаговые сценарии, интеграции, передача живому человеку, 30 дней поддержки.</td><td>23 дн / 3 / 50 / 2</td></tr>
+</table></div>
+<div class="callout-box danger"><span class="icon">🧪</span><span><b>Перед первым заказом на этот сервис</b> (особенно с WhatsApp): собрать наш шаблон бота и прогнать всю цепочку на своём тестовом боте — Telegram, ключ ИИ, сервер, Google Таблица, а для WhatsApp — тестовый номер Meta. Пока цепочка не пройдена у нас, браться за WhatsApp-заказ нельзя: это нарушит правило «делаем только то, что точно можем».</span></div>
+<div class="callout-box warn"><span class="icon">💳</span><span>Оплату ИИ-модели, сообщений WhatsApp и сервера несёт клиент на своих аккаунтах — так написано в FAQ услуги. WhatsApp: срок считается с дня, когда Meta одобрит бизнес-аккаунт клиента.</span></div>
+<div class="role-legend"><span class="who n">Николай</span> делает Николай <span class="who c">Claude</span> делает Claude <span class="who b">Вместе</span> вместе <span class="who k">Клиент</span> делает клиент</div>
+<div class="step"><span class="step-num">⚙</span><h2>Как устроен бот (наш стандарт)</h2><div class="step-body">
+<dl class="meta-grid"><dt>Код</dt><dd>Небольшой сервис на Node.js. Приватный репозиторий <code>github.com/tynkprojects/client-имя-bot</code>. Пишет Claude.</dd><dt>Сервер</dt><dd>VPS клиента, обычно Hetzner Cloud, самый маленький Arm-сервер, Ubuntu 24.04, расположение в ЕС. Платит клиент. Мы заходим по SSH-ключу Николая.</dd><dt>ИИ</dt><dd>Ключ API клиента (Anthropic или OpenAI) с месячным лимитом расходов, который ставит сам клиент.</dd><dt>Знания бота</dt><dd>Google Doc клиента, опубликованный в интернете как текст (Файл → Поделиться → Опубликовать в интернете). Клиент правит документ — бот подхватывает изменения. Так клиент сам обновляет знания без нас.</dd><dt>Telegram</dt><dd>Бот создаётся у клиента через @BotFather. Работает без домена.</dd><dt>WhatsApp</dt><dd>WhatsApp Cloud API от Meta на бизнес-аккаунте клиента. Нужен поддомен клиента (например <code>bot.client.com</code>) для защищённого адреса вебхука.</dd><dt>Таблица заявок</dt><dd>Google Таблица клиента + маленький скрипт Apps Script внутри неё (клиент вставляет наш код и даёт нам ссылку). Без сервисных аккаунтов и Google Cloud.</dd><dt>Секреты</dt><dd>Токен бота, ключ ИИ, токен WhatsApp — клиент присылает одноразовыми ссылками → «Пароли» Николая → файл <code>.env</code> на сервере. Claude их не видит.</dd></dl>
+</div></div>
+<div class="step"><span class="step-num">✓</span><h2>Что клиент присылает в требованиях</h2><div class="step-body"><ol><li>Чем занимается бизнес, что должен делать бот, главные вопросы и задачи, канал (Telegram или WhatsApp).</li><li>Материалы, которые бот должен знать (FAQ, прайс, сайт, документы), и инструменты для подключения: Google Таблица, календарь, CRM.</li></ol><p>Аккаунты и ключи просим на шаге 2, после согласования плана: сначала клиент должен понять, что именно он подключает.</p></div></div>
+<div class="step"><span class="step-num">D</span><h2>Шаги</h2><div class="step-body"><p>Перед шагом 1 — общие шаги 1–3 из <a href="upwork.html">обзора</a>. Шаг 4 обзора (подтверждение объёма) здесь совмещён с планом.</p></div>
+<details class="acc"><summary><span class="n">1</span><span class="t">План и сценарии разговора</span><span class="who c">Claude</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who c">Claude</span> по требованиям готовит план в Google Docs (папка клиента):
+ <ul>
+ <li>список вопросов и задач бота (не больше, чем шагов диалога в пакете);</li>
+ <li>сценарии: приветствие, ответы, запись, сбор заявки — по пакету;</li>
+ <li>правила: о чём бот <b>не</b> говорит, когда передаёт человеку, как отвечает, если не знает;</li>
+ <li>что нужно создать клиенту (шаг 2) и примерная стоимость работы бота в месяц у него (ИИ, сервер, WhatsApp) — как оценка;</li>
+ <li>что не входит.</li>
+ </ul></li>
+<li><span class="who n">Николай</span> читает, отправляет клиенту и ждёт письменного «ок». До «ок» не строим.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Here is the plan for your bot: [Google Doc link]
+It covers what the bot will answer, the conversation flows, when it hands over to a person, what it won&#x27;t do, and what accounts you&#x27;ll need (with estimated monthly running costs on your side; these are estimates).
+Please review and reply &quot;approved&quot; or send your comments. I&#x27;ll start building once the plan is approved.</code></pre></div>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Клиент написал «approved» (или согласовали правки).</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">2</span><span class="t">Аккаунты и ключи от клиента</span><span class="who k">Клиент</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<p>Отправь клиенту инструкцию одним сообщением (ниже, оставь только нужные пункты). Каждый ключ клиент присылает <b>отдельной одноразовой ссылкой</b> onetimesecret.com. Ты открываешь ссылку и сразу сохраняешь в «Пароли»: <code>Upwork · Клиент · Telegram token</code>, <code>… · AI key</code> и т.д.</p>
+<p>Перед отправкой возьми свой <b>публичный</b> SSH-ключ (его можно показывать, это не пароль). В Терминале на Mac:</p>
+<div class="code-block"><pre><code>cat ~/.ssh/id_ed25519.pub</code></pre></div>
+<p>Должна вывестись одна строка, начинается с <code>ssh-ed25519</code> и заканчивается твоим именем/email. Если пишет «No such file» — скажи Claude, он даст команду, чтобы создать ключ.</p>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Thanks for approving the plan! Next, please set up these accounts. They stay yours, I only get the access I need:
+
+1) Telegram bot: open @BotFather in Telegram → /newbot → choose a name and username. You&#x27;ll get a token.
+2) AI model: create an account at console.anthropic.com (or platform.openai.com), add a payment method, set a monthly spending limit you&#x27;re comfortable with, and create an API key.
+3) Server: create an account at hetzner.com/cloud → New project → Add server: location in the EU, image Ubuntu 24.04, the smallest Arm (Ampere) plan. In &quot;SSH keys&quot; paste this public key: [your public key]. Send me the server&#x27;s IP address.
+[Standard+] 4) Leads sheet: create a Google Sheet for leads. I&#x27;ll send you a short script to paste into it (2 minutes).
+[WhatsApp] 5) WhatsApp: a verified Meta Business account, a phone number that is NOT used in the WhatsApp app, and a subdomain you control (e.g. bot.yourcompany.com). I&#x27;ll guide you through the Meta steps.
+
+Please send each token or key via a separate one-time link (onetimesecret.com), not in this chat. The timeline starts when these are ready.</code></pre></div>
+<dl class="meta-grid"><dt>Что сохранить</dt><dd>Все токены и ключи — «Пароли». IP сервера — заметка заказа в Drive (это не секрет).</dd><dt>Готово, когда</dt><dd>Есть токен бота, ключ ИИ, IP сервера (+ таблица / WhatsApp по пакету).</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">3</span><span class="t">Сборка бота</span><span class="who c">Claude</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who c">Claude</span> создаёт приватный репозиторий <code>client-имя-bot</code> из нашего шаблона и настраивает под клиента: тексты, сценарии, правила, подключение знаний из Google Doc, запись/заявки по пакету.</li>
+<li>Секретов в коде нет: только названия переменных (<code>TELEGRAM_TOKEN</code>, <code>AI_API_KEY</code> и т.д.), значения — в <code>.env</code> на сервере.</li>
+<li><span class="who n">Николай</span> отвечает на вопросы Claude по поведению бота и готовит Google Doc со знаниями (или просит клиента).</li>
+</ol>
+<dl class="meta-grid"><dt>Где</dt><dd>GitHub tynkprojects (приватный репозиторий)</dd><dt>Готово, когда</dt><dd>Claude сообщил, что сборка готова к развёртыванию.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">4</span><span class="t">Развёртывание на сервере клиента</span><span class="who n">Николай</span> <span class="who c">Claude</span></summary><div class="acc-body">
+
+<p>Ты выполняешь команды в Терминале на Mac, Claude их даёт — у каждой будет написано, что должно появиться в ответе. Если вывод другой — копируешь его Claude.</p>
+<ol>
+<li>Подключение к серверу: <code>ssh root@IP-сервера</code>. В первый раз спросит «Are you sure…» — ответь <code>yes</code>. Должна появиться строка вида <code>root@имя-сервера:~#</code>.</li>
+<li>Claude даст команды: установить Node.js, скачать код, создать службу, которая сама перезапускает бота.</li>
+<li><b>Секреты вписываешь сам.</b> Команда <code>nano /opt/bot/.env</code> откроет файл. Вставь значения из «Паролей» в строки, которые подготовил Claude. Сохранить: <code>Ctrl+O</code>, Enter, выйти: <code>Ctrl+X</code>. В чат с Claude значения не копируй.</li>
+<li>Запуск и проверка журнала: Claude даст команду, в выводе должно быть что-то вроде <code>Bot started</code> без ошибок.</li>
+</ol>
+<dl class="meta-grid"><dt>Где</dt><dd>Терминал на Mac → сервер клиента</dd><dt>Готово, когда</dt><dd>Бот запущен, в журнале нет ошибок, на сообщение в Telegram отвечает.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">5</span><span class="t">Тестовая версия и правки</span><span class="who b">Вместе</span> <span class="who k">Клиент</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who c">Claude</span> готовит тест: 15–30 реальных вопросов, включая неудобные (не по теме, грубость, «а дайте скидку»).</li>
+<li><span class="who n">Николай</span> прогоняет тест сам, результаты — Claude. Исправляем очевидное.</li>
+<li>Отправляем клиенту тестовую версию (сообщение ниже). Его замечания = правки по пакету.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>The test version is ready: [link to bot / test number].
+Please try it with real questions your customers ask, and also some tricky ones. Send me what you&#x27;d like changed in one list. Your package includes [N] revision round(s).
+To change what the bot knows, edit this document: [Google Doc link]; the bot picks up changes within [N] minutes.</code></pre></div>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Клиент подтвердил, что бот отвечает как нужно.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">6</span><span class="t">WhatsApp (если в пакете)</span><span class="who b">Вместе</span> <span class="who k">Клиент</span></summary><div class="acc-body">
+
+<ol>
+<li><span class="who k">Клиент</span>: верификация бизнеса в Meta Business. Срок проверки решает Meta — это время в наш срок не входит.</li>
+<li>Вместе с клиентом (созвон с показом экрана или пошаговая инструкция от Claude): Meta for Developers → приложение типа Business → продукт WhatsApp → добавить номер.</li>
+<li>Клиент создаёт постоянный токен через System User в Business Settings и присылает одноразовой ссылкой. Ещё нужны Phone Number ID и WhatsApp Business Account ID (это не секреты).</li>
+<li>Клиент направляет поддомен на IP сервера (запись A у своего регистратора домена). Claude даст команды для HTTPS-сертификата на сервере.</li>
+<li>В настройках WhatsApp → Configuration: адрес вебхука <code>https://поддомен/webhook</code> и проверочный токен (его придумывает Claude, хранится в <code>.env</code>), подписка на messages.</li>
+<li>Сначала тестируем на тестовом номере Meta, потом на рабочем номере клиента.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>WhatsApp step: Meta needs to verify your business account first. This is Meta&#x27;s process and timing, outside my control, so the WhatsApp part of the timeline starts when Meta approves your account. Telegram/testing continues in the meantime.</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">7</span><span class="t">Запуск и передача</span><span class="who n">Николай</span> <span class="who c">Claude</span></summary><div class="acc-body">
+
+<ol>
+<li>Переключаем на рабочий режим (рабочий бот/номер).</li>
+<li><span class="who c">Claude</span> пишет короткую инструкцию для клиента (Google Doc): как обновлять знания, как посмотреть заявки, что делать, если бот молчит, куда писать нам.</li>
+<li>Код: передаём клиенту — перевод репозитория в его GitHub (Settings → Transfer) или архив, если GitHub у него нет.</li>
+<li>Сдай работу (общий шаг 6).</li>
+<li>Advanced: 30 дней поддержки. Запиши дату окончания в заметку заказа. Наш SSH-ключ остаётся на сервере до конца поддержки.</li>
+<li>После поддержки (или сразу для Starter/Standard): попроси клиента удалить наш SSH-ключ с сервера и при желании заменить токены. Удали секреты клиента из «Паролей».</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Your bot is live on [channel]!
+- How to update what it knows, view leads, and what to do if something looks wrong: [handover doc link]
+- Code: [transferred to your GitHub / archive link]
+[Advanced: Support is included until [date]: message me here if anything needs fixing.]
+After [date], please remove my SSH key from the server and, if you like, regenerate the bot token and API key. Everything runs on your accounts.</code></pre></div>
+</div></details>
+</div>
+<div class="step"><span class="step-num">✓</span><h2>Чек-лист перед сдачей</h2><div class="step-body"><ul>
+<li>План согласован письменно</li>
+<li>Все аккаунты (сервер, ИИ, бот, WhatsApp) — на клиенте</li>
+<li>В репозитории нет ни одного токена или ключа</li>
+<li>Бот перезапускается сам после перезагрузки сервера</li>
+<li>Пройден тест из неудобных вопросов</li>
+<li>Клиент знает, как обновить знания бота</li>
+<li>Инструкция передана, код передан</li>
+<li>Дата окончания поддержки записана; план уборки доступов отправлен клиенту</li>
+</ul></div></div>
+<div class="step-nav"><a href="upwork-appstore.html">← U1 App Store</a><a href="upwork-mvp-spec.html">U3 ТЗ MVP →</a></div>
+  </main>
+</div>
+<script src="nav.js?v=202611021100"></script>
+<script src="script.js?v=202611021100"></script>
+<script src="i18n.js?v=202611021100"></script>
+</body>
+</html>

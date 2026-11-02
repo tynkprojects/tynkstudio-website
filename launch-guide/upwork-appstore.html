@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Playbook · U1 App Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css?v=202611021100">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+<div class="eyebrow">Внутреннее · Upwork · U1</div>
+<h1>Публикация iOS-приложения в App Store</h1>
+<p class="lede">Клиент уже сделал приложение. Мы проводим его через App Store: проверяем готовность, оформляем карточку и документы, отправляем на проверку Apple и сопровождаем до решения. Код приложения мы не пишем и не меняем: если для одобрения нужны изменения в коде, мы даём разработчику клиента точный список исправлений.</p>
+<div class="table-scroll"><table class="tier-table">
+<tr><th>Пакет</th><th>Что входит</th><th>Срок / правки</th></tr>
+<tr><td><b>Starter</b> $120<br>Submission Readiness Audit</td><td>Только аудит: сборка и App Store Connect против правил Apple → чек-лист блокеров и рисков. Шаги 1–2.</td><td>5 дней / 1</td></tr>
+<tr><td><b>Standard</b> $290<br>Submit &amp; Get Through Review</td><td>Аудит + карточка, privacy, документы, отправка и сопровождение проверки. Шаги 1–3, 5–7.</td><td>9 дней / 2</td></tr>
+<tr><td><b>Advanced</b> $590<br>Full Launch + Subscriptions</td><td>Всё из Standard + подписки и встроенные покупки, проверка пейволла, работа с отказами. Шаги 1–7.</td><td>16 дней / 3</td></tr>
+</table></div>
+<div class="callout-box warn"><span class="icon">⚠️</span><span>Срок — только наша работа. Время проверки Apple и её решение в срок не входят и от нас не зависят. Одобрение не гарантируем — так написано в FAQ услуги.</span></div>
+<div class="callout-box tip"><span class="icon">📘</span><span>Технические детали каждого экрана App Store Connect — в Части 1 этого гайда: <a href="apple-1-1.html">1.1 Запись приложения</a>, <a href="apple-1-3.html">1.3 TestFlight</a>, <a href="apple-1-4.html">1.4 Карточка</a>, <a href="apple-1-5.html">1.5 Submit for Review</a>. Здесь — порядок работы с клиентом.</span></div>
+<div class="role-legend"><span class="who n">Николай</span> делает Николай <span class="who c">Claude</span> делает Claude <span class="who b">Вместе</span> вместе <span class="who k">Клиент</span> делает клиент</div>
+<div class="step"><span class="step-num">✓</span><h2>Что клиент присылает в требованиях</h2><div class="step-body"><ol><li>Название приложения, коротко о нём, на чём сделано. Есть ли сборка в TestFlight.</li><li>Отправляли ли раньше. Если был отказ — текст отказа Apple. Есть ли встроенные покупки или подписки.</li><li>Приглашение в его команду App Store Connect с ролью <b>App Manager</b> (паролей не нужно) и ссылки: сборка, сайт, политика конфиденциальности.</li></ol><p>Срок идёт с момента, когда есть ответы <b>и</b> приглашение принято.</p></div></div>
+<div class="step"><span class="step-num">D</span><h2>Шаги</h2><div class="step-body"><p>Перед шагом 1 — общие шаги 1–4 из <a href="upwork.html">обзора</a> (приветствие, требования, рабочее место, подтверждение объёма).</p></div>
+<details class="acc"><summary><span class="n">1</span><span class="t">Принять приглашение в App Store Connect</span><span class="who k">Клиент</span> <span class="who n">Николай</span></summary><div class="acc-body">
+
+<p>Клиент приглашает тебя как пользователя своей команды. Это безопасно для него: он не отдаёт пароль, а роль можно убрать в любой момент.</p>
+<ol>
+<li><span class="who k">Клиент</span>: App Store Connect → Users and Access → «+» → твой email Apple ID → роль <b>App Manager</b> → доступ к нужному приложению → Invite.</li>
+<li>Тебе придёт письмо от Apple. Открой его в личной почте, нажми Accept invitation, войди своим Apple ID.</li>
+<li>В App Store Connect справа вверху нажми на своё имя → выбери команду клиента. Ты увидишь его приложение в Apps.</li>
+<li>Users and Access → твоё имя → включи уведомления о статусе проверки (Notifications), чтобы письма Apple приходили и тебе.</li>
+<li>Если сборка в TestFlight есть — добавь себя во внутренние тестеры (TestFlight → Internal Testing) и установи её на iPhone через приложение TestFlight.</li>
+</ol>
+<div class="msg-label">Если клиент не знает как пригласить</div>
+<div class="code-block msg"><pre><code>To give me access safely (no passwords needed): App Store Connect → Users and Access → &quot;+&quot; → add [your Apple ID email] with the App Manager role and access to [App name]. You can remove the access anytime after we&#x27;re done.</code></pre></div>
+<div class="msg-label">Если клиент прислал пароль</div>
+<div class="code-block msg"><pre><code>Thanks, but please don&#x27;t send me your password. An invitation with the App Manager role is safer for you and is all I need: App Store Connect → Users and Access → &quot;+&quot; → [your Apple ID email].</code></pre></div>
+<dl class="meta-grid"><dt>Где</dt><dd>App Store Connect (личный Chrome) · приложение TestFlight на iPhone</dd><dt>Готово, когда</dt><dd>Видишь приложение клиента в своём App Store Connect, сборка стоит на iPhone.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">2</span><span class="t">Аудит готовности (все пакеты)</span><span class="who b">Вместе</span></summary><div class="acc-body">
+
+<p>Проверяем приложение и App Store Connect по правилам Apple и составляем чек-лист: что блокирует проверку, что рискованно, что желательно. Для Starter это и есть результат заказа.</p>
+<ol>
+<li><span class="who c">Claude</span> проходит App Store Connect клиента в твоём личном Chrome (только чтение): App Information, Pricing and Availability, App Privacy, страница версии, TestFlight, Business (статус соглашений), In-App Purchases / Subscriptions.</li>
+<li><span class="who n">Николай</span> проходит приложение на iPhone 15–20 минут и записывает видео экрана (Пункт управления → Запись экрана). Что проверить:
+ <ul>
+ <li>Приложение не падает, нет заглушек, «Lorem ipsum», пустых экранов, неработающих кнопок.</li>
+ <li>Если есть регистрация — есть ли <b>удаление аккаунта</b> внутри приложения (правило 5.1.1(v)).</li>
+ <li>Если вход через Google/Facebook — есть ли ещё «Войти через Apple» или аналог (правило 4.8).</li>
+ <li>Если продаётся цифровой контент — оплата только через покупки Apple; есть кнопка «Восстановить покупки».</li>
+ <li>Внутри приложения есть ссылки на политику конфиденциальности и условия.</li>
+ <li>Запросы разрешений (камера, геолокация, уведомления) объясняют, зачем это нужно.</li>
+ </ul></li>
+<li>Видео и заметки — в чат с Claude. Если есть отказ Apple — текст отказа туда же.</li>
+<li><span class="who c">Claude</span> готовит документ «Readiness Audit» в Google Docs (папка клиента): блокеры (обязательно до отправки), риски, рекомендации. По каждому пункту: что не так, какое правило Apple, что сделать и кто делает (клиент / его разработчик / мы).</li>
+<li><span class="who n">Николай</span> читает документ: понятно ли, нет ли обещаний («точно одобрят»), всё ли с номерами правил.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Here is the readiness audit for [App]: [Google Doc link]
+
+Blockers (must be fixed before submission): [N]
+Risks (likely to cause questions from Apple): [N]
+Recommendations: [N]
+
+Items marked &quot;Developer&quot; need code changes on your side. [For Standard/Advanced: Next, I&#x27;ll start on the store listing and compliance in parallel.]</code></pre></div>
+<dl class="meta-grid"><dt>Что сохранить</dt><dd>Google Doc «Readiness Audit» в папке клиента. Видео прохода — там же.</dd><dt>Готово, когда</dt><dd>Starter: аудит сдан (общий шаг 6). Standard/Advanced: идём дальше.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">3</span><span class="t">Карточка и соответствие требованиям (Standard, Advanced)</span><span class="who b">Вместе</span></summary><div class="acc-body">
+
+<p>Заполняем всё, что Apple проверяет помимо самого приложения. Подробно по экранам — <a href="apple-1-4.html">1.4 Карточка приложения</a>.</p>
+<ol>
+<li><b>Тексты.</b> <span class="who c">Claude</span> пишет: название (до 30 знаков), подзаголовок (до 30), ключевые слова (до 100, через запятую), описание, рекламный текст (до 170). <span class="who n">Николай</span> отправляет клиенту на согласование, после «ок» вставляет в App Store Connect.</li>
+<li><b>Скриншоты.</b> <span class="who n">Николай</span> делает 5–8 скриншотов ключевых экранов на iPhone из TestFlight-сборки и кидает в чат. <span class="who c">Claude</span> подгоняет под размеры, которые App Store Connect требует в разделе скриншотов (для iPhone сейчас 6,9″ или 6,5″), и возвращает файлы. Если приложение работает на iPad — нужны и iPad-скриншоты (уточни у клиента).</li>
+<li><b>App Privacy (этикетки конфиденциальности).</b> <span class="who c">Claude</span> составляет вопросы для разработчика клиента: какие данные собирает приложение и сторонние SDK (аналитика, реклама, краш-репорты), для чего, привязаны ли к пользователю. По ответам заполняем анкету в App Privacy.</li>
+<li><b>Политика конфиденциальности.</b> Если у клиента нет — <span class="who c">Claude</span> пишет текст по ответам из п.3. Публикует <span class="who k">клиент</span> на своём сайте. Если сайта нет — бесплатная страница в его аккаунте Google Sites или Notion. Ссылку вставляем в App Store Connect.</li>
+<li><b>EULA (условия).</b> По умолчанию — стандартное соглашение Apple: ссылка <code>https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</code> в конце описания. Свои условия — только если клиент их даёт.</li>
+<li><b>Возрастной рейтинг.</b> Проходим анкету вместе по тому, что видели в приложении.</li>
+<li><b>Заметки для проверяющих и тестовый аккаунт.</b> Если в приложении есть вход — клиент присылает тестовый логин и пароль через одноразовую ссылку. Сохраняешь в «Пароли» (<code>Upwork · Клиент · demo account</code>) и вписываешь в App Review Information. <span class="who c">Claude</span> пишет заметки для Apple: как пройти основной сценарий, где найти подписку.</li>
+<li><b>Цена и страны.</b> Pricing and Availability — по решению клиента.</li>
+</ol>
+<div class="msg-label">Вопросы разработчику для App Privacy</div>
+<div class="code-block msg"><pre><code>For the App Privacy section I need a few answers from your developer:
+1. Which third-party SDKs are in the app (analytics, ads, crash reporting, login, payments)?
+2. What user data is collected (email, name, location, usage data, purchases, etc.) and why?
+3. Is any of it linked to the user&#x27;s identity or used for tracking?
+4. Can users delete their account and data?</code></pre></div>
+<div class="msg-label">Запрос тестового аккаунта</div>
+<div class="code-block msg"><pre><code>If the app has a login, please create a demo account for Apple&#x27;s reviewers and send the login and password via a one-time link (for example onetimesecret.com). Please don&#x27;t paste them here in plain text.</code></pre></div>
+<dl class="meta-grid"><dt>Что сохранить</dt><dd>Тексты, скриншоты, политика — в папке клиента. Тестовый аккаунт — только «Пароли».</dd><dt>Готово, когда</dt><dd>Все разделы версии в App Store Connect заполнены, нет красных отметок.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">4</span><span class="t">Подписки и встроенные покупки (Advanced)</span><span class="who b">Вместе</span> <span class="who k">Клиент</span></summary><div class="acc-body">
+
+<p>Самое частое место отказов. Подробно про связку с RevenueCat — <a href="integration-revenuecat.html">RevenueCat</a>.</p>
+<ol>
+<li><span class="who k">Клиент</span> (владелец аккаунта, Account Holder) подписывает в App Store Connect → Business соглашение <b>Paid Apps</b>, заполняет налоги и банк. Мы этого сделать не можем — только он. Без этого подписки не заработают.</li>
+<li>Уточни у разработчика клиента <b>ID продуктов</b> (product ID), которые зашиты в коде. В App Store Connect они должны совпадать символ в символ.</li>
+<li>Subscriptions → создаём группу подписок, продукты, цены, длительность, локализации названий и описаний, скриншот пейволла для проверяющих.</li>
+<li><span class="who c">Claude</span> проверяет пейволл по видео/скриншоту (правило 3.1.2): видны цена и период, что продлевается автоматически, ссылки на условия и политику, кнопка восстановления покупок.</li>
+<li>Проверка покупки в песочнице: через TestFlight-сборку на твоём iPhone — оформить подписку (деньги не списываются), убедиться, что Pro открылся.</li>
+<li><b>Важно:</b> первая подписка в приложении проходит проверку <b>только вместе с версией приложения</b>. При отправке версии (шаг 5) отметь подписки в разделе In-App Purchases and Subscriptions на странице версии.</li>
+</ol>
+<div class="msg-label">Клиенту про соглашение Paid Apps</div>
+<div class="code-block msg"><pre><code>To sell subscriptions, Apple requires the Account Holder of your developer account to accept the Paid Apps agreement and fill in tax and banking info: App Store Connect → Business. Only the Account Holder can do this. Until it&#x27;s done, subscriptions can&#x27;t go live, and the timeline pauses.</code></pre></div>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Подписки в статусе Ready to Submit, покупка в песочнице проходит.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">5</span><span class="t">Отправка на проверку (Standard, Advanced)</span><span class="who n">Николай</span> <span class="who c">Claude</span></summary><div class="acc-body">
+
+<p>Подробно — <a href="apple-1-5.html">1.5 Submit for Review</a>.</p>
+<ol>
+<li>Страница версии → Build → выбрать нужную сборку из TestFlight.</li>
+<li>Ответить на вопросы: шифрование (Export Compliance), права на контент, рекламный идентификатор — по ответам клиента/разработчика.</li>
+<li>Выпуск после одобрения: спроси клиента заранее — <b>вручную</b> (Manually release) или <b>автоматически</b>. По умолчанию — вручную, чтобы клиент сам решил момент.</li>
+<li>Add for Review → Submit. Статус станет Waiting for Review.</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>[App] is submitted to Apple for review (status: Waiting for Review). Apple&#x27;s review usually takes from a few hours to a few days, but timing and the decision are up to Apple. I&#x27;ll monitor it and let you know as soon as there&#x27;s news.</code></pre></div>
+<dl class="meta-grid"><dt>Готово, когда</dt><dd>Статус Waiting for Review, клиент в курсе.</dd></dl>
+</div></details>
+<details class="acc"><summary><span class="n">6</span><span class="t">Сопровождение проверки и отказы</span><span class="who b">Вместе</span></summary><div class="acc-body">
+
+<ol>
+<li>Письма Apple приходят тебе на почту. Статус — в App Store Connect у версии.</li>
+<li>Если Apple задаёт вопрос (App Review → Resolution Center / сообщения у версии): скопируй его в чат с Claude, он напишет ответ, ты отправишь.</li>
+<li>Если отказ: текст отказа → Claude. Он разберёт, что именно не так, по номерам правил, и составит список исправлений.
+ <ul>
+ <li>Если чинится в App Store Connect (тексты, скриншоты, privacy, заметки) — чиним сами и отправляем заново.</li>
+ <li>Если нужно менять код — отправляем список разработчику клиента. После новой сборки — выбираем её и отправляем заново.</li>
+ </ul></li>
+<li>Объём: в Standard — разбор отказа и повторная отправка; в Advanced — дополнительно исправления по подпискам и пейволлу. Новый функционал — не входит.</li>
+</ol>
+<div class="msg-label">Если отказ требует правок в коде</div>
+<div class="code-block msg"><pre><code>Apple asked for changes. In short: [1–2 lines]. Here is the exact fix list for your developer:
+1. [what to change — screen — Apple guideline]
+2. [...]
+Once a new build with these changes is in TestFlight, I&#x27;ll resubmit. The timeline pauses while we wait for the new build.</code></pre></div>
+</div></details>
+<details class="acc"><summary><span class="n">7</span><span class="t">Одобрено: выпуск и сдача</span><span class="who n">Николай</span></summary><div class="acc-body">
+
+<ol>
+<li>Статус Pending Developer Release (если выпуск вручную) → скажи клиенту, он решает, когда нажать Release. Или Ready for Sale — приложение в App Store.</li>
+<li>Сдай работу (общий шаг 6): ссылка на приложение в App Store, документы аудита, тексты, файлы скриншотов.</li>
+<li>Напомни клиенту убрать твой доступ в Users and Access (общий шаг 8).</li>
+</ol>
+<div class="msg-label">Сообщение клиенту (Upwork → Messages)</div>
+<div class="code-block msg"><pre><code>Great news: Apple approved [App]! [It&#x27;s live: link / It&#x27;s waiting for your release: App Store Connect → [App] → Release This Version.]
+
+All materials are in this folder: [link]. You can now remove my access in Users and Access. Thanks for working with me!</code></pre></div>
+</div></details>
+</div>
+<div class="step"><span class="step-num">✓</span><h2>Чек-лист перед сдачей</h2><div class="step-body"><ul>
+<li>Аудит в Google Docs, у всех пунктов номер правила и кто делает</li>
+<li>Тексты карточки согласованы клиентом</li>
+<li>Скриншоты нужных размеров загружены</li>
+<li>App Privacy заполнено по ответам разработчика (не наугад)</li>
+<li>Ссылка на политику открывается</li>
+<li>Тестовый аккаунт работает, хранится только в «Паролях»</li>
+<li>(Advanced) Подписки привязаны к версии, покупка в песочнице проходит</li>
+<li>Клиент получил все материалы и напоминание убрать доступ</li>
+<li>Нигде не написано «гарантируем одобрение»</li>
+</ul></div></div>
+<div class="step-nav"><a href="upwork.html">← Обзор</a><a href="upwork-bot.html">U2 AI-бот →</a></div>
+  </main>
+</div>
+<script src="nav.js?v=202611021100"></script>
+<script src="script.js?v=202611021100"></script>
+<script src="i18n.js?v=202611021100"></script>
+</body>
+</html>
