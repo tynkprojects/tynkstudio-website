@@ -1,0 +1,30 @@
+# Tynk Studio
+
+> Product studio building mobile apps (iOS, Android), web applications and business software. In-house design and development team, no middlemen. Based in Portugal, working with clients worldwide since 2018. Site in English, Russian, German, French, Spanish and Portuguese.
+
+## Services and fixed-price packages
+- Landing page: from €500, 1 week. Single-page website: design, development, hosting, basic SEO. Domain paid separately.
+- START (MVP): from €3,000, 3–4 weeks. 4–5 screens, UI design, Flutter (iOS or Android), Firebase auth and database, basic QA.
+- BUSINESS: from €5,000, 5–8 weeks. 6–10 screens, custom UI, Flutter (iOS + Android), API integrations, full QA, publication to App Store and Google Play.
+- PRO: from €8,000, 8–12 weeks. 10–18 screens, user journey mapping, scalable architecture, QA with regression testing, 2 weeks of post-launch support.
+- Custom projects: web apps, admin panels, CRM systems, internal tools and integrations, process analysis.
+- AI: integrating AI into business processes of any kind and optimising them.
+
+## Technologies
+- Mobile: Flutter (iOS + Android from one codebase).
+- Web: React, Next.js. Backend: Python, Ruby.
+
+## Our own apps
+- Pawnia (iOS, Android): pet health and documents in one app – vaccinations, vet records, reminders, document builder. https://pawnia.tynkstudio.dev/
+- Clubday (iOS, Android): app for book clubs – voting on the next book, shared reading progress, notes and discussion questions, meetings in person or online, no sign-up. https://apps.apple.com/app/clubday/id6823612002
+- Leafday (iOS, Android, coming soon): houseplant care – care notes for every species, watering schedule that adapts to the plant and the season, growth photos.
+
+## Client projects
+- Odoo CRM for a fintech company: deal tracking, financial accounting and analytics in one system.
+- Redmine-based task system for an installation services company: task management, work completion tracking, financial control.
+
+## Contact
+- Email: hello.tynkstudio@gmail.com
+- Telegram: https://t.me/tynkstudio
+- WhatsApp: https://wa.me/351931789485
+- Website: https://tynkstudio.dev/ (EN), https://tynkstudio.dev/ru/, /de/, /fr/, /es/, /pt/
